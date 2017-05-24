@@ -1,0 +1,45 @@
+<div style="padding-top: 50px"></div>
+<div class="col-md-2">
+	<p class="enlace"><a href="{$_layoutParams.root}telefonos/add">Agregar Teléfono</a></p>
+</div>
+<div class="col-md-8">
+	<h3>Lista de Teléfonos</h3>
+	<table class="table table-hover">
+		<th>
+			Número
+		</th>
+		<th>
+			Sede
+		</th>
+		<th>
+			Empresa
+		</th>
+		<th>
+			Acciones
+		</th>
+		
+			{if isset($telefonos) && count($telefonos)}
+				{foreach from=$telefonos item=tel}
+					<tr>
+						<td>{$tel.numero}</td>
+						<td>{$tel.sede}</td>
+						<td>{$tel.empresa}</td>
+						<td>
+							<a href="{$_layoutParams.root}telefonos/view/{$tel.id}">Ver</a>&nbsp;&nbsp;
+							<a href="{$_layoutParams.root}telefonos/delete/{$tel.id}">Eliminar</a>
+						</td>
+					</tr>
+
+				{/foreach}
+			{/if}
+		
+	</table>
+</div>
+<div class="col-md-2">
+	
+</div>	
+
+
+	
+	
+	
