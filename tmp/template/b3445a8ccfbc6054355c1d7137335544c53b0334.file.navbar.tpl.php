@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-05-03 16:53:23
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-05-30 18:02:43
          compiled from "/Applications/MAMP/htdocs/qepd/views/layout/default/navbar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:90377091358f52a5bc3bf04-91564473%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b3445a8ccfbc6054355c1d7137335544c53b0334' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/layout/default/navbar.tpl',
-      1 => 1493841198,
+      1 => 1496178160,
       2 => 'file',
     ),
   ),
@@ -108,6 +108,10 @@ telefonos/add">Agregar Telefonos</a>
 servicios/add">Agregar Servicios</a>
                     </li>
                     <li style="list-style:none;" >
+                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+planes/add">Agregar Planes</a>
+                    </li>
+                    <li style="list-style:none;" >
                       <a href="">Componentes</a>
                     </li>
                     <li style="list-style:none;" >
@@ -137,7 +141,17 @@ servicios/add">Agregar Servicios</a>
 /comunas/add">Agregar Comunas</a>
                     </li>
                     <li role="separator" class="divider"></li>
-                    
+                    <li style="list-style:none;" >
+                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+/tipoplanes/add">Agregar Tipo Planes</a>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li style="list-style:none;" >
+                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+/destinatarios">Destinatarios</a>
+                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+/destinatarios/add">Agregar Destinatarios</a>
+                    </li>
                 </ul> 
             </li>     
             
@@ -164,7 +178,8 @@ roles">Ver Roles</a>
             </li>  
             <li>
               <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-usuario/cerrar">Cerrar Sesión</a>
+usuario/cerrar" onclick="return cerrar('<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+usuario/cerrar');">Cerrar Sesión</a>
             </li>
         <?php } else { ?>
           <li>

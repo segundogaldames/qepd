@@ -1,3 +1,11 @@
+function eliminar(url, valor){
+	if (confirm('Deseas eliminar ' + valor + '?')) {
+		window.location = url;
+	}else{
+		return false;
+	}
+}
+
 function volver(url)
 {
 	window.location=url;
@@ -5,7 +13,7 @@ function volver(url)
 
 function cerrar(url)
 {
-	if(confirm('Deseas cerrar sesion?')){
+	if(confirm('Deseas cerrar tu sesion?')){
 		window.location=url;
 	}else{
 		return false;

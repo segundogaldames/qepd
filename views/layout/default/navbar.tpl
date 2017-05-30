@@ -73,6 +73,9 @@
                       <a href="{$_layoutParams.root}servicios/add">Agregar Servicios</a>
                     </li>
                     <li style="list-style:none;" >
+                      <a href="{$_layoutParams.root}planes/add">Agregar Planes</a>
+                    </li>
+                    <li style="list-style:none;" >
                       <a href="">Componentes</a>
                     </li>
                     <li style="list-style:none;" >
@@ -100,7 +103,14 @@
                       <a href="{$_layoutParams.root}/comunas/add">Agregar Comunas</a>
                     </li>
                     <li role="separator" class="divider"></li>
-                    
+                    <li style="list-style:none;" >
+                      <a href="{$_layoutParams.root}/tipoplanes/add">Agregar Tipo Planes</a>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li style="list-style:none;" >
+                      <a href="{$_layoutParams.root}/destinatarios">Destinatarios</a>
+                      <a href="{$_layoutParams.root}/destinatarios/add">Agregar Destinatarios</a>
+                    </li>
                 </ul> 
             </li>     
             
@@ -123,7 +133,7 @@
                 </ul> 
             </li>  
             <li>
-              <a href="{$_layoutParams.root}usuario/cerrar">Cerrar Sesión</a>
+              <a href="{$_layoutParams.root}usuario/cerrar" onclick="return cerrar('{$_layoutParams.root}usuario/cerrar');">Cerrar Sesión</a>
             </li>
         {else}
           <li>

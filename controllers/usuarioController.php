@@ -64,6 +64,9 @@ class usuarioController extends Controller
 
 	public function add()
 	{
+		if (Session::get('autenticado')) {
+			$this->redireccionar();
+		}
 
 		$this->_view->assign('titulo', 'Registro de usuarios');
 		$this->_view->assign('roles', $this->_roles->getRoles());

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-05-03 15:23:02
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-05-29 17:08:29
          compiled from "/Applications/MAMP/htdocs/qepd/views/layout/default/template.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:71243907058f51055da4f09-62225878%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dec84fa815c82b02bdb68b48ce6073922b57cd21' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/layout/default/template.tpl',
-      1 => 1493835770,
+      1 => 1496088503,
       2 => 'file',
     ),
   ),
@@ -62,6 +62,10 @@ jquery.validate.js"><?php echo '</script'; ?>
       <?php echo '<script'; ?>
  type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['ruta_js'];?>
 additional-methods.js"><?php echo '</script'; ?>
+>
+      <?php echo '<script'; ?>
+ type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['ruta_js'];?>
+funciones.js"><?php echo '</script'; ?>
 >
 
       

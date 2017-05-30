@@ -67,7 +67,7 @@ class telefonosController extends Controller
 			}
 
 			if ($this->_telefono->getTelefonoSede($this->getInt('telefono'), $this->getInt('sede'))) {
-				$this->_view->assign('_mensaje', 'Se ha registrar el teléfono correctamente');
+				$this->_view->assign('_mensaje', 'Se ha registrado el teléfono correctamente');
 				$this->_view->renderizar('add');
 				exit;
 			}

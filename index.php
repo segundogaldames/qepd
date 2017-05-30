@@ -6,6 +6,8 @@ define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', realpath(dirname(__FILE__)) . DS);
 define('APP_PATH', ROOT . 'application' .DS);
 
+//echo uniqid();
+//exit;
 
 try{
 	require_once APP_PATH . 'Config.php';

@@ -13,6 +13,7 @@
       <script type="text/javascript" src="{$_layoutParams.ruta_js}fileinput.min.js"></script>
       <script type="text/javascript" src="{$_layoutParams.ruta_js}jquery.validate.js"></script>
       <script type="text/javascript" src="{$_layoutParams.ruta_js}additional-methods.js"></script>
+      <script type="text/javascript" src="{$_layoutParams.ruta_js}funciones.js"></script>
 
       
       {if isset($_layoutParams.js) && count($_layoutParams.js)}
