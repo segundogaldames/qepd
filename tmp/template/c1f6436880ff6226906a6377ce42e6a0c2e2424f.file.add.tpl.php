@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-05-30 16:54:57
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-07-25 18:37:59
          compiled from "/Applications/MAMP/htdocs/qepd/views/componentes/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1337224959592dca6b240a92-70422129%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c1f6436880ff6226906a6377ce42e6a0c2e2424f' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/componentes/add.tpl',
-      1 => 1496174015,
+      1 => 1497373355,
       2 => 'file',
     ),
   ),
@@ -63,6 +63,11 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
 			<label for="url">Ingrese la url:</label>
 			<input type="text" name="url" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['datos']->value['url'])===null||$tmp==='' ? '' : $tmp);?>
 " class="form-control" placeholder="Url del componente del tipo controlador/metodo">
+		</div>
+		<div class="form-group">
+			<label for="url">Ingrese la url de vista:</label>
+			<input type="text" name="url_view" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['datos']->value['url_view'])===null||$tmp==='' ? '' : $tmp);?>
+" class="form-control" placeholder="Url vista del componente del tipo controlador/metodo">
 		</div>
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">

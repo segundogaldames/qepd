@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-05-29 19:05:14
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-06-06 14:45:42
          compiled from "/Applications/MAMP/htdocs/qepd/views/planes/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14210303515925fbf9835673-39241297%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c5a61d7619e96819491c6d3dc64b420b6611f2d6' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/planes/add.tpl',
-      1 => 1496095511,
+      1 => 1496771139,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'serv' => 0,
     'empresas' => 0,
     'e' => 0,
+    'destinatarios' => 0,
+    'dest' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -97,6 +99,23 @@ $_smarty_tpl->tpl_vars['e']->_loop = true;
 ?>
 						<option value="<?php echo $_smarty_tpl->tpl_vars['e']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['e']->value['nombre'];?>
+</option>
+					<?php } ?>
+				<?php }?>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="destinatario">Seleccione un destinatario:</label>
+			<select name="destinatario" id="" class="form-control">
+				<option value="">Destinatarios</option>
+				<?php if (isset($_smarty_tpl->tpl_vars['destinatarios']->value)&&count($_smarty_tpl->tpl_vars['destinatarios']->value)) {?>
+					<?php  $_smarty_tpl->tpl_vars['dest'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['dest']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['destinatarios']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['dest']->key => $_smarty_tpl->tpl_vars['dest']->value) {
+$_smarty_tpl->tpl_vars['dest']->_loop = true;
+?>
+						<option value="<?php echo $_smarty_tpl->tpl_vars['dest']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['dest']->value['nombre'];?>
 </option>
 					<?php } ?>
 				<?php }?>

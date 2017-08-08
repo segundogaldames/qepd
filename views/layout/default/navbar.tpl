@@ -35,23 +35,8 @@
                         <a href="{$_layoutParams.root}servicios">Servicios</a> 
                       </li>
                        <li style="list-style:none;" >
-                        <a href="">Plan</a>  
-                      </li>                  
-                        <li style="list-style:none;" >
-                        <a href="">Componentes</a>     
-                      </li>
-                      <li style="list-style:none;" >
-                        <a href="">Atributos</a> 
-                      </li>
-                      <li style="list-style:none;" >
-                        <a href="">Imagenes</a>
-                      </li>
-                      <li style="list-style:none;" >
-                        <a href="">Atributos Componentes</a>
-                      </li>
-                      <li style="list-style:none;" >
-                        <a href="">Componentes Planes</a>                  
-                      </li>
+                        <a href="{$_layoutParams.root}planes">Planes</a>  
+                      </li>                 
                   </ul>
             </li>
             <li class="dropdown">
@@ -75,21 +60,6 @@
                     <li style="list-style:none;" >
                       <a href="{$_layoutParams.root}planes/add">Agregar Planes</a>
                     </li>
-                    <li style="list-style:none;" >
-                      <a href="">Componentes</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="">Atributos</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="">Imagenes</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="">Atributos Componentes</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="">Componentes Planes</a>
-                    </li>
                 </ul> 
             </li>   
 
@@ -110,6 +80,11 @@
                     <li style="list-style:none;" >
                       <a href="{$_layoutParams.root}/destinatarios">Destinatarios</a>
                       <a href="{$_layoutParams.root}/destinatarios/add">Agregar Destinatarios</a>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li style="list-style:none;" >
+                        <a href="{$_layoutParams.root}componentes">Componentes</a> 
+                        <a href="{$_layoutParams.root}componentes/add">Agregar Componentes</a>     
                     </li>
                 </ul> 
             </li>     
@@ -141,7 +116,7 @@
           </li>
           
           <li>
-            <a href="">Contactanos</a>
+            <a href="#contacto">Contactanos</a>
           </li>
 
           <li>

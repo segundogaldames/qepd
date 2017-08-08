@@ -50,6 +50,12 @@ class componentesController extends Controller
 				exit;
 			}
 
+			if (!$this->getSql('url_view')) {
+				$this->_view->assign('_error', 'Debe ingresar la url de la vista');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
 			if ($this->_componente->getComponenteNombre($this->getSql('nombre'))) {
 				$this->_view->assign('_error', 'El componente ya ha sido ingresado... Pruebe con otro');
 				$this->_view->renderizar('add');
@@ -109,7 +115,13 @@ class componentesController extends Controller
 			}
 
 			if (!$this->getSql('url')) {
-				$this->_view->assign('_error', 'Debe ingresar la url');
+				$this->_view->assign('_error', 'Debe ingresar la url add');
+				$this->_view->renderizar('edit');
+				exit;
+			}
+
+			if (!$this->getSql('url_view')) {
+				$this->_view->assign('_error', 'Debe ingresar la url de la vista');
 				$this->_view->renderizar('edit');
 				exit;
 			}
@@ -118,7 +130,8 @@ class componentesController extends Controller
 				$this->filtrarInt($id), 
 				$this->getSql('nombre'), 
 				$this->getInt('servicio'), 
-				$this->getSql('url')
+				$this->getSql('url'),
+				$this->getSql('url_view')
 				);
 
 			if ($this->_componente->getComponenteNombre($this->getSql('nombre'))) {
@@ -135,5 +148,44 @@ class componentesController extends Controller
 		}
 		$this->_view->assign('dato', $this->_componente->getComponenteId($this->filtrarInt($id)));
 		$this->_view->renderizar('edit');
+	}
+
+	public function addComponentes($id = null){
+		if (!Session::get('autenticado')) {
+			$this->redireccionar();
+		}
+
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('planes');
+		}
+
+		if (!$this->_componente->getComponentesServicios($this->filtrarInt($id))) {
+			$this->redireccionar('planes');
+		}
+
+		$this->_view->assign('titulo', 'Componentes Por Servicios');
+		$this->_view->assign('componentesServicios', $this->_componente->getComponentesServicios($this->filtrarInt($id)));
+
+		$this->_view->renderizar(addComponentes);
+	}
+
+	public function verComponentes($id = null, $plan = null){
+		if (!Session::get('autenticado')) {
+			$this->redireccionar();
+		}
+
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('planes');
+		}
+
+		if (!$this->_componente->getComponentesServicios($this->filtrarInt($id))) {
+			$this->redireccionar('planes');
+		}
+
+		$this->_view->assign('titulo', 'Componentes Por Servicios');
+		$this->_view->assign('componentesServicios', $this->_componente->getComponentesServicios($this->filtrarInt($id)));
+		$this->_view->assign('plan', $this->filtrarInt($plan));
+
+		$this->_view->renderizar(verComponentes);
 	}
 }

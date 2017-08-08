@@ -50,6 +50,17 @@
 			</select>
 		</div>
 		<div class="form-group">
+			<label for="destinatario">Seleccione un destinatario:</label>
+			<select name="destinatario" id="" class="form-control">
+				<option value="">Destinatarios</option>
+				{if isset($destinatarios) && count($destinatarios)}
+					{foreach from=$destinatarios item=dest}
+						<option value="{$dest.id}">{$dest.nombre}</option>
+					{/foreach}
+				{/if}
+			</select>
+		</div>
+		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Registrar" class="btn btn-success">
 		</div>

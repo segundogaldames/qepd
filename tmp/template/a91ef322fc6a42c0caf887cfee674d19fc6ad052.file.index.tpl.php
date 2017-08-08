@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-05-30 17:01:56
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-06-13 15:56:58
          compiled from "/Applications/MAMP/htdocs/qepd/views/componentes/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:633910512592dcf63c9ccd4-68779249%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a91ef322fc6a42c0caf887cfee674d19fc6ad052' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/componentes/index.tpl',
-      1 => 1496174512,
+      1 => 1497380208,
       2 => 'file',
     ),
   ),
@@ -28,7 +28,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_592dcf6403ebe4_03161377')) {function content_592dcf6403ebe4_03161377($_smarty_tpl) {?><div style="padding-top: 50px"></div>
 <div class="col-md-2">
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-empresas/add">Agregar Componente</a></p>
+componentes/add">Agregar Componente</a></p>
 </div>
 <div class="col-md-8">
 	<h3>Lista de Componentes</h3>
@@ -40,7 +40,10 @@ empresas/add">Agregar Componente</a></p>
 			Servicio
 		</th>
 		<th>
-			URL
+			URL Add
+		</th>
+		<th>
+			URL View
 		</th>
 		<th>
 			Acciones
@@ -58,6 +61,8 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
 						<td><?php echo $_smarty_tpl->tpl_vars['c']->value['servicio'];?>
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['c']->value['url'];?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['c']->value['url_view'];?>
 </td>
 						<td>
 							<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>

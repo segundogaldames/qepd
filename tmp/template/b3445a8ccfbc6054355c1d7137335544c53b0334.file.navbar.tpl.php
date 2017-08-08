@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-05-30 18:02:43
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-07-27 17:02:49
          compiled from "/Applications/MAMP/htdocs/qepd/views/layout/default/navbar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:90377091358f52a5bc3bf04-91564473%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b3445a8ccfbc6054355c1d7137335544c53b0334' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/layout/default/navbar.tpl',
-      1 => 1496178160,
+      1 => 1501185767,
       2 => 'file',
     ),
   ),
@@ -65,23 +65,9 @@ telefonos">Telefonos</a>
 servicios">Servicios</a> 
                       </li>
                        <li style="list-style:none;" >
-                        <a href="">Plan</a>  
-                      </li>                  
-                        <li style="list-style:none;" >
-                        <a href="">Componentes</a>     
-                      </li>
-                      <li style="list-style:none;" >
-                        <a href="">Atributos</a> 
-                      </li>
-                      <li style="list-style:none;" >
-                        <a href="">Imagenes</a>
-                      </li>
-                      <li style="list-style:none;" >
-                        <a href="">Atributos Componentes</a>
-                      </li>
-                      <li style="list-style:none;" >
-                        <a href="">Componentes Planes</a>                  
-                      </li>
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+planes">Planes</a>  
+                      </li>                 
                   </ul>
             </li>
             <li class="dropdown">
@@ -111,21 +97,6 @@ servicios/add">Agregar Servicios</a>
                       <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 planes/add">Agregar Planes</a>
                     </li>
-                    <li style="list-style:none;" >
-                      <a href="">Componentes</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="">Atributos</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="">Imagenes</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="">Atributos Componentes</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="">Componentes Planes</a>
-                    </li>
                 </ul> 
             </li>   
 
@@ -151,6 +122,13 @@ planes/add">Agregar Planes</a>
 /destinatarios">Destinatarios</a>
                       <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 /destinatarios/add">Agregar Destinatarios</a>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li style="list-style:none;" >
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+componentes">Componentes</a> 
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+componentes/add">Agregar Componentes</a>     
                     </li>
                 </ul> 
             </li>     
@@ -188,7 +166,7 @@ usuario">Iniciar Sesión</a>
           </li>
           
           <li>
-            <a href="">Contactanos</a>
+            <a href="#contacto">Contactanos</a>
           </li>
 
           <li>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-05-29 17:08:29
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-07-25 18:27:36
          compiled from "/Applications/MAMP/htdocs/qepd/views/layout/default/template.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:71243907058f51055da4f09-62225878%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dec84fa815c82b02bdb68b48ce6073922b57cd21' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/layout/default/template.tpl',
-      1 => 1496088503,
+      1 => 1501018053,
       2 => 'file',
     ),
   ),
@@ -67,7 +67,7 @@ additional-methods.js"><?php echo '</script'; ?>
  type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['ruta_js'];?>
 funciones.js"><?php echo '</script'; ?>
 >
-
+      
       
       <?php if (isset($_smarty_tpl->tpl_vars['_layoutParams']->value['js'])&&count($_smarty_tpl->tpl_vars['_layoutParams']->value['js'])) {?>
         <?php  $_smarty_tpl->tpl_vars['js'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['js']->_loop = false;

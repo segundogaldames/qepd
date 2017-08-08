@@ -28,6 +28,10 @@
 			<input type="text" name="url" value="{$dato.url|default:""}" class="form-control" placeholder="Url del componente del tipo controlador/metodo">
 		</div>
 		<div class="form-group">
+			<label for="url">Ingrese la url de la vista:</label>
+			<input type="text" name="url_view" value="{$dato.url_view|default:""}" class="form-control" placeholder="Url de la vista del componente del tipo controlador/metodo/id">
+		</div>
+		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Registrar" class="btn btn-success">
 		</div>
