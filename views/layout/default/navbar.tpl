@@ -86,6 +86,11 @@
                         <a href="{$_layoutParams.root}componentes">Componentes</a> 
                         <a href="{$_layoutParams.root}componentes/add">Agregar Componentes</a>     
                     </li>
+                    <li role="separator" class="divider"></li>
+                    <li style="list-style:none;" >
+                        <a href="{$_layoutParams.root}componentes">Tipo Soluciones</a> 
+                        <a href="{$_layoutParams.root}tiposoluciones/add">Agregar Tipo Soluciones</a>     
+                    </li>
                 </ul> 
             </li>     
             
