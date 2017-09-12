@@ -88,8 +88,10 @@
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}componentes">Tipo Soluciones</a> 
-                        <a href="{$_layoutParams.root}tiposoluciones/add">Agregar Tipo Soluciones</a>     
+                        <a href="{$_layoutParams.root}tiposoluciones">Tipo Soluciones</a> 
+                        <a href="{$_layoutParams.root}tiposoluciones/add">Agregar Tipo Soluciones</a>  
+                        <a href="{$_layoutParams.root}soluciones">Soluciones</a> 
+                        <a href="{$_layoutParams.root}soluciones/add">Agregar Soluciones</a>    
                     </li>
                 </ul> 
             </li>     

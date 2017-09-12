@@ -18,34 +18,34 @@
 		</div>
 		<div class="form-group">
 			<label for="periodo">Periodo:<span class="text-danger">*</span></label>
-			<select name="solucion" class="form-control">
+			<select name="periodo" class="form-control">
 				<option value="">Seleccione</option>
 				<option value="1">Perpetua</option>
 				<option value="2">Temporal</option>
 			</select>
 		</div>
-		<div class="form-control">
+		<div class="form-group">
 			<label for="anio">Años:<span class="text-danger">*</span></label>
-			<input type="number" name="anio" class="form-control" value="{$datos.toldo|default:""}" placeholder="Años de solución">
+			<input type="number" name="anio" class="form-control" placeholder="Años" value="{$datos.anio|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="tipo_servicio">Seleccione el tipo de solución:<span class="text-danger">*</span></label></label>
-			<select name="tipo_servicio" id="" class="form-control">
+			<label for="tipo_solucion">Seleccione el tipo de solución:<span class="text-danger">*</span></label>
+			<select name="tipo_solucion" id="" class="form-control">
 				<option value="">Seleccione</option>
-				{if isset($tipoplanes) && count($tipoplanes)}
-					{foreach from=$tipoplanes item=tp}
-						<option value="{$tp.id}">{$tp.nombre}</option>
+				{if isset($tipo_soluciones) && count($tipo_soluciones)}
+					{foreach from=$tipo_soluciones item=ts}
+						<option value="{$ts.id}">{$ts.nombre}</option>
 					{/foreach}
 				{/if}
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="tipo_plan">Seleccione el tipo de plan:<span class="text-danger">*</span></label></label>
-			<select name="tipo_plan" id="" class="form-control">
-				<option value="">Tipo Plan</option>
-				{if isset($tipoplanes) && count($tipoplanes)}
-					{foreach from=$tipoplanes item=tp}
-						<option value="{$tp.id}">{$tp.nombre}</option>
+			<label for="plan">Seleccione el plan:<span class="text-danger">*</span></label>
+			<select name="plan" id="" class="form-control">
+				<option value="">Seleccione</option>
+				{if isset($planes) && count($planes)}
+					{foreach from=$planes item=p}
+						<option value="{$p.id}">{$p.nombre}</option>
 					{/foreach}
 				{/if}
 			</select>

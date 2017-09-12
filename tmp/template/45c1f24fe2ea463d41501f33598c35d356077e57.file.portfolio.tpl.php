@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-04-18 12:31:49
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-09-04 11:49:13
          compiled from "/Applications/MAMP/htdocs/qepd/views/layout/default/portfolio.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:173079011458f522a83c1b70-64672147%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '45c1f24fe2ea463d41501f33598c35d356077e57' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/layout/default/portfolio.tpl',
-      1 => 1492529505,
+      1 => 1504536549,
       2 => 'file',
     ),
   ),
@@ -34,7 +34,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <div class="portfolio-item">
                             <a href="http://www.coronas.cl/">
                                 <img src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['ruta_img'];?>
-stylish_portfolio/portfolio-1.jpg" alt="" class="img-responsive">
+stylish_portfolio/portfolio-1.jpg" alt="" class="img-portfolio img-responsive">
                             </a>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ stylish_portfolio/portfolio-1.jpg" alt="" class="img-responsive">
                         <div class="portfolio-item">
                             <a href="http://www.marleycoffee.cl/">
                                 <img src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['ruta_img'];?>
-stylish_portfolio/portfolio-2.jpg" alt="" class="img-responsive">
+stylish_portfolio/portfolio-2.jpg" alt="" class="img-portfolio img-responsive">
                             </a>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ stylish_portfolio/portfolio-2.jpg" alt="" class="img-responsive">
                         <div class="portfolio-item">
                             <a href="http://www.rentalcars.com/?affiliateCode=google&preflang=es&label=generic-zzvkC2RHCDGjGyPfEmpPOgS20358710292&ws=&gclid=Cj0KEQiA5IHEBRCLr_PZvq2_6qcBEiQAL4cQ0wzXoBeoXqrwzRjeZmuO8IeCvRfv_rsiByidkHPhuFsaAkfP8P8HAQ">
                                 <img src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['ruta_img'];?>
-stylish_portfolio/portfolio-3.jpg" alt="" class="img-responsive">
+stylish_portfolio/portfolio-3.jpg" alt="" class="img-portfolio img-responsive">
                             </a>
                         </div>
                     </div>
@@ -60,7 +60,7 @@ stylish_portfolio/portfolio-3.jpg" alt="" class="img-responsive">
                         <div class="portfolio-item">
                             <a href="http://www.hogardecristo.cl/coronascaridad/?utm_source=Google%20Adwords&utm_medium=Adwords_Coronascaridad2508&utm_campaign=CoronasCaridad&gclid=Cj0KEQiA5IHEBRCLr_PZvq2_6qcBEiQAL4cQ00U3XTlBR8F5e3cBrvJc55POMu3chWXJdrl7UCLbnUgaAkIi8P8HAQ">
                                 <img src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['ruta_img'];?>
-stylish_portfolio/portfolio-4.jpg" alt="" class="img-responsive">
+stylish_portfolio/portfolio-4.jpg" alt="" class="img-portfolio img-responsive">
                             </a>
                         </div>
                     </div>

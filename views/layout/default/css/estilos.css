@@ -25,5 +25,12 @@ h4{color: #08088A}
 .arriba:hover{
 	background-color: rgba(135, 135, 135, 0.50);
 }
-		
+.cotizar{
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px
+}
+.cotizar:hover{
+    color: #AEB404;
+}		
 

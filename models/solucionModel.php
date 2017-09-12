@@ -2,6 +2,9 @@
 
 class solucionModel extends Model
 {
+	private $_plan;
+	private $_tiposolucion;	
+
 	public function __construct(){
 		parent::__construct();
 	}

@@ -6,6 +6,11 @@ class tiposolucionModel extends Model
 		parent::__construct();
 	}
 
+	public function getTipoSoluciones(){
+		$tsol = $this->_db->query("SELECT id, nombre FROM tipo_soluciones ORDER BY nombre ASC");
+		return $tsol->fetchall();
+	}
+
 	public function getTipoSolucionNombre($nombre){
 		$tsol = $this->_db->prepare("SELECT id FROM tipo_soluciones WHERE nombre = ?");
 		$tsol->bindParam(1, $nombre);

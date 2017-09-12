@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-08-08 13:19:06
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-08-09 18:12:16
          compiled from "/Applications/MAMP/htdocs/qepd/views/layout/default/navbar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:90377091358f52a5bc3bf04-91564473%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b3445a8ccfbc6054355c1d7137335544c53b0334' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/layout/default/navbar.tpl',
-      1 => 1502209134,
+      1 => 1502313134,
       2 => 'file',
     ),
   ),
@@ -133,9 +133,13 @@ componentes/add">Agregar Componentes</a>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
                         <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-componentes">Tipo Soluciones</a> 
+tiposoluciones">Tipo Soluciones</a> 
                         <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-tiposoluciones/add">Agregar Tipo Soluciones</a>     
+tiposoluciones/add">Agregar Tipo Soluciones</a>  
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+soluciones">Soluciones</a> 
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+soluciones/add">Agregar Soluciones</a>    
                     </li>
                 </ul> 
             </li>     

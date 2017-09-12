@@ -13,7 +13,7 @@ class empresaModel extends Model
 	}
 
 	public function getEmpresa($id){
-		$emp = $this->_db->prepare("SELECT e.id, e.nombre, e.email, e.rut, u.nombre as nom_usuario, u.apellido, t.nombre as tipo, e.created, e.updated FROM empresas as e INNER JOIN usuarios as u ON e.usuario_id = u.id INNER JOIN tipo_empresas as t ON e.tipo_empresa_id = t.id WHERE e.id = ?");
+		$emp = $this->_db->prepare("SELECT e.id, e.nombre, e.email, e.rut, e.usuario_id, e.tipo_empresa_id, u.nombre as nom_usuario, u.apellido, t.nombre as tipo, e.created, e.updated FROM empresas as e INNER JOIN usuarios as u ON e.usuario_id = u.id INNER JOIN tipo_empresas as t ON e.tipo_empresa_id = t.id WHERE e.id = ?");
 		$emp->bindParam(1, $id);
 		$emp->execute();
 
@@ -37,6 +37,20 @@ class empresaModel extends Model
 		$tipo = $this->_db->query("SELECT tipo_empresas.nombre FROM empresas INNER JOIN
 		tipo_empresas ON empresas.tipo_empresa_id = tipo_empresas.id");
 		return $tipo->fetch();
+	}
+
+	public function editEmpresa($id, $nombre, $email, $rut, $usuario, $tipo){
+		$id = (int) $id;
+		//($tipo);exit;
+
+		$emp = $this->_db->prepare("UPDATE empresas SET nombre = ?, email = ?, rut = ?, usuario_id = ?, tipo_empresa_id = ?, updated = now() WHERE id = ?");
+		$emp->bindParam(1, $nombre);
+		$emp->bindParam(2, $email);
+		$emp->bindParam(3, $rut);
+		$emp->bindParam(4, $usuario);
+		$emp->bindParam(5, $tipo);
+		$emp->bindParam(6, $id);
+		$emp->execute();
 	}
 
 	public function setEmpresa($nombre, $email, $rut, $usuario, $tipo_empresa){

@@ -27,6 +27,13 @@ class planesController extends Controller
 		$this->_view->renderizar('index');
 	}
 
+	public function planesServicios($id = null){
+
+		$this->_view->assign('titulo', 'Ver Planes');
+		$this->_view->assign('planes', $this->_plan->getPlanesServicios($this->filtrarInt($id)));
+		$this->_view->renderizar('planesServicios');
+	}
+
 	public function add(){
 		if (!Session::get('autenticado')) {
 			$this->redireccionar();

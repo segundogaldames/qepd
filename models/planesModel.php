@@ -47,6 +47,24 @@ class planesModel extends Model
 		return $plan->fetch();
 	}
 
+	public function getPlanesServicios($id){
+		$id = (int) $id;
+
+		$plan = $this->_db->prepare("SELECT p.id, p.nombre, tp.nombre as tipo_plan, s.nombre as servicio, e.nombre as empresa, d.nombre as destinatario, c.precio as precio, com.nombre as comuna FROM tipo_planes as tp 
+			INNER JOIN planes as p ON p.tipo_plan_id = tp.id 
+			INNER JOIN servicios as s ON s.id = p.servicio_id 
+			INNER JOIN empresas as e ON e.id = p.empresa_id 
+			INNER JOIN destinatarios as d ON d.id = p.destinatario_id
+			INNER JOIN condiciones as c ON c.plan_id = p.id
+			INNER JOIN sedes as sed ON sed.empresa_id = p.empresa_id
+			INNER JOIN comunas as com ON sed.comuna_id = com.id
+			WHERE p.servicio_id = ? ORDER BY c.precio ASC");
+		$plan->bindParam(1, $id);
+		$plan->execute();
+
+		return $plan->fetchall();
+	}
+
 	public function deletePlanesId($id){
 		$id = (int) $id;
 
