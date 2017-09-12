@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-08-09 18:12:16
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-09-12 18:01:20
          compiled from "/Applications/MAMP/htdocs/qepd/views/layout/default/navbar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:90377091358f52a5bc3bf04-91564473%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b3445a8ccfbc6054355c1d7137335544c53b0334' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/layout/default/navbar.tpl',
-      1 => 1502313134,
+      1 => 1505244991,
       2 => 'file',
     ),
   ),
@@ -45,126 +45,78 @@ index">Funerarias y Cementerios</a>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
           <?php if (Session::get('autenticado')) {?>
-             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publicaciones<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                      <li style="list-style:none;" >
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-empresas">Empresas</a>
-                      </li>
-                      <li style="list-style:none;" >
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-sedes">Sedes</a>
-                      </li>                     
-                        <li style="list-style:none;" >
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-telefonos">Telefonos</a> 
-                      </li>
-                      <li style="list-style:none;" >
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-servicios">Servicios</a> 
-                      </li>
-                       <li style="list-style:none;" >
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-planes">Planes</a>  
-                      </li>                 
-                  </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publicar<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li style="list-style:none;" >
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-/tipoempresas/add">Agregar Tipo Empresas</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-/empresas/add">Agregar Empresas</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-/sedes/add">Agregar Sedes</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-telefonos/add">Agregar Telefonos</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-servicios/add">Agregar Servicios</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-planes/add">Agregar Planes</a>
-                    </li>
-                </ul> 
-            </li>   
-
+            <?php if (Session::get('role_id')==1) {?>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrar<b class="caret"></b></a>
                 <ul class="dropdown-menu">
+                    <li style="list-style:none;" >
+                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+/empresas">Empresas</a>
+                    </li>
+                    <li style="list-style:none;" >
+                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+/tipoempresas">Tipo Empresas</a>
+                    </li>
+                    <li style="list-style:none;" >
+                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+sedes">Sedes</a>
+                    </li> 
+                    <li style="list-style:none;" >
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+telefonos">Telefonos</a> 
+                      </li>
+                    <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
                       <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 /comunas">Comunas</a>
                     </li>
                     <li style="list-style:none;" >
                       <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-/comunas/add">Agregar Comunas</a>
+/regiones">Regiones</a>
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+servicios">Servicios</a> 
+                    </li>
+                    <li style="list-style:none;" >
                       <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-/tipoplanes/add">Agregar Tipo Planes</a>
+planes">Planes</a>  
+                    </li> 
+                    <li style="list-style:none;" >
+                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+/tipoplanes">Tipo de Planes</a>
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
                       <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 /destinatarios">Destinatarios</a>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li style="list-style:none;" >
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+componentes">Componentes</a>     
+                    </li>
+                    <li style="list-style:none;" >
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+materiales">Materiales</a>     
+                    </li>
+                    <li style="list-style:none;" >
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+terminaciones">Terminaciones</a>     
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li style="list-style:none;" >
                       <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-/destinatarios/add">Agregar Destinatarios</a>
+usuario">Usuarios</a>
                     </li>
-                    <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-componentes">Componentes</a> 
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-componentes/add">Agregar Componentes</a>     
-                    </li>
-                    <li role="separator" class="divider"></li>
-                    <li style="list-style:none;" >
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-tiposoluciones">Tipo Soluciones</a> 
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-tiposoluciones/add">Agregar Tipo Soluciones</a>  
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-soluciones">Soluciones</a> 
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-soluciones/add">Agregar Soluciones</a>    
+                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+roles">Roles</a>
                     </li>
                 </ul> 
             </li>     
-            
-            <li style="list-style:none;" >
-              <a href="">Contacto</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li style="list-style:none;" >
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-usuario/add">Registrar Usuario</a>
-                    </li>
-                    <li role="separator" class="divider"></li>
-                    <li style="list-style:none;" >
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-roles/add">Agregar Roles</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-roles">Ver Roles</a>
-                    </li>
-                </ul> 
-            </li>  
+             <?php }?>
             <li>
               <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 usuario/cerrar" onclick="return cerrar('<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
@@ -177,7 +129,7 @@ usuario">Iniciar Sesión</a>
           </li>
           
           <li>
-            <a href="#contacto">Contactanos</a>
+            <a href="#contacto">Contáctanos</a>
           </li>
 
           <li>

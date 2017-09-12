@@ -2,7 +2,7 @@
 <div class="col-md-2">
 	<p class="enlace"><a href="{$_layoutParams.root}planes/add">Agregar Planes</a></p>
 </div>
-<div class="col-md-4">
+<div class="col-md-8">
 	<h3>Lista de Planes</h3>
 	<table class="table table-hover">
 		<th>
@@ -35,7 +35,7 @@
 		
 	</table>
 </div>
-<div class="col-md-4">
+<div class="col-md-2">
 	
 </div>	
 

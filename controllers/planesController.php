@@ -193,9 +193,6 @@ class planesController extends Controller
 	}
 
 	public function view($id = null){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
 
 		if (!$this->filtrarInt($id)) {
 			$this->redireccionar('planes');

@@ -19,101 +19,63 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
           {if Session::get('autenticado')}
-             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publicaciones<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                      <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}empresas">Empresas</a>
-                      </li>
-                      <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}sedes">Sedes</a>
-                      </li>                     
-                        <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}telefonos">Telefonos</a> 
-                      </li>
-                      <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}servicios">Servicios</a> 
-                      </li>
-                       <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}planes">Planes</a>  
-                      </li>                 
-                  </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publicar<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}/tipoempresas/add">Agregar Tipo Empresas</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}/empresas/add">Agregar Empresas</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}/sedes/add">Agregar Sedes</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}telefonos/add">Agregar Telefonos</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}servicios/add">Agregar Servicios</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}planes/add">Agregar Planes</a>
-                    </li>
-                </ul> 
-            </li>   
-
+            {if Session::get('role_id') == 1}
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrar<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li style="list-style:none;" >
+                      <a href="{$_layoutParams.root}/empresas">Empresas</a>
+                    </li>
+                    <li style="list-style:none;" >
+                      <a href="{$_layoutParams.root}/tipoempresas">Tipo Empresas</a>
+                    </li>
+                    <li style="list-style:none;" >
+                      <a href="{$_layoutParams.root}sedes">Sedes</a>
+                    </li> 
+                    <li style="list-style:none;" >
+                        <a href="{$_layoutParams.root}telefonos">Telefonos</a> 
+                      </li>
+                    <li role="separator" class="divider"></li>
+                    <li style="list-style:none;" >
                       <a href="{$_layoutParams.root}/comunas">Comunas</a>
                     </li>
                     <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}/comunas/add">Agregar Comunas</a>
+                      <a href="{$_layoutParams.root}/regiones">Regiones</a>
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}/tipoplanes/add">Agregar Tipo Planes</a>
+                        <a href="{$_layoutParams.root}servicios">Servicios</a> 
+                    </li>
+                    <li style="list-style:none;" >
+                      <a href="{$_layoutParams.root}planes">Planes</a>  
+                    </li> 
+                    <li style="list-style:none;" >
+                      <a href="{$_layoutParams.root}/tipoplanes">Tipo de Planes</a>
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
                       <a href="{$_layoutParams.root}/destinatarios">Destinatarios</a>
-                      <a href="{$_layoutParams.root}/destinatarios/add">Agregar Destinatarios</a>
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}componentes">Componentes</a> 
-                        <a href="{$_layoutParams.root}componentes/add">Agregar Componentes</a>     
+                        <a href="{$_layoutParams.root}componentes">Componentes</a>     
+                    </li>
+                    <li style="list-style:none;" >
+                        <a href="{$_layoutParams.root}materiales">Materiales</a>     
+                    </li>
+                    <li style="list-style:none;" >
+                        <a href="{$_layoutParams.root}terminaciones">Terminaciones</a>     
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}tiposoluciones">Tipo Soluciones</a> 
-                        <a href="{$_layoutParams.root}tiposoluciones/add">Agregar Tipo Soluciones</a>  
-                        <a href="{$_layoutParams.root}soluciones">Soluciones</a> 
-                        <a href="{$_layoutParams.root}soluciones/add">Agregar Soluciones</a>    
+                      <a href="{$_layoutParams.root}usuario">Usuarios</a>
+                    </li>
+                    <li style="list-style:none;" >
+                      <a href="{$_layoutParams.root}roles">Roles</a>
                     </li>
                 </ul> 
             </li>     
-            
-            <li style="list-style:none;" >
-              <a href="">Contacto</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}usuario/add">Registrar Usuario</a>
-                    </li>
-                    <li role="separator" class="divider"></li>
-                    <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}roles/add">Agregar Roles</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}roles">Ver Roles</a>
-                    </li>
-                </ul> 
-            </li>  
+             {/if}
             <li>
               <a href="{$_layoutParams.root}usuario/cerrar" onclick="return cerrar('{$_layoutParams.root}usuario/cerrar');">Cerrar Sesión</a>
             </li>
@@ -123,7 +85,7 @@
           </li>
           
           <li>
-            <a href="#contacto">Contactanos</a>
+            <a href="#contacto">Contáctanos</a>
           </li>
 
           <li>

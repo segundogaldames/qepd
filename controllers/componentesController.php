@@ -170,9 +170,6 @@ class componentesController extends Controller
 	}
 
 	public function verComponentes($id = null, $plan = null){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
 
 		if (!$this->filtrarInt($id)) {
 			$this->redireccionar('planes');
