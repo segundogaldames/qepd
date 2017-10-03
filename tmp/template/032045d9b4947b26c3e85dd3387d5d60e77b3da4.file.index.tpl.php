@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-09-13 17:45:08
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-09-21 16:36:51
          compiled from "/Applications/MAMP/htdocs/qepd/views/construcciones/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:54590668359b998d47642e3-76360412%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '032045d9b4947b26c3e85dd3387d5d60e77b3da4' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/construcciones/index.tpl',
-      1 => 1505334062,
+      1 => 1506022608,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_59b998d4821b66_90677888',
   'variables' => 
   array (
     '_layoutParams' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'm' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_59b998d4821b66_90677888',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_59b998d4821b66_90677888')) {function content_59b998d4821b66_90677888($_smarty_tpl) {?><div style="padding-top: 50px"></div>
 <div class="col-md-2">
@@ -66,8 +66,7 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['c']->value['terminacion'];?>
 </td>
-						<td><?php echo $_smarty_tpl->tpl_vars['c']->value['grabado'];?>
-</td>
+						<td><?php if (($_smarty_tpl->tpl_vars['c']->value['grabado'])==1) {?>Si <?php } else { ?> No <?php }?></td>
 						<td><?php echo $_smarty_tpl->tpl_vars['c']->value['plan'];?>
 </td>
 						<td>
@@ -75,7 +74,7 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
 construcciones/view/<?php echo $_smarty_tpl->tpl_vars['c']->value['id'];?>
 ">Ver</a>&nbsp;&nbsp;
 							<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-materiales/delete/<?php echo $_smarty_tpl->tpl_vars['c']->value['id'];?>
+construcciones/delete/<?php echo $_smarty_tpl->tpl_vars['c']->value['id'];?>
 " onclick="return eliminar('<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 construcciones/delete/<?php echo $_smarty_tpl->tpl_vars['c']->value['id'];?>
 ', '<?php echo $_smarty_tpl->tpl_vars['m']->value['nombre'];?>

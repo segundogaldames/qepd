@@ -1,6 +1,6 @@
 <div style="padding-top: 50px"></div>
 <div class="col-md-2">
-	<p class="enlace"><a href="{$_layoutParams.root}planes">Ver Urnas</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}urnas">Ver Urnas</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}imagenes/add">Agregar imagen</a></p>
 </div>
 

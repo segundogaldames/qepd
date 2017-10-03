@@ -8,6 +8,7 @@ class construccionModel extends Model
 
 	public function getConstrucciones(){
 		$cons = $this->_db->query("SELECT c.id, tc.nombre as construccion, m.nombre as material, t.nombre as terminacion, c.grabado, p.nombre as plan FROM construcciones as c INNER JOIN tipo_construcciones as tc ON c.tipo_construccion_id = tc.id INNER JOIN materiales as m ON c.material_id = m.id INNER JOIN terminaciones as t ON c.terminacion_id = t.id INNER JOIN planes as p ON c.plan_id = p.id");
+		return $cons->fetchall();
 	}
 
 	public function addConstrucciones($tipo, $material, $terminacion, $grabado, $plan){

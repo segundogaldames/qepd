@@ -43,7 +43,7 @@
 		</div>
 		<div class="form-group">
 			<label for="grabado">Grabado:<span class="text-danger">*</span></label>
-			<select name="material" id="" class="form-control">
+			<select name="grabado" id="" class="form-control">
 				<option value="">Seleccione</option>
 				<option value="1">Si</option>
 				<option value="2">No</option>

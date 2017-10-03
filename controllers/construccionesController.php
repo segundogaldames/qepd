@@ -3,10 +3,18 @@
 class construccionesController extends Controller
 {
 	private $_construccion;
+	private $_tipoconstruccion;
+	private $_material;
+	private $_terminacion;
+	private $_plan;
 
 	public function __construct(){
 		parent::__construct();
 		$this->_construccion = $this->loadModel('construccion');
+		$this->_tipoconstruccion = $this->loadModel('tipoconstruccion');
+		$this->_material = $this->loadModel('material');
+		$this->_terminacion = $this->loadModel('terminacion');
+		$this->_plan = $this->loadModel('planes');
 	}
 
 	public function index(){
@@ -25,6 +33,10 @@ class construccionesController extends Controller
 		}
 
 		$this->_view->assign('titulo', 'Agregar Construcciones');
+		$this->_view->assign('tipos', $this->_tipoconstruccion->getTipoConstrucciones());
+		$this->_view->assign('materiales', $this->_material->getMateriales());
+		$this->_view->assign('terminaciones', $this->_terminacion->getTerminaciones());
+		$this->_view->assign('planes', $this->_plan->getPlanes());
 
 		if ($this->getInt('enviar') == 1) {
 			$this->_view->assign('datos', $_POST);

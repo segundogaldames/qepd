@@ -61,7 +61,13 @@
                         <a href="{$_layoutParams.root}componentes">Componentes</a>     
                     </li>
                     <li style="list-style:none;" >
+                        <a href="{$_layoutParams.root}imagenes">Imágenes</a>     
+                    </li>
+                    <li style="list-style:none;" >
                         <a href="{$_layoutParams.root}construcciones">Construcciones</a>     
+                    </li>
+                    <li style="list-style:none;" >
+                        <a href="{$_layoutParams.root}tipoconstrucciones">Tipo Construcciones</a>     
                     </li>
                     <li style="list-style:none;" >
                         <a href="{$_layoutParams.root}materiales">Materiales</a>     

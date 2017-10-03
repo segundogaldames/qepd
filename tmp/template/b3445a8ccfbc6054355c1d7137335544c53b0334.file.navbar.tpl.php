@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-09-13 17:45:04
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-10-02 16:17:00
          compiled from "/Applications/MAMP/htdocs/qepd/views/layout/default/navbar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:90377091358f52a5bc3bf04-91564473%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b3445a8ccfbc6054355c1d7137335544c53b0334' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/layout/default/navbar.tpl',
-      1 => 1505335496,
+      1 => 1506971815,
       2 => 'file',
     ),
   ),
@@ -99,7 +99,15 @@ componentes">Componentes</a>
                     </li>
                     <li style="list-style:none;" >
                         <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+imagenes">Imágenes</a>     
+                    </li>
+                    <li style="list-style:none;" >
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 construcciones">Construcciones</a>     
+                    </li>
+                    <li style="list-style:none;" >
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+tipoconstrucciones">Tipo Construcciones</a>     
                     </li>
                     <li style="list-style:none;" >
                         <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>

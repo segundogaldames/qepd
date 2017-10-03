@@ -30,11 +30,11 @@
 						<td>{$c.construccion}</td>
 						<td>{$c.material}</td>
 						<td>{$c.terminacion}</td>
-						<td>{$c.grabado}</td>
+						<td>{if ($c.grabado) == 1}Si {else} No {/if}</td>
 						<td>{$c.plan}</td>
 						<td>
 							<a href="{$_layoutParams.root}construcciones/view/{$c.id}">Ver</a>&nbsp;&nbsp;
-							<a href="{$_layoutParams.root}materiales/delete/{$c.id}" onclick="return eliminar('{$_layoutParams.root}construcciones/delete/{$c.id}', '{$m.nombre}');">Eliminar</a>
+							<a href="{$_layoutParams.root}construcciones/delete/{$c.id}" onclick="return eliminar('{$_layoutParams.root}construcciones/delete/{$c.id}', '{$m.nombre}');">Eliminar</a>
 						</td>
 					</tr>
 

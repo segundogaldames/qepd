@@ -38,7 +38,7 @@
 						<td>{$p.destinatario}</td>
 						<td>{$p.comuna}</td>
 						<td>
-							<a href="{$_layoutParams.root}planes/view/{$p.id}">Ver Detalles</a>&nbsp;&nbsp;
+							<a href="{$_layoutParams.root}imagenes/imagenesplan/{$p.id}">Ver Detalles</a>&nbsp;&nbsp;
 						</td>
 					</tr>
 

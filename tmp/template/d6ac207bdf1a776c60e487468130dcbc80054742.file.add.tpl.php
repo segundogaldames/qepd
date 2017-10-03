@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-09-13 18:00:08
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-09-21 16:30:48
          compiled from "/Applications/MAMP/htdocs/qepd/views/construcciones/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:64328882459b998d7447831-97555884%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd6ac207bdf1a776c60e487468130dcbc80054742' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/construcciones/add.tpl',
-      1 => 1505335737,
+      1 => 1506022094,
       2 => 'file',
     ),
   ),
@@ -95,7 +95,7 @@ $_smarty_tpl->tpl_vars['t']->_loop = true;
 		</div>
 		<div class="form-group">
 			<label for="grabado">Grabado:<span class="text-danger">*</span></label>
-			<select name="material" id="" class="form-control">
+			<select name="grabado" id="" class="form-control">
 				<option value="">Seleccione</option>
 				<option value="1">Si</option>
 				<option value="2">No</option>

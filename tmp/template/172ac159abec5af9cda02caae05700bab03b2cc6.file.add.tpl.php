@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-06-13 17:42:58
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-10-02 16:49:40
          compiled from "/Applications/MAMP/htdocs/qepd/views/imagenes/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:102970369059370bf6828608-47128606%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '172ac159abec5af9cda02caae05700bab03b2cc6' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/imagenes/add.tpl',
-      1 => 1497386574,
+      1 => 1506973778,
       2 => 'file',
     ),
   ),
@@ -31,7 +31,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_59370bf7647306_41501209')) {function content_59370bf7647306_41501209($_smarty_tpl) {?><div style="padding-top: 50px"></div>
 <div class="col-md-2">
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-planes">Ver Planes</a></p>
+imagenes">Ver Imágenes</a></p>
+	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+planes">Agregar Planes</a></p>
+	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+componentes">Agregar Componentes</a></p>
 </div>
 
 <div class="col-md-4">

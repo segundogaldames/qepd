@@ -1,6 +1,8 @@
 <div style="padding-top: 50px"></div>
 <div class="col-md-2">
-	<p class="enlace"><a href="{$_layoutParams.root}planes">Ver Planes</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}imagenes">Ver Imágenes</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}planes">Agregar Planes</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}componentes">Agregar Componentes</a></p>
 </div>
 
 <div class="col-md-4">

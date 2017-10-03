@@ -14,7 +14,13 @@ class imagenesController extends Controller
 	}
 
 	public function index(){
+		if (!Session::get('autenticado')) {
+			$this->redireccionar();
+		}
 
+		$this->_view->assign('titulo', 'Imágenes');
+		$this->_view->assign('imagenes', $this->_imagen->getImagenes());
+		$this->_view->renderizar('index');
 	}
 
 	public function add(){
@@ -94,5 +100,18 @@ class imagenesController extends Controller
 			}
 		}
 		$this->_view->renderizar('add');
+	}
+
+	public function imagenesplan($id = null){
+		//print_r($id);exit;
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar();
+		}
+
+
+		$this->_view->assign('titulo', 'Consulta Planes');
+		$this->_view->assign('imagenes', $this->_imagen->getImagenesPlan($this->filtrarInt($id)));
+		$this->_view->renderizar('imagenesplan');
+
 	}
 }
