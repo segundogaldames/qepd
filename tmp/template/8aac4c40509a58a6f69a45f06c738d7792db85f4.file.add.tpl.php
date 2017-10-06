@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-07-26 17:56:06
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-10-03 16:29:59
          compiled from "/Applications/MAMP/htdocs/qepd/views/urnas/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1669881816594048466ad1f4-50934277%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8aac4c40509a58a6f69a45f06c738d7792db85f4' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/urnas/add.tpl',
-      1 => 1501102270,
+      1 => 1506023187,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_59404846b51714_45442241')) {function content_59404846b51714_45442241($_smarty_tpl) {?><div style="padding-top: 50px"></div>
 <div class="col-md-2">
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-planes">Ver Urnas</a></p>
+urnas">Ver Urnas</a></p>
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 imagenes/add">Agregar imagen</a></p>
 </div>

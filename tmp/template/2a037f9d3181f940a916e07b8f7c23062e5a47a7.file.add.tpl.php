@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-08-14 17:15:41
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-10-03 17:26:46
          compiled from "/Applications/MAMP/htdocs/qepd/views/capacidades/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:46849378559920415c506b3-74497683%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2a037f9d3181f940a916e07b8f7c23062e5a47a7' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/capacidades/add.tpl',
-      1 => 1502741653,
+      1 => 1502741943,
       2 => 'file',
     ),
   ),
@@ -44,7 +44,7 @@ planes">Ver Soluciones</a></p>
 		</div>
 		<div class="form-group">
 			<label for="uparvulo">Nº de Urnas para párvulos:<span class="text-danger"></span></label>
-			<input type="number" name="uparvulo" class="form-control" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['datos']->value['uparvulo'])===null||$tmp==='' ? '' : $tmp);?>
+			<input type="number" name="uparvulo" class="form-control" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['datos']->value['uparvulo'])===null||$tmp==='' ? 0 : $tmp);?>
 " placeholder="Número de urnas para párvulos">
 		</div>
 		<div class="form-group">

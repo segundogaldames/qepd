@@ -9,7 +9,7 @@ class condicionModel extends Model
 	public function getCondicionesPlan($id){
 		$id = (int) $id;
 
-		$cond = $this->_db->prepare("SELECT id FROM condiciones WHERE plan_id = ?");
+		$cond = $this->_db->prepare("SELECT id,precio,formapago,plazopago,compraanticipada,segurodeceso,convenios,descuentocol,descuentonicho,pensiones FROM condiciones WHERE plan_id = ?");
 		$cond->bindParam(1, $id);
 		$cond->execute();
 

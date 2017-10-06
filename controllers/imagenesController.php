@@ -5,12 +5,14 @@ class imagenesController extends Controller
 	private $_componente;
 	private $_plan;
 	private $_imagen;
+	private $_condicion;
 
 	public function __construct(){
 		parent::__construct();
 		$this->_componente = $this->loadModel('componente');
 		$this->_plan = $this->loadModel('planes');
 		$this->_imagen = $this->loadModel('imagen');
+		$this->_condicion = $this->loadModel('condicion');
 	}
 
 	public function index(){
@@ -111,6 +113,7 @@ class imagenesController extends Controller
 
 		$this->_view->assign('titulo', 'Consulta Planes');
 		$this->_view->assign('imagenes', $this->_imagen->getImagenesPlan($this->filtrarInt($id)));
+		$this->_view->assign('condiciones', $this->_condicion->getCondicionesPlan($this->filtrarInt($id)));
 		$this->_view->renderizar('imagenesplan');
 
 	}
