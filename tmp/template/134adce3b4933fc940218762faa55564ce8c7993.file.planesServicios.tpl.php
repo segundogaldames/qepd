@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-10-02 15:28:29
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-10-06 22:18:13
          compiled from "/Applications/MAMP/htdocs/qepd/views/planes/planesServicios.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:38855602059ad7579732a90-67635706%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '134adce3b4933fc940218762faa55564ce8c7993' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/planes/planesServicios.tpl',
-      1 => 1506968906,
+      1 => 1507339091,
       2 => 'file',
     ),
   ),
@@ -19,6 +19,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_59ad757978a100_95697657',
   'variables' => 
   array (
+    'comunas' => 0,
+    'c' => 0,
     'planes' => 0,
     'p' => 0,
     '_layoutParams' => 0,
@@ -26,8 +28,31 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_59ad757978a100_95697657')) {function content_59ad757978a100_95697657($_smarty_tpl) {?><div style="padding-top: 50px"></div>
-<div class="col-md-2">
-	
+<div class="col-md-2" style="padding-left: 30px">
+	<div style="padding-top: 50px"></div>
+	<form action="">
+		<div class="form-group">
+			<label for="comuna">Planes por Comuna</label>
+			<select name="comuna" id="" class="form-control">
+				<option value="">Seleccione</option>
+				<?php if (isset($_smarty_tpl->tpl_vars['comunas']->value)&&count($_smarty_tpl->tpl_vars['comunas']->value)) {?>
+					<?php  $_smarty_tpl->tpl_vars[$_smarty_tpl->tpl_vars['c']->value] = new Smarty_Variable; $_smarty_tpl->tpl_vars[$_smarty_tpl->tpl_vars['c']->value]->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['comunas']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars[$_smarty_tpl->tpl_vars['c']->value]->key => $_smarty_tpl->tpl_vars[$_smarty_tpl->tpl_vars['c']->value]->value) {
+$_smarty_tpl->tpl_vars[$_smarty_tpl->tpl_vars['c']->value]->_loop = true;
+?>
+						<option value="<?php echo $_smarty_tpl->tpl_vars['c']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['c']->value['nombre'];?>
+</option>
+					<?php } ?>
+				<?php }?>
+			</select>
+		</div>
+		<div class="form-group">
+			<input type="hidden" value="1" name="enviar">
+			<input type="submit" value="Buscar" class="btn btn-success">
+		</div>
+	</form>
 </div>
 <div class="col-md-8">
 	<h3>Ver Planes</h3>

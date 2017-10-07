@@ -1,6 +1,23 @@
 <div style="padding-top: 50px"></div>
-<div class="col-md-2">
-	
+<div class="col-md-2" style="padding-left: 30px">
+	<div style="padding-top: 50px"></div>
+	<form action="">
+		<div class="form-group">
+			<label for="comuna">Planes por Comuna</label>
+			<select name="comuna" id="" class="form-control">
+				<option value="">Seleccione</option>
+				{if isset($comunas) && count($comunas)}
+					{foreach from=$comunas item=$c}
+						<option value="{$c.id}">{$c.nombre}</option>
+					{/foreach}
+				{/if}
+			</select>
+		</div>
+		<div class="form-group">
+			<input type="hidden" value="1" name="enviar">
+			<input type="submit" value="Buscar" class="btn btn-success">
+		</div>
+	</form>
 </div>
 <div class="col-md-8">
 	<h3>Ver Planes</h3>
