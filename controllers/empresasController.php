@@ -84,16 +84,7 @@ class empresasController extends Controller
 				$this->getInt('tipo_empresa')
 				);
 
-			$row = $this->_empresa->getEmpresaRut($this->getPostParam('rut'));
-			if ($row) {
-				$this->_view->assign('_mensaje', 'La empresa se ha registrado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}else{
-				$this->_view->assign('_error', 'La empresa no se ha registrado correctamente');
-				$this->_view->renderizar('add');
-			}
-
+			$this->redireccionar('empresas');
 		}
 		$this->_view->renderizar('add');
 	}
@@ -155,16 +146,10 @@ class empresasController extends Controller
 			$this->getInt('tipo_empresa')
 			);
 
-		if ($this->filtrarInt($id)) {
-			$this->_view->assign('_mensaje', 'Se han actualizado los datos correctamente');
-			$this->_view->renderizar('edit');
-			exit;
-		}
-
-		$this->_view->renderizar('edit');
+		$this->redireccionar('empresas');
 	}
 
-	public function view($id){
+	public function view($id = null){
 		if (!Session::get('autenticado')) {
 			$this->redireccionar();
 		}
@@ -177,5 +162,23 @@ class empresasController extends Controller
 		$this->_view->assign('empresa', $this->_empresa->getEmpresa($id));
 		$this->_view->assign('sede', $this->_sede->getSedeEmpresa($id));
 		$this->_view->renderizar('view');
+	}
+
+	public function delete($id = null){
+		if (!Session::get('autenticado')) {
+			$this->redireccionar();
+		}
+
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('empresas');
+		}
+
+		if (!$this->_empresa->getEmpresa($this->filtrarInt($id))) {
+			$this->redireccionar('empresas');
+		}
+
+		$this->_empresa->deleteEmpresa($this->filtrarInt($id));
+
+		$this->redireccionar('empresas');
 	}
 }

@@ -5,6 +5,7 @@
 </div>
 <div class="col-md-8">
 	<h3>Lista de Empresas</h3>
+	{if isset($empresas) && count($empresas)}
 	<table class="table table-hover">
 		<th>
 			Nombre
@@ -22,7 +23,7 @@
 			Acciones
 		</th>
 		
-			{if isset($empresas) && count($empresas)}
+			
 				{foreach from=$empresas item=emp}
 					<tr>
 						<td>{$emp.nombre}</td>
@@ -31,14 +32,17 @@
 						<td>{$emp.tipo}</td>
 						<td>
 							<a href="{$_layoutParams.root}empresas/view/{$emp.id}">Ver</a>&nbsp;&nbsp;
-							<a href="">Eliminar</a>
+							<a href="{$_layoutParams.root}empresas/delete/{$emp.id}" onclick="return eliminar('{$_layoutParams.root}empresas/delete/{$emp.id}', '{$emp.nombre}')">Eliminar</a>
 						</td>
 					</tr>
 
 				{/foreach}
-			{/if}
+				
 		
 	</table>
+	{else}
+				<h2>No hay empresas registradas</h2>
+	{/if}
 </div>
 <div class="col-md-2">
 	

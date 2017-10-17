@@ -41,8 +41,7 @@ class empresaModel extends Model
 
 	public function editEmpresa($id, $nombre, $email, $rut, $usuario, $tipo){
 		$id = (int) $id;
-		//($tipo);exit;
-
+		
 		$emp = $this->_db->prepare("UPDATE empresas SET nombre = ?, email = ?, rut = ?, usuario_id = ?, tipo_empresa_id = ?, updated = now() WHERE id = ?");
 		$emp->bindParam(1, $nombre);
 		$emp->bindParam(2, $email);
@@ -63,6 +62,14 @@ class empresaModel extends Model
 		$emp->bindParam(3, $rut);
 		$emp->bindParam(4, $usuario);
 		$emp->bindParam(5, $tipo_empresa);
+		$emp->execute();
+	}
+
+	public function deleteEmpresa($id){
+		$id = (int) $id;
+
+		$emp = $this->_db->prepare("DELETE FROM empresas WHERE id = ?");
+		$emp->bindParam(1, $id);
 		$emp->execute();
 	}
 }

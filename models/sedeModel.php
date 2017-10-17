@@ -7,7 +7,7 @@ class sedeModel extends Model
 	}
 
 	public function getSedes(){
-		$sede = $this->_db->query("SELECT s.id, s.nombre as sede, s.calle, s.numero, s.sector, s.ubicacion, e.nombre as empresa, c.nombre as comuna FROM empresas as e INNER JOIN sedes as s ON s.empresa_id = e.id INNER JOIN comunas as c ON s.comuna_id = c.id");
+		$sede = $this->_db->query("SELECT s.id, s.nombre as sede, s.calle, s.numero, s.sector, s.ubicacion, e.nombre as empresa, c.nombre as comuna FROM empresas as e RIGHT JOIN sedes as s ON s.empresa_id = e.id RIGHT JOIN comunas as c ON s.comuna_id = c.id");
 		return $sede->fetchall();
 	}
 
@@ -49,7 +49,7 @@ class sedeModel extends Model
 	public function getSedeId($id){
 		$id = (int) $id;
 
-		$sede = $this->_db->prepare("SELECT s.id, s.nombre as sede, s.calle, s.numero, s.sector, s.ubicacion, e.nombre as empresa, c.nombre as comuna FROM empresas as e INNER JOIN sedes as s ON s.empresa_id = e.id INNER JOIN comunas as c ON s.comuna_id = c.id WHERE s.id = ?");
+		$sede = $this->_db->prepare("SELECT s.id, s.nombre as sede, s.calle, s.numero, s.sector, s.ubicacion, e.nombre as empresa, c.nombre as comuna FROM sedes as e INNER JOIN comunas as s ON s.empresa_id = e.id INNER JOIN comunas as c ON s.comuna_id = c.id WHERE s.id = ?");
 		$sede->bindParam(1, $id);
 		$sede->execute();
 
@@ -69,6 +69,14 @@ class sedeModel extends Model
 		$sede->bindParam(5, $ubicacion);
 		$sede->bindParam(6, $empresa);
 		$sede->bindParam(7, $comuna);
+		$sede->execute();
+	}
+
+	public function deleteSede($id){
+		$id = (int) $id;
+
+		$sede = $this->_db->prepare("DELETE FROM sedes WHERE id = ?");
+		$sede->bindParam(1, $id);
 		$sede->execute();
 	}
 }

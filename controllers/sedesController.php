@@ -83,27 +83,19 @@ class sedesController extends Controller
 				$this->getInt('comuna')
 				);
 
-			$row = $this->_sede->getSedeNombre($this->getSql('nombre'));
-
-			if($row){
-				$this->_view->assign('_mensaje', 'La sede se ha registrado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}else{
-				$this->_view->assign('_error', 'La sede no se ha registrado... Inténtalo de nuevo');
-				$this->_view->renderizar('add');
-				exit;
-			}
+			$this->redireccionar('sedes');
 		}
 		$this->_view->renderizar('add');
 	}
 
-	public function view($id){
+	public function view($id = null){
 		if (!Session::get('autenticado')) {
 			$this->redireccionar();
 		}
 
-		//print_r($id);exit;
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('sedes');
+		}
 
 		if (!$this->_sede->getSedeId($id)) {
 			$this->redireccionar('sedes');
@@ -113,5 +105,22 @@ class sedesController extends Controller
 		$this->_view->assign('sede', $this->_sede->getSedeId($id));
 		$this->_view->assign('telefonos', $this->_telefono->getTelefonosSedes($id));
 		$this->_view->renderizar('view');
+	}
+
+	public function delete($id = null){
+		if (!Session::get('autenticado')) {
+			$this->redireccionar();
+		}
+
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('sedes');
+		}
+
+		if (!$this->_sede->getSedeId($this->filtrarInt($id))) {
+			$this->redireccionar('sedes');
+		}
+
+		$this->_sede->deleteSede($id);
+		$this->redireccionar('sedes');
 	}
 }

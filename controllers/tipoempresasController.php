@@ -46,20 +46,81 @@ class tipoempresasController extends Controller
 
 			$this->_tipo_empresa->setTipoEmpresa($this->getSql('nombre'));
 
-			$row = $this->_tipo_empresa->getTipoEmpresaNombre($this->getSql('nombre'));
-
-			if (!$row) {
-				$this->_view->assign('_error', 'No se ha podido registrar el tipo empresa');
-				$this->_view->renderizar('add');
-				exit;
-			}else{
-				$this->_view->assign('_mensaje', 'El tipo empresa se ha registrado correctamente');
-				$this->_view->renderizar('index');
-				exit;
-			}
+			$this->redireccionar('tipoempresas');
 
 		}
 
 		$this->_view->renderizar('add');
+	}
+
+	public function view($id = null){
+		if (!Session::get('autenticado')) {
+			$this->redireccionar();
+		}
+
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('tipoempresas');
+		}
+
+		if (!$this->_tipo_empresa->getTipoEmpresaId($this->filtrarInt($id))) {
+			$this->redireccionar('tipoempresas');
+		}
+
+		$this->_view->assign('titulo', 'Ver Tipo Empresa');
+		$this->_view->assign('tipo', $this->_tipo_empresa->getTipoEmpresaId($this->filtrarInt($id)));
+		$this->_view->renderizar('view');
+	}
+
+	public function edit($id = null){
+		if (!Session::get('autenticado')) {
+			$this->redireccionar();
+		}
+
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('tipoempresas');
+		}
+
+		if (!$this->_tipo_empresa->getTipoEmpresaId($this->filtrarInt($id))) {
+			$this->redireccionar('tipoempresas');
+		}
+
+		$this->_view->assign('titulo', 'Editar Tipo Empresa');
+		$this->_view->assign('dato', $this->_tipo_empresa->getTipoEmpresaId($this->filtrarInt($id)));
+
+		if ($this->getInt('enviar') == 1) {
+			
+
+			if (!$this->getSql('nombre')) {
+				$this->_view->assign('_error', 'Debe ingresar un nombre');
+				$this->_view->renderizar('edit');
+				exit;
+			}
+
+			$this->_tipo_empresa->editTipoEmpresa(
+				$this->filtrarInt($id), 
+				$this->getSql('nombre')
+			);
+
+			$this->redireccionar('tipoempresas');
+		}
+
+		$this->_view->renderizar('edit');
+	}
+
+	public function delete($id = null){
+		if (!Session::get('autenticado')) {
+			$this->redireccionar();
+		}
+
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('tipoempresas');
+		}
+
+		if (!$this->_tipo_empresa->getTipoEmpresaId($this->filtrarInt($id))) {
+			$this->redireccionar('tipoempresas');
+		}
+
+		$this->_tipo_empresa->deleteTipoEmpresa($this->filtrarInt($id));
+		$this->redireccionar('tipoempresas');
 	}
 }

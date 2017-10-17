@@ -1,6 +1,8 @@
 <div style="padding-top: 50px"></div>
-<div class="col-md-2"></div>
-<div class="col-md-4">
+<div class="col-md-2">
+	<p class="enlace"><a href="{$_layoutParams.root}tipoempresas/add">Agregar Tipo Empresa</a></p>
+</div>
+<div class="col-md-8">
 	<h3>Lista Tipo Empresas</h3>
 	<table class="table table-hover">
 		<th>
@@ -16,7 +18,7 @@
 						<td>{$t.nombre}</td>
 						<td>
 							<a href="{$_layoutParams.root}tipoempresas/view/{$t.id}">Ver</a>&nbsp;&nbsp;
-							<a href="">Eliminar</a>
+							<a href="{$_layoutParams.root}tipoempresas/delete/{$t.id}" onclick="return eliminar('{$_layoutParams.root}tipoempresas/delete/{$t.id}', '{$t.nombre}');">Eliminar</a>
 						</td>
 					</tr>
 
@@ -25,6 +27,6 @@
 		
 	</table>
 </div>
-<div class="col-md-4">
+<div class="col-md-2">
 	
 </div>
