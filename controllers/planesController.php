@@ -95,17 +95,7 @@ class planesController extends Controller
 				$this->getInt('destinatario')
 				);
 
-			if($this->_plan->getPlanNombre($this->getSql('nombre'))){
-				$this->_view->assign('_mensaje', 'El plan se ha registrado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if(!$this->_plan->getPlanNombre($this->getSql('nombre'))){
-				$this->_view->assign('_error', 'El plan no se ha registrado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
+			$this->redireccionar('planes');
 		}
 
 		$this->_view->renderizar('add');

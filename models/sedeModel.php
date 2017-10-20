@@ -7,7 +7,7 @@ class sedeModel extends Model
 	}
 
 	public function getSedes(){
-		$sede = $this->_db->query("SELECT s.id, s.nombre as sede, s.calle, s.numero, s.sector, s.ubicacion, e.nombre as empresa, c.nombre as comuna FROM empresas as e RIGHT JOIN sedes as s ON s.empresa_id = e.id RIGHT JOIN comunas as c ON s.comuna_id = c.id");
+		$sede = $this->_db->query("SELECT s.id, s.nombre as sede, s.calle, s.numero, s.sector, s.ubicacion, e.nombre as empresa, c.nombre as comuna FROM empresas as e INNER JOIN sedes as s ON s.empresa_id = e.id INNER JOIN comunas as c ON s.comuna_id = c.id");
 		return $sede->fetchall();
 	}
 
@@ -48,12 +48,30 @@ class sedeModel extends Model
 
 	public function getSedeId($id){
 		$id = (int) $id;
-
-		$sede = $this->_db->prepare("SELECT s.id, s.nombre as sede, s.calle, s.numero, s.sector, s.ubicacion, e.nombre as empresa, c.nombre as comuna FROM sedes as e INNER JOIN comunas as s ON s.empresa_id = e.id INNER JOIN comunas as c ON s.comuna_id = c.id WHERE s.id = ?");
+		//print_r($id);exit;
+		$sede = $this->_db->prepare("SELECT s.id, s.nombre as sede, s.calle, s.numero, s.sector, s.ubicacion, s.empresa_id, s.comuna_id, e.nombre as empresa, c.nombre as comuna FROM sedes as s INNER JOIN empresas as e ON s.empresa_id = e.id INNER JOIN comunas as c ON s.comuna_id = c.id WHERE s.id = ?");
 		$sede->bindParam(1, $id);
 		$sede->execute();
 
 		return $sede->fetch();
+	}
+
+	public function editSede($id, $nombre, $calle, $numero, $sector, $ubicacion, $empresa, $comuna){
+		$id = (int) $id;
+		$numero = (int) $numero;
+		$empresa = (int) $empresa;
+		$comuna = (int) $comuna;
+
+		$sede = $this->_db->prepare("UPDATE sedes SET nombre = ?, calle = ?, numero = ?, sector = ?, ubicacion = ?, empresa_id = ?, comuna_id = ? WHERE id = ?");
+		$sede->bindParam(1, $nombre);
+		$sede->bindParam(2, $calle);
+		$sede->bindParam(3, $numero);
+		$sede->bindParam(4, $sector);
+		$sede->bindParam(5, $ubicacion);
+		$sede->bindParam(6, $empresa);
+		$sede->bindParam(7, $comuna);
+		$sede->bindParam(8, $id);
+		$sede->execute();
 	}
 
 	public function setSede($nombre, $calle, $numero, $sector, $ubicacion, $empresa, $comuna){
@@ -74,7 +92,7 @@ class sedeModel extends Model
 
 	public function deleteSede($id){
 		$id = (int) $id;
-
+		//print_r($id);exit;
 		$sede = $this->_db->prepare("DELETE FROM sedes WHERE id = ?");
 		$sede->bindParam(1, $id);
 		$sede->execute();

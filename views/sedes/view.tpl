@@ -26,6 +26,8 @@
 				{foreach from=$telefonos item=tel}
 					<tr>
 						<td><img src="{$_layoutParams.ruta_img}phone.jpeg" alt="" width="20">{$tel.numero}</td>
+						<td><a href="{$_layoutParams.root}telefonos/edit/{$tel.id}" class="btn btn-link">Editar</a></td>
+						<td><a href="{$_layoutParams.root}telefonos/eliminar/{$tel.id}" class="btn btn-link">Eliminar</a></td>
 					</tr>
 
 				{/foreach}

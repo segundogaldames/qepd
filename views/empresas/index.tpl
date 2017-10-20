@@ -41,7 +41,7 @@
 		
 	</table>
 	{else}
-				<h2>No hay empresas registradas</h2>
+				<strong>No hay empresas registradas</strong>
 	{/if}
 </div>
 <div class="col-md-2">

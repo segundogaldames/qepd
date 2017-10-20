@@ -26,6 +26,12 @@ abstract class Controller
 		endif;
 	}
 
+	protected function verificarSession(){
+		if (!Session::get('autenticado')) {
+			$this->redireccionar();
+		}
+	}
+
 	protected function getLibrary($libreria)
 	{
 		$rutaLibreria = ROOT . 'libs' . DS . $libreria . '.php';
