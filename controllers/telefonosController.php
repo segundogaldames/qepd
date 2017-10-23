@@ -21,9 +21,7 @@ class telefonosController extends Controller
 	}
 
 	public function add(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Nuevo Teléfono');
 		$this->_view->assign('sedes', $this->_sede->getSedes());
@@ -43,8 +41,8 @@ class telefonosController extends Controller
 				exit;
 			}
 
-			if ($this->_telefono->getTelefonoSede($this->getInt('telefono'), $this->getInt('sede'))) {
-				$this->_view->assign('_error', 'El teléfono y la sede ya existen. Ingrese otro número');
+			if ($this->_telefono->getTelefonoNumero($this->getInt('telefono'))) {
+				$this->_view->assign('_error', 'El teléfono ya existe. Ingrese otro número');
 				$this->_view->renderizar('add');
 				exit;
 			}
@@ -59,21 +57,70 @@ class telefonosController extends Controller
 				$this->getInt('telefono'), 
 				$this->getInt('sede')
 				);
-
-			if (!$this->_telefono->getTelefonoSede($this->getInt('telefono'), $this->getInt('sede'))) {
-				$this->_view->assign('_error', 'No se ha podido registrar el teléfono');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if ($this->_telefono->getTelefonoSede($this->getInt('telefono'), $this->getInt('sede'))) {
-				$this->_view->assign('_mensaje', 'Se ha registrado el teléfono correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
+			$this->redireccionar('telefonos');
 		}
 
 		$this->_view->renderizar('add');
+	}
+
+	public function view($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_view->assign('titulo', 'Ver Teléfono');
+		$this->_view->assign('telefono', $this->_telefono->getTelefonoId($this->filtrarInt($id)));
+		$this->_view->renderizar('view');
+	}
+
+	public function edit($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_view->assign('titulo', 'Editar Teléfono');
+		$this->_view->assign('dato', $this->_telefono->getTelefonoId($this->filtrarInt($id)));
+		$this->_view->assign('sedes', $this->_sede->getSedes());
+
+		if ($this->getInt('enviar') == 1) {
+			//print_r($_POST);exit;
+			if (!$this->getInt('numero')) {
+				$this->_view->assign('_error', 'Debe ingresar el número telefónico');
+				$this->_view->renderizar('edit');
+				exit;
+			}
+
+			if (!$this->getInt('sede')) {
+				$this->_view->assign('_error', 'Debe seleccionar una sede');
+				$this->_view->renderizar('edit');
+				exit;
+			}
+
+			$this->_telefono->editTelefono(
+				$this->filtrarInt($id), 
+				$this->getInt('numero'),
+				$this->getInt('sede')
+			);
+
+			$this->redireccionar('telefonos');
+		}
+
+		$this->_view->renderizar('edit');
+	}
+
+	public function delete($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_telefono->deleteTelefono($this->filtrarInt($id));
+		$this->redireccionar('telefonos');
+	}
+
+	private function verificarParams($id){
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('telefonos');
+		}
+
+		if (!$this->_telefono->getTelefonoId($this->filtrarInt($id))) {
+			$this->redireccionar('telefonos');
+		}
 	}
 }

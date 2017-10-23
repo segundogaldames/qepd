@@ -21,7 +21,7 @@
 						<td>{$c.comuna}</td>
 						<td>{$c.region}</td>
 						<td>
-							<a href="{$_layoutParams.root}comunas/view/{$emp.id}">Ver</a>&nbsp;&nbsp;
+							<a href="{$_layoutParams.root}comunas/view/{$c.id}">Ver</a>&nbsp;&nbsp;
 							<a href="">Eliminar</a>
 						</td>
 					</tr>

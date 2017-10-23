@@ -26,7 +26,7 @@
 						<td>{$tel.empresa}</td>
 						<td>
 							<a href="{$_layoutParams.root}telefonos/view/{$tel.id}">Ver</a>&nbsp;&nbsp;
-							<a href="{$_layoutParams.root}telefonos/delete/{$tel.id}">Eliminar</a>
+							<a href="{$_layoutParams.root}telefonos/delete/{$tel.id}" onclick="return eliminar('{$_layoutParams.root}telefonos/delete/{$tel.id}', '{$tel.numero}');">Eliminar</a>
 						</td>
 					</tr>
 

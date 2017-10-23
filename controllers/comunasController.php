@@ -22,9 +22,7 @@ class comunasController extends Controller
 	}
 
 	public function add(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Nueva Comuna');
 		$this->_view->assign('regiones', $this->_region->getRegiones());
@@ -55,18 +53,28 @@ class comunasController extends Controller
 				$this->getInt('region')
 				);
 
-			$row = $this->_comuna->getComunasNombre($this->getSql('nombre'));
-
-			if ($row) {
-				$this->_view->assign('_mensaje', 'La comuna se ha registrado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}else{
-				$this->_view->assign('_error', 'La comuna no se ha registrado');
-				$this->_view->renderizar('add');
-			}
+			$this->redireccionar('comunas');
 
 		}
 		$this->_view->renderizar('add');
+	}
+
+	public function view($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_view->assign('titulo', 'Ver Comuna');
+		$this->_view->assign('comuna', $this->_comuna->getComunaId($this->filtrarInt($id)));
+		$this->_view->renderizar('view');
+	}
+
+	private function verificarParams($clave){
+		if (!$this->filtrarInt($clave)) {
+			$this->redireccionar('comunas');
+		}
+
+		if (!$this->_comuna->getComunaId($this->filtrarInt($id))) {
+			$this->redireccionar('comunas');
+		}
 	}
 }
