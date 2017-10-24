@@ -18,9 +18,7 @@ class planesController extends Controller
 	}
 
 	public function index(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Planes');
 		$this->_view->assign('planes', $this->_plan->getPlanes());
@@ -35,9 +33,7 @@ class planesController extends Controller
 	}
 
 	public function add(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Nuevo Plan');
 		$this->_view->assign('tipoplanes', $this->_tipoPlan->getTipoPlanes());
@@ -102,26 +98,17 @@ class planesController extends Controller
 	}
 
 	public function edit($id = null){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
-
-		if (!$this->filtrarInt($id)) {
-			$this->redireccionar('planes');
-		}
-
-		if (!$this->_plan->getPlanesId($this->filtrarInt($id))) {
-			$this->redireccionar('planes');
-		}
+		$this->verificarSession();
+		$this->verificarParams($id);
 
 		$this->_view->assign('titulo', 'Editar Plan');
 		$this->_view->assign('tipoplanes', $this->_tipoPlan->getTipoPlanes());
 		$this->_view->assign('servicios', $this->_servicio->getServiciosTipoEmpresa());
 		$this->_view->assign('empresas', $this->_empresa->getEmpresas());
 		$this->_view->assign('destinatarios', $this->_destinatario->getDestinatarios());
+		$this->_view->assign('dato', $this->_plan->getPlanesId($this->filtrarInt($id)));
 
 		if ($this->getInt('enviar') == 1) {
-			$this->_view->assign('dato', $_POST);
 
 			if (!$this->getSql('nombre')) {
 				$this->_view->assign('_error', 'Debe ingresar el nombre del plan');
@@ -178,19 +165,12 @@ class planesController extends Controller
 			$this->redireccionar('planes');
 		}
 
-		$this->_view->assign('dato', $this->_plan->getPlanesId($this->filtrarInt($id)));
 		$this->_view->renderizar('edit');
 	}
 
 	public function view($id = null){
-
-		if (!$this->filtrarInt($id)) {
-			$this->redireccionar('planes');
-		}
-
-		if (!$this->_plan->getPlanesId($this->filtrarInt($id))) {
-			$this->redireccionar('planes');
-		}
+		$this->verificarSession();
+		$this->verificarParams($id);		
 
 		$this->_view->assign('titulo', 'Ver Plan');
 		$this->_view->assign('plan', $this->_plan->getPlanesId($this->filtrarInt($id)));
@@ -198,30 +178,21 @@ class planesController extends Controller
 	}
 
 	public function delete($id = null){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
+		$this->verificarParams($id);
 
+		$this->_plan->deletePlanesId($this->filtrarInt($id));
+
+		$this->redireccionar('planes');
+	}
+
+	private function verificarParams($id){
 		if (!$this->filtrarInt($id)) {
 			$this->redireccionar('planes');
 		}
 
 		if (!$this->_plan->getPlanesId($this->filtrarInt($id))) {
 			$this->redireccionar('planes');
-		}
-
-		$this->_plan->deletePlanesId($this->filtrarInt($id));
-
-		if (!$this->_plan->getPlanesId($this->filtrarInt($id))) {
-			$this->_view->assign('_mensaje', 'El plan fue eliminado satisfactoriamente');
-			$this->_view->renderizar('planes');
-			exit;
-		}
-
-		if ($this->_plan->getPlanesId($this->filtrarInt($id))) {
-			$this->_view->assign('_error', 'El plan no fue eliminado satisfactoriamente');
-			$this->_view->renderizar('planes');
-			exit;
 		}
 	}
 }

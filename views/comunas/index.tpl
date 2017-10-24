@@ -22,7 +22,7 @@
 						<td>{$c.region}</td>
 						<td>
 							<a href="{$_layoutParams.root}comunas/view/{$c.id}">Ver</a>&nbsp;&nbsp;
-							<a href="">Eliminar</a>
+							<a href="{$_layoutParams.root}comunas/delete/{$c.id}" onclick="return eliminar('{$_layoutParams.root}comunas/delete/{$c.id}','{$c.comuna}');">Eliminar</a>
 						</td>
 					</tr>
 

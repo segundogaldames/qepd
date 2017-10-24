@@ -12,9 +12,7 @@ class serviciosController extends Controller
 	}
 
 	public function index(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Servicios');
 		$this->_view->assign('servicios', $this->_servicios->getServiciosTipoEmpresa());
@@ -22,9 +20,7 @@ class serviciosController extends Controller
 	}
 
 	public function add(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Nuevo Servicio');
 		$this->_view->assign('tipos', $this->_tipoempresa->getTipoEmpresas());
@@ -49,33 +45,14 @@ class serviciosController extends Controller
 				$this->getInt('tipo')
 				);
 
-			if ($this->_servicios->getServicioNombre($this->getSql('nombre'))) {
-				$this->_view->assign('_mensaje', 'El servicio se registró correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->_servicios->getServicioNombre($this->getSql('nombre'))) {
-				$this->_view->assign('_mensaje', 'El servicio no se registró correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
+			$this->redireccionar('servicios');
 		}
 		$this->_view->renderizar('add');
 	}
 
 	public function view($id = null){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
-
-		if (!$this->filtrarInt($id)) {
-			$this->redireccionar('servicios');
-		}
-
-		if (!$this->_servicios->getServicioId($this->filtrarInt($id))) {
-			$this->redireccionar('servicios');
-		}
+		$this->verificarSession();
+		$this->verificarParams($id);
 
 		$this->_view->assign('titulo', 'Ver Servicio');
 		$this->_view->assign('servicio', $this->_servicios->getServicioId($id));
@@ -84,19 +61,11 @@ class serviciosController extends Controller
 	}
 
 	public function edit($id = null){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
-
-		if (!$this->filtrarInt($id)) {
-			$this->redireccionar('servicios');
-		}
-
-		if (!$this->_servicios->getServicioId($this->filtrarInt($id))) {
-			$this->redireccionar('servicios');
-		}
+		$this->verificarSession();
+		$this->verificarParams($id);
 
 		$this->_view->assign('titulo', 'Editar Servicio');
+		$this->_view->assign('dato', $this->_servicios->getServicioId($this->filtrarInt($id)));
 		$this->_view->assign('tipos', $this->_tipoempresa->getTipoEmpresas());
 
 		if ($this->getInt('enviar') == 1) {
@@ -120,48 +89,28 @@ class serviciosController extends Controller
 				$this->getInt('tipo')
 				);
 
-			if ($this->_servicios->getServicioId($this->filtrarInt($id))) {
-				$this->_view->assign('_mensaje', 'El servicio se ha editado correctamente');
-				$this->_view->renderizar('edit');
-				exit;
-			}
-
-			if (!$this->_servicios->getServicioId($this->filtrarInt($id))) {
-				$this->_view->assign('_error', 'El servicio no se ha editado correctamente');
-				$this->_view->renderizar('edit');
-				exit;
-			}
+			$this->redireccionar('servicios');
 		}
 
-		$this->_view->assign('dato', $this->_servicios->getServicioId($this->filtrarInt($id)));
 		$this->_view->renderizar('edit');
 	}
 
 	public function delete($id = null){
-		if(!Session::get('autenticado')){
-			$this->redireccionar();
-		}
+		$this->verificarSession();
+		$this->verificarParams($id);
 
+		$this->_servicios->deleteServicio($this->filtrarInt($id));
+
+		$this->redireccionar('servicios');
+	}
+
+	private function verificarParams($id){
 		if(!$this->filtrarInt($id)){
 			$this->redireccionar('servicios');
 		}
 
 		if(!$this->_servicios->getServicioId($this->filtrarInt($id))){
 			$this->redireccionar('servicios');
-		}
-
-		$this->_servicios->deleteServicio($this->filtrarInt($id));
-
-		if (!$this->_servicios->getServicioId($this->filtrarInt($id))) {
-			$this->_view->assign('_mensaje', 'El servicio fue eliminado correctamente');
-			$this->redireccionar('servicios');
-			exit;
-		}
-
-		if ($this->_servicios->getServicioId($this->filtrarInt($id))) {
-			$this->_view->assign('_error', 'El servicio no fue eliminado correctamente');
-			$this->_view->renderizar('index');
-			exit;
 		}
 	}
 }

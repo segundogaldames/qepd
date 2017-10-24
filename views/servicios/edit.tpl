@@ -9,9 +9,9 @@
 			<input type="text" name="nombre" class="form-control" placeholder="Nombre del servicio" value="{$dato.nombre|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="tipo">Seleccione un tipo de empresa:</label>
+			<label>Tipo de empresa actual:{$dato.tipo}</label>
 			<select name="tipo" id="" class="form-control">
-				<option value="">Tipo Empresas</option>
+				<option value="{$dato.tipo_empresa_id}">{$dato.tipo}</option>
 				{if isset($tipos) && count($tipos)}
 					{foreach from=$tipos item=t}
 						<option value="{$t.id}">{$t.nombre}</option>
@@ -21,7 +21,7 @@
 		</div>
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
-			<input type="submit" value="Registrar" class="btn btn-success">
+			<input type="submit" value="Guardar Cambios" class="btn btn-success">
 		</div>
 	</form>
 	<p>

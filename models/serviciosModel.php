@@ -23,7 +23,7 @@ class serviciosModel extends Model
 	public function getServicioId($id){
 		$id = (int) $id;
 
-		$serv = $this->_db->prepare("SELECT s.id, s.nombre, te.nombre as tipo FROM tipo_empresas as te INNER JOIN servicios as s ON s.tipo_empresa_id = te.id WHERE s.id = ?");
+		$serv = $this->_db->prepare("SELECT s.id, s.nombre, s.tipo_empresa_id, te.nombre as tipo FROM tipo_empresas as te INNER JOIN servicios as s ON s.tipo_empresa_id = te.id WHERE s.id = ?");
 		$serv->bindParam(1, $id);
 		$serv->execute();
 

@@ -14,8 +14,8 @@ class comunaModel extends Model
 	public function getComunaId($id){
 		$id = (int) $id;
 
-		$com = $this->_db->prepare("SELECT c.id, c.nombre, c.region_id, r.nombre FROM comunas as c INNER JOIN regiones as r ON c.region_id = r.id WHERE c.id = ?");
-		$com->bindParam($id);
+		$com = $this->_db->prepare("SELECT c.id, c.nombre, c.region_id, r.nombre as region FROM comunas as c INNER JOIN regiones as r ON c.region_id = r.id WHERE c.id = ?");
+		$com->bindParam(1, $id);
 		$com->execute();
 
 		return $com->fetch();
@@ -40,10 +40,11 @@ class comunaModel extends Model
 	}
 
 	public function editComuna($id, $nombre, $region){
+		//print_r($region);exit;
 		$id = (int) $id;
 		$region = (int) $region;
 
-		$com = $this->_db->prepare("UPDATE comunas SET nombre = ?, $region_id = ? WHERE id = ?");
+		$com = $this->_db->prepare("UPDATE comunas SET nombre = ?, region_id = ? WHERE id = ?");
 		$com->bindParam(1, $nombre);
 		$com->bindParam(2, $region);
 		$com->bindParam(3, $id);

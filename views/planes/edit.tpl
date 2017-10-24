@@ -14,7 +14,7 @@
 		<div class="form-group">
 			<label for="tipo_plan">Tipo Plan: {$dato.tipo_plan|default:''}</label>
 			<select name="tipo_plan" id="" class="form-control">
-				<option value="">Seleccione</option>
+				<option value="{$dato.tipo_plan_id}">{$dato.tipo_plan}</option>
 				{if isset($tipoplanes) && count($tipoplanes)}
 					{foreach from=$tipoplanes item=tp}
 						<option value="{$tp.id}">{$tp.nombre}</option>
@@ -25,7 +25,7 @@
 		<div class="form-group">
 			<label for="servicio">Servicio: {$dato.servicio|default:''}</label>
 			<select name="servicio" id="" class="form-control">
-				<option value="">Seleccione</option>
+				<option value="{$dato.servicio_id}">{$dato.servicio}</option>
 				{if isset($servicios) && count($servicios)}
 					{foreach from=$servicios item=serv}
 						<option value="{$serv.id}">{$serv.nombre}</option>
@@ -36,7 +36,7 @@
 		<div class="form-group">
 			<label for="empresa">Empresa: {$dato.empresa|default:''}</label>
 			<select name="empresa" id="" class="form-control">
-				<option value="">Seleccione</option>
+				<option value="{$dato.empresa_id}">{$dato.empresa}</option>
 				{if isset($empresas) && count($empresas)}
 					{foreach from=$empresas item=emp}
 						<option value="{$emp.id}">{$emp.nombre}</option>
@@ -47,7 +47,7 @@
 		<div class="form-group">
 			<label for="destinatario">Destinatario: {$dato.destinatario|default:''}</label>
 			<select name="destinatario" id="" class="form-control">
-				<option value="">Seleccione</option>
+				<option value="{$dato.destinatario_id}">{$dato.destinatario}</option>
 				{if isset($destinatarios) && count($destinatarios)}
 					{foreach from=$destinatarios item=dest}
 						<option value="{$dest.id}">{$dest.nombre}</option>
@@ -68,6 +68,9 @@
 			<input type="submit" value="Editar" class="btn btn-success">
 		</div>
 	</form>
+	<p>
+		<a href="{$_layoutParams.root}planes" class="btn btn-link">Volver</a>
+	</p>
 </div>
 <div class="col-md-4">
 	
