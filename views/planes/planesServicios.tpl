@@ -65,6 +65,10 @@
 	</table>
 	{else}
 		<strong>No hay planes asociados</strong>
+		<p><a href="{$_layoutParams.root}planes/planesServicios/9" class="btn btn-link">Planes Funerarios</a></p>
+		<p><a href="{$_layoutParams.root}planes/planesServicios/10" class="btn btn-link">Planes Cinerarios</a></p>
+		<p><a href="{$_layoutParams.root}planes/planesServicios/11" class="btn btn-link">Planes Sepulturas</a></p>
+		<p><a href="{$_layoutParams.root}planes/planesServicios/12" class="btn btn-link">Planes Sepultación</a></p>
 	{/if}
 </div>
 <div class="col-md-2">

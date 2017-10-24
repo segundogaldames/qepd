@@ -65,7 +65,7 @@
 		</div>
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
-			<input type="submit" value="Editar" class="btn btn-success">
+			<input type="submit" value="Guardar Cambios" class="btn btn-success">
 		</div>
 	</form>
 	<p>

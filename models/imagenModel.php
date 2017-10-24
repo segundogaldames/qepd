@@ -23,7 +23,7 @@ class imagenModel extends Model
 	public function getImagenesPlan($id){
 		$id = (int) $id;
 
-		$img = $this->_db->prepare("SELECT img.id, img.titulo, img.nombre, c.nombre as componente, p.nombre  as plan FROM imagenes as img INNER JOIN componentes as c ON img.componente_id = c.id INNER JOIN planes as p ON img.plan_id = p.id WHERE plan_id = ?");
+		$img = $this->_db->prepare("SELECT img.id, img.titulo, img.nombre, img.plan_id, c.nombre as componente, p.nombre  as plan FROM imagenes as img INNER JOIN componentes as c ON img.componente_id = c.id INNER JOIN planes as p ON img.plan_id = p.id WHERE plan_id = ?");
 		$img->bindParam(1, $id);
 		$img->execute();
 

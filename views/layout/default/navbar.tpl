@@ -61,6 +61,9 @@
                         <a href="{$_layoutParams.root}componentes">Componentes</a>     
                     </li>
                     <li style="list-style:none;" >
+                        <a href="{$_layoutParams.root}urnas">Urnas</a>     
+                    </li>
+                    <li style="list-style:none;" >
                         <a href="{$_layoutParams.root}imagenes">Imágenes</a>     
                     </li>
                     <li style="list-style:none;" >

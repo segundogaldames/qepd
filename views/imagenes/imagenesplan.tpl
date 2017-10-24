@@ -64,13 +64,14 @@
 			{/if}
 			<br><br>
 			<a href="" class="btn btn-primary">Cotizar</a>
+			<a href="{$_layoutParams.root}planes/planesServicios" class="btn btn-link">Volver</a>
 		</div>
 		
 		{else}
 			<strong>No hay imágenes asociadas</strong>
-	{/if}
 
-	
+	{/if}
+2
 </div>
 
 <div class="col-md-2">
