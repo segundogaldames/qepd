@@ -6,6 +6,22 @@ class velatorioModel extends Model
 		parent::__construct();
 	}
 
+	public function getVelatorios(){
+		$vel = $this->_db->query("SELECT v.tramites, v.asesor, v.sala, v.capilla, v.cirios, v.portacirios, v.cruces, v.florescanastos, v.florescubreurnas, v.condolencias, v.parroco, v.coro, v.avisosprensa, v.tarjetas, v.cafeteria, v.plan_id, p.nombre as plan FROM velatorios as v INNER JOIN planes as p ON v.plan_id = p.id");
+		
+		return $vel->fetchall();
+	}
+
+	public function getVelatorioId($id){
+		$id = (int) $id;
+
+		$vel = $this->_db->prepare("SELECT v.tramites, v.asesor, v.sala, v.capilla, v.cirios, v.portacirios, v.cruces, v.florescanastos, v.florescubreurnas, v.condolencias, v.parroco, v.coro, v.avisosprensa, v.tarjetas, v.cafeteria, v.plan_id, p.nombre as plan FROM velatorios as v, INNER JOIN planes as p ON v.plan_id = p.id WHERE id = ?");
+		$vel->bindParam(1, $id);
+		$vel->execute();
+
+		return $vel->fetch();
+	}
+
 	public function getVelatorioPlan($plan){
 		$plan = (int) $plan;
 

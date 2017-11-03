@@ -12,13 +12,15 @@ class velatoriosController extends Controller
 	}
 
 	public function index(){
+		$this->verificarSession();
 
+		$this->_view->assign('titulo', 'APP::Velatorios');
+		$this->_view->assign('velatorios', $this->_velatorio->getVelatorios());
+		$this->_view->renderizar('index');
 	}
 
 	public function add(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Nuevo Velatorio');
 		$this->_view->assign('planes', $this->_plan->getPlanes());
@@ -50,62 +52,8 @@ class velatoriosController extends Controller
 				exit;
 			}
 
-			if (!$this->getInt('cirio')) {
-				$this->_view->assign('_error', 'Debe ingresar un número de cirios, o cero si no aplica');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('portacirio')) {
-				$this->_view->assign('_error', 'Debe ingresar un número de portacirios, o cero si no aplica');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('cruz')) {
-				$this->_view->assign('_error', 'Debe ingresar un número de cruces, o cero si no aplica');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('canasto')) {
-				$this->_view->assign('_error', 'Debe ingresar un número de flores en canasto, o cero si no aplica');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('cubreurna')) {
-				$this->_view->assign('_error', 'Debe ingresar un número de flores cubreurna, o cero si no aplica');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('libro')) {
-				$this->_view->assign('_error', 'Debe ingresar un número de libros de condolencias, o cero si no aplica');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
 			if (!$this->getInt('parroco')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opcion de parroco');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('coro')) {
-				$this->_view->assign('_error', 'Debe ingresar un número de integrantes de coro, o cero si no aplica');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('aviso')) {
-				$this->_view->assign('_error', 'Debe ingresar un número de avisos, o cero si no aplica');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('tarjeta')) {
-				$this->_view->assign('_error', 'Debe ingresar un número de tarjetas de agradecimiento, o cero si no aplica');
 				$this->_view->renderizar('add');
 				exit;
 			}
@@ -141,18 +89,27 @@ class velatoriosController extends Controller
 				$this->getInt('plan')
 				);
 
-			if ($this->_velatorio->getVelatorioPlan($this->getInt('plan'))) {
-				$this->_view->assign('_mensaje', 'El velatorio se registro correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->_velatorio->getVelatorioPlan($this->getInt('plan'))) {
-				$this->_view->assign('_error', 'El velatorio no se registro correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
+			$this->redireccionar('velatorios');
 		}
 		$this->_view->renderizar('add');
+	}
+
+	public function view($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_view->assign('titulo','Ver Velatorio');
+		$this->_view->assign('velatorio', $this->_velatorio->getVelatorioId($this->filtrarInt($id)));
+		$this->_view->renderizar('view');
+	}
+
+	private function verificarParams($id){
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('velatorios');
+		}
+
+		if (!$this->_velatorio->getVelatorioId($this->filtrarInt($id))) {
+			$this->redireccionar('velatorios');
+		}
 	}
 }

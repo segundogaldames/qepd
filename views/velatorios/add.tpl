@@ -39,27 +39,27 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="cirio">Nº de Cirios:<span class="text-danger">*</span></label></label>
+			<label for="cirio">Nº de Cirios:</label></label>
 			<input type="number" name="cirios" class="form-control" placeholder="Número de cirios" value="{$datos.cirio|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="portacirios">Nº de Portacirios:<span class="text-danger">*</span></label></label>
+			<label for="portacirios">Nº de Portacirios:</label></label>
 			<input type="number" name="portacirios" class="form-control" placeholder="Número de portacirios" value="{$datos.portacirios|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="cruz">Nº de Cruces:<span class="text-danger">*</span></label></label>
+			<label for="cruz">Nº de Cruces:</label></label>
 			<input type="number" name="cruz" class="form-control" placeholder="Número de cruces" value="{$datos.cruz|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="canasto">Nº de Flores en canasto:<span class="text-danger">*</span></label></label>
+			<label for="canasto">Nº de Flores en canasto:</label></label>
 			<input type="number" name="canasto" class="form-control" placeholder="Número de flores en canasto" value="{$datos.canasto|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="cubreurna">Nº de Flores cubreurna:<span class="text-danger">*</span></label></label>
+			<label for="cubreurna">Nº de Flores cubreurna:</label></label>
 			<input type="number" name="cubreurna" class="form-control" placeholder="Número de flores cubreurna" value="{$datos.cubreurna|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="libro">Nº de Libros de condolencias:<span class="text-danger">*</span></label></label>
+			<label for="libro">Nº de Libros de condolencias:</label></label>
 			<input type="number" name="libro" class="form-control" placeholder="Número de libros de condolencias" value="{$datos.libro|default:""}">
 		</div>
 		<div class="form-group">
@@ -71,15 +71,15 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="coro">Coro:<span class="text-danger">*</span></label></label>
+			<label for="coro">Coro:</label></label>
 			<input type="number" name="coro" class="form-control" placeholder="Número de integrantes" value="{$datos.coro|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="aviso">Nº de Avisos de prensa:<span class="text-danger">*</span></label></label>
+			<label for="aviso">Nº de Avisos de prensa:</label></label>
 			<input type="number" name="aviso" class="form-control" placeholder="Número de avisos" value="{$datos.coro|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="tarjeta">Nº de Tarjetas de agradecimiento:<span class="text-danger">*</span></label></label>
+			<label for="tarjeta">Nº de Tarjetas de agradecimiento:</label></label>
 			<input type="number" name="tarjeta" class="form-control" placeholder="Número de tarjetas" value="{$datos.tarjeta|default:""}">
 		</div>
 		<div class="form-group">

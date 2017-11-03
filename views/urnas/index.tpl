@@ -1,6 +1,7 @@
 <div style="padding-top: 50px"></div>
 <div class="col-md-2">
 	<p class="enlace"><a href="{$_layoutParams.root}urnas/add">Agregar Urnas</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}planes">Ver Planes</a></p>
 </div>
 <div class="col-md-8">
 	{if isset($urnas) && count($urnas)}
