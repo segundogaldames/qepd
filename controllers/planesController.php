@@ -7,6 +7,7 @@ class planesController extends Controller
 	private $_servicio;
 	private $_empresa;
 	private $_destinatario;
+	private $_comuna;
 
 	public function __construct(){
 		parent::__construct();
@@ -15,6 +16,7 @@ class planesController extends Controller
 		$this->_servicio = $this->loadModel('servicios');
 		$this->_empresa = $this->loadModel('empresa');
 		$this->_destinatario = $this->loadModel('destinatario');
+		$this->_comuna = $this->loadModel('comuna');
 	}
 
 	public function index(){
@@ -29,7 +31,15 @@ class planesController extends Controller
 
 		$this->_view->assign('titulo', 'Ver Planes');
 		$this->_view->assign('planes', $this->_plan->getPlanesServicios($this->filtrarInt($id)));
+		$this->_view->assign('comunas', $this->_comuna->getComunas());
 		$this->_view->renderizar('planesServicios');
+	}
+
+	public function planesComuna($id = null){
+		$this->_view->assign('titulo', 'Ver Planes');
+		$this->_view->assign('planes', $this->_plan->getPlanesComuna($this->filtrarInt($id)));
+		$this->_view->assign('comunas', $this->_comuna->getComunas());
+		$this->_view->renderizar('planesComuna');
 	}
 
 	public function add(){

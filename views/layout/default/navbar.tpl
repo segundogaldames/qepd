@@ -64,6 +64,12 @@
                         <a href="{$_layoutParams.root}urnas">Urnas</a>     
                     </li>
                     <li style="list-style:none;" >
+                        <a href="{$_layoutParams.root}velatorios">Velatorios</a>     
+                    </li>
+                    <li style="list-style:none;" >
+                        <a href="{$_layoutParams.root}traslados">Traslados</a>     
+                    </li>
+                    <li style="list-style:none;" >
                         <a href="{$_layoutParams.root}imagenes">Imágenes</a>     
                     </li>
                     <li style="list-style:none;" >
