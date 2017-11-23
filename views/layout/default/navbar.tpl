@@ -70,6 +70,9 @@
                         <a href="{$_layoutParams.root}traslados">Traslados</a>     
                     </li>
                     <li style="list-style:none;" >
+                        <a href="{$_layoutParams.root}sepultaciones">Sepultaciones</a>     
+                    </li>
+                    <li style="list-style:none;" >
                         <a href="{$_layoutParams.root}imagenes">Imágenes</a>     
                     </li>
                     <li style="list-style:none;" >

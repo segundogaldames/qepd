@@ -8,9 +8,22 @@ class sepultacionModel extends Model
 		parent::__construct();
 	}
 
+	public function getSepultaciones(){
+		$sep = $this->_db->query("SELECT s.id, s.sala, s.capilla, s.liturgia, s.toldos, s.sillas, s.amplificacion, s.diacono, s.coro, s.cafeteria, s.plan_id, p.nombre as plan FROM sepultaciones as s INNER JOIN planes as p ON s.plan_id = p.id");
+		return $sep->fetchall();
+	}
+
 	public function getSepultacionPlan($plan){
-		$sep = $this->_db->prepare("SELECT max(id) FROM sepultaciones WHERE plan_id = ?");
+		$sep = $this->_db->prepare("SELECT id FROM sepultaciones WHERE plan_id = ?");
 		$sep->bindParam(1, $plan);
+		$sep->execute();
+
+		return $sep->fetch();
+	}
+
+	public function getSepultacionId($id){
+		$sep = $this->_db->prepare("SELECT s.id, s.sala, s.capilla, s.liturgia, s.toldos, s.sillas, s.amplificacion, s.diacono, s.coro, s.cafeteria, s.plan_id, p.nombre as plan FROM sepultaciones as s INNER JOIN planes as p ON s.plan_id = p.id WHERE s.id = ?");
+		$sep->bindParam(1, $id);
 		$sep->execute();
 
 		return $sep->fetch();

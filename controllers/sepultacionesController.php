@@ -12,7 +12,11 @@ class sepultacionesController extends Controller
 	}
 
 	public function index(){
+		$this->verificarSession();
 
+		$this->_view->assign('titulo', 'App::Sepultaciones');
+		$this->_view->assign('sepultaciones', $this->_sepultacion->getSepultaciones());
+		$this->_view->renderizar('index');
 	}
 
 	public function add(){
@@ -44,17 +48,6 @@ class sepultacionesController extends Controller
 				exit;
 			}
 
-			if (!$this->getInt('toldos')) {
-				$this->_view->assign('_error', 'Debe ingresar número de toldos. Cero si no aplica');
-				$this->_view->renderizar('add');
-				exit;
-			}
-			if (!$this->getInt('sillas')) {
-				$this->_view->assign('_error', 'Debe ingresar número de sillas. Cero si no aplica');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
 			if (!$this->getInt('amplificacion')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción en amplificación');
 				$this->_view->renderizar('add');
@@ -65,11 +58,7 @@ class sepultacionesController extends Controller
 				$this->_view->renderizar('add');
 				exit;
 			}
-			if (!$this->getInt('coro')) {
-				$this->_view->assign('_error', 'Debe ingresar número de integrantes del coro');
-				$this->_view->renderizar('add');
-				exit;
-			}
+
 			if (!$this->getInt('cafeteria')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción en cafetería');
 				$this->_view->renderizar('add');
@@ -78,6 +67,12 @@ class sepultacionesController extends Controller
 
 			if (!$this->getInt('plan')) {
 				$this->_view->assign('_error', 'Debe seleccionar un plan');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
+			if ($this->_sepultacion->getSepultacionPlan($this->getInt('plan'))) {
+				$this->_view->assign('_error', 'El plan seleccionado ya posee sepultación. Intente con otro.');
 				$this->_view->renderizar('add');
 				exit;
 			}
@@ -95,18 +90,27 @@ class sepultacionesController extends Controller
 				$this->getInt('plan')
 				);
 
-			if ($this->_sepultacion->getSepultacionPlan($this->getInt('plan'))) {
-				$this->_view->assign('_mensaje', 'El servicio de sepultación se ha registrado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->_sepultacion->getSepultacionPlan($this->getInt('plan'))) {
-				$this->_view->assign('_error', 'El servicio de sepultación no se ha registrado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
+			$this->redireccionar('sepultaciones');
 		}
 		$this->_view->renderizar('add');
+	}
+
+	public function view($id = null){
+		$this->verificarSession();
+		$this->verificarParams();
+
+		$this->_view->assign('titulo', 'Ver Sepultación');
+		$this->_view->assign('sepultacion', $this->_sepultacion->getSepultacionId($this->filtrarInt($id)));
+		$this->_view->renderizar('view');
+	}
+
+	private function verificarParams($id){
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('sepultaciones');
+		}
+
+		if (!$this->_sepultacion->getSepultacionId($this->filtrarInt($id))) {
+			$this->redireccionar('sepultaciones');
+		}
 	}
 }
