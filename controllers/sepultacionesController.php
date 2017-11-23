@@ -96,13 +96,83 @@ class sepultacionesController extends Controller
 	}
 
 	public function view($id = null){
+		//print_r($id);exit;
 		$this->verificarSession();
-		$this->verificarParams();
+		$this->verificarParams($id);
 
 		$this->_view->assign('titulo', 'Ver Sepultación');
 		$this->_view->assign('sepultacion', $this->_sepultacion->getSepultacionId($this->filtrarInt($id)));
 		$this->_view->renderizar('view');
 	}
+
+	public function edit($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_view->assign('titulo', 'Editar Sepultación');
+		$this->_view->assign('dato', $this->_sepultacion->getSepultacionId($this->filtrarInt($id)));
+		$this->_view->assign('planes', $this->_plan->getPlanes());
+
+		if ($this->getInt('enviar') == 1) {
+			if (!$this->getInt('sala')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción en sala velatorio');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
+			if (!$this->getInt('capilla')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción en capilla ecuménica');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
+			if (!$this->getInt('liturgia')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción en liturgia');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
+			if (!$this->getInt('amplificacion')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción en amplificación');
+				$this->_view->renderizar('add');
+				exit;
+			}
+			if (!$this->getInt('diacono')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción en diácono');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
+			if (!$this->getInt('cafeteria')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción en cafetería');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
+			if (!$this->getInt('plan')) {
+				$this->_view->assign('_error', 'Debe seleccionar un plan');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
+			$this->_sepultacion->editSepultacion(
+				$this->filtrarInt($id), 
+				$this->getInt('sala'), 
+				$this->getInt('capilla'), 
+				$this->getInt('liturgia'), 
+				$this->getInt('toldos'), 
+				$this->getInt('sillas'), 
+				$this->getInt('amplificacion'), 
+				$this->getInt('diacono'), 
+				$this->getInt('coro'), 
+				$this->getInt('cafeteria'), 
+				$this->getInt('plan_id')
+			);
+			$this->redireccionar('sepultaciones');
+		}
+
+		$this->_view->renderizar('edit');
+	}	
 
 	private function verificarParams($id){
 		if (!$this->filtrarInt($id)) {

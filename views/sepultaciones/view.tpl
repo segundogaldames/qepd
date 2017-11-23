@@ -4,28 +4,23 @@
 	<h3>Ver Sepultación</h3>
 	
 	{if isset($sepultacion) && count($sepultacion)}
-		<p style="font-size: 18px"><strong>Nombre:</strong> {$plan.nombre}</p>
-		<p style="font-size: 18px"><strong>Código:</strong> {$plan.codigo}</p>
-		<p style="font-size: 18px"><strong>Tipo Plan:</strong> {$plan.tipo_plan}</p>
-		<p style="font-size: 18px"><strong>Servicio:</strong> {$plan.servicio}</p>
-		<p style="font-size: 18px"><strong>Empresa:</strong> {$plan.empresa}</p>
-		<p style="font-size: 18px"><strong>Destinatario:</strong> {$plan.destinatario}</p>
-		<p style="font-size: 18px"><strong>Fecha creación:</strong> {$plan.dated|date_format:'%D'}</p>
-		<p style="font-size: 18px"><strong>Fecha modificación:</strong> {$plan.updated|date_format: '%D'}</p>
-		<p style="font-size: 18px"><strong>Status:</strong> {if $plan.status==1} Activo{else} Inactivo{/if}</p>
-
+		<p style="font-size: 18px"><strong>Sala velatorio:</strong> {if $sepultacion.sala==1}Si{else}No{/if}</p>
+		<p style="font-size: 18px"><strong>Capilla ecuménica:</strong> {if $sepultacion.capilla}Si{else}No{/if}</p>
+		<p style="font-size: 18px"><strong>Liturgia o responso:</strong> {if $sepultacion.liturgia}Si{else}No{/if}</p>
+		<p style="font-size: 18px"><strong>N° de toldos:</strong> {$sepultacion.toldos}</p>
+		<p style="font-size: 18px"><strong>N° de sillas:</strong> {$sepultacion.sillas}</p>
+		<p style="font-size: 18px"><strong>Amplificación:</strong> {if $sepultacion.amplificacion==1}Si{else}No{/if}</p>
+		<p style="font-size: 18px"><strong>Diácono:</strong> {if $sepultacion.diacono==1}Si{else}No{/if}</p>
+		<p style="font-size: 18px"><strong>Coro:</strong> {$sepultacion.coro} integrantes</p>
+		<p style="font-size: 18px"><strong>Cafetería:</strong> {if $sepultacion.cafeteria==1} Básica{elseif $sepultacion.cafeteria==2}Superior{else} No disponible{/if}</p>
+		<p style="font-size: 18px"><strong>Plan:</strong> {$sepultacion.plan}</p>
 					
 	{/if}
 	<p>
-		<a href="{$_layoutParams.root}planes/edit/{$plan.id}">Editar</a>&nbsp;&nbsp;
-		<a href="{$_layoutParams.root}planes">Volver</a>
+		<a href="{$_layoutParams.root}sepultaciones/edit/{$sepultacion.id}">Editar</a>&nbsp;&nbsp;
+		<a href="{$_layoutParams.root}sepultaciones">Volver</a>
 	</p>
 	<hr>
-	<p><a href="{$_layoutParams.root}componentes/verComponentes/{$plan.servicio_id}/{$plan.id}">Componentes Asociados</a></p>
-	{if Session::get('role_id') == 1}
-	<p><a href="{$_layoutParams.root}componentes/addComponentes/{$plan.servicio_id}">Agregar Componentes</a></p>
-	<p><a href="{$_layoutParams.root}condiciones/add/{$plan.id}">Agregar Condiciones</a></p>
-	{/if}
 </div>
 <div class="col-md-4">
 	
