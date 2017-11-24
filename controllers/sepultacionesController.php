@@ -106,6 +106,7 @@ class sepultacionesController extends Controller
 	}
 
 	public function edit($id = null){
+		//print_r($id);exit;
 		$this->verificarSession();
 		$this->verificarParams($id);
 
@@ -155,6 +156,8 @@ class sepultacionesController extends Controller
 				exit;
 			}
 
+			//print_r($this->getInt('plan'));exit;
+
 			$this->_sepultacion->editSepultacion(
 				$this->filtrarInt($id), 
 				$this->getInt('sala'), 
@@ -166,13 +169,21 @@ class sepultacionesController extends Controller
 				$this->getInt('diacono'), 
 				$this->getInt('coro'), 
 				$this->getInt('cafeteria'), 
-				$this->getInt('plan_id')
+				$this->getInt('plan')
 			);
 			$this->redireccionar('sepultaciones');
 		}
 
 		$this->_view->renderizar('edit');
 	}	
+
+	public function delete($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_sepultacion->deleteSeputacion($this->filtrarInt($id));
+		$this->redireccionar('sepultaciones');
+	}
 
 	private function verificarParams($id){
 		if (!$this->filtrarInt($id)) {

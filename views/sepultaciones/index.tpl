@@ -19,7 +19,7 @@
 							<td>{$s.plan}</td>
 							<td>
 								<a href="{$_layoutParams.root}sepultaciones/view/{$s.id}">Ver</a>&nbsp;&nbsp;
-								<a href="{$_layoutParams.root}sepultaciones/delete/{$s.id}" onclick="return eliminar('{$_layoutParams.root}sepultaciones/delete/{$s.id}', '{$p.nombre}');">Eliminar</a>
+								<a href="{$_layoutParams.root}sepultaciones/delete/{$s.id}" onclick="return eliminar('{$_layoutParams.root}sepultaciones/delete/{$s.id}', 'el servicio sepultaciones del {$s.plan}');">Eliminar</a>
 							</td>
 						</tr>
 

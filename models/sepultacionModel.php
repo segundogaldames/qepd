@@ -30,6 +30,7 @@ class sepultacionModel extends Model
 	}
 
 	public function editSepultacion($id, $sala, $capilla, $liturgia, $toldos, $sillas, $amplificacon, $diacono, $coro, $cafeteria, $plan){
+		//print_r($plan);exit;
 		$id = (int) $id;
 
 		$sep = $this->_db->prepare("UPDATE sepultaciones SET sala = ?, capilla = ?, liturgia = ?, toldos = ?, sillas = ?, amplificacion = ?, diacono = ?, coro = ?, cafeteria = ?, plan_id = ? WHERE id = ?");
@@ -59,6 +60,14 @@ class sepultacionModel extends Model
 		$sep->bindParam(8, $coro);
 		$sep->bindParam(9, $cafeteria);
 		$sep->bindParam(10, $plan);
+		$sep->execute();
+	}
+
+	public function deleteSeputacion($id){
+		$id = (int) $id;
+
+		$sep = $this->_db->prepare("DELETE FROM sepultaciones WHERE id = ?");
+		$sep->bindParam(1, $id);
 		$sep->execute();
 	}
 }
