@@ -86,7 +86,7 @@ class planesController extends Controller
 				exit;
 			}
 
-			if($this->_plan->getPlanNombre($this->getSql('nombre'), $this->getSql('codigo'))){
+			if($this->_plan->getPlanNombreCodigo($this->getSql('nombre'), $this->getSql('codigo'))){
 				$this->_view->assign('_error', 'El plan ya existe. Debes registrar otro');
 				$this->_view->renderizar('add');
 				exit;

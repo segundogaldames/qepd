@@ -26,8 +26,8 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="podium">Capilla ecuménica:<span class="text-danger">*</span></label>
-			<select name="capilla" id="" class="form-control">
+			<label for="podium">Podium:<span class="text-danger">*</span></label>
+			<select name="podium" id="" class="form-control">
 				<option value="">Seleccione</option>
 				<option value="1">Si</option>
 				<option value="2">No</option>
@@ -40,14 +40,6 @@
 				<option value="1">Si</option>
 				<option value="2">No</option>
 			</select>
-		</div>
-		<div class="form-group">
-			<label for="toldos">Número de toldos:</label>
-			<input type="number" name="toldos" class="form-control" placeholder="Numero de toldos" value="{$datos.toldo|default:""}">
-		</div>
-		<div class="form-group">
-			<label for="sillas">Número de sillas:</label>
-			<input type="number" name="sillas" class="form-control" placeholder="Numero de sillas" value="{$datos.sillas|default:""}">
 		</div>
 		<div class="form-group">
 			<label for="amplificacion">Amplificación:<span class="text-danger">*</span></label>
@@ -75,6 +67,23 @@
 				<option value="">Seleccione</option>
 				<option value="1">Básica</option>
 				<option value="2">Superior</option>
+				<option value="2">No considera</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="cafeteria">Ceremonia:<span class="text-danger">*</span></label>
+			<select name="ceremonia" id="" class="form-control">
+				<option value="">Seleccione</option>
+				<option value="1">Si</option>
+				<option value="2">No</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="cafeteria">Incluye ánfora?:<span class="text-danger">*</span></label>
+			<select name="anforaincl" id="" class="form-control">
+				<option value="">Seleccione</option>
+				<option value="1">Si</option>
+				<option value="2">No</option>
 			</select>
 		</div>
 		<div class="form-group">
