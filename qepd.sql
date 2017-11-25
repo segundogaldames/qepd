@@ -57,7 +57,7 @@ CREATE TABLE `cinerarios` (
   `liturgia` tinyint(1) NOT NULL,
   `amplificacion` tinyint(1) NOT NULL,
   `diacono` tinyint(1) NOT NULL,
-  `coro` int(11) NOT NULL,
+  `coro` int(11) DEFAULT NULL,
   `cafeteria` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `ceremonia` tinyint(1) NOT NULL,
   `anforaincl` tinyint(1) NOT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE `componentes` (
 
 LOCK TABLES `componentes` WRITE;
 /*!40000 ALTER TABLE `componentes` DISABLE KEYS */;
-INSERT INTO `componentes` VALUES (1,'Urna',9,'urnas/add','urnas/view/'),(2,'Velatorio',9,'velatorios/add','velatorios/view/'),(3,'Traslado',9,'traslados/add','traslados/view/'),(4,'Creamatorio',10,'cinerarios/add','cinerarios/view/'),(5,'Anfora',10,'anforas/add','anforas/view/'),(6,'Sepultacion',11,'sepultaciones/add','sepultaciones/view/'),(7,'Capacidad',12,'capacidades/add','capacidades/view/'),(8,'Construccion',12,'construcciones/add','construcciones/view/'),(9,'Ubicacion',12,'ubicaciones/add','ubicaciones/view/'),(10,'Mantencion',12,'mantenciones/add','mantenciones/view/');
+INSERT INTO `componentes` VALUES (1,'Urna',9,'urnas/add','urnas/view/'),(2,'Velatorio',9,'velatorios/add','velatorios/view/'),(3,'Traslado',9,'traslados/add','traslados/view/'),(4,'Crematorio',10,'crematorio/add','crematorio/view/'),(5,'Anfora',10,'anforas/add','anforas/view/'),(6,'Sepultacion',11,'sepultaciones/add','sepultaciones/view/'),(7,'Capacidad',12,'capacidades/add','capacidades/view/'),(8,'Construccion',12,'construcciones/add','construcciones/view/'),(9,'Ubicacion',12,'ubicaciones/add','ubicaciones/view/'),(10,'Mantencion',12,'mantenciones/add','mantenciones/view/');
 /*!40000 ALTER TABLE `componentes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -396,7 +396,7 @@ CREATE TABLE `planes` (
   `dated` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -405,7 +405,7 @@ CREATE TABLE `planes` (
 
 LOCK TABLES `planes` WRITE;
 /*!40000 ALTER TABLE `planes` DISABLE KEYS */;
-INSERT INTO `planes` VALUES (1,'Plan estrellas','P0001',1,9,6,3,2,'2017-10-24 12:37:42','2017-11-16 15:20:55'),(2,'Plan  Superior','P0002',3,9,6,3,1,'2017-10-24 14:58:55','2017-10-24 15:37:40');
+INSERT INTO `planes` VALUES (1,'Plan estrellas','P0001',1,9,6,3,2,'2017-10-24 12:37:42','2017-11-16 15:20:55'),(2,'Plan  Superior','P0002',3,9,6,3,1,'2017-10-24 14:58:55','2017-10-24 15:37:40'),(3,'Plan de Sepulturas','P004',1,11,10,3,2,'2017-11-20 17:08:10','2017-11-20 17:08:10'),(4,'Plan Cinerario','P005',1,10,8,3,2,'2017-11-24 18:06:40','2017-11-24 18:06:40'),(5,'Plan Cinerario 2','P005',2,10,5,3,2,'2017-11-24 18:07:08','2017-11-24 18:07:08');
 /*!40000 ALTER TABLE `planes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -499,15 +499,15 @@ CREATE TABLE `sepultaciones` (
   `sala` tinyint(1) NOT NULL,
   `capilla` tinyint(1) NOT NULL,
   `liturgia` tinyint(1) NOT NULL,
-  `toldos` int(11) NOT NULL,
-  `sillas` int(11) NOT NULL,
+  `toldos` int(11) DEFAULT NULL,
+  `sillas` int(11) DEFAULT NULL,
   `amplificacion` tinyint(1) NOT NULL,
   `diacono` tinyint(1) NOT NULL,
-  `coro` int(11) NOT NULL,
+  `coro` int(11) DEFAULT NULL,
   `cafeteria` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `plan_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -516,6 +516,7 @@ CREATE TABLE `sepultaciones` (
 
 LOCK TABLES `sepultaciones` WRITE;
 /*!40000 ALTER TABLE `sepultaciones` DISABLE KEYS */;
+INSERT INTO `sepultaciones` VALUES (2,1,1,2,1,50,2,1,0,'1',3);
 /*!40000 ALTER TABLE `sepultaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -801,7 +802,7 @@ CREATE TABLE `traslados` (
   `pasajeros` int(11) NOT NULL,
   `plan_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -948,4 +949,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-17 16:25:29
+-- Dump completed on 2017-11-25  0:09:14
