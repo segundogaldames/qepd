@@ -15,7 +15,7 @@
 						<td>{$r.nombre}</td>
 						<td>
 							<a href="{$_layoutParams.root}roles/view/{$r.id}">Ver</a>&nbsp;&nbsp;
-							<a href="">Eliminar</a>
+							<a href="{$_layoutParams.root}roles/delete/{$r.id}" onclick="return eliminar('{$_layoutParams.root}roles/delete/{$r.id}', '{$r.nombre}')">Eliminar</a>
 						</td>
 					</tr>
 

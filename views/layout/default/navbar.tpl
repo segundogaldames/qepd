@@ -105,7 +105,7 @@
             </li>
         {else}
           <li>
-            <a href="{$_layoutParams.root}usuario">Iniciar Sesión</a>
+            <a href="{$_layoutParams.root}usuario/login">Iniciar Sesión</a>
           </li>
           
           <li>

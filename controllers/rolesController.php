@@ -10,20 +10,18 @@ class rolesController extends Controller
 	}
 
 	public function index(){
-		if(!Session::get('autenticado')):
-			$this->redireccionar();
-		endif;
+		$this->verificarSession();
+		$this->verificarRol();
 
-		$this->_view->assign('titulo', 'Roles');
+		$this->_view->assign('titulo', 'APP::Roles');
 		$this->_view->assign('roles', $this->_role->getRoles());
 
 		$this->_view->renderizar('index');
 	}
 
 	public function add(){
-		if(!Session::get('autenticado')):
-			$this->redireccionar();
-		endif;
+		$this->verificarSession();
+		$this->verificarRol();
 
 		$this->_view->assign('titulo', 'Crear Roles');
 
@@ -48,54 +46,28 @@ class rolesController extends Controller
 				$this->getAlphaNum('nombre')
 				);
 
-				$row = $this->_role->getRolesNombre($this->getAlphaNum('nombre'));
-				if ($row) {
-					$this->_view->assign('_mensaje', 'El role se ha registrado correctamente');
-					$this->_view->renderizar('index');
-					exit;
-				}else{
-					$this->_view->assign('_error', 'El role no se ha registrado');
-					$this->_view->renderizar('add');
-				}			
+			$this->redireccionar('roles');		
 		}
 
 		$this->_view->renderizar('add');
 	}
 
-	public function view($id){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();			
-		}
-		$this->_view->assign('titulo', 'Ver Role');
-		
+	public function view($id = null){
+		$this->verificarSession();
+		$this->verificarRol();
+		$this->verificarParams($id);
 
-		if (!$this->filtrarInt($id)) {
-				$this->redireccionar('roles');
-			}
-
-		if (!$this->_role->getRolesId($this->filtrarInt($id))) {
-			$this->redireccionar('roles');
-		}
-		
+		$this->_view->assign('titulo', 'Ver Role');		
 		$this->_view->assign('role', $this->_role->getRolesId($this->filtrarInt($id)));
 		$this->_view->renderizar('view');		
 	}
 
-	public function edit($id){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();			
-		}
+	public function edit($id = null){
+		$this->verificarSession();
+		$this->verificarRol();
+		$this->verificarParams($id);
 
 		$this->_view->assign('titulo', 'Editar Role');
-		
-
-		if (!$this->filtrarInt($id)) {
-				$this->redireccionar('roles');
-			}
-
-		if (!$this->_role->getRolesId($this->filtrarInt($id))) {
-			$this->redireccionar('roles');
-		}
 
 		if ($this->getInt('enviar') == 1) {
 			$this->_view->assign('datos', $_POST);
@@ -116,5 +88,30 @@ class rolesController extends Controller
 
 		$this->_view->assign('dato', $this->_role->getRolesId($this->filtrarInt($id)));
 		$this->_view->renderizar('edit');
+	}
+
+	public function delete($id = null){
+		$this->verificarSession();
+		$this->verificarRol();
+		$this->verificarParams($id);
+
+		$this->_role->deleteRole($this->filtrarInt($id));
+		$this->redireccionar('roles');
+	}
+
+	private function verificarParams($id){
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('roles');
+		}
+
+		if (!$this->_role->getRolesId($this->filtrarInt($id))) {
+			$this->redireccionar('roles');
+		}
+	}
+
+	private function verificarRol(){
+		if (Session::get('role_id')!=1) {
+			$this->redireccionar();
+		}
 	}	
 }

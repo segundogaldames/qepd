@@ -7,7 +7,7 @@ class roleModel extends Model
 	}
 
 	public function getRoles(){
-		$rol = $this->_db->query("SELECT id, nombre FROM roles");
+		$rol = $this->_db->query("SELECT id, nombre FROM roles ORDER BY nombre");
 		return $rol->fetchall();
 	}
 
@@ -33,6 +33,14 @@ class roleModel extends Model
 		//print_r($nombre);exit;
 		$rol = $this->_db->prepare("UPDATE roles SET nombre = ? WHERE id = $id");
 		$rol->bindParam(1, $nombre);
+		$rol->execute();
+	}
+
+	public function deleteRole($id){
+		$id = (int) $id;
+
+		$rol = $this->_db->prepare("DELETE FROM roles WHERE id = ?");
+		$rol->bindParam(1, $id);
 		$rol->execute();
 	}
 }
