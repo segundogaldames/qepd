@@ -88,6 +88,17 @@ class urnasController extends Controller
 		$this->_view->renderizar('view');
 	}
 
+	public function urnaPlan($plan = null){
+		$this->verificarSession();
+		if (!$this->_urna->getUrnaPlan($this->filtrarInt($plan))) {
+			$this->redireccionar('planes');
+		}
+
+		$this->_view->assign('titulo', 'Ver Urna Por Plan');
+		$this->_view->assign('urna', $this->_urna->getUrnaPlan($this->filtrarInt($plan)));
+		$this->_view->renderizar('urnaPlan');
+	}
+
 	public function edit($id = null){
 		$this->verificarSession();
 		$this->verificarParams($id);

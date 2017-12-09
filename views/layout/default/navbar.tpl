@@ -1,4 +1,4 @@
-<nav class="navbar-inverse navbar-fixed-top">
+<nav class="navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -24,23 +24,11 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrar<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}/empresas">Empresas</a>
+                      <a href="{$_layoutParams.root}empresas">Empresas</a>
                     </li>
-                    <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}/tipoempresas">Tipo Empresas</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}sedes">Sedes</a>
-                    </li> 
-                    <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}telefonos">Telefonos</a> 
-                      </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}/comunas">Comunas</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}/regiones">Regiones</a>
+                      <a href="{$_layoutParams.root}comunas">Comunas</a>
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
@@ -49,9 +37,6 @@
                     <li style="list-style:none;" >
                       <a href="{$_layoutParams.root}planes">Planes</a>  
                     </li> 
-                    <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}/tipoplanes">Tipo de Planes</a>
-                    </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
                       <a href="{$_layoutParams.root}/destinatarios">Destinatarios</a>
@@ -61,34 +46,8 @@
                         <a href="{$_layoutParams.root}componentes">Componentes</a>     
                     </li>
                     <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}urnas">Urnas</a>     
-                    </li>
-                    <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}velatorios">Velatorios</a>     
-                    </li>
-                    <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}traslados">Traslados</a>     
-                    </li>
-                    <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}cinerarios">Cinerarios</a>     
-                    </li>
-                    <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}sepultaciones">Sepultaciones</a>     
-                    </li>
-                    <li style="list-style:none;" >
                         <a href="{$_layoutParams.root}imagenes">Imágenes</a>     
-                    </li>
-                    <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}construcciones">Construcciones</a>     
-                    </li>
-                    <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}tipoconstrucciones">Tipo Construcciones</a>     
-                    </li>
-                    <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}materiales">Materiales</a>     
-                    </li>
-                    <li style="list-style:none;" >
-                        <a href="{$_layoutParams.root}terminaciones">Terminaciones</a>     
+                    </li>   
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >

@@ -1,6 +1,7 @@
 <div style="padding-top: 50px"></div>
 <div class="col-md-2">
 	<p class="enlace"><a href="{$_layoutParams.root}comunas/add" class="btn btn-enlace">Agregar Comuna</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}regiones" class="btn btn-enlace">Regiones</a></p>
 </div>
 <div class="col-md-8">
 	<h3>Lista de Comunas</h3>

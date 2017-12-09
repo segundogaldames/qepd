@@ -6,6 +6,7 @@
       <link rel="stylesheet" type="text/css" href="{$_layoutParams.ruta_css}bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="{$_layoutParams.ruta_css}stylish-portfolio.css">
       <link rel="stylesheet" type="text/css" href="{$_layoutParams.ruta_css}fileinput.min.css">
+      <link rel="stylesheet" type="text/css" href="{$_layoutParams.ruta_css}resets.css">
       <link rel="stylesheet" type="text/css" href="{$_layoutParams.ruta_css}estilos.css">
       <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
       <script type="text/javascript" src="{$_layoutParams.ruta_js}jquery-1.11.3.js"></script>

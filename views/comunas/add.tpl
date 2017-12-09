@@ -25,6 +25,7 @@
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Registrar" class="btn btn-success">
+			<a href="{$_layoutParams.root}comunas" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

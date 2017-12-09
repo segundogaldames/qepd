@@ -4,11 +4,13 @@ class serviciosController extends Controller
 {
 	private $_tipoempresa;
 	private $_servicios;
+	private $_plan;
 
 	public function __construct(){
 		parent::__construct();
 		$this->_tipoempresa = $this->loadModel('tipoempresa');
 		$this->_servicios = $this->loadModel('servicios');
+		$this->_plan = $this->loadModel('planes');
 	}
 
 	public function index(){
@@ -56,6 +58,7 @@ class serviciosController extends Controller
 
 		$this->_view->assign('titulo', 'Ver Servicio');
 		$this->_view->assign('servicio', $this->_servicios->getServicioId($id));
+		$this->_view->assign('planes', $this->_plan->getPlanesServicios($this->filtrarInt($id)));
 		$this->_view->renderizar('view');
 
 	}

@@ -1,14 +1,12 @@
-<div style="padding-top: 50px"></div>
-<div class="col-md-2" style="padding-left: 30px">
-	<div style="padding-top: 50px"></div>
+<div class="col-md-2" style="padding-left: 20px">
 	<h4>Buscar por comunas o ciudades</h4>
-	<ul class="list-unstyled">
-		{if isset($comunas) && count($comunas)}
-			{foreach from=$comunas item=c}
-				<li><a href="{$_layoutParams.root}planes/planesComuna/{$c.id}">{$c.comuna}</a></li>
-			{/foreach}
+	{if isset($comunas) && count($comunas)}
+		{foreach from=$comunas item=c}
+			<p class="enlace">
+				<a href="{$_layoutParams.root}planes/planesComuna/{$c.id}">{$c.comuna}</a>
+			</p>
+		{/foreach}
 		{/if}
-	</ul>
 </div>
 <div class="col-md-8">
 	<h3>Ver Planes</h3>

@@ -1,4 +1,3 @@
-<div style="padding-top: 50px"></div>
 <div class="col-md-2"></div>
 <div class="col-md-4">
 	<h3>Editar Empresa</h3>
@@ -41,7 +40,7 @@
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Guardar Cambios" class="btn btn-success">&nbsp;&nbsp;
-			<a href="{$_layoutParams.root}empresas">Volver</a>
+			<a href="{$_layoutParams.root}empresas" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

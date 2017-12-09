@@ -1,8 +1,5 @@
-<div style="padding-top: 50px"></div>
 <div class="col-md-2">
-	<p class="enlace"><a href="{$_layoutParams.root}empresas">Ver Empresas</a></p>
 </div>
-
 <div class="col-md-4">
 	<h3>Agregar Empresa</h3>
 	<p class="text-success">Ingrese los datos en el formulario...</p>
@@ -45,6 +42,7 @@
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Registrar" class="btn btn-success">
+			<a href="{$_layoutParams.root}empresas" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

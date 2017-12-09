@@ -2,6 +2,7 @@
 <div class="col-md-2">
 	<p class="enlace"><a href="{$_layoutParams.root}sedes/add">Agregar Sede</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}telefonos/add">Agregar Teléfono</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}empresas">Ver Empresas</a></p>
 </div>
 <div class="col-md-8">
 {if isset($sedes) && count($sedes)}

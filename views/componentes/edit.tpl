@@ -15,7 +15,7 @@
 		<div class="form-group">
 			<label for="servicio">Seleccione un servicio</label>
 			<select name="servicio" id="" class="form-control">
-				<option value="">Servicios</option>
+				<option value="{$dato.servicio_id}">{$dato.servicio}</option>
 				{if isset($servicios) && count($servicios)}
 					{foreach from=$servicios item=s}
 						<option value="{$s.id}">{$s.nombre}</option>
@@ -24,16 +24,24 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="url">Ingrese la url:</label>
-			<input type="text" name="url" value="{$dato.url|default:""}" class="form-control" placeholder="Url del componente del tipo controlador/metodo">
+			<label for="url">Ingrese la url add:</label>
+			<input type="text" name="url_add" value="{$dato.url_add|default:""}" class="form-control" placeholder="Url para agregar componente">
 		</div>
 		<div class="form-group">
 			<label for="url">Ingrese la url de la vista:</label>
-			<input type="text" name="url_view" value="{$dato.url_view|default:""}" class="form-control" placeholder="Url de la vista del componente del tipo controlador/metodo/id">
+			<input type="text" name="url_view" value="{$dato.url_view|default:""}" class="form-control" placeholder="Url de la vista del componente">
+		</div>
+		<div class="form-group">
+			<label for="url">Ingrese la url del index:</label>
+			<input type="text" name="url_index" value="{$dato.url_index|default:""}" class="form-control" placeholder="Url de la vista index del componente">
+		</div>
+		<div class="form-group">
+			<label for="url">Ingrese la url del plan:</label>
+			<input type="text" name="url_plan" value="{$dato.url_plan|default:""}" class="form-control" placeholder="Url de la vista plan del componente">
 		</div>
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
-			<input type="submit" value="Registrar" class="btn btn-success">
+			<input type="submit" value="Modificar" class="btn btn-success">
 		</div>
 	</form>
 </div>

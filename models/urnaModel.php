@@ -21,6 +21,16 @@ class urnaModel extends Model
 		return $urna->fetch();
 	}
 
+	public function getUrnaPlan($plan){
+		$plan = (int) $plan;
+
+		$urna = $this->_db->prepare("SELECT u.id, u.modelo, u.medidas, u.material, u.terminaciones, u.color, u.plan_id, u.componente_id, p.nombre as plan FROM urnas as u INNER JOIN planes as p ON u.plan_id = p.id  WHERE u.plan_id = ?");
+		$urna->bindParam(1, $plan);
+		$urna->execute();
+
+		return $urna->fetch();
+	}
+
 	public function getUrnaModelo($modelo){
 		$urna = $this->_db->prepare("SELECT id FROM urnas WHERE modelo = ?");
 		$urna->bindParam(1, $modelo);

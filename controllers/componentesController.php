@@ -12,9 +12,7 @@ class componentesController extends Controller
 	}
 
 	public function index(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Componentes');
 		$this->_view->assign('componentes', $this->_componente->getComponentes());
@@ -44,7 +42,7 @@ class componentesController extends Controller
 				exit;
 			}
 
-			if (!$this->getSql('url')) {
+			if (!$this->getSql('url_add')) {
 				$this->_view->assign('_error', 'Debe ingresar la url');
 				$this->_view->renderizar('add');
 				exit;
@@ -52,6 +50,18 @@ class componentesController extends Controller
 
 			if (!$this->getSql('url_view')) {
 				$this->_view->assign('_error', 'Debe ingresar la url de la vista');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
+			if (!$this->getSql('url_index')) {
+				$this->_view->assign('_error', 'Debe ingresar la url del index');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
+			if (!$this->getSql('url_plan')) {
+				$this->_view->assign('_error', 'Debe ingresar la url del plan');
 				$this->_view->renderizar('add');
 				exit;
 			}
@@ -65,42 +75,27 @@ class componentesController extends Controller
 			$this->_componente->addComponentes(
 				$this->getSql('nombre'), 
 				$this->getInt('servicio'), 
-				$this->getSql('url')
+				$this->getSql('url_add'),
+				$this->getSql('url_view'),
+				$this->getSql('url_index'),
+				$this->getSql('url_plan')
 				);
 
-			if ($this->_componente->getComponenteNombre($this->getSql('nombre'))) {
-				$this->_view->assign('_mensaje', 'El componente fue registrado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->_componente->getComponenteNombre($this->getSql('nombre'))) {
-				$this->_view->assign('_error', 'El componente no fue registrado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
+			$this->redireccionar('componentes');
 		}
 		$this->_view->renderizar('add');
 	}
 
 	public function edit($id = null){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
-
-		if (!$this->filtrarInt($id)) {
-			$this->redireccionar('componentes');
-		}
-
-		if (!$this->_componente->getComponenteId($this->filtrarInt($id))) {
-			$this->redireccionar('componentes');
-		}
+		//print_r($id);exit;
+		$this->verificarSession();
+		$this->verificarParams($id);
 
 		$this->_view->assign('titulo', 'Editar Componente');
 		$this->_view->assign('servicios', $this->_servicio->getServiciosTipoEmpresa());
+		$this->_view->assign('dato', $this->_componente->getComponenteId($this->filtrarInt($id)));
 
 		if ($this->getInt('enviar') == 1) {
-			$this->_view->assign('dato', $_POST);
 
 			if (!$this->getSql('nombre')) {
 				$this->_view->assign('_error', 'Debe ingresar el nombre');
@@ -114,7 +109,7 @@ class componentesController extends Controller
 				exit;
 			}
 
-			if (!$this->getSql('url')) {
+			if (!$this->getSql('url_add')) {
 				$this->_view->assign('_error', 'Debe ingresar la url add');
 				$this->_view->renderizar('edit');
 				exit;
@@ -126,27 +121,31 @@ class componentesController extends Controller
 				exit;
 			}
 
+			if (!$this->getSql('url_index')) {
+				$this->_view->assign('_error', 'Debe ingresar la url del index');
+				$this->_view->renderizar('edit');
+				exit;
+			}
+
+			if (!$this->getSql('url_plan')) {
+				$this->_view->assign('_error', 'Debe ingresar la url del plan');
+				$this->_view->renderizar('edit');
+				exit;
+			}
+
 			$this->_componente->editComponente(
 				$this->filtrarInt($id), 
 				$this->getSql('nombre'), 
 				$this->getInt('servicio'), 
-				$this->getSql('url'),
-				$this->getSql('url_view')
+				$this->getSql('url_add'),
+				$this->getSql('url_view'),
+				$this->getSql('url_index'),
+				$this->getSql('url_plan')
 				);
 
-			if ($this->_componente->getComponenteNombre($this->getSql('nombre'))) {
-				$this->_view->assign('_mensaje', 'El componente fue modificado correctamente');
-				$this->_view->renderizar('edit');
-				exit;
-			}
-
-			if (!$this->_componente->getComponenteNombre($this->getSql('nombre'))) {
-				$this->_view->assign('_error', 'El componente no fue modificado correctamente');
-				$this->_view->renderizar('edit');
-				exit;
-			}
+			$this->redireccionar('componentes');
 		}
-		$this->_view->assign('dato', $this->_componente->getComponenteId($this->filtrarInt($id)));
+	
 		$this->_view->renderizar('edit');
 	}
 
@@ -183,6 +182,16 @@ class componentesController extends Controller
 		$this->_view->assign('componentesServicios', $this->_componente->getComponentesServicios($this->filtrarInt($id)));
 		$this->_view->assign('plan', $this->filtrarInt($plan));
 
-		$this->_view->renderizar(verComponentes);
+		$this->_view->renderizar('verComponentes');
+	}
+
+	private function verificarParams($id){
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('componentes');
+		}
+
+		if (!$this->_componente->getComponenteId($this->filtrarInt($id))) {
+			$this->redireccionar('componentes');
+		}
 	}
 }

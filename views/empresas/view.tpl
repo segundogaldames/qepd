@@ -1,6 +1,6 @@
 <div class="col-md-2"></div>
 <div class="col-md-4">
-	<div style="padding-top: 50px"></div>
+	
 	<h3>Ver Empresa</h3>
 	
 	{if isset($empresa) && count($empresa)}
@@ -15,6 +15,7 @@
 		<a href="{$_layoutParams.root}empresas">Volver</a>
 	</p>
 	<hr>
+	{if isset($sede) && count($sede)}
 	<h4>Sedes</h4>
 		<table class="table table-hover">
 			<tr>
@@ -22,7 +23,7 @@
 				<th>Calle Nº</th>
 				<th>Ciudad/Comuna</th>
 			</tr>
-			{if isset($sede) && count($sede)}
+			
 				{foreach from=$sede item=s}
 					<tr>
 						<td><a href="{$_layoutParams.root}sedes/view/{$s.id}">{$s.sede}</a></td>
@@ -31,8 +32,12 @@
 					</tr>
 
 				{/foreach}
-			{/if}
+			
 		</table>
+	{else}
+		<strong>No hay sedes asociadas</strong>
+		<p><a href="{$_layoutParams.root}sedes/add">Agregar sede</a></p>
+	{/if}
 </div>
 <div class="col-md-4">
 	

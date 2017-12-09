@@ -10,9 +10,7 @@ class tipoempresasController extends Controller
 	}
 
 	public function index(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Tipos de Empresa');
 		$this->_view->assign('tipos', $this->_tipo_empresa->getTipoEmpresas());
@@ -20,9 +18,7 @@ class tipoempresasController extends Controller
 	}
 
 	public function add(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Nuevo Tipo Empresa');
 		
@@ -54,17 +50,8 @@ class tipoempresasController extends Controller
 	}
 
 	public function view($id = null){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
-
-		if (!$this->filtrarInt($id)) {
-			$this->redireccionar('tipoempresas');
-		}
-
-		if (!$this->_tipo_empresa->getTipoEmpresaId($this->filtrarInt($id))) {
-			$this->redireccionar('tipoempresas');
-		}
+		$this->verificarSession();
+		$this->verificarParams($id);
 
 		$this->_view->assign('titulo', 'Ver Tipo Empresa');
 		$this->_view->assign('tipo', $this->_tipo_empresa->getTipoEmpresaId($this->filtrarInt($id)));
@@ -72,17 +59,8 @@ class tipoempresasController extends Controller
 	}
 
 	public function edit($id = null){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
-
-		if (!$this->filtrarInt($id)) {
-			$this->redireccionar('tipoempresas');
-		}
-
-		if (!$this->_tipo_empresa->getTipoEmpresaId($this->filtrarInt($id))) {
-			$this->redireccionar('tipoempresas');
-		}
+		$this->verificarSession();
+		$this->verificarParams($id);
 
 		$this->_view->assign('titulo', 'Editar Tipo Empresa');
 		$this->_view->assign('dato', $this->_tipo_empresa->getTipoEmpresaId($this->filtrarInt($id)));
@@ -108,10 +86,14 @@ class tipoempresasController extends Controller
 	}
 
 	public function delete($id = null){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
+		$this->verificarParams($id);
 
+		$this->_tipo_empresa->deleteTipoEmpresa($this->filtrarInt($id));
+		$this->redireccionar('tipoempresas');
+	}
+
+	private function verificarParams($id){
 		if (!$this->filtrarInt($id)) {
 			$this->redireccionar('tipoempresas');
 		}
@@ -119,8 +101,5 @@ class tipoempresasController extends Controller
 		if (!$this->_tipo_empresa->getTipoEmpresaId($this->filtrarInt($id))) {
 			$this->redireccionar('tipoempresas');
 		}
-
-		$this->_tipo_empresa->deleteTipoEmpresa($this->filtrarInt($id));
-		$this->redireccionar('tipoempresas');
 	}
 }

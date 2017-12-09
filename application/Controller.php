@@ -30,6 +30,10 @@ abstract class Controller
 		if (!Session::get('autenticado')) {
 			$this->redireccionar();
 		}
+
+		if (Session::get('role_id') != 1) {
+			$this->redireccionar();
+		}
 	}
 
 	protected function getLibrary($libreria)

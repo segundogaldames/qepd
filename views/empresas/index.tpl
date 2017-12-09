@@ -1,7 +1,9 @@
-<div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="{$_layoutParams.root}empresas/add">Agregar Empresa</a></p>
-	<p class="enlace"><a href="{$_layoutParams.root}sedes/add">Agregar Sede</a></p>
+	<hr>
+	<p class="enlace"><a href="{$_layoutParams.root}tipoempresas/">Tipo Empresas</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}sedes/">Sedes</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}telefonos/">Teléfonos</a></p>
 </div>
 <div class="col-md-8">
 	<h3>Lista de Empresas</h3>

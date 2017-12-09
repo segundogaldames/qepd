@@ -24,12 +24,20 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="url">Ingrese la url:</label>
-			<input type="text" name="url" value="{$datos.url|default:""}" class="form-control" placeholder="Url del componente del tipo controlador/metodo">
+			<label for="url">Ingrese la url_add:</label>
+			<input type="text" name="url" value="{$datos.url_add|default:""}" class="form-control" placeholder="Url para añadir un componente">
 		</div>
 		<div class="form-group">
 			<label for="url">Ingrese la url de vista:</label>
-			<input type="text" name="url_view" value="{$datos.url_view|default:""}" class="form-control" placeholder="Url vista del componente del tipo controlador/metodo">
+			<input type="text" name="url_view" value="{$datos.url_view|default:""}" class="form-control" placeholder="Url vista del componente">
+		</div>
+		<div class="form-group">
+			<label for="url">Ingrese la url index:</label>
+			<input type="text" name="url_index" value="{$datos.url_index|default:""}" class="form-control" placeholder="Url vista index del componente">
+		</div>
+		<div class="form-group">
+			<label for="url">Ingrese la url plan:</label>
+			<input type="text" name="url_index" value="{$datos.url_plan|default:""}" class="form-control" placeholder="Url vista plan del componente">
 		</div>
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">

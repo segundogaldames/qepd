@@ -8,7 +8,7 @@
 	<h3>Componentes Por Servicios</h3>
 	{if isset($componentesServicios) && count($componentesServicios)}
 		{foreach from=$componentesServicios item=cs}
-		<p><a href="{$_layoutParams.root}{$cs.url_view}{$plan}">{$cs.nombre}</a></p>
+		<p><a href="{$_layoutParams.root}{$cs.url_plan}{$plan}">{$cs.nombre}</a></p>
 		{/foreach}
 	{/if}
 </div>

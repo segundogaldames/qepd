@@ -1,6 +1,7 @@
-<div style="padding-top: 50px"></div>
+<div style="padding-top: 70px"></div>
 <div class="col-md-2">
 	<p class="enlace"><a href="{$_layoutParams.root}tipoempresas/add">Agregar Tipo Empresa</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}empresas">Ver Empresas</a></p>
 </div>
 <div class="col-md-8">
 	<h3>Lista Tipo Empresas</h3>

@@ -8,6 +8,7 @@ class planesController extends Controller
 	private $_empresa;
 	private $_destinatario;
 	private $_comuna;
+	private $_componente;
 
 	public function __construct(){
 		parent::__construct();
@@ -17,6 +18,7 @@ class planesController extends Controller
 		$this->_empresa = $this->loadModel('empresa');
 		$this->_destinatario = $this->loadModel('destinatario');
 		$this->_comuna = $this->loadModel('comuna');
+		$this->_componente = $this->loadModel('componente');
 	}
 
 	public function index(){

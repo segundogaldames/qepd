@@ -171,6 +171,4 @@ class sedesController extends Controller
 			$this->redireccionar('sedes');
 		}
 	}
-
-	
 }

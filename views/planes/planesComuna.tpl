@@ -1,6 +1,4 @@
-<div style="padding-top: 50px"></div>
-<div class="col-md-2" style="padding-left: 30px">
-	<div style="padding-top: 50px"></div>
+<div class="col-md-2" style="padding-left: 20px">
 	<h4>Buscar por comunas o ciudades</h4>
 	<ul class="list-unstyled">
 		{if isset($comunas) && count($comunas)}
