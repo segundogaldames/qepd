@@ -95,6 +95,18 @@ class trasladosController extends Controller
 		$this->_view->renderizar('view');
 	}
 
+	public function trasladoPlan($plan = null){
+		$this->verificarSession();
+
+		if (!$this->_traslado->getTrasladoPlan($this->filtrarInt($plan))) {
+			$this->redireccionar('planes');
+		}
+
+		$this->_view->assign('titulo', 'Traslado Plan');
+		$this->_view->assign('traslado', $this->_traslado->getTrasladoPlan($this->filtrarInt($plan)));
+		$this->_view->renderizar('trasladoPlan');
+	}
+
 	public function edit($id = null){
 		$this->verificarSession();
 		$this->verificarParams($id);

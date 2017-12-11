@@ -1,6 +1,8 @@
-<div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="{$_layoutParams.root}cinerarios/add">Agregar Cinerarios</a></p>
+	<hr>
+	<p class="enlace"><a href="{$_layoutParams.root}componentes">Componentes</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}planes">Planes</a></p>
 </div>
 <div class="col-md-8">
 	{if isset($cinerarios) && count($cinerarios)}
@@ -17,7 +19,7 @@
 					<tr>
 						<td>{$c.plan}</td>
 						<td>
-							<a href="{$_layoutParams.root}cinerarios/edit/{$c.id}">Editar</a>&nbsp;&nbsp;
+							<a href="{$_layoutParams.root}cinerarios/view/{$c.id}">Ver</a>&nbsp;&nbsp;
 							<a href="{$_layoutParams.root}cinerarios/delete/{$c.id}" onclick="return eliminar('{$_layoutParams.root}cinerarios/delete/{$c.id}', 'el cinerio del {$c.plan}')">Eliminar</a>
 						</td>
 					</tr>

@@ -11,21 +11,21 @@ class trasladoModel extends Model
 		return $tras->fetchall();
 	}
 
-	public function getTrasladoPlan($plan){
-		$plan = (int) $plan;
-
-		$tras = $this->_db->prepare("SELECT id FROM traslados WHERE plan_id = ?");
-		$tras->bindParam(1, $plan);
-		$tras->execute();
-
-		return $tras->fetch();
-	}
-
 	public function getTrasladoId($id){
 		$id = (int) $id;
 
 		$tras = $this->_db->prepare("SELECT t.id, t.instalacion, t.funeral, t.conflores, t.acompanamiento, t.pasajeros, t.plan_id, p.nombre as plan FROM traslados as t INNER JOIN planes as p ON t.plan_id = p.id WHERE t.id = ?");
 		$tras->bindParam(1, $id);
+		$tras->execute();
+
+		return $tras->fetch();
+	}
+
+	public function getTrasladoPlan($plan){
+		$plan = (int) $plan;
+
+		$tras = $this->_db->prepare("SELECT t.id, t.instalacion, t.funeral, t.conflores, t.acompanamiento, t.pasajeros, t.plan_id, p.nombre as plan FROM traslados as t INNER JOIN planes as p ON t.plan_id = p.id WHERE t.plan_id = ?");
+		$tras->bindParam(1, $plan);
 		$tras->execute();
 
 		return $tras->fetch();

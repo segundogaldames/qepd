@@ -1,9 +1,9 @@
-<div class="col-md-2" style="padding-top: 20px">
+<div class="col-md-2">
 	<p class="enlace"><a href="{$_layoutParams.root}urnas/add">Agregar Traslado</a></p>
 </div>
 <div class="col-md-4">
 	
-	<h3>Ver Traslado</h3>
+	<h3>Traslado {$traslado.plan}</h3>
 	
 	{if isset($traslado) && count($traslado)}
 		<p><img src="{$_layoutParams.root}public/img/componentes/thumb/thumb_{$traslado.imagen}" alt="Imagen traslado"></p>

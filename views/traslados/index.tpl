@@ -1,7 +1,8 @@
-<div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="{$_layoutParams.root}traslados/add">Agregar Traslados</a></p>
-	<p class="enlace"><a href="{$_layoutParams.root}planes">Ver Planes</a></p>
+	<hr>
+	<p class="enlace"><a href="{$_layoutParams.root}componentes">Componentes</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}planes">Planes</a></p>
 </div>
 <div class="col-md-8">
 	{if isset($traslados) && count($traslados)}

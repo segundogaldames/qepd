@@ -1,5 +1,4 @@
-<div style="padding-top: 60px"></div>
-<div class="col-md-2">
+<div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="{$_layoutParams.root}componentes/add">Agregar Componente</a></p>
 	<hr>
 	{if isset($componentes) &&count($componentes)}

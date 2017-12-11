@@ -94,7 +94,7 @@ class urnasController extends Controller
 			$this->redireccionar('planes');
 		}
 
-		$this->_view->assign('titulo', 'Ver Urna Por Plan');
+		$this->_view->assign('titulo', 'Urna Plan');
 		$this->_view->assign('urna', $this->_urna->getUrnaPlan($this->filtrarInt($plan)));
 		$this->_view->renderizar('urnaPlan');
 	}

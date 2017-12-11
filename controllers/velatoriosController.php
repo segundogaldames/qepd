@@ -109,6 +109,18 @@ class velatoriosController extends Controller
 		$this->_view->renderizar('view');
 	}
 
+	public function velatorioPlan($plan = null){
+		$this->verificarSession();
+
+		if (!$this->_velatorio->getVelatorioPlan($this->filtrarInt($plan))) {
+			$this->redireccionar('planes');
+		}
+
+		$this->_view->assign('titulo', 'Velatorio Plan');
+		$this->_view->assign('velatorio', $this->_velatorio->getVelatorioPlan($this->filtrarInt($plan)));
+		$this->_view->renderizar('velatorioPlan');
+	}
+
 	public function edit($id = null){
 		$this->verificarSession();
 		$this->verificarParams($id);
