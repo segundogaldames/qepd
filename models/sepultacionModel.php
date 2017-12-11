@@ -14,7 +14,9 @@ class sepultacionModel extends Model
 	}
 
 	public function getSepultacionPlan($plan){
-		$sep = $this->_db->prepare("SELECT id FROM sepultaciones WHERE plan_id = ?");
+		$plan = (int) $plan;
+		
+		$sep = $this->_db->prepare("SELECT s.id, s.sala, s.capilla, s.liturgia, s.toldos, s.sillas, s.amplificacion, s.diacono, s.coro, s.cafeteria, s.plan_id, p.nombre as plan FROM sepultaciones as s INNER JOIN planes as p ON s.plan_id = p.id WHERE s.plan_id = ?");
 		$sep->bindParam(1, $plan);
 		$sep->execute();
 

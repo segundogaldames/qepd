@@ -1,6 +1,5 @@
-<div style="padding-top: 50px"></div>
-<div class="col-md-2">
-	<p class="enlace"><a href="{$_layoutParams.root}planes">Ver Servicios de Sepultaciones</a></p>
+<div class="col-md-2" style="padding-top: 20px">
+	<p class="enlace"><a href="{$_layoutParams.root}sepultaciones">Ver Sepultaciones</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}imagenes/add">Agregar imagen</a></p>
 </div>
 
@@ -59,7 +58,7 @@
 		</div>
 		<div class="form-group">
 			<label for="coro">Coro:</label>
-			<input type="number" name="pasajeros" class="form-control" placeholder="Número de integrantes" value="{$datos.coro|default:""}">
+			<input type="number" name="coro" class="form-control" placeholder="Número de integrantes" value="{$datos.coro|default:""}">
 		</div>
 		<div class="form-group">
 			<label for="cafeteria">Cafetería:<span class="text-danger">*</span></label>
@@ -67,6 +66,7 @@
 				<option value="{$dato.cafeteria}">{if $dato.cafeteria==1}Básica{elseif $dato.cafeteria==2}Superior{else}No considerada{/if}</option>
 				<option value="1">Básica</option>
 				<option value="2">Superior</option>
+				<option value="3">No considera</option>
 			</select>
 		</div>
 		<div class="form-group">
@@ -83,6 +83,7 @@
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Guardar" class="btn btn-success">
+			<a href="{$_layoutParams.root}sepultaciones" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

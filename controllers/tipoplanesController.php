@@ -10,7 +10,11 @@ class tipoplanesController extends Controller
 	}
 
 	public function index(){
+		$this->verificarSession();
 
+		$this->_view->assign('titulo', 'APP::Tipo Planes');
+		$this->_view->assign('tipoPlanes', $this->_tipoplan->getTipoPlanes());
+		$this->_view->renderizar('index');
 	}
 
 	public function add(){

@@ -105,6 +105,18 @@ class sepultacionesController extends Controller
 		$this->_view->renderizar('view');
 	}
 
+	public function sepultacionPlan($plan = null){
+		$this->verificarSession();
+
+		if (!$this->_sepultacion->getSepultacionPlan($this->filtrarInt($plan))) {
+			$this->redireccionar('planes');
+		}
+
+		$this->_view->assign('titulo', 'Sepultación Plan');
+		$this->_view->assign('sepultacion', $this->_sepultacion->getSepultacionPlan($this->filtrarInt($plan)));
+		$this->_view->renderizar('sepultacionPlan');
+	}
+
 	public function edit($id = null){
 		//print_r($id);exit;
 		$this->verificarSession();

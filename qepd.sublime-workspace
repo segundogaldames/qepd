@@ -330,17 +330,7 @@
 	},
 	"expanded_folders":
 	[
-		"/var/www/html/qepd",
-		"/var/www/html/qepd/application",
-		"/var/www/html/qepd/controllers",
-		"/var/www/html/qepd/models",
-		"/var/www/html/qepd/public",
-		"/var/www/html/qepd/views",
-		"/var/www/html/qepd/views/cinerarios",
-		"/var/www/html/qepd/views/componentes",
-		"/var/www/html/qepd/views/layout",
-		"/var/www/html/qepd/views/layout/default",
-		"/var/www/html/qepd/views/traslados"
+		"/var/www/html/qepd"
 	],
 	"file_history":
 	[

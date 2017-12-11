@@ -1,6 +1,6 @@
 <div class="col-md-2"></div>
 <div class="col-md-4">
-	<h3>Ver Sepultación</h3>
+	<h3>Ver Sepultación {$sepultacion.plan}</h3>
 	
 	{if isset($sepultacion) && count($sepultacion)}
 		<p style="font-size: 18px"><strong>Sala velatorio:</strong> {if $sepultacion.sala==1}Si{else}No{/if}</p>

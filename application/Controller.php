@@ -119,7 +119,7 @@ abstract class Controller
 	protected function getAlphaNum($clave)
 	{
 		if(isset($_POST[$clave]) && !empty($_POST[$clave])):
-			$_POST[$clave] = (string) preg_replace('/[^A-Z0-9_]/i', '', $_POST[$clave]);
+			$_POST[$clave] = (string) preg_replace('/[^A-Z0-9_][*\s]/i', '', $_POST[$clave]);
 			return trim($_POST[$clave]);
 		endif;
 	}

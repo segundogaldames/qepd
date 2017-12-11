@@ -59,7 +59,7 @@
 		</div>
 		<div class="form-group">
 			<label for="coro">Coro:</label>
-			<input type="number" name="pasajeros" class="form-control" placeholder="Número de integrantes" value="{$datos.coro|default:""}">
+			<input type="number" name="coro" class="form-control" placeholder="Número de integrantes" value="{$datos.coro|default:""}">
 		</div>
 		<div class="form-group">
 			<label for="cafeteria">Cafetería:<span class="text-danger">*</span></label>
@@ -67,6 +67,7 @@
 				<option value="">Seleccione</option>
 				<option value="1">Básica</option>
 				<option value="2">Superior</option>
+				<option value="3">No considera</option>
 			</select>
 		</div>
 		<div class="form-group">
@@ -83,6 +84,7 @@
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Guardar" class="btn btn-success">
+			<a href="{$_layoutParams.root}sepultaciones" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>
