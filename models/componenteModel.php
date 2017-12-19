@@ -63,4 +63,12 @@ class componenteModel extends Model
 		$com->bindParam(6, $url_plan);
 		$com->execute();
 	}
+
+	public function deleteComponente($id){
+		$id = (int) $id;
+
+		$com = $this->_db->prepare("DELETE FROM componentes WHERE id = ?");
+		$com->bindParam(1, $id);
+		$com->execute();
+	}
 }

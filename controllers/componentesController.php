@@ -185,6 +185,14 @@ class componentesController extends Controller
 		$this->_view->renderizar('verComponentes');
 	}
 
+	public function delete($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_componente->deleteComponente($this->filtrarInt($id));
+		$this->redireccionar('componentes');
+	}
+
 	private function verificarParams($id){
 		if (!$this->filtrarInt($id)) {
 			$this->redireccionar('componentes');
