@@ -4,6 +4,7 @@
 	<p class="enlace"><a href="{$_layoutParams.root}componentes">Componentes</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}planes">Planes</a></p>
 	<hr>
+	<p class="enlace"><a href="{$_layoutParams.root}soluciones">Soluciones</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}capacidades">Capacidades</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}construcciones">Construcciones</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}mantenciones">Mantenciones</a></p>

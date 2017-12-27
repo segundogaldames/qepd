@@ -1,6 +1,5 @@
 <div class="col-md-2"></div>
 <div class="col-md-4">
-	<div style="padding-top: 50px"></div>
 	<h3>Editar Servicio</h3>
 	
 	<form action="" method="post">
@@ -22,12 +21,9 @@
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Guardar Cambios" class="btn btn-success">
+			<a href="{$_layoutParams.root}servicios" class="btn btn-link">Volver</a>
 		</div>
 	</form>
-	<p>
-		<a href="{$_layoutParams.root}servicios">Volver</a>
-	</p>
-	
 </div>
 <div class="col-md-4">
 	

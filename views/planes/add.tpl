@@ -8,25 +8,6 @@
 	<p class="text-danger">* Datos Obligatorios</p>
 	<form action="" method="post" name="form" id="form">
 		<div class="form-group">
-			<label for="nombre">Ingrese nombre:<span class="text-danger">*</span></label>
-			<input type="text" name="nombre" class="form-control" placeholder="Nombre del plan" value="{$datos.nombre|default:""}">
-		</div>
-		<div class="form-group">
-			<label for="codigo">Ingrese el código SKU:</label>
-			<input type="text" name="codigo" class="form-control" placeholder="Codigo del plan" value="{$datos.codigo|default:""}">
-		</div>
-		<div class="form-group">
-			<label for="tipo_plan">Seleccione el tipo de plan:<span class="text-danger">*</span></label></label>
-			<select name="tipo_plan" id="" class="form-control">
-				<option value="">Tipo Plan</option>
-				{if isset($tipoplanes) && count($tipoplanes)}
-					{foreach from=$tipoplanes item=tp}
-						<option value="{$tp.id}">{$tp.nombre}</option>
-					{/foreach}
-				{/if}
-			</select>
-		</div>
-		<div class="form-group">
 			<label for="servicio">Seleccione un servicio:<span class="text-danger">*</span></label></label>
 			<select name="servicio" id="" class="form-control">
 				<option value="">Servicio</option>
@@ -49,6 +30,27 @@
 			</select>
 		</div>
 		<div class="form-group">
+			<label for="nombre">Ingrese nombre:<span class="text-danger">*</span></label>
+			<input type="text" name="nombre" class="form-control" placeholder="Nombre del plan" value="{$datos.nombre|default:""}">
+		</div>
+		<div class="form-group">
+			<label for="codigo">Ingrese el código SKU:</label>
+			<input type="text" name="codigo" class="form-control" placeholder="Codigo del plan" value="{$datos.codigo|default:""}">
+		</div>
+		<div class="form-group">
+			<label for="tipo_plan">Seleccione el tipo de plan:<span class="text-danger">*</span></label></label>
+			<select name="tipo_plan" id="" class="form-control">
+				<option value="">Tipo Plan</option>
+				{if isset($tipoplanes) && count($tipoplanes)}
+					{foreach from=$tipoplanes item=tp}
+						<option value="{$tp.id}">{$tp.nombre}</option>
+					{/foreach}
+				{/if}
+			</select>
+		</div>
+		
+		
+		<div class="form-group">
 			<label for="destinatario">Seleccione un destinatario:</label>
 			<select name="destinatario" id="" class="form-control">
 				<option value="">Destinatarios</option>
@@ -62,6 +64,7 @@
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Registrar" class="btn btn-success">
+			<a href="{$_layoutParams.root}planes" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

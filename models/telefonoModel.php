@@ -9,7 +9,7 @@ class telefonoModel extends Model
 	public function getTelefonoId($id){
 		$id = (int) $id;
 
-		$tel = $this->_db->prepare("SELECT t.id, t.numero, t.sede_id, s.nombre as sede FROM telefonos as t INNER JOIN sedes as s ON t.sede_id = s.id WHERE t.id = ?");
+		$tel = $this->_db->prepare("SELECT t.id, t.numero, t.sede_id, s.nombre as sede, s.calle, s.numero, s.sector, s.ubicacion, s.empresa_id, s.comuna_id, e.nombre as empresa, c.nombre as comuna FROM telefonos as t INNER JOIN sedes as s ON t.sede_id = s.id INNER JOIN empresas as e ON s.empresa_id = e.id INNER JOIN comunas as c ON s.comuna_id = c.id WHERE t.id = ?");
 		$tel->bindParam(1, $id);
 		$tel->execute();
 

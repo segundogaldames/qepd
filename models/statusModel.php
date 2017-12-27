@@ -6,8 +6,14 @@ class statusModel extends Model
 		parent::__construct();
 	}
 
+	public function getStatus(){
+		$st = $this->_db->query("SELECT id, nombre FROM status ORDER BY nombre");
+		return $st->fetchall();
+	}
+
 	public function getStatusNombre($nombre){
-		$st = $this->_db->prepare("SELECT id, nombre FROM destinatarios WHERE nombre = ?");
+		//print_r($nombre);exit;
+		$st = $this->_db->prepare("SELECT id, nombre FROM status WHERE nombre = ?");
 		$st->bindParam(1, $nombre);
 		$st->execute();
 

@@ -1,4 +1,3 @@
-<div style="padding-top: 50px"></div>
 <div class="col-md-2">
 	
 </div>
@@ -63,7 +62,7 @@
 				</table>
 			{/if}
 			<br><br>
-			<a href="" class="btn btn-primary">Cotizar</a>
+			<a href="{$_layoutParams.root}cotizaciones/add/{$img.plan_id}" class="btn btn-primary">Cotizar</a>
 			<a href="{$_layoutParams.root}planes/planesServicios" class="btn btn-link">Volver</a>
 		</div>
 		
@@ -71,7 +70,7 @@
 			<strong>No hay imágenes asociadas</strong>
 
 	{/if}
-2
+
 </div>
 
 <div class="col-md-2">

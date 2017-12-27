@@ -1,8 +1,8 @@
-<div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="{$_layoutParams.root}sedes/add">Agregar Sede</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}telefonos/add">Agregar Teléfono</a></p>
-	<p class="enlace"><a href="{$_layoutParams.root}empresas">Ver Empresas</a></p>
+	<hr>
+	<p class="enlace"><a href="{$_layoutParams.root}empresas">Empresas</a></p>
 </div>
 <div class="col-md-8">
 {if isset($sedes) && count($sedes)}

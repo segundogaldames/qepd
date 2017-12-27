@@ -60,7 +60,7 @@ body {
 /* Custom Horizontal Rule */
 
 hr.small {
-    max-width: 100px;
+    max-width: 100%;
 }
 
 /* Side Menu */

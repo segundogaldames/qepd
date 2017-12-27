@@ -1,4 +1,3 @@
-<div style="padding-top: 50px"></div>
 <div class="col-md-2"></div>
 <div class="col-md-4">
 	<h3>Editar Sede</h3>

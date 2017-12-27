@@ -1,5 +1,4 @@
-<div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="{$_layoutParams.root}sedes">Ver Sedes</a></p>
 </div>
 
@@ -8,6 +7,17 @@
 	<p class="text-success">Ingrese los datos en el formulario...</p>
 	<p class="text-danger">* Datos Obligatorios</p>
 	<form action="" method="post" name="form" id="form">
+		<div class="form-group">
+			<label for="empresa">Seleccione una empresa:</label>
+			<select name="empresa" id="" class="form-control">
+				<option value="">Empresas</option>
+				{if isset($empresas) && count($empresas)}
+					{foreach from=$empresas item=e}
+						<option value="{$e.id}">{$e.nombre}</option>
+					{/foreach}
+				{/if}
+			</select>
+		</div>
 		<div class="form-group">
 			<label for="nombre">Ingrese nombre:<span class="text-danger">*</span></label>
 			<input type="text" name="nombre" class="form-control" placeholder="Nombre de la sede o sucursal" value="{$datos.nombre|default:""}">
@@ -28,17 +38,7 @@
 			<label for="ubicacion">Ingrese ubicación (opcional):</label>
 			<input type="text" name="ubicacion" class="form-control" placeholder="Ubicación, coordenadas, mapa de sede o sucursal" value="{$datos.ubicacion|default:""}">
 		</div>
-		<div class="form-group">
-			<label for="empresa">Seleccione una empresa:</label>
-			<select name="empresa" id="" class="form-control">
-				<option value="">Empresas</option>
-				{if isset($empresas) && count($empresas)}
-					{foreach from=$empresas item=e}
-						<option value="{$e.id}">{$e.nombre}</option>
-					{/foreach}
-				{/if}
-			</select>
-		</div>
+		
 		<div class="form-group">
 			<label for="comuna">Seleccione comuna:</label>
 			<select name="comuna" id="" class="form-control">

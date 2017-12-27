@@ -1,4 +1,3 @@
-<div style="padding-top: 50px"></div>
 <div class="col-md-2"></div>
 <div class="col-md-4">
 	<h3>Editar Urna</h3>
@@ -36,7 +35,7 @@
 		</div>
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
-			<input type="submit" value="Guardar Cambios" class="btn btn-success">&nbsp;&nbsp;
+			<input type="submit" value="Guardar Cambios" class="btn btn-success">
 			<a href="{$_layoutParams.root}urnas" class="btn btn-link">Volver</a>
 		</div>
 	</form>

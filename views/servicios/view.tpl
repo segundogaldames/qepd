@@ -1,6 +1,5 @@
 <div class="col-md-2"></div>
 <div class="col-md-4">
-	<div style="padding-top: 50px"></div>
 	<h3>Ver Servicio</h3>
 	
 	{if isset($servicio) && count($servicio)}

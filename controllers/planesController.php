@@ -57,6 +57,18 @@ class planesController extends Controller
 			$this->_view->assign('datos', $_POST);
 
 			//print_r($_POST);exit;
+			
+			if (!$this->getInt('servicio')) {
+				$this->_view->assign('_error', 'Debe seleccionar un servicio');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
+			if (!$this->getInt('empresa')) {
+				$this->_view->assign('_error', 'Debe seleccionar una empresa');
+				$this->_view->renderizar('add');
+				exit;
+			}
 
 			if (!$this->getSql('nombre')) {
 				$this->_view->assign('_error', 'Debe ingresar un nombre');
@@ -66,18 +78,6 @@ class planesController extends Controller
 
 			if (!$this->getInt('tipo_plan')) {
 				$this->_view->assign('_error', 'Debe seleccionar un tipo de plan');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('servicio')) {
-				$this->_view->assign('_error', 'Debe seleccionar un servicio');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('empresa')) {
-				$this->_view->assign('_error', 'Debe seleccionar una empresa');
 				$this->_view->renderizar('add');
 				exit;
 			}

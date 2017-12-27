@@ -10,7 +10,11 @@
                         <div class="service-item">
                             <span class="fa-stack fa-4x">
                             <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-stack-1x text-primary">Imagen</i>
+                            <i class="fa fa-stack-1x text-primary">
+                                <a href="{$_layoutParams.root}planes/planesServicios/9">
+                                    <img src="{$_layoutParams.root}views/layout/default/img/vectores/funeraria.jpg">
+                                </a>
+                            </i>
                             </span>
                             <h4>
                                 <strong>Funerarias</strong>
@@ -25,7 +29,11 @@
                         <div class="service-item">
                             <span class="fa-stack fa-4x">
                             <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-stack-1x text-primary">Imagen</i>
+                            <i class="fa fa-stack-1x text-primary">
+                                <a href="{$_layoutParams.root}planes/planesServicios/10">
+                                    <img src="{$_layoutParams.root}views/layout/default/img/vectores/crematorio.jpg">
+                                </a>
+                            </i>
                         </span>
                             <h4>
                                 <strong>Crematorios</strong>
@@ -39,7 +47,12 @@
                         <div class="service-item">
                             <span class="fa-stack fa-4x">
                             <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-stack-1x text-primary">Imagen</i>
+                            <i class="fa fa-stack-1x text-primary">
+                                <a href="{$_layoutParams.root}planes/planesServicios/11">
+                                    <img src="{$_layoutParams.root}views/layout/default/img/vectores/sepultura.jpg">
+                                </a>
+                                
+                            </i>
                         </span>
                             <h4>
                                 <strong>Sepulturas</strong>
@@ -52,7 +65,12 @@
                         <div class="service-item">
                             <span class="fa-stack fa-4x">
                             <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-stack-1x text-primary">Imagen</i>
+                            <i class="fa fa-stack-1x text-primary">
+                                <a href="{$_layoutParams.root}planes/planesServicios/12">
+                                    <img src="{$_layoutParams.root}views/layout/default/img/vectores/Servicio-sepultacion.jpg">
+                                </a>
+                                
+                            </i>
                         </span>
                             <h4>
                                 <strong>Servicios de Sepultación</strong>

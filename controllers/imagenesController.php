@@ -16,19 +16,38 @@ class imagenesController extends Controller
 	}
 
 	public function index(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Imágenes');
 		$this->_view->assign('imagenes', $this->_imagen->getImagenes());
 		$this->_view->renderizar('index');
 	}
 
-	public function add(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
+	public function view($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_view->assign('titulo', 'Ver Imagen');
+		$this->_view->assign('imagen', $this->_imagen->getImagenId($this->filtrarInt($id)));
+		$this->_view->renderizar('view');
+	}
+
+	public function imagenesplan($id = null){
+		//print_r($id);exit;
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('planes');
 		}
+
+
+		$this->_view->assign('titulo', 'Consulta Planes');
+		$this->_view->assign('imagenes', $this->_imagen->getImagenesPlan($this->filtrarInt($id)));
+		$this->_view->assign('condiciones', $this->_condicion->getCondicionesPlan($this->filtrarInt($id)));
+		$this->_view->renderizar('imagenesplan');
+
+	}
+
+	public function add(){
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Nueva Imagen');
 		$this->_view->assign('componentes', $this->_componente->getComponentes());
@@ -36,6 +55,18 @@ class imagenesController extends Controller
 
 		if ($this->getInt('enviar') == 1) {
 			$this->_view->assign('datos', $_POST);
+
+			if (!$this->getInt('componente')) {
+				$this->_view->assign('_error', 'Debe seleccionar el componente');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
+			if (!$this->getInt('plan')) {
+				$this->_view->assign('_error', 'Debe seleccionar el plan');
+				$this->_view->renderizar('add');
+				exit;
+			}
 
 			if (!$this->getSql('titulo')) {
 				$this->_view->assign('_error', 'Debe ingresar el título de la imagen');
@@ -70,17 +101,7 @@ class imagenesController extends Controller
 				}
 			}
 
-			if (!$this->getInt('componente')) {
-				$this->_view->assign('_error', 'Debe seleccionar el componente');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('plan')) {
-				$this->_view->assign('_error', 'Debe seleccionar el plan');
-				$this->_view->renderizar('add');
-				exit;
-			}
+			
 
 			$this->_imagen->addImagenes(
 				$this->getSql('titulo'), 
@@ -89,32 +110,60 @@ class imagenesController extends Controller
 				$this->getInt('plan')
 				);
 
-			if ($this->_imagen->getImagenesNombre($imagen)) {
-				$this->_view->assign('_mensaje', 'La imagen se ha guardado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->_imagen->getImagenesNombre($imagen)) {
-				$this->_view->assign('_error', 'La imagen no se ha guardado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
+			$this->redireccionar('imagenes');
 		}
 		$this->_view->renderizar('add');
 	}
 
-	public function imagenesplan($id = null){
-		//print_r($id);exit;
-		if (!$this->filtrarInt($id)) {
-			$this->redireccionar();
+	public function edit($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_view->assign('titulo', 'Editar Imagen');
+		$this->_view->assign('dato', $this->_imagen->getImagenId($this->filtrarInt($id)));
+		$this->_view->assign('componentes', $this->_componente->getComponentes());
+		$this->_view->assign('planes', $this->_plan->getPlanes());
+
+		if ($this->getInt('enviar') == 1) {
+			//print_r($_POST);exit;
+			if (!$this->getSql('titulo')) {
+				$this->_view->assign('_error', 'Debe ingresar el título de la imagen');
+				$this->_view->renderizar('edit');
+				exit;
+			}
+
+			if (!$this->getInt('componente')) {
+				$this->_view->assign('_error', 'Debe seleccionar el componente');
+				$this->_view->renderizar('edit');
+				exit;
+			}
+
+			if (!$this->getInt('plan')) {
+				$this->_view->assign('_error', 'Debe seleccionar el plan');
+				$this->_view->renderizar('edit');
+				exit;
+			}
+
+			$this->_imagen->editImagen(
+				$this->filtrarInt($id), 
+				$this->getAlphaNum('titulo'), 
+				$this->getInt('componente'), 
+				$this->getInt('plan')
+			);
+
+			$this->redireccionar('imagenes');
 		}
 
+		$this->_view->renderizar('edit');
+	}
 
-		$this->_view->assign('titulo', 'Consulta Planes');
-		$this->_view->assign('imagenes', $this->_imagen->getImagenesPlan($this->filtrarInt($id)));
-		$this->_view->assign('condiciones', $this->_condicion->getCondicionesPlan($this->filtrarInt($id)));
-		$this->_view->renderizar('imagenesplan');
+	private function verificarParams($id){
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('imagenes');
+		}
 
+		if (!$this->_imagen->getImagenId($this->filtrarInt($id))) {
+			$this->redireccionar('imagenes');
+		}
 	}
 }

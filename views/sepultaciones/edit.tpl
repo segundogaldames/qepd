@@ -1,6 +1,5 @@
 <div class="col-md-2" style="padding-top: 20px">
-	<p class="enlace"><a href="{$_layoutParams.root}sepultaciones">Ver Sepultaciones</a></p>
-	<p class="enlace"><a href="{$_layoutParams.root}imagenes/add">Agregar imagen</a></p>
+	
 </div>
 
 <div class="col-md-4">

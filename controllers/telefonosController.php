@@ -11,13 +11,11 @@ class telefonosController extends Controller
 	}
 
 	public function index(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Teléfono Sedes');
 		$this->_view->assign('telefonos', $this->_telefono->getTelefonosSedesEmpresa());
-		$this->_view->renderizar(index);
+		$this->_view->renderizar('index');
 	}
 
 	public function add(){

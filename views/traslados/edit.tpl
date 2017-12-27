@@ -1,7 +1,5 @@
-<div style="padding-top: 50px"></div>
 <div class="col-md-2">
-	<p class="enlace"><a href="{$_layoutParams.root}traslados">Ver Traslados</a></p>
-	<p class="enlace"><a href="{$_layoutParams.root}imagenes/add">Agregar imagen</a></p>
+	
 </div>
 
 <div class="col-md-4">
@@ -59,6 +57,7 @@
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Guardar" class="btn btn-success">
+			<a href="{$_layoutParams.root}traslados" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

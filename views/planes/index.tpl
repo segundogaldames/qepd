@@ -2,6 +2,7 @@
 	<p class="enlace"><a href="{$_layoutParams.root}planes/add">Agregar Planes</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}tipoplanes">Tipo de Planes</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}servicios">Servicios</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}cotizaciones">Cotizaciones</a></p>
 </div>
 <div class="col-md-8">
 	{if isset($planes) && count($planes)}

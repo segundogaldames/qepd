@@ -1,5 +1,5 @@
 <div class="col-md-2" style="padding-left: 20px">
-	<h4>Buscar por comunas o ciudades</h4>
+	<h4>Buscar en</h4>
 	{if isset($comunas) && count($comunas)}
 		{foreach from=$comunas item=c}
 			<p class="enlace">

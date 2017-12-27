@@ -6,6 +6,9 @@ class solucionesController extends Controller
 	private $_tiposolucion;
 	private $_solucion;
 	private $_capacidad;
+	private $_construccion;
+	private $_ubicacion;
+	private $_mantencion;
 
 	public function __construct(){
 		parent::__construct();
@@ -13,6 +16,9 @@ class solucionesController extends Controller
 		$this->_tiposolucion = $this->loadModel('tiposolucion');
 		$this->_solucion = $this->loadModel('solucion');
 		$this->_capacidad = $this->loadModel('capacidad');
+		$this->_construccion = $this->loadModel('construccion');
+		$this->_ubicacion = $this->loadModel('ubicacion');
+		$this->_mantencion = $this->loadModel('mantencion');
 	}
 
 	public function index(){
@@ -30,6 +36,9 @@ class solucionesController extends Controller
 		$this->_view->assign('titulo', 'Ver Solución');
 		$this->_view->assign('solucion', $this->_solucion->getSolucionId($this->filtrarInt($id)));
 		$this->_view->assign('capacidad', $this->_capacidad->getCapacidadSolucion($this->filtrarInt($id)));
+		$this->_view->assign('construccion', $this->_construccion->getConstruccionSolucion($this->filtrarInt($id)));
+		$this->_view->assign('ubicacion', $this->_ubicacion->getUbicacionSolucion($this->filtrarInt($id)));
+		$this->_view->assign('mantencion', $this->_mantencion->getMantencionSolucion($this->filtrarInt($id)));
 		$this->_view->renderizar('view');
 	}
 

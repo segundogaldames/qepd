@@ -1,8 +1,6 @@
-<div style="padding-top: 50px"></div>
-<div class="col-md-2">
-	<p class="enlace"><a href="{$_layoutParams.root}velatorios/add">Agregar Velatorio</a></p>
-</div>
-<div class="col-md-4">
+<div class="col-md-2"></div>
+	
+<div class="col-md-8">
 	
 	<h3>Ver Velatorio</h3>
 	
@@ -31,6 +29,6 @@
 	</p>
 	<hr>
 </div>
-<div class="col-md-4">
+<div class="col-md-2">
 	
 </div>	

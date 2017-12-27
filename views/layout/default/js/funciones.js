@@ -55,3 +55,11 @@ function abandonarPublicacion(url)
 		return false;
 	}
 }
+
+function confirmarCotizacion(url){
+	if (confirm('Deseas confirmar la cotización?')) {
+		window.location=url;
+	}else{
+		return false;
+	}
+}

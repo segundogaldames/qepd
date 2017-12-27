@@ -10,13 +10,15 @@ class statusController extends Controller
 	}
 
 	public function index(){
+		$this->verificarSession();
 
+		$this->_view->assign('titulo', 'APP::Status');
+		$this->_view->assign('status', $this->_status->getStatus());
+		$this->_view->renderizar('index');
 	}
 
 	public function add(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
-		}
+		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Nuevo Status');
 
@@ -35,19 +37,9 @@ class statusController extends Controller
 				exit;
 			}
 
-			$this->_status->addStatus($this->getSql('nombre'));
+			$this->_status->addStatus($this->getAlphaNum('nombre'));
 
-			if ($this->_status->getStatusNombre($this->getSql('nombre')) {
-				$this->_view->assign('_mensaje', 'El status se ha registrado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->_status->getStatusNombre($this->getSql('nombre')) {
-				$this->_view->assign('_mensaje', 'El status no se ha registrado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
+			$this->redireccionar('status');
 		}
 		$this->_view->renderizar('add');
 	}

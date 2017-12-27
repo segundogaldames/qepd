@@ -33,6 +33,12 @@ class sedesController extends Controller
 		if ($this->getInt('enviar') == 1) {
 			$this->_view->assign('datos', $_POST);
 
+			if (!$this->getInt('empresa')) {
+				$this->_view->assign('_error', 'Debe asociar una empresa a la sede');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
 			if (!$this->getSql('nombre')) {
 				$this->_view->assign('_error', 'Ingrese el nombre de la sede');
 				$this->_view->renderizar('add');
@@ -47,12 +53,6 @@ class sedesController extends Controller
 
 			if (!$this->getInt('numero')) {
 				$this->_view->assign('_error', 'Ingrese el número de la dirección de la sede');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('empresa')) {
-				$this->_view->assign('_error', 'Debe asociar una empresa a la sede');
 				$this->_view->renderizar('add');
 				exit;
 			}

@@ -36,6 +36,9 @@
                     </li>
                     <li style="list-style:none;" >
                       <a href="{$_layoutParams.root}planes">Planes</a>  
+                    </li>
+                    <li style="list-style:none;" >
+                      <a href="{$_layoutParams.root}cotizaciones">Cotizaciones</a>  
                     </li> 
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
@@ -68,7 +71,7 @@
           </li>
           
           <li>
-            <a href="#contacto">Contáctanos</a>
+            <a href="{$_layoutParams.root}contactos/add">Contáctanos</a>
           </li>
 
           <li>

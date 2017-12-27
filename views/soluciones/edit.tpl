@@ -51,7 +51,7 @@
 		</div>
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
-			<input type="submit" value="Guardar" class="btn btn-success">
+			<input type="submit" value="Guardar Cambios" class="btn btn-success">
 			<a href="{$_layoutParams.root}soluciones" class="btn btn-link">Volver</a>
 		</div>
 	</form>

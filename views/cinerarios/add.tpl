@@ -1,7 +1,5 @@
-<div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="{$_layoutParams.root}planes">Ver Cinerarios</a></p>
-	<p class="enlace"><a href="{$_layoutParams.root}imagenes/add">Agregar imagen</a></p>
 </div>
 
 <div class="col-md-4">
@@ -100,6 +98,7 @@
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Guardar" class="btn btn-success">
+			<a href="{$_layoutParams.root}cinerarios" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>
