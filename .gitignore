@@ -4,3 +4,4 @@ application/Config.php
 # logs
 
 tmp/*
+application/*
