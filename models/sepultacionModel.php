@@ -16,7 +16,7 @@ class sepultacionModel extends Model
 	public function getSepultacionPlan($plan){
 		$plan = (int) $plan;
 		
-		$sep = $this->_db->prepare("SELECT s.id, s.sala, s.capilla, s.liturgia, s.toldos, s.sillas, s.amplificacion, s.diacono, s.coro, s.cafeteria, s.plan_id, p.nombre as plan FROM sepultaciones as s INNER JOIN planes as p ON s.plan_id = p.id WHERE s.plan_id = ?");
+		$sep = $this->_db->prepare("SELECT s.id, s.sala, s.capilla, s.liturgia, s.toldos, s.sillas, s.amplificacion, s.diacono, s.coro, s.cafeteria, s.plan_id, p.nombre as plan, s.componente_id FROM sepultaciones as s INNER JOIN planes as p ON s.plan_id = p.id WHERE s.plan_id = ?");
 		$sep->bindParam(1, $plan);
 		$sep->execute();
 
@@ -51,7 +51,7 @@ class sepultacionModel extends Model
 	}
 
 	public function addSepultacion($sala, $capilla, $liturgia, $toldos, $sillas, $amplificacon, $diacono, $coro, $cafeteria, $plan){
-		$sep = $this->_db->prepare("INSERT INTO sepultaciones VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$sep = $this->_db->prepare("INSERT INTO sepultaciones VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 6)");
 		$sep->bindParam(1, $sala);
 		$sep->bindParam(2, $capilla);
 		$sep->bindParam(3, $liturgia);

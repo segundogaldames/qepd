@@ -4,7 +4,7 @@
 	<form action="" method="post" name="form">
 		<div class="form-group">
 			<label for="numero">Numero:</label>
-			<input type="text" name="numero" class="form-control" value="{$dato.numero|default:''}">
+			<input type="text" name="numero" class="form-control" value="{$dato.telefono|default:''}">
 		</div>
 		<div class="form-group">
 			<label for="sedes">Sede actual: {$dato.sede|default:''}</label>

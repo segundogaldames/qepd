@@ -15,6 +15,9 @@
 					Plan Asociado
 				</th>
 				<th>
+					Compra Anticipada
+				</th>
+				<th>
 					Cliente
 				</th>
 				<th>
@@ -28,6 +31,7 @@
 			{foreach from=$cotizaciones item=c}
 				<tr>
 					<td>{$c.plan}</td>
+					<td>{if $c.opcion==1}Si{else}No{/if}</td>
 					<td>{$c.cliente}</td>
 					<td>{$c.status}</td>
 					<td>{$c.created|date_format:'%d-%m-%Y'}</td>

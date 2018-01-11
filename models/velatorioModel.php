@@ -25,7 +25,7 @@ class velatorioModel extends Model
 	public function getVelatorioPlan($plan){
 		$plan = (int) $plan;
 
-		$vel = $this->_db->prepare("SELECT v.id, v.tramites, v.asesor, v.sala, v.capilla, v.cirios, v.portacirios, v.cruces, v.florescanastos, v.florescubreurnas, v.condolencias, v.parroco, v.coro, v.avisosprensa, v.tarjetas, v.cafeteria, v.plan_id, p.nombre as plan FROM velatorios as v INNER JOIN planes as p ON v.plan_id = p.id WHERE v.plan_id = ?");
+		$vel = $this->_db->prepare("SELECT v.id, v.tramites, v.asesor, v.sala, v.capilla, v.cirios, v.portacirios, v.cruces, v.florescanastos, v.florescubreurnas, v.condolencias, v.parroco, v.coro, v.avisosprensa, v.tarjetas, v.cafeteria, v.plan_id, v.componente_id, p.nombre as plan FROM velatorios as v INNER JOIN planes as p ON v.plan_id = p.id WHERE v.plan_id = ?");
 		$vel->bindParam(1, $plan);
 		$vel->execute();
 
@@ -69,7 +69,7 @@ class velatorioModel extends Model
 	public function addVelatorio($tramites, $asesor, $sala, $capilla, $cirios, $portacirios, $cruces, $florescanastos, $florescubreurna, $condolencias, $parroco, $coro, $avisosprensa, $tarjetas, $cafeteria, $plan){
 		$plan = (int) $plan;
 
-		$vel = $this->_db->prepare("INSERT INTO velatorios VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$vel = $this->_db->prepare("INSERT INTO velatorios VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 2)");
 
 		$vel->bindParam(1, $tramites);
 		$vel->bindParam(2, $asesor);

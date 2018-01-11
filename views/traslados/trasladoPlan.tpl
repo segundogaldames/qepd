@@ -1,5 +1,5 @@
 <div class="col-md-2">
-	<p class="enlace"><a href="{$_layoutParams.root}urnas/add">Agregar Traslado</a></p>
+	
 </div>
 <div class="col-md-4">
 	

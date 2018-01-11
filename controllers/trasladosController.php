@@ -96,7 +96,7 @@ class trasladosController extends Controller
 	}
 
 	public function trasladoPlan($plan = null){
-		$this->verificarSession();
+		//$this->verificarSession();
 
 		if (!$this->_traslado->getTrasladoPlan($this->filtrarInt($plan))) {
 			$this->redireccionar('planes');

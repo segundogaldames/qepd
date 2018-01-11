@@ -9,6 +9,14 @@
 	<form action="" method="post" name="form" id="form">
 		<h4>Datos del Cliente</h4>
 		<div class="form-group">
+			<label for="opcion">Compra anticipada?:<span class="text-danger">*</span></label>
+			<select name="opcion" class="form-control">
+				<option value="">Seleccione</option>
+				<option value="1">Si</option>
+				<option value="2">No</option>
+			</select>
+		</div>
+		<div class="form-group">
 			<label for="nombre">Nombre:<span class="text-danger">*</span></label>
 			<input type="text" name="cliente" value="{$datos.cliente|default:""}" class="form-control" placeholder="Su nombre completo">
 		</div>
@@ -28,34 +36,6 @@
 			<label for="email">Email: <span class="text-danger">*</span></label>
 			<input type="email" name="email" value="{$datos.email|default:""}" class="form-control" placeholder="Correo electrónico">
 		</div>
-		<h4>Datos del difunto</h4>
-		<div class="form-group">
-			<label for="destinatario">Destinatario:<span class="text-danger">*</span></label>
-			<select name="destinatario" class="form-control">
-				<option value="">Seleccione</option>
-				{if isset($destinatarios) && count($destinatarios)}
-					{foreach from=$destinatarios item=d}
-						<option value="{$d.id}">{$d.nombre}</option>
-					{/foreach}
-				{/if}
-			</select>
-		</div>
-		<div class="form-group">
-			<label for="difunto">Nombre del difunt@:</label>
-			<input type="text" name="difunto" value="{$datos.difunto|default:""}" class="form-control" placeholder="Nombre completo del difunto">
-		</div>
-		<div class="form-group">
-			<label for="edad">Edad: <span class="text-danger">*</span></label>
-			<input type="number" name="edad" value="{$datos.edad|default:""}" class="form-control" placeholder="Edad del difunto">
-		</div>
-		<div class="form-group">
-			<label for="alto">Estatura (en centímetros): <span class="text-danger">*</span></label>
-			<input type="number" name="alto" value="{$datos.alto|default:""}" class="form-control" placeholder="Estatura del difunto en centímetros">
-		</div>
-		<div class="form-group">
-			<label for="alto">Peso (en kilogramos aprox.): <span class="text-danger">*</span></label>
-			<input type="number" name="peso" value="{$datos.peso|default:""}" class="form-control" placeholder="Peso aproximado del difunto en kilogramos">
-		</div>
 		<div class="form-group">
 			<label for="comuna">Comuna: <span class="text-danger">*</span></label>
 			<select name="comuna" class="form-control">
@@ -68,7 +48,7 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="mensaje">Observaciones:</label>
+			<label for="mensaje">Observaciones (opcional):</label>
 			<textarea name="mensaje" id="" rows="6" class="form-control" style="resize: none"></textarea>
 		</div>
 		<div class="form-group">

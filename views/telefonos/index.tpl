@@ -4,7 +4,7 @@
 	<p class="enlace"><a href="{$_layoutParams.root}sedes">Sedes</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}empresas">Empresas</a></p>
 </div>
-<div class="col-md-8">
+<div class="col-md-10">
 	<h3>Lista de Teléfonos</h3>
 	<table class="table table-hover">
 		<th>
@@ -12,6 +12,12 @@
 		</th>
 		<th>
 			Sede
+		</th>
+		<th>
+			Dirección
+		</th>
+		<th>
+			Comuna
 		</th>
 		<th>
 			Empresa
@@ -23,12 +29,14 @@
 			{if isset($telefonos) && count($telefonos)}
 				{foreach from=$telefonos item=tel}
 					<tr>
-						<td>{$tel.numero}</td>
+						<td>{$tel.telefono}</td>
 						<td>{$tel.sede}</td>
+						<td>{$tel.calle} {$tel.numero}</td>
+						<td>{$tel.comuna}</td>
 						<td>{$tel.empresa}</td>
 						<td>
 							<a href="{$_layoutParams.root}telefonos/view/{$tel.id}">Ver</a>&nbsp;&nbsp;
-							<a href="{$_layoutParams.root}telefonos/delete/{$tel.id}" onclick="return eliminar('{$_layoutParams.root}telefonos/delete/{$tel.id}', '{$tel.numero}');">Eliminar</a>
+							<a href="{$_layoutParams.root}telefonos/delete/{$tel.id}" onclick="return eliminar('{$_layoutParams.root}telefonos/delete/{$tel.id}', '{$tel.telefono}');">Eliminar</a>
 						</td>
 					</tr>
 
@@ -37,9 +45,7 @@
 		
 	</table>
 </div>
-<div class="col-md-2">
-	
-</div>	
+
 
 
 	

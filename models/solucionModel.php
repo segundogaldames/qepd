@@ -34,7 +34,7 @@ class solucionModel extends Model
 		//print_r($plan);exit;
 		$plan = (int) $plan;
 
-		$sol = $this->_db->prepare("SELECT s.id, s.solucion, s.periodo, s.anios, s.tipo_solucion_id, t.nombre as tipo, s.plan_id, p.nombre as plan FROM soluciones as s INNER JOIN tipo_soluciones as t ON s.tipo_solucion_id = t.id INNER JOIN planes as p ON s.plan_id = p.id WHERE s.plan_id = ?");
+		$sol = $this->_db->prepare("SELECT s.id, s.solucion, s.periodo, s.anios, s.tipo_solucion_id, t.nombre as tipo, s.plan_id, p.nombre as plan, s.componente_id FROM soluciones as s INNER JOIN tipo_soluciones as t ON s.tipo_solucion_id = t.id INNER JOIN planes as p ON s.plan_id = p.id WHERE s.plan_id = ?");
 		$sol->bindParam(1, $plan);
 		$sol->execute();
 
@@ -42,7 +42,7 @@ class solucionModel extends Model
 	}
 
 	public function addSolucion($solucion, $periodo, $anio, $tiposolucion, $plan){
-		$sol = $this->_db->prepare("INSERT INTO soluciones VALUES(null, ?, ?, ?, ?, ?)");
+		$sol = $this->_db->prepare("INSERT INTO soluciones VALUES(null, ?, ?, ?, ?, ?, 7)");
 		$sol->bindParam(1, $solucion);
 		$sol->bindParam(2, $periodo);
 		$sol->bindParam(3, $anio);

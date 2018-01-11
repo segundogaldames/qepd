@@ -6,6 +6,13 @@ class imagenesController extends Controller
 	private $_plan;
 	private $_imagen;
 	private $_condicion;
+	private $_urna;
+	private $_traslado;
+	private $_velatorio;
+	private $_cinerario;
+	private $_anfora;
+	private $_sepultacion;
+	private $_solucion;
 
 	public function __construct(){
 		parent::__construct();
@@ -13,6 +20,13 @@ class imagenesController extends Controller
 		$this->_plan = $this->loadModel('planes');
 		$this->_imagen = $this->loadModel('imagen');
 		$this->_condicion = $this->loadModel('condicion');
+		$this->_urna = $this->loadModel('urna');
+		$this->_traslado = $this->loadModel('traslado');
+		$this->_velatorio = $this->loadModel('velatorio');
+		$this->_cinerario = $this->loadModel('cinerario');
+		$this->_anfora = $this->loadModel('anfora');
+		$this->_sepultacion = $this->loadModel('sepultacion');
+		$this->_solucion = $this->loadModel('solucion');
 	}
 
 	public function index(){
@@ -42,6 +56,13 @@ class imagenesController extends Controller
 		$this->_view->assign('titulo', 'Consulta Planes');
 		$this->_view->assign('imagenes', $this->_imagen->getImagenesPlan($this->filtrarInt($id)));
 		$this->_view->assign('condiciones', $this->_condicion->getCondicionesPlan($this->filtrarInt($id)));
+		$this->_view->assign('urna', $this->_urna->getUrnaPlan($this->filtrarInt($id)));
+		$this->_view->assign('traslado', $this->_traslado->getTrasladoPlan($this->filtrarInt($id)));
+		$this->_view->assign('velatorio', $this->_velatorio->getVelatorioPlan($this->filtrarInt($id)));
+		$this->_view->assign('cinerario', $this->_cinerario->getCinerarioPlan($this->filtrarInt($id)));
+		$this->_view->assign('anfora', $this->_anfora->getAnforaPlan($this->filtrarInt($id)));
+		$this->_view->assign('sepultacion', $this->_sepultacion->getSepultacionPlan($this->filtrarInt($id)));
+		$this->_view->assign('solucion', $this->_solucion->getSolucionPlan($this->filtrarInt($id)));
 		$this->_view->renderizar('imagenesplan');
 
 	}

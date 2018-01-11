@@ -62,6 +62,12 @@ class cotizacionesController extends Controller
 		if ($this->getInt('enviar') == 1) {
 			$this->_view->assign('datos', $_POST);
 
+			if (!$this->getInt('opcion')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción de compra');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
 			if (!$this->getSql('cliente')) {
 				$this->_view->assign('_error', 'Debe ingresar su nombre');
 				$this->_view->renderizar('add');
@@ -98,48 +104,6 @@ class cotizacionesController extends Controller
 				exit;
 			}
 
-			if (!$this->getInt('destinatario')) {
-				$this->_view->assign('_error', 'Debe seleccionar un destinatario');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('edad')) {
-				$this->_view->assign('_error', 'Debe ingresar la edad del difunt@');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if ($this->getInt('edad') < 0 || $this->getInt('edad') > 120) {
-				$this->_view->assign('_error', 'La edad ingresada no es válida...');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('alto')) {
-				$this->_view->assign('_error', 'Debe ingresar la estatura del difunt@');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if ($this->getInt('alto') < 0 || $this->getInt('alto') > 220) {
-				$this->_view->assign('_error', 'La estatura ingresada no es válida...');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('peso')) {
-				$this->_view->assign('_error', 'Debe ingresar el peso del difunt@');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if ($this->getInt('peso') < 0 || $this->getInt('edad') > 250) {
-				$this->_view->assign('_error', 'El peso ingresado no es válido...');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
 			if (!$this->getInt('comuna')) {
 				$this->_view->assign('_error', 'Debe seleccionar la comuna donde está el difunt@');
 				$this->_view->renderizar('add');
@@ -147,19 +111,15 @@ class cotizacionesController extends Controller
 			}
 
 			$this->_cotizacion->addCotizacion(
-				$this->getInt('destinatario'), 
 				$this->filtrarInt($plan), 
 				$this->getAlphaNum('cliente'), 
 				$this->getAlphaNum('rut'), 
 				$this->getInt('fono_fijo'), 
 				$this->getInt('fono_movil'), 
 				$this->getPostParam('email'), 
-				$this->getAlphaNum('difunto'), 
-				$this->getInt('edad'), 
-				$this->getInt('alto'), 
-				$this->getInt('peso'), 
 				$this->getInt('comuna'), 
-				$this->getSql('mensaje')
+				$this->getSql('mensaje'),
+				$this->getInt('opcion') 
 			);
 
 			if ($this->_cotizacion->getCotizacionCliente($this->getAlphaNum('cliente'))) {
@@ -190,6 +150,12 @@ class cotizacionesController extends Controller
 
 		if ($this->getInt('enviar') == 1) {
 			
+			if (!$this->getInt('opcion')) {
+				$this->_view->assign('_error', 'Debe selecionar una opción de compra');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
 			if (!$this->getSql('cliente')) {
 				$this->_view->assign('_error', 'Debe ingresar su nombre');
 				$this->_view->renderizar('add');
@@ -226,48 +192,6 @@ class cotizacionesController extends Controller
 				exit;
 			}
 
-			if (!$this->getInt('destinatario')) {
-				$this->_view->assign('_error', 'Debe seleccionar un destinatario');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('edad')) {
-				$this->_view->assign('_error', 'Debe ingresar la edad del difunt@');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if ($this->getInt('edad') < 0 || $this->getInt('edad') > 120) {
-				$this->_view->assign('_error', 'La edad ingresada no es válida...');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('alto')) {
-				$this->_view->assign('_error', 'Debe ingresar la estatura del difunt@');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if ($this->getInt('alto') < 0 || $this->getInt('alto') > 220) {
-				$this->_view->assign('_error', 'La estatura ingresada no es válida...');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('peso')) {
-				$this->_view->assign('_error', 'Debe ingresar el peso del difunt@');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if ($this->getInt('peso') < 0 || $this->getInt('edad') > 250) {
-				$this->_view->assign('_error', 'El peso ingresado no es válido...');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
 			if (!$this->getInt('comuna')) {
 				$this->_view->assign('_error', 'Debe seleccionar la comuna donde está el difunt@');
 				$this->_view->renderizar('add');
@@ -276,19 +200,15 @@ class cotizacionesController extends Controller
 
 			$this->_cotizacion->editCotizacionCliente(
 				$this->filtrarInt($id), 
-				$this->getInt('destinatario'), 
 				$this->filtrarInt($plan), 
 				$this->getAlphaNum('cliente'), 
 				$this->getAlphaNum('rut'), 
 				$this->getInt('fono_fijo'), 
 				$this->getInt('fono_movil'), 
 				$this->getPostParam('email'), 
-				$this->getAlphaNum('difunto'), 
-				$this->getInt('edad'), 
-				$this->getInt('alto'), 
-				$this->getInt('peso'), 
 				$this->getInt('comuna'), 
-				$this->getSql('mensaje')
+				$this->getSql('mensaje'),
+				$this->getInt('opcion')
 			);
 
 			$this->redireccionar('cotizaciones/mensajes');

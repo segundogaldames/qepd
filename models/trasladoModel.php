@@ -24,7 +24,7 @@ class trasladoModel extends Model
 	public function getTrasladoPlan($plan){
 		$plan = (int) $plan;
 
-		$tras = $this->_db->prepare("SELECT t.id, t.instalacion, t.funeral, t.conflores, t.acompanamiento, t.pasajeros, t.plan_id, p.nombre as plan FROM traslados as t INNER JOIN planes as p ON t.plan_id = p.id WHERE t.plan_id = ?");
+		$tras = $this->_db->prepare("SELECT t.id, t.instalacion, t.funeral, t.conflores, t.acompanamiento, t.pasajeros, t.plan_id, t.componente_id, p.nombre as plan FROM traslados as t INNER JOIN planes as p ON t.plan_id = p.id WHERE t.plan_id = ?");
 		$tras->bindParam(1, $plan);
 		$tras->execute();
 
@@ -48,7 +48,7 @@ class trasladoModel extends Model
 	public function addTraslado($instalacion, $funeral, $conflores, $acompanamiento, $pasajeros, $plan){
 		//print_r($plan);exit;
 
-		$tras = $this->_db->prepare("INSERT INTO traslados VALUES(null, ?, ?, ?, ?, ?, ?)");
+		$tras = $this->_db->prepare("INSERT INTO traslados VALUES(null, ?, ?, ?, ?, ?, ?, 3)");
 		$tras->bindParam(1, $instalacion);
 		$tras->bindParam(2, $funeral);
 		$tras->bindParam(3, $conflores);

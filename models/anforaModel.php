@@ -16,7 +16,7 @@ class anforaModel extends Model
 	public function getAnforaPlan($plan){
 		$plan = (int) $plan;
 
-		$anf = $this->_db->prepare("SELECT a.id, a.modelo, a.plan_id, p.nombre as plan FROM anforas as a INNER JOIN planes as p ON a.plan_id = p.id WHERE a.plan_id = ?");
+		$anf = $this->_db->prepare("SELECT a.id, a.modelo, a.plan_id, p.nombre, a.componente_id as plan FROM anforas as a INNER JOIN planes as p ON a.plan_id = p.id WHERE a.plan_id = ?");
 		$anf->bindParam(1, $plan);
 		$anf->execute();
 
@@ -36,7 +36,7 @@ class anforaModel extends Model
 	public function addAnfora($modelo, $plan){
 		$plan = (int) $plan;
 
-		$anf = $this->_db->prepare("INSERT INTO anforas VALUES(null, ?, ?)");
+		$anf = $this->_db->prepare("INSERT INTO anforas VALUES(null, ?, ?, 5)");
 		$anf->bindParam(1, $modelo);
 		$anf->bindParam(2, $plan);
 		$anf->execute();

@@ -28,7 +28,7 @@ class cinerarioModel extends Model
 	public function getCinerarioPlan($plan){
 		$plan = (int) $plan;
 
-		$cin = $this->_db->prepare("SELECT c.id, c.sala, c.capilla, c.podium, c.liturgia, c.amplificacion, c.diacono, c.coro, c.cafeteria, c.ceremonia, c.anforaincl, c.plan_id, p.nombre as plan FROM cinerarios as c INNER JOIN planes as p ON c.plan_id = p.id WHERE c.plan_id = ?");
+		$cin = $this->_db->prepare("SELECT c.id, c.sala, c.capilla, c.podium, c.liturgia, c.amplificacion, c.diacono, c.coro, c.cafeteria, c.ceremonia, c.anforaincl, c.plan_id, p.nombre as plan, c.componente_id FROM cinerarios as c INNER JOIN planes as p ON c.plan_id = p.id WHERE c.plan_id = ?");
 		$cin->bindParam(1, $plan);
 		$cin->execute();
 
@@ -36,7 +36,7 @@ class cinerarioModel extends Model
 	}
 
 	public function addCinerario($sala, $capilla, $podium, $liturgia, $amplificacion, $diacono, $coro, $cafeteria, $ceremonia, $anforaincl, $plan){
-		$cin = $this->_db->prepare("INSERT INTO cinerarios VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$cin = $this->_db->prepare("INSERT INTO cinerarios VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 4)");
 		$cin->bindParam(1, $sala);
 		$cin->bindParam(2, $capilla);
 		$cin->bindParam(3, $podium);

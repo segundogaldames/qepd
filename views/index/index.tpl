@@ -1,5 +1,4 @@
 <div class="row">
-	<div style="padding: 25px"></div>
 	{include file="header.tpl"}
 	{include file="about.tpl"}
 	{include file="services.tpl"}

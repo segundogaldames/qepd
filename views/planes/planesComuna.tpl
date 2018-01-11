@@ -8,7 +8,7 @@
 		{/if}
 	</ul>
 </div>
-<div class="col-md-8">
+<div class="col-md-10">
 	<h3>Ver Planes</h3>
 	{if isset($planes) && count($planes)}
 	<table class="table table-hover">
@@ -53,16 +53,83 @@
 		
 	</table>
 	{else}
-		<strong>No hay planes asociados</strong>
-		<p><a href="{$_layoutParams.root}planes/planesServicios/9" class="btn btn-link">Planes Funerarios</a></p>
-		<p><a href="{$_layoutParams.root}planes/planesServicios/10" class="btn btn-link">Planes Cinerarios</a></p>
-		<p><a href="{$_layoutParams.root}planes/planesServicios/11" class="btn btn-link">Planes Sepulturas</a></p>
-		<p><a href="{$_layoutParams.root}planes/planesServicios/12" class="btn btn-link">Planes Sepultación</a></p>
+		 <div class="col-md-3">
+                        <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-stack-1x text-primary">
+                                <a href="{$_layoutParams.root}planes/planesServicios/9">
+                                    <img src="{$_layoutParams.root}views/layout/default/img/vectores/funeraria.jpg">
+                                </a>
+                            </i>
+                            </span>
+                            <h4>
+                                <strong>Funerarias</strong>
+                               
+                            </h4>
+                            <p>Elige el mejor plan funerario</p>
+                                <a href="{$_layoutParams.root}planes/planesServicios/9" class="btn btn-primary">Cotizar</a>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-stack-1x text-primary">
+                                <a href="{$_layoutParams.root}planes/planesServicios/10">
+                                    <img src="{$_layoutParams.root}views/layout/default/img/vectores/crematorio.jpg">
+                                </a>
+                            </i>
+                        </span>
+                            <h4>
+                                <strong>Crematorios</strong>
+                            </h4>
+                            <p>Elige el mejor servicio de cremación</p>
+                                <a href="{$_layoutParams.root}planes/planesServicios/10" class="btn btn-primary">Cotizar</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-stack-1x text-primary">
+                                <a href="{$_layoutParams.root}planes/planesServicios/11">
+                                    <img src="{$_layoutParams.root}views/layout/default/img/vectores/sepultura.jpg">
+                                </a>
+                                
+                            </i>
+                        </span>
+                            <h4>
+                                <strong>Sepulturas</strong>
+                            </h4>
+                            <p>Elige el mejor plan de cementerio</p>
+                                <a href="{$_layoutParams.root}planes/planesServicios/11" class="btn btn-primary">Cotizar</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-stack-1x text-primary">
+                                <a href="{$_layoutParams.root}planes/planesServicios/12">
+                                    <img src="{$_layoutParams.root}views/layout/default/img/vectores/Servicio-sepultacion.jpg">
+                                </a>
+                                
+                            </i>
+                        </span>
+                            <h4>
+                                <strong>Servicios de Sepultación</strong>
+                            </h4>
+                            <p>Elige el mejor servicio de sepultación</p>
+                                <a href="{$_layoutParams.root}planes/planesServicios/12" class="btn btn-primary">Cotizar</a>
+                        </div>
+                    </div>
+                </div>
 	{/if}
 </div>
-<div class="col-md-2">
-	
-</div>	
+
 
 
 	
