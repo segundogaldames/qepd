@@ -84,6 +84,68 @@ class sedesController extends Controller
 		$this->_view->renderizar('add');
 	}
 
+	public function addSedeEmpresa($id = null){
+		$this->verificarSession();
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('empresas');
+		}
+
+		if (!$this->_empresa->getEmpresa($this->filtrarInt($id))) {
+			$this->redireccionar('empresas');
+		}
+
+		$this->_view->assign('titulo', 'Nueva Sede');
+		$this->_view->assign('comunas', $this->_comuna->getComunas());
+
+		if ($this->getInt('enviar') == 1) {
+			$this->_view->assign('datos', $_POST);
+			//print_r($_POST);exit;
+
+			if (!$this->getSql('nombre')) {
+				$this->_view->assign('_error', 'Ingrese el nombre de la sede');
+				$this->_view->renderizar('addSedeEmpresa');
+				exit;
+			}
+
+			if (!$this->getSql('calle')) {
+				$this->_view->assign('_error', 'Ingrese la calle donde se ubica la sede');
+				$this->_view->renderizar('addSedeEmpresa');
+				exit;
+			}
+
+			if (!$this->getInt('numero')) {
+				$this->_view->assign('_error', 'Ingrese el número de la dirección de la sede');
+				$this->_view->renderizar('addSedeEmpresa');
+				exit;
+			}
+
+			if (!$this->getInt('comuna')) {
+				$this->_view->assign('_error', 'Debe asociar una comuna a la sede');
+				$this->_view->renderizar('addSedeEmpresa');
+				exit;
+			}
+
+			if ($this->_sede->getSedeNombreEmpresa($this->getSql('nombre'), $this->getInt('empresa'))) {
+				$this->_view->assign('_error', 'La sede ya existe... Inténtalo de nuevo');
+				$this->_view->renderizar('addSedeEmpresa');
+				exit;
+			}
+
+			$this->_sede->setSede(
+				$this->getSql('nombre'), 
+				$this->getSql('calle'), 
+				$this->getInt('numero'), 
+				$this->getSql('sector'), 
+				$this->getSql('ubicacion'), 
+				$this->filtrarInt($id), 
+				$this->getInt('comuna')
+				);
+
+			$this->redireccionar('sedes');
+		}
+		$this->_view->renderizar('addSedeEmpresa');
+	}
+
 	public function view($id = null){
 		$this->verificarSession();
 		$this->verificarId($id);

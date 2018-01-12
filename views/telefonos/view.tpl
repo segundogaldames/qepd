@@ -7,7 +7,7 @@
 	<h3>Ver Teléfono</h3>
 	
 	{if isset($telefono) && count($telefono)}
-		<p style="font-size: 18px"><strong>Número:</strong> {$telefono.numero}</p>
+		<p style="font-size: 18px"><strong>Número:</strong> {$telefono.telefono}</p>
 		<p style="font-size: 18px"><strong>Sede:</strong> {$telefono.sede}</p>
 		<p style="font-size: 18px"><strong>Dirección:</strong> {$telefono.calle} {$telefono.numero}</p>	
 		<p style="font-size: 18px"><strong>Comuna:</strong> {$telefono.comuna}</p>		

@@ -178,6 +178,14 @@ class imagenesController extends Controller
 		$this->_view->renderizar('edit');
 	}
 
+	public function delete($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_imagen->deleteImagen($this->filtrarInt($id));
+		$this->redireccionar('imagenes');
+	}
+
 	private function verificarParams($id){
 		if (!$this->filtrarInt($id)) {
 			$this->redireccionar('imagenes');

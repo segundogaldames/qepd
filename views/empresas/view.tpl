@@ -36,8 +36,9 @@
 		</table>
 	{else}
 		<strong>No hay sedes asociadas</strong>
-		<p><a href="{$_layoutParams.root}sedes/add">Agregar sede</a></p>
+		
 	{/if}
+	<p><a href="{$_layoutParams.root}sedes/addSedeEmpresa/{$empresa.id}">Agregar sede</a></p>
 </div>
 <div class="col-md-4">
 	

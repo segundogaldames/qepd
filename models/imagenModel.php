@@ -62,4 +62,23 @@ class imagenModel extends Model
 		$img->bindParam(4, $id);
 		$img->execute();
 	}
+
+	public function deleteImagen($id){
+		//print_r($id);exit;
+		$id = (int) $id;
+		$arch = $this->_db->query("SELECT nombre FROM imagenes WHERE id = $id");
+		//print_r($arch);exit;
+		$archivo = $arch->fetch();
+		//$ruta = ROOT . 'public' . DS . 'img' . DS . 'componentes' . DS . 'thumb' . DS . 'thumb_' . $archivo['nombre'];
+		//print_r($ruta);exit;
+		
+		//Eliminando archivo de las carpetas donde estaban guardadas
+		unlink(ROOT . 'public' . DS . 'img' . DS . 'componentes' . DS . $archivo['nombre']);
+		unlink(ROOT . 'public' . DS . 'img' . DS . 'componentes' . DS . 'thumb' . DS . 'thumb_' . $archivo['nombre']);
+
+		//Luego de eliminar el archivo se procede a eliminar de la base de datos
+		$img = $this->_db->prepare("DELETE FROM imagenes WHERE id = ?");
+		$img->bindParam(1, $id);
+		$img->execute();
+	}
 }

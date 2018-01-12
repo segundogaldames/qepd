@@ -1,5 +1,5 @@
 <div class="col-md-2" style="padding-top: 20px">
-	<p class="enlace"><a href="{$_layoutParams.root}materiales/add">Agregar Regiones</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}regiones/add">Agregar Regiones</a></p>
 	<hr>
 	<p class="enlace"><a href="{$_layoutParams.root}comunas">Comunas</a></p>
 </div>

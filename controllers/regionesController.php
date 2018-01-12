@@ -56,6 +56,27 @@ class regionesController extends Controller
 		$this->_view->renderizar('view');
 	}
 
+	public function edit($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_view->assign('titulo', 'Editar Region');
+		$this->_view->assign('dato', $this->_region->getRegionId($this->filtrarInt($id)));
+
+		if ($this->getInt('enviar') == 1) {
+			if (!$this->getSql('nombre')) {
+				$this->_view->assign('_error', 'Debe ingresar el nombre de la región');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
+			$this->_region->editRegion($this->filtrarInt($id), $this->getAlphaNum('nombre'));
+			$this->redireccionar('regiones');
+		}
+
+		$this->_view->renderizar('edit');
+	}
+
 	private function verificarParams($id){
 		if (!$this->filtrarInt($id)) {
 			$this->redireccionar('regiones');
