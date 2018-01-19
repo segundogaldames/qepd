@@ -12,19 +12,32 @@ class condicionesController extends Controller
 	}
 
 	public function index(){
+		$this->verificarSession();
 
+		$this->_view->assign('titulo', 'APP::Condiciones');
+		$this->_view->assign('condiciones', $this->_condicion->getCondiciones());
+		$this->_view->renderizar('index');
 	}
 
-	public function add($id = null){
+	public function view($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_view->assign('titulo', 'Ver Condicion');
+		$this->_view->assign('condicion', $this->_condicion->getCondicionId($this->filtrarInt($id)));
+		$this->_view->renderizar('view');
+	}
+
+	public function add($plan = null){
 		if (!Session::get('autenticado')) {
 			$this->redireccionar();
 		}
 
-		if (!$this->filtrarInt($id)) {
+		if (!$this->filtrarInt($plan)) {
 			$this->redireccionar('planes');
 		}
 
-		if (!$this->_plan->getPlanesId($this->filtrarInt($id))) {
+		if (!$this->_plan->getPlanesId($this->filtrarInt($plan))) {
 			$this->redireccionar('planes');
 		}
 
@@ -68,14 +81,14 @@ class condicionesController extends Controller
 				exit;
 			}
 
-			if ($this->_condicion->getCondicionesPlan($this->filtrarInt($id))) {
+			if ($this->_condicion->getCondicionesPlan($this->filtrarInt($plan))) {
 				$this->_view->assign('_error', 'El plan ya tiene condiciones... Debe seleccionar otra opción');
 				$this->_view->renderizar('add');
 				exit;
 			}
 
 			$this->_condicion->addCondiciones(
-				$this->filtrarInt($id), 
+				$this->filtrarInt($plan), 
 				$this->getInt('precio'), 
 				$this->getSql('fpago'), 
 				$this->getInt('plazo'), 
@@ -87,18 +100,19 @@ class condicionesController extends Controller
 				$this->getInt('pensiones')
 				);
 
-			if ($this->_condicion->getCondicionesPlan($this->filtrarInt($id))) {
-				$this->_view->assign('_mensaje', 'Las condiciones se han agregado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
-			if (!$this->_condicion->getCondicionesPlan($this->filtrarInt($id))) {
-				$this->_view->assign('_error', 'Las condiciones no se han agregado correctamente');
-				$this->_view->renderizar('add');
-				exit;
-			}
+			$this->redireccionar('condiciones');
 		}
 
 		$this->_view->renderizar('add');
+	}
+
+	private function verificarParams($id){
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('condiciones');
+		}
+
+		if (!$this->_condicion->getCondicionId($this->filtrarInt($id))) {
+			$this->redireccionar('condiciones');
+		}
 	}
 }

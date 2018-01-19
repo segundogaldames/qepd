@@ -23,6 +23,7 @@
 			{/if}
 		
 	</table>
+	<p><a href="{$_layoutParams.root}roles/add" class="btn btn-link">Agregar Roles</a></p>
 </div>
 <div class="col-md-4">
 	

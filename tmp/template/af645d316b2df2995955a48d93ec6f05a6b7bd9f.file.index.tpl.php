@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-05-24 16:40:32
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-17 18:39:46
          compiled from "/Applications/MAMP/htdocs/qepd/views/telefonos/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:15600912325908b18151cc95-96644703%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'af645d316b2df2995955a48d93ec6f05a6b7bd9f' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/telefonos/index.tpl',
-      1 => 1493745920,
+      1 => 1515970896,
       2 => 'file',
     ),
   ),
@@ -25,12 +25,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5908b1816847c2_87958914')) {function content_5908b1816847c2_87958914($_smarty_tpl) {?><div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<?php if ($_valid && !is_callable('content_5908b1816847c2_87958914')) {function content_5908b1816847c2_87958914($_smarty_tpl) {?><div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 telefonos/add">Agregar Teléfono</a></p>
+	<hr>
+	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+sedes">Sedes</a></p>
+	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+empresas">Empresas</a></p>
 </div>
-<div class="col-md-8">
+<div class="col-md-10">
 	<h3>Lista de Teléfonos</h3>
 	<table class="table table-hover">
 		<th>
@@ -38,6 +42,12 @@ telefonos/add">Agregar Teléfono</a></p>
 		</th>
 		<th>
 			Sede
+		</th>
+		<th>
+			Dirección
+		</th>
+		<th>
+			Comuna
 		</th>
 		<th>
 			Empresa
@@ -53,9 +63,14 @@ foreach ($_from as $_smarty_tpl->tpl_vars['tel']->key => $_smarty_tpl->tpl_vars[
 $_smarty_tpl->tpl_vars['tel']->_loop = true;
 ?>
 					<tr>
-						<td><?php echo $_smarty_tpl->tpl_vars['tel']->value['numero'];?>
+						<td><?php echo $_smarty_tpl->tpl_vars['tel']->value['telefono'];?>
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['tel']->value['sede'];?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['tel']->value['calle'];?>
+ <?php echo $_smarty_tpl->tpl_vars['tel']->value['numero'];?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['tel']->value['comuna'];?>
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['tel']->value['empresa'];?>
 </td>
@@ -65,7 +80,10 @@ telefonos/view/<?php echo $_smarty_tpl->tpl_vars['tel']->value['id'];?>
 ">Ver</a>&nbsp;&nbsp;
 							<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 telefonos/delete/<?php echo $_smarty_tpl->tpl_vars['tel']->value['id'];?>
-">Eliminar</a>
+" onclick="return eliminar('<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+telefonos/delete/<?php echo $_smarty_tpl->tpl_vars['tel']->value['id'];?>
+', '<?php echo $_smarty_tpl->tpl_vars['tel']->value['telefono'];?>
+');">Eliminar</a>
 						</td>
 					</tr>
 
@@ -74,9 +92,7 @@ telefonos/delete/<?php echo $_smarty_tpl->tpl_vars['tel']->value['id'];?>
 		
 	</table>
 </div>
-<div class="col-md-2">
-	
-</div>	
+
 
 
 	

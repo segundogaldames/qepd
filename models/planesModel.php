@@ -38,6 +38,14 @@ class planesModel extends Model
 		return $plan->fetch();
 	}
 
+	public function getPlanesEmpresa($empresa){
+		$plan = $this->_db->prepare("SELECT p.id, p.nombre, p.status_id, s.nombre as servicio, tp.nombre as tipo_plan FROM planes as p INNER JOIN servicios as s ON p.servicio_id = s.id INNER JOIN tipo_planes as tp ON p.tipo_plan_id = tp.id WHERE p.empresa_id = ?");
+		$plan->bindParam(1, $empresa);
+		$plan->execute();
+
+		return $plan->fetchall();
+	}
+
 	public function getPlanNombreCodigo($nombre, $codigo){
 		$plan = $this->_db->prepare("SELECT id FROM planes WHERE nombre = ? OR codigo = ?");
 		$plan->bindParam(1, $nombre);
@@ -50,7 +58,7 @@ class planesModel extends Model
 	public function getPlanesServicios($id){
 		$id = (int) $id;
 
-		$plan = $this->_db->prepare("SELECT p.id, p.nombre, tp.nombre as tipo_plan, s.nombre as servicio, e.nombre as empresa, d.nombre as destinatario, c.precio as precio, com.nombre as comuna FROM tipo_planes as tp 
+		$plan = $this->_db->prepare("SELECT distinct p.id, p.nombre, tp.nombre as tipo_plan, s.nombre as servicio, e.nombre as empresa, d.nombre as destinatario, c.precio as precio, com.nombre as comuna FROM tipo_planes as tp 
 			INNER JOIN planes as p ON p.tipo_plan_id = tp.id 
 			INNER JOIN servicios as s ON s.id = p.servicio_id 
 			INNER JOIN empresas as e ON e.id = p.empresa_id 

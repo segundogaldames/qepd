@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-04-25 17:51:04
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-17 19:41:11
          compiled from "/Applications/MAMP/htdocs/qepd/views/comunas/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:57645611858ff9ba06fae74-65556873%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dc856d352116c4ad73f7d3910a234108320dbd54' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/comunas/add.tpl',
-      1 => 1493153461,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -61,6 +61,8 @@ $_smarty_tpl->tpl_vars['r']->_loop = true;
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Registrar" class="btn btn-success">
+			<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+comunas" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

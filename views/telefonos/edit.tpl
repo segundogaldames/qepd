@@ -9,7 +9,7 @@
 		<div class="form-group">
 			<label for="sedes">Sede actual: {$dato.sede|default:''}</label>
 			<select name="sede" id="" class="form-control">
-				<option value="{$dato.sede_id}">{$dato.sede}</option>
+				<option value="{$dato.sede_id}">{$dato.sede} - {$dato.empresa}</option>
 				{if isset($sedes) && count($sedes)}
 					{foreach from=$sedes item=s}
 						<option value="{$s.id}">{$s.sede} - {$s.empresa}</option>

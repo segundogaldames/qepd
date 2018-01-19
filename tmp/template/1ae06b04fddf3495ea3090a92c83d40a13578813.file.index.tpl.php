@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-05-29 17:30:26
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-17 19:44:27
          compiled from "/Applications/MAMP/htdocs/qepd/views/servicios/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2575767995925e6ae90c278-68546508%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1ae06b04fddf3495ea3090a92c83d40a13578813' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/servicios/index.tpl',
-      1 => 1496089788,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -25,10 +25,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5925e6aeeb6676_55879062')) {function content_5925e6aeeb6676_55879062($_smarty_tpl) {?><div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<?php if ($_valid && !is_callable('content_5925e6aeeb6676_55879062')) {function content_5925e6aeeb6676_55879062($_smarty_tpl) {?><div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 servicios/add">Agregar Servicio</a></p>
+	<hr>
+	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+planes">Planes</a></p>
+	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+tipoplanes">Tipo de Planes</a></p>
 </div>
 <div class="col-md-8">
 	<h3>Lista de Servicios</h3>

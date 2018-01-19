@@ -40,6 +40,17 @@
 			</select>
 		</div>
 		<div class="form-group">
+			<label for="vendedor">Seleccione vendedor(opcional):</label>
+			<select name="vendedor" id="" class="form-control">
+				<option value="">Vendedores</option>
+				{if isset($vendedores) && count($vendedores)}
+					{foreach from=$vendedores item=v}
+						<option value="{$v.id}">{$v.nombre} {$v.apellido}</option>
+					{/foreach}
+				{/if}
+			</select>
+		</div>
+		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Registrar" class="btn btn-success">
 		</div>

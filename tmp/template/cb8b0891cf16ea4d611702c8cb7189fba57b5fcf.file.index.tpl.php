@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-04-25 17:49:23
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-17 19:41:08
          compiled from "/Applications/MAMP/htdocs/qepd/views/comunas/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:190811652458ffa31803df20-80786626%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cb8b0891cf16ea4d611702c8cb7189fba57b5fcf' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/comunas/index.tpl',
-      1 => 1493153359,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '_layoutParams' => 0,
     'comunas' => 0,
     'c' => 0,
-    'emp' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -30,6 +29,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div class="col-md-2">
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 comunas/add" class="btn btn-enlace">Agregar Comuna</a></p>
+	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+regiones" class="btn btn-enlace">Regiones</a></p>
 </div>
 <div class="col-md-8">
 	<h3>Lista de Comunas</h3>
@@ -57,9 +58,14 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
 </td>
 						<td>
 							<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-comunas/view/<?php echo $_smarty_tpl->tpl_vars['emp']->value['id'];?>
+comunas/view/<?php echo $_smarty_tpl->tpl_vars['c']->value['id'];?>
 ">Ver</a>&nbsp;&nbsp;
-							<a href="">Eliminar</a>
+							<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+comunas/delete/<?php echo $_smarty_tpl->tpl_vars['c']->value['id'];?>
+" onclick="return eliminar('<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+comunas/delete/<?php echo $_smarty_tpl->tpl_vars['c']->value['id'];?>
+','<?php echo $_smarty_tpl->tpl_vars['c']->value['comuna'];?>
+');">Eliminar</a>
 						</td>
 					</tr>
 

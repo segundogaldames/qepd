@@ -39,6 +39,29 @@
 		
 	{/if}
 	<p><a href="{$_layoutParams.root}sedes/addSedeEmpresa/{$empresa.id}">Agregar sede</a></p>
+	<hr>
+	{if isset($planes) && count($planes)}
+	<h4>Planes</h4>
+		<table class="table table-hover">
+			<tr>
+				<th>Nombre</th>
+				<th>Servicio</th>
+				<th>Tipo Plan</th>
+				<th>Status</th>
+			</tr>
+			{foreach from=$planes item=p}
+				<tr>
+					<td><a href="{$_layoutParams.root}planes/view/{$p.id}">{$p.nombre}</a></td>
+					<td>{$p.servicio}</td>
+					<td>{$p.tipo_plan}</td>
+					<td>{if $p.status_id==1}Activo{else}Inactivo{/if}</td>
+				</tr>
+			{/foreach}
+		</table>
+	{else}
+		<strong>No hay planes asociados</strong>
+	{/if}
+	<p><a href="{$_layoutParams.root}planes/addPlanEmpresa/{$empresa.id}">Agregar Plan</a></p>
 </div>
 <div class="col-md-4">
 	

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-04-18 16:51:47
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-17 17:14:00
          compiled from "/Applications/MAMP/htdocs/qepd/views/roles/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:129777022458f66305901191-31341546%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a26bd3df6d0f36002fa3b5a9f3e026913b6cd380' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/roles/index.tpl',
-      1 => 1492544810,
+      1 => 1516220033,
       2 => 'file',
     ),
   ),
@@ -49,7 +49,12 @@ $_smarty_tpl->tpl_vars['r']->_loop = true;
 							<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 roles/view/<?php echo $_smarty_tpl->tpl_vars['r']->value['id'];?>
 ">Ver</a>&nbsp;&nbsp;
-							<a href="">Eliminar</a>
+							<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+roles/delete/<?php echo $_smarty_tpl->tpl_vars['r']->value['id'];?>
+" onclick="return eliminar('<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+roles/delete/<?php echo $_smarty_tpl->tpl_vars['r']->value['id'];?>
+', '<?php echo $_smarty_tpl->tpl_vars['r']->value['nombre'];?>
+')">Eliminar</a>
 						</td>
 					</tr>
 
@@ -57,6 +62,8 @@ roles/view/<?php echo $_smarty_tpl->tpl_vars['r']->value['id'];?>
 			<?php }?>
 		
 	</table>
+	<p><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+roles/add" class="btn btn-link">Agregar Roles</a></p>
 </div>
 <div class="col-md-4">
 	

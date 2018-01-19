@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-09-04 16:27:10
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-12-30 12:30:05
          compiled from "/Applications/MAMP/htdocs/qepd/views/layout/default/services.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:92497054158f522a8330001-00445689%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c59c396b8f7f7705d1db3139a345734796f35148' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/layout/default/services.tpl',
-      1 => 1504553223,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -35,7 +35,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <div class="service-item">
                             <span class="fa-stack fa-4x">
                             <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-stack-1x text-primary">Imagen</i>
+                            <i class="fa fa-stack-1x text-primary">
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+planes/planesServicios/9">
+                                    <img src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+views/layout/default/img/vectores/funeraria.jpg">
+                                </a>
+                            </i>
                             </span>
                             <h4>
                                 <strong>Funerarias</strong>
@@ -51,7 +57,13 @@ planes/planesServicios/9" class="cotizar">Cotizar</a>
                         <div class="service-item">
                             <span class="fa-stack fa-4x">
                             <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-stack-1x text-primary">Imagen</i>
+                            <i class="fa fa-stack-1x text-primary">
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+planes/planesServicios/10">
+                                    <img src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+views/layout/default/img/vectores/crematorio.jpg">
+                                </a>
+                            </i>
                         </span>
                             <h4>
                                 <strong>Crematorios</strong>
@@ -66,7 +78,14 @@ planes/planesServicios/10" class="cotizar">Cotizar</a>
                         <div class="service-item">
                             <span class="fa-stack fa-4x">
                             <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-stack-1x text-primary">Imagen</i>
+                            <i class="fa fa-stack-1x text-primary">
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+planes/planesServicios/11">
+                                    <img src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+views/layout/default/img/vectores/sepultura.jpg">
+                                </a>
+                                
+                            </i>
                         </span>
                             <h4>
                                 <strong>Sepulturas</strong>
@@ -80,7 +99,14 @@ planes/planesServicios/11" class="cotizar">Cotizar</a>
                         <div class="service-item">
                             <span class="fa-stack fa-4x">
                             <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-stack-1x text-primary">Imagen</i>
+                            <i class="fa fa-stack-1x text-primary">
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+planes/planesServicios/12">
+                                    <img src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+views/layout/default/img/vectores/Servicio-sepultacion.jpg">
+                                </a>
+                                
+                            </i>
                         </span>
                             <h4>
                                 <strong>Servicios de Sepultación</strong>

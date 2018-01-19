@@ -6,6 +6,21 @@ class condicionModel extends Model
 		parent::__construct();
 	}
 
+	public function getCondiciones(){
+		$cond = $this->_db->query("SELECT c.id, c.plan_id, p.nombre as plan, c.precio, c.formapago, c.plazopago, c.compraanticipada, c.segurodeceso, c.convenios, c.descuentocol, c.descuentonicho, c.pensiones FROM condiciones as c INNER JOIN planes as p ON c.plan_id = p.id");
+		return $cond->fetchall();
+	}
+
+	public function getCondicionId($id){
+		$id = (int) $id;
+
+		$cond = $this->_db->prepare("SELECT c.id, c.plan_id, p.nombre as plan, c.precio, c.formapago, c.plazopago, c.compraanticipada, c.segurodeceso, c.convenios, c.descuentocol, c.descuentonicho, c.pensiones FROM condiciones as c INNER JOIN planes as p ON c.plan_id = p.id WHERE c.id = ?");
+		$cond->bindParam(1, $id);
+		$cond->execute();
+
+		return $cond->fetch();
+	}
+
 	public function getCondicionesPlan($id){
 		$id = (int) $id;
 

@@ -139,15 +139,7 @@ class usuarioController extends Controller
 				$this->getInt('role')
 				);
 
-				$row = $this->_usuarios->getUsuario($this->getPostParam('email'));
-				if (!$row) {
-					$this->_view->assign('_error', 'El registro no ha podido ser completado.');
-					$this->_view->renderizar('add');
-				}else{
-					$this->_view->assign('_mensaje', 'El registro se ha realizado satisfactoriamente. Inicie sesión para continuar');
-					$this->_view->renderizar('add');
-				}
-			
+			$this->redireccionar('usuarios');
 		}
 
 		$this->_view->renderizar('add');

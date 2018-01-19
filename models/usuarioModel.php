@@ -30,6 +30,11 @@ class usuarioModel extends Model
 		return $usu->fetch();
 	}
 
+	public function getUsuarioVendedor(){
+		$usu = $this->_db->query("SELECT id, nombre, apellido, email FROM usuarios WHERE roles_id = 5");
+		return $usu->fetchall();
+	}
+
 	public function verificarUsuario($email, $clave)
 	{
 		$usu = $this->_db->query("select * from usuarios where email = '$email' and password = '".Hash::getHash('sha1', $clave, HASH_KEY)."'");

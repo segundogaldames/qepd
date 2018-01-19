@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-09-12 13:05:01
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-19 11:57:34
          compiled from "/Applications/MAMP/htdocs/qepd/views/componentes/verComponentes.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14620181075935d32335ae09-30417174%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c3d774e0cac0b2e541daa232daa773f7aea14f6b' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/componentes/verComponentes.tpl',
-      1 => 1505232298,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -26,8 +26,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5935d3233f0f14_11865584')) {function content_5935d3233f0f14_11865584($_smarty_tpl) {?><div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<?php if ($_valid && !is_callable('content_5935d3233f0f14_11865584')) {function content_5935d3233f0f14_11865584($_smarty_tpl) {?><div class="col-md-2" style="padding-top: 20px">
 	<?php if (Session::get('role_id')==1) {?>
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 planes">Ver Planes</a></p>
@@ -42,7 +41,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['cs']->key => $_smarty_tpl->tpl_vars['
 $_smarty_tpl->tpl_vars['cs']->_loop = true;
 ?>
 		<p><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];
-echo $_smarty_tpl->tpl_vars['cs']->value['url_view'];
+echo $_smarty_tpl->tpl_vars['cs']->value['url_plan'];
 echo $_smarty_tpl->tpl_vars['plan']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['cs']->value['nombre'];?>
 </a></p>

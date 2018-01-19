@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-10-02 16:17:00
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-12-30 12:30:05
          compiled from "/Applications/MAMP/htdocs/qepd/views/layout/default/navbar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:90377091358f52a5bc3bf04-91564473%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b3445a8ccfbc6054355c1d7137335544c53b0334' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/layout/default/navbar.tpl',
-      1 => 1506971815,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_58f52a5c384549_66684748')) {function content_58f52a5c384549_66684748($_smarty_tpl) {?><nav class="navbar-inverse navbar-fixed-top">
+<?php if ($_valid && !is_callable('content_58f52a5c384549_66684748')) {function content_58f52a5c384549_66684748($_smarty_tpl) {?><nav class="navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -51,28 +51,12 @@ index">Funerarias y Cementerios</a>
                 <ul class="dropdown-menu">
                     <li style="list-style:none;" >
                       <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-/empresas">Empresas</a>
+empresas">Empresas</a>
                     </li>
-                    <li style="list-style:none;" >
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-/tipoempresas">Tipo Empresas</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-sedes">Sedes</a>
-                    </li> 
-                    <li style="list-style:none;" >
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-telefonos">Telefonos</a> 
-                      </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
                       <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-/comunas">Comunas</a>
-                    </li>
-                    <li style="list-style:none;" >
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-/regiones">Regiones</a>
+comunas">Comunas</a>
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
@@ -82,11 +66,11 @@ servicios">Servicios</a>
                     <li style="list-style:none;" >
                       <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 planes">Planes</a>  
-                    </li> 
+                    </li>
                     <li style="list-style:none;" >
                       <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-/tipoplanes">Tipo de Planes</a>
-                    </li>
+cotizaciones">Cotizaciones</a>  
+                    </li> 
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
                       <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
@@ -100,22 +84,7 @@ componentes">Componentes</a>
                     <li style="list-style:none;" >
                         <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 imagenes">Imágenes</a>     
-                    </li>
-                    <li style="list-style:none;" >
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-construcciones">Construcciones</a>     
-                    </li>
-                    <li style="list-style:none;" >
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-tipoconstrucciones">Tipo Construcciones</a>     
-                    </li>
-                    <li style="list-style:none;" >
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-materiales">Materiales</a>     
-                    </li>
-                    <li style="list-style:none;" >
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-terminaciones">Terminaciones</a>     
+                    </li>   
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
@@ -137,11 +106,12 @@ usuario/cerrar');">Cerrar Sesión</a>
         <?php } else { ?>
           <li>
             <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-usuario">Iniciar Sesión</a>
+usuario/login">Iniciar Sesión</a>
           </li>
           
           <li>
-            <a href="#contacto">Contáctanos</a>
+            <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+contactos/add">Contáctanos</a>
           </li>
 
           <li>

@@ -61,6 +61,51 @@ class telefonosController extends Controller
 		$this->_view->renderizar('add');
 	}
 
+	public function addTelefonoSede($sede){
+		//print_r($sede);exit;
+		$this->verificarSession();
+
+		if (!$this->filtrarInt($sede)) {
+			$this->redireccionar('sedes');
+		}
+
+		if (!$this->_sede->getSedeId($this->filtrarInt($sede))) {
+			$this->redireccionar('sedes');
+		}
+
+		$this->_view->assign('titulo', 'APP::Nuevo Telefono');
+
+		if ($this->getInt('enviar') == 1) {
+			$this->_view->assign('datos', $_POST);
+
+			if (!$this->getInt('telefono')) {
+				$this->_view->assign('_error', 'Debe ingresar un número telefónico');
+				$this->_view->renderizar('addTelefonoSede');
+				exit;
+			}
+
+
+			if ($this->_telefono->getTelefonoNumero($this->getInt('telefono'))) {
+				$this->_view->assign('_error', 'El teléfono ya existe. Ingrese otro número');
+				$this->_view->renderizar('addTelefonoSede');
+				exit;
+			}
+
+			if (strlen($this->getInt('telefono')) < 8) {
+				$this->_view->assign('_error', 'Ingrese un número válido');
+				$this->_view->renderizar('addTelefonoSede');
+				exit;
+			}
+
+			$this->_telefono->setTelefonos(
+				$this->getInt('telefono'), 
+				$this->filtrarInt($sede)
+				);
+			$this->redireccionar('sedes');
+		}
+		$this->_view->renderizar('addTelefonoSede');
+	}
+
 	public function view($id = null){
 		$this->verificarSession();
 		$this->verificarParams($id);

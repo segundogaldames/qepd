@@ -8,8 +8,11 @@
 	{if isset($sede) && count($sede)}
 		<p style="font-size: 18px"><strong>Sede:</strong> {$sede.sede}</p>
 		<p style="font-size: 18px"><strong>Direccion:</strong> {$sede.calle} {$sede.numero} {$sede.sector}</p>	
-		<p style="font-size: 18px"><strong>Comuna:</strong> {$sede.comuna}</p>	
-		
+		<p style="font-size: 18px"><strong>Comuna:</strong> {$sede.comuna}</p>
+		<hr>
+		<h4>Datos de Contacto</h4>	
+		<p style="font-size: 18px"><strong>Nombre:</strong> {$sede.nom_usuario} {$sede.apellido}</p>
+		<p style="font-size: 18px"><strong>Email:</strong> {$sede.email}</p>
 	{/if}
 	<p>
 		<a href="{$_layoutParams.root}sedes/edit/{$sede.id}">Editar</a>&nbsp;&nbsp;
@@ -35,8 +38,9 @@
 			</table>
 		{else}
 			<strong>No hay teléfonos asociados</strong>
-			<p class="enlace"><a href="{$_layoutParams.root}telefonos/add">Agregar Teléfono</a></p>
+			
 		{/if}
+		<p class="enlace"><a href="{$_layoutParams.root}telefonos/addTelefonoSede/{$sede.id}">Agregar Teléfono</a></p>
 </div>
 <div class="col-md-4">
 	

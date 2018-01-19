@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-06-13 13:52:42
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-17 20:09:10
          compiled from "/Applications/MAMP/htdocs/qepd/views/planes/edit.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18048479135940138ccd9c74-78071978%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '45643d49710db11495aaf30455341f5786572e72' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/planes/edit.tpl',
-      1 => 1497372757,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -28,11 +28,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'emp' => 0,
     'destinatarios' => 0,
     'dest' => 0,
+    '_layoutParams' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5940138d0450f2_47710270')) {function content_5940138d0450f2_47710270($_smarty_tpl) {?><div style="padding-top: 50px"></div>
-<div class="col-md-2"></div>
+<?php if ($_valid && !is_callable('content_5940138d0450f2_47710270')) {function content_5940138d0450f2_47710270($_smarty_tpl) {?><div class="col-md-2"></div>
 <div class="col-md-4">
 	<h3>Editar Plan</h3>
 	<form action="" method="post" name="form">
@@ -50,7 +50,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<label for="tipo_plan">Tipo Plan: <?php echo (($tmp = @$_smarty_tpl->tpl_vars['dato']->value['tipo_plan'])===null||$tmp==='' ? '' : $tmp);?>
 </label>
 			<select name="tipo_plan" id="" class="form-control">
-				<option value="">Seleccione</option>
+				<option value="<?php echo $_smarty_tpl->tpl_vars['dato']->value['tipo_plan_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['dato']->value['tipo_plan'];?>
+</option>
 				<?php if (isset($_smarty_tpl->tpl_vars['tipoplanes']->value)&&count($_smarty_tpl->tpl_vars['tipoplanes']->value)) {?>
 					<?php  $_smarty_tpl->tpl_vars['tp'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['tp']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['tipoplanes']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -68,7 +70,9 @@ $_smarty_tpl->tpl_vars['tp']->_loop = true;
 			<label for="servicio">Servicio: <?php echo (($tmp = @$_smarty_tpl->tpl_vars['dato']->value['servicio'])===null||$tmp==='' ? '' : $tmp);?>
 </label>
 			<select name="servicio" id="" class="form-control">
-				<option value="">Seleccione</option>
+				<option value="<?php echo $_smarty_tpl->tpl_vars['dato']->value['servicio_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['dato']->value['servicio'];?>
+</option>
 				<?php if (isset($_smarty_tpl->tpl_vars['servicios']->value)&&count($_smarty_tpl->tpl_vars['servicios']->value)) {?>
 					<?php  $_smarty_tpl->tpl_vars['serv'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['serv']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['servicios']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -86,7 +90,9 @@ $_smarty_tpl->tpl_vars['serv']->_loop = true;
 			<label for="empresa">Empresa: <?php echo (($tmp = @$_smarty_tpl->tpl_vars['dato']->value['empresa'])===null||$tmp==='' ? '' : $tmp);?>
 </label>
 			<select name="empresa" id="" class="form-control">
-				<option value="">Seleccione</option>
+				<option value="<?php echo $_smarty_tpl->tpl_vars['dato']->value['empresa_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['dato']->value['empresa'];?>
+</option>
 				<?php if (isset($_smarty_tpl->tpl_vars['empresas']->value)&&count($_smarty_tpl->tpl_vars['empresas']->value)) {?>
 					<?php  $_smarty_tpl->tpl_vars['emp'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['emp']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['empresas']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -104,7 +110,9 @@ $_smarty_tpl->tpl_vars['emp']->_loop = true;
 			<label for="destinatario">Destinatario: <?php echo (($tmp = @$_smarty_tpl->tpl_vars['dato']->value['destinatario'])===null||$tmp==='' ? '' : $tmp);?>
 </label>
 			<select name="destinatario" id="" class="form-control">
-				<option value="">Seleccione</option>
+				<option value="<?php echo $_smarty_tpl->tpl_vars['dato']->value['destinatario_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['dato']->value['destinatario'];?>
+</option>
 				<?php if (isset($_smarty_tpl->tpl_vars['destinatarios']->value)&&count($_smarty_tpl->tpl_vars['destinatarios']->value)) {?>
 					<?php  $_smarty_tpl->tpl_vars['dest'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['dest']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['destinatarios']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -128,7 +136,9 @@ $_smarty_tpl->tpl_vars['dest']->_loop = true;
 		</div>
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
-			<input type="submit" value="Editar" class="btn btn-success">
+			<input type="submit" value="Guardar Cambios" class="btn btn-success">
+			<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+planes" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

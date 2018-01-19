@@ -6,6 +6,7 @@ class sedesController extends Controller
 	private $_empresa;
 	private $_comuna;
 	private $_telefono;
+	private $_usuario;
 
 	public function __construct(){
 		parent::__construct();
@@ -13,6 +14,7 @@ class sedesController extends Controller
 		$this->_empresa = $this->loadModel('empresa');
 		$this->_comuna = $this->loadModel('comuna');
 		$this->_telefono = $this->loadModel('telefono');
+		$this->_usuario = $this->loadModel('usuario');
 	}
 
 	public function index(){
@@ -29,6 +31,8 @@ class sedesController extends Controller
 		$this->_view->assign('titulo', 'Nueva Sede');
 		$this->_view->assign('empresas', $this->_empresa->getEmpresas());
 		$this->_view->assign('comunas', $this->_comuna->getComunas());
+		$this->_view->assign('vendedores', $this->_usuario->getUsuarioVendedor());
+
 
 		if ($this->getInt('enviar') == 1) {
 			$this->_view->assign('datos', $_POST);
@@ -76,7 +80,8 @@ class sedesController extends Controller
 				$this->getSql('sector'), 
 				$this->getSql('ubicacion'), 
 				$this->getInt('empresa'), 
-				$this->getInt('comuna')
+				$this->getInt('comuna'),
+				$this->getInt('vendedor')
 				);
 
 			$this->redireccionar('sedes');
@@ -96,6 +101,7 @@ class sedesController extends Controller
 
 		$this->_view->assign('titulo', 'Nueva Sede');
 		$this->_view->assign('comunas', $this->_comuna->getComunas());
+		$this->_view->assign('vendedores', $this->_usuario->getUsuarioVendedor());
 
 		if ($this->getInt('enviar') == 1) {
 			$this->_view->assign('datos', $_POST);
@@ -138,10 +144,11 @@ class sedesController extends Controller
 				$this->getSql('sector'), 
 				$this->getSql('ubicacion'), 
 				$this->filtrarInt($id), 
-				$this->getInt('comuna')
+				$this->getInt('comuna'),
+				$this->getInt('vendedor')
 				);
 
-			$this->redireccionar('sedes');
+			$this->redireccionar('empresas');
 		}
 		$this->_view->renderizar('addSedeEmpresa');
 	}
@@ -164,6 +171,7 @@ class sedesController extends Controller
 		$this->_view->assign('dato', $this->_sede->getSedeId($this->filtrarInt($id)));
 		$this->_view->assign('empresas', $this->_empresa->getEmpresas());
 		$this->_view->assign('comunas', $this->_comuna->getComunas());
+		$this->_view->assign('vendedores', $this->_usuario->getUsuarioVendedor());
 
 		if ($this->getInt('enviar') == 1) {
 			
@@ -205,7 +213,8 @@ class sedesController extends Controller
 				$this->getInt('sector'), 
 				$this->getInt('ubicacion'), 
 				$this->getInt('empresa'), 
-				$this->getInt('comuna')
+				$this->getInt('comuna'),
+				$this->getInt('vendedor')
 				);
 			$this->redireccionar('sedes'); 
 		}

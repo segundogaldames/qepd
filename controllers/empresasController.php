@@ -6,6 +6,7 @@ class empresasController extends Controller
 	private $_usuario;
 	private $_tipo_empresa;
 	private $_sede;
+	private $_plan;
 
 	public function __construct(){
 		parent::__construct();
@@ -13,6 +14,7 @@ class empresasController extends Controller
 		$this->_usuario = $this->loadModel('usuario');
 		$this->_tipo_empresa = $this->loadModel('tipoempresa');
 		$this->_sede = $this->loadModel('sede');
+		$this->_plan = $this->loadModel('planes');
 	}
 
 	public function index(){
@@ -150,6 +152,7 @@ class empresasController extends Controller
 		$this->_view->assign('titulo', 'Ver Empresa');
 		$this->_view->assign('empresa', $this->_empresa->getEmpresa($id));
 		$this->_view->assign('sede', $this->_sede->getSedeEmpresa($id));
+		$this->_view->assign('planes', $this->_plan->getPlanesEmpresa($this->filtrarInt($id)));
 		$this->_view->renderizar('view');
 	}
 
