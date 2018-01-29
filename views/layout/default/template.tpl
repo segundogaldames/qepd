@@ -15,7 +15,9 @@
       <script type="text/javascript" src="{$_layoutParams.ruta_js}jquery.validate.js"></script>
       <script type="text/javascript" src="{$_layoutParams.ruta_js}additional-methods.js"></script>
       <script type="text/javascript" src="{$_layoutParams.ruta_js}funciones.js"></script>
-      
+      <script type="text/javascript">
+        
+      </script>
       
       {if isset($_layoutParams.js) && count($_layoutParams.js)}
         {foreach item=js from=$_layoutParams.js}
@@ -41,5 +43,16 @@
 
             {include file=$_contenido}
           </div>
+      {include file="header.tpl"}
+      {include file="about.tpl"}
+      {include file="services.tpl"}
+      {include file="callout.tpl"}
+      {include file="portfolio.tpl"}
+      {include file="call_to_action.tpl"}
+      {include file="map.tpl"}
+      {include file="footer.tpl"}
+
+
+</div>
   </body>
 </html>

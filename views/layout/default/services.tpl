@@ -80,6 +80,7 @@
                         </div>
                     </div>
                 </div>
+                <p><a href="{$_layoutParams.root}index" class="cotizar">Volver</a></p>
                 <!-- /.row (nested) -->
             </div>
             <!-- /.col-lg-10 -->

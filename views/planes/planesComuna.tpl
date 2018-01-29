@@ -1,16 +1,17 @@
 <div class="col-md-2" style="padding-left: 20px">
-	<h4>Buscar por comunas o ciudades</h4>
+	<h4>Buscar en</h4>
 	<ul class="list-unstyled">
 		{if isset($comunas) && count($comunas)}
 			{foreach from=$comunas item=c}
-				<li><a href="{$_layoutParams.root}planes/planesComuna/{$c.id}">{$c.comuna}</a></li>
+				<li class="enlace"><a href="{$_layoutParams.root}planes/planesComuna/{$c.id}">{$c.comuna}</a></li>
 			{/foreach}
 		{/if}
 	</ul>
 </div>
 <div class="col-md-10">
-	<h3>Ver Planes</h3>
+	
 	{if isset($planes) && count($planes)}
+    <h3>Ver Planes</h3>
 	<table class="table table-hover">
 		<th>
 			Precio
@@ -53,6 +54,7 @@
 		
 	</table>
 	{else}
+        <p class="alert alert-info">No hay planes asociados para esta comuna</p>
 		 <div class="col-md-3">
                         <div class="service-item">
                             <span class="fa-stack fa-4x">

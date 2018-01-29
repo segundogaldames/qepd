@@ -9,8 +9,9 @@
 		{/if}
 </div>
 <div class="col-md-10">
-	<h3>Ver Planes</h3>
+	
 	{if isset($planes) && count($planes)}
+    <h3>Ver Planes</h3>
 	<table class="table table-hover">
 		<th>
 			Precio
@@ -53,6 +54,7 @@
 		
 	</table>
 	{else}
+        <p class="alert alert-info">No hay planes asociados para este servicio</p>
 		
                     <div class="col-md-3">
                         <div class="service-item">
