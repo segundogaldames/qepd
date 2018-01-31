@@ -11,6 +11,6 @@
 		<p style="font-size: 18px"><strong>Estado:</strong> {if $contacto.estado==1}Pendiente{else}Procesado{/if}</p>
 		<p style="font-size: 18px"><strong>Urgente?:</strong> {if $contacto.urgente==1}Si{else}No{/if}</p>
 	{/if}
-	<p><a href="{$_layoutParams.root}contactos/procesa/{$contacto.id}" class="btn btn-link">Contactar</a></p>
+	<p><a href="{$_layoutParams.root}contactoclientes/add/{$contacto.id}" class="btn btn-link">Contactar</a></p>
 </div>
 <div class="col-md-2"></div>

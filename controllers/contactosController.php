@@ -35,6 +35,25 @@ class ContactosController extends Controller
 		$this->_view->renderizar('view');
 	}
 
+	public function edit($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_view->assign('titulo', 'Contactar Cliente');
+		$this->_view->assign('dato', $this->_contacto->getContactoId($this->filtrarInt($id)));
+
+		if ($this->getInt('enviar') == 1) {
+			
+			if (!$this->getInt('estado')) {
+				$this->_view->assign('_error', 'Debe selecccionar un estado');
+			}
+
+			$this->_contacto->editEstadoContacto($this->filtrarInt($id), $this->getInt('estado'));
+			$this->redireccionar('contactos');
+		}
+		$this->_view->renderizar('edit');
+	}
+
 	public function add(){
 		$this->_view->assign('titulo', 'Generar Contacto');
 		$this->_view->assign('asuntos', $this->_asunto->getAsuntos());
@@ -91,7 +110,8 @@ class ContactosController extends Controller
 				$this->getInt('asunto'),
 				$this->getAlphaNum('mensaje'),
 				$this->getInt('telefono'),
-				$this->getInt('urgente')
+				$this->getInt('urgente'),
+				$this->getSql('observaciones')
 			);
 
 			$this->redireccionar('contactos/mensaje');

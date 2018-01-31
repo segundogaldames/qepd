@@ -4,6 +4,7 @@
 	<p class="enlace"><a href="{$_layoutParams.root}asuntos">Asuntos</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}contactos/activos">Contactos Activos</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}contactos/urgentes">Contactos Urgentes</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}contactoclientes/index">Contactos Clientes</a></p>
 </div>
 <div class="col-md-8">
 	{if isset($contactos) && count($contactos)}
@@ -25,7 +26,7 @@
 					<td>{if $c.urgente==1}Si{else}No{/if}</td>
 					<td>
 						<a href="{$_layoutParams.root}contactos/view/{$c.id}" class="btn btn-link btn-sm">Ver</a>
-						<a href="{$_layoutParams.root}contactos/edit/{$c.id}" class="btn btn-link btn-sm">Editar</a>
+						<a href="{$_layoutParams.root}contactoclientes/add/{$c.id}" class="btn btn-link btn-sm">Contactar</a>
 					</td>
 				</tr>
 			{/foreach}

@@ -24,14 +24,26 @@ class contactoModel extends Model
 		return $cont->fetch();
 	}
 
-	public function addContacto($nombre, $email, $asunto, $mensaje, $telefono, $urgente){
-		$cont = $this->_db->prepare("INSERT INTO contactos VALUES(null, ?, ?, ?, now(), ?, 1, ?, ?)");
+	public function addContacto($nombre, $email, $asunto, $mensaje, $telefono, $urgente, $observaciones){
+		$cont = $this->_db->prepare("INSERT INTO contactos VALUES(null, ?, ?, ?, now(), ?, 1, ?, ?, ?)");
 		$cont->bindParam(1, $email);
 		$cont->bindParam(2, $asunto);
 		$cont->bindParam(3, $mensaje);
 		$cont->bindParam(4, $telefono);
 		$cont->bindParam(5, $urgente);
 		$cont->bindParam(6, $nombre);
+		$cont->bindParam(7, $observaciones);
+		$cont->execute();
+	}
+
+	public function editEstadoContacto($id, $estado){
+		//print_r($id);exit;
+		$id = (int) $id;
+		$estado = (int) $estado;
+
+		$cont = $this->_db->prepare("UPDATE contactos SET estado = ? WHERE id = ?");
+		$cont->bindParam(1, $estado);
+		$cont->bindParam(2, $id);
 		$cont->execute();
 	}
 }
