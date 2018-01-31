@@ -1,5 +1,5 @@
 <div class="col-md-2" style="padding-top: 20px">
-	<p class="enlace"><a href="{$_layoutParams.root}planes">Ver Anforas</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}anforas">Ver Anforas</a></p>
 </div>
 
 <div class="col-md-4">
@@ -21,6 +21,10 @@
 					{/foreach}
 				{/if}
 			</select>
+		</div>
+		<div class="form-group">
+			<label for="descripcion">Descripción:<span class="text-danger">*</span></label>
+			<textarea name="descripcion" class="form-control" rows="6" style="resize: none;">{$datos.descripcion|default:""}</textarea>
 		</div>
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">

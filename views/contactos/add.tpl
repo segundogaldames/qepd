@@ -39,6 +39,10 @@
 	<p class="text-danger">* Datos Obligatorios</p>
 	<form action="" method="post" name="form">
 		<div class="form-group">
+			<label>Nombre completo<span class="text-danger">*</span></label>
+			<input type="text" name="nombre" class="form-control" value="{$datos.nombre|default:""}">
+		</div>
+		<div class="form-group">
 			<label>Email<span class="text-danger">*</span></label>
 			<input type="email" name="email" class="form-control" value="{$datos.email|default:""}">
 		</div>

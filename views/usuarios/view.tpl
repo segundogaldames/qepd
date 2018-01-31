@@ -14,8 +14,8 @@
 		<p style="font-size: 18px"><strong>Fecha de actualización:</strong> {$usuario.updated}</p>
 	{/if}
 	<p>
-		<a href="{$_layoutParams.root}usuario/edit/{$usuario.id}">Editar</a>&nbsp;&nbsp;
-		<a href="{$_layoutParams.root}usuario">Volver</a>
+		<a href="{$_layoutParams.root}usuarios/edit/{$usuario.id}">Editar</a>&nbsp;&nbsp;
+		<a href="{$_layoutParams.root}usuarios">Volver</a>
 	</p>
 	<hr>
 </div>

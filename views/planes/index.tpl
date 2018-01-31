@@ -18,6 +18,9 @@
 				Empresa
 			</th>
 			<th>
+				Estado
+			</th>
+			<th>
 				Acciones
 			</th>
 			
@@ -27,6 +30,7 @@
 							<td>{$p.nombre}</td>
 							<td>{$p.codigo}</td>
 							<td>{$p.empresa}</td>
+							<td>{if $p.status_id == 1}Activo{else}Inactivo{/if}</td>
 							<td>
 								<a href="{$_layoutParams.root}planes/view/{$p.id}">Ver</a>&nbsp;&nbsp;
 								<a href="{$_layoutParams.root}planes/delete/{$p.id}" onclick="return eliminar('{$_layoutParams.root}planes/delete/{$p.id}', '{$p.nombre}');">Eliminar</a>

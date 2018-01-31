@@ -43,7 +43,7 @@
 </div>
 <div class="col-md-4">
 	<h3>
-		<a href="{$_layoutParams.root}" onclick="return abandonarRegistro('{$_layoutParams.root}usuario/cerrar}');">
+		<a href="{$_layoutParams.root}" onclick="return abandonarRegistro('{$_layoutParams.root}usuarios/cerrar}');">
 			<img src="{$_layoutParams.root}/views/layout/default/img/cerrar.png" title="Abandonar registro">
 		</a>
 	</h3>

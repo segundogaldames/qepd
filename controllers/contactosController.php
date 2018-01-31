@@ -26,6 +26,15 @@ class ContactosController extends Controller
 		$this->_view->renderizar('mensaje');
 	}
 
+	public function view($id = null){
+		$this->verificarSession();
+		$this->verificarParams($id);
+
+		$this->_view->assign('titulo', 'Ver Contacto');
+		$this->_view->assign('contacto', $this->_contacto->getContactoId($this->filtrarInt($id)));
+		$this->_view->renderizar('view');
+	}
+
 	public function add(){
 		$this->_view->assign('titulo', 'Generar Contacto');
 		$this->_view->assign('asuntos', $this->_asunto->getAsuntos());
@@ -33,6 +42,12 @@ class ContactosController extends Controller
 		if ($this->getInt('enviar') == 1) {
 			//print_r($_POST);exit;
 			$this->_view->assign('datos', $_POST);
+
+			if (!$this->getSql('nombre')) {
+				$this->_view->assign('_error', 'Debe ingresar su nombre completo');
+				$this->_view->renderizar('add');
+				exit;
+			}
 
 			if (!$this->getPostParam('email')) {
 				$this->_view->assign('_error', 'Debe ingresar su correo electrónico');
@@ -71,6 +86,7 @@ class ContactosController extends Controller
 			}
 
 			$this->_contacto->addContacto(
+				$this->getAlphaNum('nombre'),
 				$this->getPostParam('email'),
 				$this->getInt('asunto'),
 				$this->getAlphaNum('mensaje'),
@@ -81,5 +97,15 @@ class ContactosController extends Controller
 			$this->redireccionar('contactos/mensaje');
 		}
 		$this->_view->renderizar('add');
+	}
+
+	public function verificarParams($id){
+		if (!$this->filtrarInt($id)) {
+			$this->redireccionar('contactos');
+		}
+
+		if (!$this->_contacto->getContactoId($this->filtrarInt($id))) {
+			$this->redireccionar('contactos');
+		}
 	}
 }

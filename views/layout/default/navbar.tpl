@@ -76,7 +76,7 @@
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}usuario">Usuarios</a>
+                      <a href="{$_layoutParams.root}usuarios">Usuarios</a>
                     </li>
                     <li style="list-style:none;" >
                       <a href="{$_layoutParams.root}roles">Roles</a>
@@ -93,7 +93,7 @@
             </li>
         {else}
           <li>
-            <a href="{$_layoutParams.root}usuario/login">Iniciar Sesión</a>
+            <a href="{$_layoutParams.root}usuarios/login">Iniciar Sesión</a>
           </li>
           
          

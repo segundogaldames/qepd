@@ -27,15 +27,11 @@
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Actualizar" class="btn btn-success">
+			<a href="{$_layoutParams.root}usuarios" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>
 <div class="col-md-4">
-	<h3>
-		<a href="{$_layoutParams.root}" onclick="return abandonarRegistro('{$_layoutParams.root}usuario/cerrar}');">
-			<img src="{$_layoutParams.root}/views/layout/default/img/cerrar.png" title="Abandonar registro">
-		</a>
-	</h3>
 </div>	
 
 

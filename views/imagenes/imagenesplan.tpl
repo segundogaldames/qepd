@@ -175,6 +175,10 @@
 								<th>Modelo:</th>
 								<td>{$anfora.modelo}</td>
 							</tr>
+							<tr>
+								<th>Descripción:</th>
+								<td>{$anfora.descripcion}</td>
+							</tr>
 						</table>
 					<!--Descripcion de sepultacion asociado a plan y componente-->
 					{else if $img.componente_id == $sepultacion.componente_id}
@@ -293,21 +297,21 @@
 				</table>
 			{/if}
 			<br><br>
-			<a href="{$_layoutParams.root}cotizaciones/add/{$img.plan_id}" class="btn btn-primary">Cotizar</a>
+			<a href="{$_layoutParams.root}cotizaciones/add/{$img.plan_id}" class="btn btn-success">Cotizar</a>
 			<a href="{$_layoutParams.root}planes/planesServicios" class="btn btn-link">Volver</a>
+
 		</div>
 		
 		{else}
 			<strong>No hay imágenes asociadas</strong>
 
 	{/if}
-
+	
 </div>
 
 <div class="col-md-2">
 	
 </div>	
-
 
 	
 	

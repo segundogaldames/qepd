@@ -63,10 +63,17 @@ class anforasController extends Controller
 				exit;
 			}
 
+			if (!$this->getSql('descripcion')) {
+				$this->_view->assign('_error', 'Debe describir el ánfora');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
 			$this->_anfora->editAnfora(
 				$this->filtrarInt($id),
 				$this->getAlphaNum('modelo'),
-				$this->getInt('plan')
+				$this->getInt('plan'),
+				$this->getSql('descripcion')
 			);
 
 			$this->redireccionar('anforas');
@@ -96,6 +103,12 @@ class anforasController extends Controller
 				exit;
 			}
 
+			if (!$this->getSql('descripcion')) {
+				$this->_view->assign('_error', 'Debe describir el ánfora');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
 			if ($this->_anfora->getAnforaPlan($this->getInt('plan'))) {
 				$this->_view->assign('_error', 'El plan ya tiene ánfora...');
 				$this->_view->renderizar('add');
@@ -104,7 +117,8 @@ class anforasController extends Controller
 
 			$this->_anfora->addAnfora(
 				$this->getAlphaNum('modelo'),
-				$this->getInt('plan')
+				$this->getInt('plan'),
+				$this->getSql('descripcion')
 			);
 
 			$this->redireccionar('anforas');
