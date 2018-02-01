@@ -127,6 +127,52 @@ class anforasController extends Controller
 		$this->_view->renderizar('add');
 	}
 
+	public function addAnforaPlan($plan = null){
+		$this->verificarSession();
+
+		if (!$this->filtrarInt($plan)) {
+			$this->redireccionar('planes');
+		}
+
+		if (!$this->_plan->getPlanesId($plan)) {
+			$this->redireccionar('planes');
+		}
+
+		$this->_view->assign('titulo', 'Nueva Anfora');
+
+		if ($this->getInt('enviar') == 1) {
+			$this->_view->assign('datos', $_POST);
+
+			if (!$this->getSql('modelo')) {
+				$this->_view->assign('_error', 'Debe ingresar el modelo');
+				$this->_view->renderizar('addAnforaPlan');
+				exit;
+			}
+
+			if (!$this->getSql('descripcion')) {
+				$this->_view->assign('_error', 'Debe describir el ánfora');
+				$this->_view->renderizar('addAnforaPlan');
+				exit;
+			}
+
+			if ($this->_anfora->getAnforaPlan($this->getInt('plan'))) {
+				$this->_view->assign('_error', 'El plan ya tiene ánfora...');
+				$this->_view->renderizar('addAnforaPlan');
+				exit;
+			}
+
+			$this->_anfora->addAnfora(
+				$this->getAlphaNum('modelo'),
+				$this->filtrarInt($plan),
+				$this->getSql('descripcion')
+			);
+
+			$this->redireccionar('planes');
+		}
+
+		$this->_view->renderizar('addAnforaPlan');
+	}
+
 	public function delete($id = null){
 		$this->verificarSession();
 		$this->verificarParams($id);

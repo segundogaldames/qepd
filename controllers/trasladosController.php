@@ -86,6 +86,74 @@ class trasladosController extends Controller
 		$this->_view->renderizar('add');
 	}
 
+	public function addTrasladoPlan($plan = null){
+		if (!Session::get('autenticado')) {
+			$this->redireccionar();
+		}
+
+		if (!$this->filtrarInt($plan)) {
+			$this->redireccionar('planes');
+		}
+
+		if (!$this->_plan->getPlanesId($plan)) {
+			$this->redireccionar('planes');
+		}
+
+		$this->_view->assign('titulo', 'Nuevo Traslado');
+
+		if ($this->getInt('enviar') == 1) {
+			$this->_view->assign('datos', $_POST);
+
+			if (!$this->getInt('instalacion')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción en carroza de instalación');
+				$this->_view->renderizar('addTrasladoPlan');
+				exit;
+			}
+
+			if (!$this->getInt('funeral')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción en carroza de funeral');
+				$this->_view->renderizar('addTrasladoPlan');
+				exit;
+			}
+
+			if (!$this->getInt('conflores')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción en carroza con flores');
+				$this->_view->renderizar('addTrasladoPlan');
+				exit;
+			}
+
+			if (!$this->getInt('acompanamiento')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción en vehiculo de acompañamiento');
+				$this->_view->renderizar('addTrasladoPlan');
+				exit;
+			}
+
+			if (!$this->getInt('pasajeros')) {
+				$this->_view->assign('_error', 'Debe ingresar el número de pasajeros');
+				$this->_view->renderizar('addTrasladoPlan');
+				exit;
+			}
+
+			if ($this->_traslado->getTrasladoPlan($this->getInt('plan'))) {
+				$this->_view->assign('_error', 'Este plan ya contiene una opción de traslado. Por favor escoja otro plan');
+				$this->_view->renderizar('addTrasladoPlan');
+				exit;
+			}
+
+			$this->_traslado->addTraslado(
+				$this->getInt('instalacion'), 
+				$this->getInt('funeral'), 
+				$this->getInt('conflores'), 
+				$this->getInt('acompanamiento'), 
+				$this->getInt('pasajeros'), 
+				$this->filtrarInt($plan)
+				);
+			$this->redireccionar('planes');
+
+		}
+		$this->_view->renderizar('addTrasladoPlan');
+	}
+
 	public function view($id = null){
 		$this->verificarSession();
 		$this->verificarParams($id);

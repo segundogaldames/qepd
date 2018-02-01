@@ -100,6 +100,88 @@ class velatoriosController extends Controller
 		$this->_view->renderizar('add');
 	}
 
+	public function addVelatorioPlan($plan = null){
+		$this->verificarSession();
+
+		if (!$this->filtrarInt($plan)) {
+			$this->redireccionar('planes');
+		}
+
+		if (!$this->_plan->getPlanesId($plan)) {
+			$this->redireccionar('planes');
+		}
+
+		$this->_view->assign('titulo', 'Nuevo Velatorio');
+
+		if ($this->getInt('enviar')==1) {
+			$this->_view->assign('datos', $_POST);
+
+			if (!$this->getSql('tramite')) {
+				$this->_view->assign('_error', 'Debe ingresar algunos trámites');
+				$this->_view->renderizar('addVelatorioPlan');
+				exit;
+			}
+
+			if (!$this->getInt('asesor')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción de asesor');
+				$this->_view->renderizar('addVelatorioPlan');
+				exit;
+			}
+
+			if (!$this->getInt('sala')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción de sala de velatorio');
+				$this->_view->renderizar('addVelatorioPlan');
+				exit;
+			}
+
+			if (!$this->getInt('capilla')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opción de capilla ecuménica');
+				$this->_view->renderizar('addVelatorioPlan');
+				exit;
+			}
+
+			if (!$this->getInt('parroco')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opcion de parroco');
+				$this->_view->renderizar('addVelatorioPlan');
+				exit;
+			}
+
+			if (!$this->getInt('cafeteria')) {
+				$this->_view->assign('_error', 'Debe seleccionar una opcion de cafeteria');
+				$this->_view->renderizar('addVelatorioPlan');
+				exit;
+			}
+
+			if ($this->_velatorio->getVelatorioPlan($this->getInt('plan'))) {
+				$this->_view->assign('_error', 'El plan ya tiene un velatorio asignado. Escoja otro plan.');
+				$this->_view->renderizar('addVelatorioPlan');
+				exit;
+			}
+
+			$this->_velatorio->addVelatorio(
+				$this->getSql('tramite'), 
+				$this->getInt('asesor'), 
+				$this->getInt('sala'), 
+				$this->getInt('capilla'), 
+				$this->getInt('cirios'), 
+				$this->getInt('portacirios'), 
+				$this->getInt('cruz'), 
+				$this->getInt('canasto'), 
+				$this->getInt('cubreurna'), 
+				$this->getInt('libro'), 
+				$this->getInt('parroco'), 
+				$this->getInt('coro'), 
+				$this->getInt('aviso'), 
+				$this->getInt('tarjeta'), 
+				$this->getInt('cafeteria'), 
+				$this->filtrarInt($plan)
+				);
+
+			$this->redireccionar('planes');
+		}
+		$this->_view->renderizar('addVelatorioPlan');
+	}
+
 	public function view($id = null){
 		$this->verificarSession();
 		$this->verificarParams($id);

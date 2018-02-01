@@ -149,7 +149,7 @@ class componentesController extends Controller
 		$this->_view->renderizar('edit');
 	}
 
-	public function addComponentes($id = null){
+	public function addComponentes($id = null, $plan){
 		if (!Session::get('autenticado')) {
 			$this->redireccionar();
 		}
@@ -164,6 +164,7 @@ class componentesController extends Controller
 
 		$this->_view->assign('titulo', 'Componentes Por Servicios');
 		$this->_view->assign('componentesServicios', $this->_componente->getComponentesServicios($this->filtrarInt($id)));
+		$this->_view->assign('plan', $this->filtrarInt($plan));
 
 		$this->_view->renderizar(addComponentes);
 	}
