@@ -10,7 +10,12 @@ class contactoclienteModel extends Model
 	}
 
 	public function getContactoClientes(){
-		$cc = $this->_db->query("SELECT cc.id, cc.observaciones, cc.created_at as fecha, cc.contacto_id, c.nombre as cliente, c.estado FROM contacto_clientes cc INNER JOIN contactos c ON cc.contacto_id = c.id ORDER BY cc.created_at DESC");
+		$cc = $this->_db->query("SELECT cc.id, cc.observaciones, cc.created_at as fecha, cc.contacto_id, c.nombre as cliente, c.estado FROM contacto_clientes cc INNER JOIN contactos c ON cc.contacto_id = c.id ORDER BY fecha DESC");
+		return $cc->fetchall();
+	}
+
+	public function getContactoClientesPendientes(){
+		$cc = $this->_db->query("SELECT cc.id, cc.observaciones, cc.created_at as fecha, cc.contacto_id, c.nombre as cliente, c.estado FROM contacto_clientes cc INNER JOIN contactos c ON cc.contacto_id = c.id WHERE c.estado = 1 ORDER BY fecha DESC");
 		return $cc->fetchall();
 	}
 

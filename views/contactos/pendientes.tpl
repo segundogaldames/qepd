@@ -2,7 +2,7 @@
 	<p class="enlace"><a href="{$_layoutParams.root}asuntos/add">Agregar Asunto</a></p>
 	<hr>
 	<p class="enlace"><a href="{$_layoutParams.root}asuntos">Asuntos</a></p>
-	<p class="enlace"><a href="{$_layoutParams.root}contactos/pendientes">Contactos Pendientes</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}contactos">Contactos</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}contactos/urgentes">Contactos Urgentes</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}contactoclientes/index">Contactos Clientes</a></p>
 </div>

@@ -1,7 +1,7 @@
 <div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="{$_layoutParams.root}contactos">Contactos</a></p>
 	<hr>
-	<p class="enlace"><a href="{$_layoutParams.root}contactoclientes/pendientes">Contacto Clientes Pendientes</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}contactoclientes">Conctacto Clientes</a></p>
 </div>
 <div class="col-md-10">
 	{if isset($contactoClientes) && count($contactoClientes)}

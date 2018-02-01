@@ -21,6 +21,22 @@ class ContactosController extends Controller
 		$this->_view->renderizar('index');
 	}
 
+	public function pendientes(){
+		$this->verificarSession();
+
+		$this->_view->assign('titulo', 'Contactos Pendientes');
+		$this->_view->assign('contactos', $this->_contacto->getContactosPendientes());
+		$this->_view->renderizar('pendientes');
+	}
+
+	public function urgentes(){
+		$this->verificarSession();
+
+		$this->_view->assign('titulo', 'Contactos Urgentes y Pendientes');
+		$this->_view->assign('contactos', $this->_contacto->getContactosUrgentesPendientes());
+		$this->_view->renderizar('urgentes');
+	}
+
 	public function mensaje(){
 		$this->_view->assign('titulo', 'APP::Mensaje');
 		$this->_view->renderizar('mensaje');

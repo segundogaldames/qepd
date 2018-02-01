@@ -21,6 +21,14 @@ class contactoclientesController extends Controller
 		$this->_view->renderizar('index');
 	}
 
+	public function pendientes(){
+		$this->verificarSession();
+
+		$this->_view->assign('titulo', 'Contacto Clientes Pendientes');
+		$this->_view->assign('contactoClientes', $this->_contactocliente->getContactoClientesPendientes());
+		$this->_view->renderizar('pendientes');
+	}
+
 	public function add($contacto = null){
 		$this->verificarSession();
 		$this->verificarContacto($contacto);
