@@ -155,7 +155,7 @@ class anforasController extends Controller
 				exit;
 			}
 
-			if ($this->_anfora->getAnforaPlan($this->getInt('plan'))) {
+			if ($this->_anfora->getAnforaPlan($this->filtrarInt($plan))) {
 				$this->_view->assign('_error', 'El plan ya tiene ánfora...');
 				$this->_view->renderizar('addAnforaPlan');
 				exit;

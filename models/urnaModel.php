@@ -24,7 +24,7 @@ class urnaModel extends Model
 	public function getUrnaPlan($plan){
 		$plan = (int) $plan;
 
-		$urna = $this->_db->prepare("SELECT u.id, u.modelo, u.medidas, u.material, u.terminaciones, u.color, u.plan_id, u.componente_id, p.nombre as plan FROM urnas as u INNER JOIN planes as p ON u.plan_id = p.id  WHERE u.plan_id = ?");
+		$urna = $this->_db->prepare("SELECT u.id, u.modelo, u.medidas, u.material, u.terminaciones, u.color, u.plan_id, u.componente_id, p.nombre as plan, img.nombre as imagen FROM urnas as u INNER JOIN planes as p ON u.plan_id = p.id INNER JOIN imagenes as img ON img.plan_id = u.plan_id and img.componente_id = u.componente_id  WHERE u.plan_id = ?");
 		$urna->bindParam(1, $plan);
 		$urna->execute();
 

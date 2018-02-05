@@ -21,7 +21,7 @@
 	{/if}
 	<p>
 		<a href="{$_layoutParams.root}cinerarios/edit/{$cinerario.id}">Editar</a>&nbsp;&nbsp;
-		<a href="{$_layoutParams.root}cinerarios">Volver</a>
+		<a href="{$_layoutParams.root}planes">Volver</a>
 	</p>
 	<hr>
 </div>

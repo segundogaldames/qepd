@@ -184,7 +184,7 @@ class cinerariosController extends Controller
 				exit;
 			}
 
-			if ($this->_cinerario->getCinerarioPlan($this->getInt('plan'))) {
+			if ($this->_cinerario->getCinerarioPlan($this->filtrarInt($plan))) {
 				$this->_view->assign('_error', 'Este plan ya posee un cinerario. Intente con otro');
 				$this->_view->renderizar('addCinerarioPlan');
 				exit;

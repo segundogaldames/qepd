@@ -16,7 +16,7 @@
 	{/if}
 	<p>
 		<a href="{$_layoutParams.root}urnas/edit/{$urna.id}">Editar</a>&nbsp;&nbsp;
-		<a href="{$_layoutParams.root}urnas">Volver</a>
+		<a href="{$_layoutParams.root}planes">Volver</a>
 	</p>
 	<hr>
 </div>

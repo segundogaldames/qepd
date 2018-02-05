@@ -89,13 +89,8 @@
             </li>     
              {/if}
             <li>
-              <a href="{$_layoutParams.root}usuario/cerrar" onclick="return cerrar('{$_layoutParams.root}usuario/cerrar');">Cerrar Sesión</a>
-            </li>
-        {else}
-          <li>
-            <a href="{$_layoutParams.root}usuarios/login">Iniciar Sesión</a>
-          </li>
-          
+              <a href="{$_layoutParams.root}usuarios/cerrar" onclick="return cerrar('{$_layoutParams.root}usuarios/cerrar');">Cerrar Sesión</a>
+            </li>        
          
         {/if}
 

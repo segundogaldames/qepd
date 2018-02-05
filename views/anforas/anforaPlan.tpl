@@ -13,7 +13,7 @@
 	{/if}
 	<p>
 		<a href="{$_layoutParams.root}anforas/edit/{$anfora.id}">Editar</a>&nbsp;&nbsp;
-		<a href="{$_layoutParams.root}anforas">Volver</a>
+		<a href="{$_layoutParams.root}planes">Volver</a>
 	</p>
 	<hr>
 </div>

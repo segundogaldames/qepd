@@ -6,8 +6,14 @@ class serviciosModel extends Model
 		parent::__construct();
 	}
 
-	public function getServiciosTipoEmpresa(){
-		$serv = $this->_db->query("SELECT s.id, s.nombre as nombre, te.nombre as tipo FROM tipo_empresas as te INNER JOIN servicios as s ON s.tipo_empresa_id = te.id ORDER BY id DESC");
+	public function getServiciosTipoEmpresa($tipo){
+		//print_r($tipo);exit;
+
+		$tipo = (int) $tipo;
+
+		$serv = $this->_db->prepare("SELECT s.id, s.nombre as nombre, te.nombre as tipo FROM tipo_empresas as te INNER JOIN servicios as s ON s.tipo_empresa_id = te.id WHERE s.tipo_empresa_id = ? ORDER BY id DESC");
+		$serv->bindParam(1, $tipo);
+		$serv->execute();
 
 		return $serv->fetchall();
 	}

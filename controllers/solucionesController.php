@@ -116,6 +116,67 @@ class solucionesController extends Controller
 		$this->_view->renderizar('add');
 	}
 
+	public function addSolucionPlan($plan = null){
+		$this->verificarSession();
+
+		if (!$this->filtrarInt($plan)) {
+			$this->redireccionar('planes');
+		}
+
+		if (!$this->_plan->getPlanesId($this->filtrarInt($plan))) {
+			$this->redireccionar('planes');
+		}
+
+		$this->_view->assign('titulo', 'Nueva Solución');
+		$this->_view->assign('tipo_soluciones', $this->_tiposolucion->getTipoSoluciones());
+
+		if ($this->getInt('enviar') == 1) {
+			$this->_view->assign('datos', $_POST);
+
+			if (!$this->getInt('solucion')) {
+				$this->_view->assign('_error', 'Debe seleccionar una solución');
+				$this->_view->renderizar('addSolucionPlan');
+				exit;
+			}
+
+			if (!$this->getInt('periodo')) {
+				$this->_view->assign('_error', 'Debe seleccionar un periodo');
+				$this->_view->renderizar('addSolucionPlan');
+				exit;
+			}
+
+			if (!$this->getInt('anio') || $this->getInt('anio') < 1) {
+				$this->_view->assign('_error', 'Debe ingresar años en cifras mayor a cero');
+				$this->_view->renderizar('addSolucionPlan');
+				exit;
+			}
+
+			if (!$this->getInt('tipo_solucion')) {
+				$this->_view->assign('_error', 'Debe seleccionar un tipo de solución');
+				$this->_view->renderizar('addSolucionPlan');
+				exit;
+			}
+
+			if ($this->_solucion->getSolucionPlan($this->filtrarInt($plan))) {
+				$this->_view->assign('_error', 'Este plan ya tiene una solucion');
+				$this->_view->renderizar('addSolucionPlan');
+				exit;
+			}
+
+			$this->_solucion->addSolucion(
+				$this->getInt('solucion'), 
+				$this->getInt('periodo'), 
+				$this->getInt('anio'), 
+				$this->getInt('tipo_solucion'), 
+				$this->filtrarInt($plan)
+				);
+
+			$this->redireccionar('planes');
+		}
+
+		$this->_view->renderizar('addSolucionPlan');
+	}
+
 	public function edit($id = null){
 		$this->verificarSession();
 		$this->verificarParams($id);

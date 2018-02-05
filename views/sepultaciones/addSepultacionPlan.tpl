@@ -1,9 +1,9 @@
 <div class="col-md-2" style="padding-top: 20px">
-	<p class="enlace"><a href="{$_layoutParams.root}planes">Ver Cinerarios</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}planes">Planes</a></p>
 </div>
 
 <div class="col-md-4">
-	<h3>Agregar Cinerarios</h3>
+	<h3>Agregar Sepultaciones</h3>
 	<p class="text-success">Ingrese los datos en el formulario...</p>
 	<p class="text-danger">* Datos Obligatorios</p>
 	<form action="" method="post" name="form" id="form">
@@ -24,20 +24,20 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="podium">Podium:<span class="text-danger">*</span></label>
-			<select name="podium" id="" class="form-control">
-				<option value="">Seleccione</option>
-				<option value="1">Si</option>
-				<option value="2">No</option>
-			</select>
-		</div>
-		<div class="form-group">
 			<label for="liturgia">Liturgia - responso:<span class="text-danger">*</span></label>
 			<select name="liturgia" id="" class="form-control">
 				<option value="">Seleccione</option>
 				<option value="1">Si</option>
 				<option value="2">No</option>
 			</select>
+		</div>
+		<div class="form-group">
+			<label for="toldos">Número de toldos:</label>
+			<input type="number" name="toldos" class="form-control" placeholder="Numero de toldos" value="{$datos.toldo|default:""}">
+		</div>
+		<div class="form-group">
+			<label for="sillas">Número de sillas:</label>
+			<input type="number" name="sillas" class="form-control" placeholder="Numero de sillas" value="{$datos.sillas|default:""}">
 		</div>
 		<div class="form-group">
 			<label for="amplificacion">Amplificación:<span class="text-danger">*</span></label>
@@ -57,7 +57,7 @@
 		</div>
 		<div class="form-group">
 			<label for="coro">Coro:</label>
-			<input type="number" name="pasajeros" class="form-control" placeholder="Número de integrantes" value="{$datos.coro|default:""}">
+			<input type="number" name="coro" class="form-control" placeholder="Número de integrantes" value="{$datos.coro|default:""}">
 		</div>
 		<div class="form-group">
 			<label for="cafeteria">Cafetería:<span class="text-danger">*</span></label>
@@ -65,23 +65,7 @@
 				<option value="">Seleccione</option>
 				<option value="1">Básica</option>
 				<option value="2">Superior</option>
-				<option value="2">No considera</option>
-			</select>
-		</div>
-		<div class="form-group">
-			<label for="cafeteria">Ceremonia:<span class="text-danger">*</span></label>
-			<select name="ceremonia" id="" class="form-control">
-				<option value="">Seleccione</option>
-				<option value="1">Si</option>
-				<option value="2">No</option>
-			</select>
-		</div>
-		<div class="form-group">
-			<label for="cafeteria">Incluye ánfora?:<span class="text-danger">*</span></label>
-			<select name="anforaincl" id="" class="form-control">
-				<option value="">Seleccione</option>
-				<option value="1">Si</option>
-				<option value="2">No</option>
+				<option value="3">No considera</option>
 			</select>
 		</div>
 		<div class="form-group">

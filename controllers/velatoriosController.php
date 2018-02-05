@@ -152,7 +152,7 @@ class velatoriosController extends Controller
 				exit;
 			}
 
-			if ($this->_velatorio->getVelatorioPlan($this->getInt('plan'))) {
+			if ($this->_velatorio->getVelatorioPlan($this->filtrarInt($plan))) {
 				$this->_view->assign('_error', 'El plan ya tiene un velatorio asignado. Escoja otro plan.');
 				$this->_view->renderizar('addVelatorioPlan');
 				exit;

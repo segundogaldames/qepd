@@ -109,6 +109,74 @@ class planesController extends Controller
 		$this->_view->renderizar('add');
 	}
 
+	public function addPlanEmpresa($empresa = null){
+		$this->verificarSession();
+
+		if (!$this->filtrarInt($empresa)) {
+			$this->redireccionar('empresas');
+		}
+
+		if (!$this->_empresa->getEmpresa($this->filtrarInt($empresa))) {
+			$this->redireccionar('empresas');
+		}
+
+		$tipo = $this->_empresa->getEmpresa($this->filtrarInt($empresa));
+
+		$this->_view->assign('titulo', 'Nuevo Plan');
+		$this->_view->assign('tipoplanes', $this->_tipoPlan->getTipoPlanes());
+		$this->_view->assign('servicios', $this->_servicio->getServiciosTipoEmpresa($tipo['tipo_empresa_id']));
+		$this->_view->assign('destinatarios', $this->_destinatario->getDestinatarios());
+
+		if ($this->getInt('enviar') == 1) {
+			$this->_view->assign('datos', $_POST);
+
+			//print_r($_POST);exit;
+			
+			if (!$this->getInt('servicio')) {
+				$this->_view->assign('_error', 'Debe seleccionar un servicio');
+				$this->_view->renderizar('addPlanEmpresa');
+				exit;
+			}
+
+			if (!$this->getSql('nombre')) {
+				$this->_view->assign('_error', 'Debe ingresar un nombre');
+				$this->_view->renderizar('addPlanEmpresa');
+				exit;
+			}
+
+			if (!$this->getInt('tipo_plan')) {
+				$this->_view->assign('_error', 'Debe seleccionar un tipo de plan');
+				$this->_view->renderizar('addPlanEmpresa');
+				exit;
+			}
+
+			if (!$this->getInt('destinatario')) {
+				$this->_view->assign('_error', 'Debe seleccionar un destinatario');
+				$this->_view->renderizar('addPlanEmpresa');
+				exit;
+			}
+
+			if($this->_plan->getPlanNombreCodigo($this->getSql('nombre'), $this->getSql('codigo'))){
+				$this->_view->assign('_error', 'El plan ya existe. Debes registrar otro');
+				$this->_view->renderizar('addPlanEmpresa');
+				exit;
+			}
+
+			$this->_plan->setPlanes(
+				$this->getSql('nombre'), 
+				$this->getSql('codigo'),
+				$this->getInt('tipo_plan'), 
+				$this->getInt('servicio'), 
+				$this->filtrarInt($empresa),
+				$this->getInt('destinatario')
+				);
+
+			$this->redireccionar('empresas');
+		}
+
+		$this->_view->renderizar('addPlanEmpresa');
+	}
+
 	public function edit($id = null){
 		$this->verificarSession();
 		$this->verificarParams($id);
