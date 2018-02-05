@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.58, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.59, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: qepd
 -- ------------------------------------------------------
--- Server version	5.5.58-0ubuntu0.14.04.1
+-- Server version	5.5.59-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,8 +27,9 @@ CREATE TABLE `anforas` (
   `modelo` varchar(100) DEFAULT NULL,
   `plan_id` int(11) NOT NULL,
   `componente_id` int(11) NOT NULL,
+  `descripcion` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +38,7 @@ CREATE TABLE `anforas` (
 
 LOCK TABLES `anforas` WRITE;
 /*!40000 ALTER TABLE `anforas` DISABLE KEYS */;
-INSERT INTO `anforas` VALUES (2,'Modelo 1',4,5),(3,'Modelo 2',5,5);
+INSERT INTO `anforas` VALUES (2,'Modelo 1',4,5,''),(3,'Modelo 2',5,5,''),(4,'Modelo 1',7,5,'Nueva descripcion');
 /*!40000 ALTER TABLE `anforas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,7 +53,7 @@ CREATE TABLE `asuntos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,6 +62,7 @@ CREATE TABLE `asuntos` (
 
 LOCK TABLES `asuntos` WRITE;
 /*!40000 ALTER TABLE `asuntos` DISABLE KEYS */;
+INSERT INTO `asuntos` VALUES (2,'Temas Generales'),(3,'Preguntas Frecuentes');
 /*!40000 ALTER TABLE `asuntos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +117,7 @@ CREATE TABLE `cinerarios` (
   `plan_id` int(11) NOT NULL,
   `componente_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +126,7 @@ CREATE TABLE `cinerarios` (
 
 LOCK TABLES `cinerarios` WRITE;
 /*!40000 ALTER TABLE `cinerarios` DISABLE KEYS */;
-INSERT INTO `cinerarios` VALUES (2,1,1,1,1,1,1,0,'1',1,1,5,4);
+INSERT INTO `cinerarios` VALUES (2,1,1,1,1,1,1,0,'1',1,1,5,4),(3,1,1,2,1,2,2,0,'1',1,1,7,4),(4,1,1,1,1,1,1,0,'2',1,2,4,4);
 /*!40000 ALTER TABLE `cinerarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +155,7 @@ CREATE TABLE `componentes` (
 
 LOCK TABLES `componentes` WRITE;
 /*!40000 ALTER TABLE `componentes` DISABLE KEYS */;
-INSERT INTO `componentes` VALUES (1,'Urnas',9,'urnas/add','urnas/view/','urnas','urnas/urnaPlan/'),(2,'Velatorios',9,'velatorios/add','velatorios/view/','velatorios','velatorios/velatorioPlan/'),(3,'Traslados',9,'traslados/add','traslados/view/','traslados','traslados/trasladoPlan/'),(4,'Cinerarios',10,'cinerarios/add','cinerarios/view/','cinerarios','cinerarios/cinerarioPlan/'),(5,'Anforas',10,'anforas/add','anforas/view/','anforas','anforas/anforaPlan/'),(6,'Sepultaciones',11,'sepultaciones/add','sepultaciones/view/','sepultaciones','sepultaciones/sepultacionPlan/'),(7,'Soluciones',12,'soluciones/add','soluciones/view/','soluciones','soluciones/solucionPlan/');
+INSERT INTO `componentes` VALUES (1,'Urnas',9,'urnas/addUrnaPlan','urnas/view/','urnas','urnas/urnaPlan/'),(2,'Velatorios',9,'velatorios/addVelatorioPlan','velatorios/view/','velatorios','velatorios/velatorioPlan/'),(3,'Traslados',9,'traslados/addTrasladoPlan','traslados/view/','traslados','traslados/trasladoPlan/'),(4,'Cinerarios',10,'cinerarios/addCinerarioPlan','cinerarios/view/','cinerarios','cinerarios/cinerarioPlan/'),(5,'Anforas',10,'anforas/addAnforaPlan','anforas/view/','anforas','anforas/anforaPlan/'),(6,'Sepultaciones',11,'sepultaciones/addSepultacionPlan','sepultaciones/view/','sepultaciones','sepultaciones/sepultacionPlan/'),(7,'Soluciones',12,'soluciones/addSolucionPlan','soluciones/view/','soluciones','soluciones/solucionPlan/');
 /*!40000 ALTER TABLE `componentes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +171,7 @@ CREATE TABLE `comunas` (
   `nombre` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `region_id` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +180,7 @@ CREATE TABLE `comunas` (
 
 LOCK TABLES `comunas` WRITE;
 /*!40000 ALTER TABLE `comunas` DISABLE KEYS */;
-INSERT INTO `comunas` VALUES (2,'Providencia','13'),(3,'Estación Central','13'),(4,'La Florida','13'),(5,'Peñalolén','13'),(6,'Santiago','13');
+INSERT INTO `comunas` VALUES (2,'Providencia','13'),(3,'Estación Central','13'),(4,'La Florida','13'),(5,'Peñalolén','13'),(6,'Santiago','13'),(7,'Puente Alto','13');
 /*!40000 ALTER TABLE `comunas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +204,7 @@ CREATE TABLE `condiciones` (
   `descuentonicho` int(11) DEFAULT NULL,
   `pensiones` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,7 +213,7 @@ CREATE TABLE `condiciones` (
 
 LOCK TABLES `condiciones` WRITE;
 /*!40000 ALTER TABLE `condiciones` DISABLE KEYS */;
-INSERT INTO `condiciones` VALUES (1,1,56500,'Contado',1,1,1,NULL,0,0,1),(2,2,98900,'3 Cheques',1,1,1,NULL,0,0,2);
+INSERT INTO `condiciones` VALUES (1,1,56500,'Contado',1,1,1,NULL,0,0,1),(2,2,98900,'3 Cheques',1,1,1,NULL,0,0,2),(3,7,890000,'Tres cheques',2,2,1,NULL,0,0,1);
 /*!40000 ALTER TABLE `condiciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -241,6 +243,32 @@ LOCK TABLES `construcciones` WRITE;
 /*!40000 ALTER TABLE `construcciones` DISABLE KEYS */;
 INSERT INTO `construcciones` VALUES (2,1,2,1,1,2);
 /*!40000 ALTER TABLE `construcciones` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contacto_clientes`
+--
+
+DROP TABLE IF EXISTS `contacto_clientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contacto_clientes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `observaciones` text NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `contacto_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contacto_clientes`
+--
+
+LOCK TABLES `contacto_clientes` WRITE;
+/*!40000 ALTER TABLE `contacto_clientes` DISABLE KEYS */;
+INSERT INTO `contacto_clientes` VALUES (1,'El cliente indica que solo es una consulta','2018-01-31 16:24:04',1),(2,'Segundo contacto con este cliente','2018-01-31 16:48:02',1),(3,'Otro contacto','2018-01-31 16:49:23',1),(4,'Probemos de nuevo','2018-01-31 16:50:34',1),(5,'Ya me tiene chato','2018-01-31 16:51:00',1),(6,'Probando comunicacion con el cliente, ya que dice que no cacha pa que es este sistema','2018-01-31 16:53:30',1),(7,'Demosle','2018-01-31 17:01:08',1),(8,'Otta e','2018-01-31 17:02:11',1),(9,'A ver a ver','2018-01-31 17:04:32',1),(10,'El cliente señala que el plan que cotizo no tiene todas las prestaciones','2018-02-01 16:34:17',2);
+/*!40000 ALTER TABLE `contacto_clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -286,8 +314,13 @@ CREATE TABLE `contactos` (
   `asunto_id` int(11) NOT NULL,
   `mensaje` text NOT NULL,
   `created_at` datetime DEFAULT NULL,
+  `telefono` int(11) DEFAULT NULL,
+  `estado` int(11) NOT NULL,
+  `urgente` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `modified_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -296,6 +329,7 @@ CREATE TABLE `contactos` (
 
 LOCK TABLES `contactos` WRITE;
 /*!40000 ALTER TABLE `contactos` DISABLE KEYS */;
+INSERT INTO `contactos` VALUES (1,'rbustamante@hotmail.com',2,'Quiero saber pa que sirve esta huea','2018-01-30 17:12:23',988051289,1,1,'Raul Bustamante',NULL),(2,'jlopez@hotmail.com',3,'Ahora quiero que me digan que plan me conviene','2018-02-01 16:33:30',967865432,2,1,'Javier Lopez',NULL);
 /*!40000 ALTER TABLE `contactos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -402,7 +436,7 @@ CREATE TABLE `imagenes` (
   `componente_id` int(11) NOT NULL,
   `plan_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -411,7 +445,7 @@ CREATE TABLE `imagenes` (
 
 LOCK TABLES `imagenes` WRITE;
 /*!40000 ALTER TABLE `imagenes` DISABLE KEYS */;
-INSERT INTO `imagenes` VALUES (3,'Urna 2','upl_59b8015e6c67a.jpg',1,1);
+INSERT INTO `imagenes` VALUES (3,'Urna 2','upl_59b8015e6c67a.jpg',1,1),(4,'Cinerario Plan Cinerario 1','upl_5a70bc16ca12f.jpg',4,7),(5,'Anfora Plan Cinerario 1','upl_5a70bd5c882b1.png',5,7);
 /*!40000 ALTER TABLE `imagenes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -507,7 +541,7 @@ CREATE TABLE `planes` (
   `dated` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -516,7 +550,7 @@ CREATE TABLE `planes` (
 
 LOCK TABLES `planes` WRITE;
 /*!40000 ALTER TABLE `planes` DISABLE KEYS */;
-INSERT INTO `planes` VALUES (1,'Plan estrellas','P0001',1,9,6,3,2,'2017-10-24 12:37:42','2017-11-16 15:20:55'),(2,'Plan  Superior','P0002',3,9,6,3,1,'2017-10-24 14:58:55','2017-10-24 15:37:40'),(3,'Plan de Sepulturas','P004',1,11,10,3,2,'2017-11-20 17:08:10','2017-11-20 17:08:10'),(4,'Plan Cinerario','P005',1,10,8,3,2,'2017-11-24 18:06:40','2017-11-24 18:06:40'),(5,'Plan Cinerario 2','P005',2,10,5,3,2,'2017-11-24 18:07:08','2017-11-24 18:07:08'),(6,'Plan Sepultura','P006',2,12,8,3,2,'2017-12-12 15:57:58','2017-12-12 15:57:58');
+INSERT INTO `planes` VALUES (1,'Plan estrellas','P0001',1,9,6,3,2,'2017-10-24 12:37:42','2017-11-16 15:20:55'),(2,'Plan  Superior','P0002',3,9,6,3,1,'2017-10-24 14:58:55','2017-10-24 15:37:40'),(3,'Plan de Sepulturas','P004',1,11,10,3,2,'2017-11-20 17:08:10','2017-11-20 17:08:10'),(4,'Plan Cinerario','P005',1,10,8,3,1,'2017-11-24 18:06:40','2018-01-30 16:41:56'),(5,'Plan Cinerario 2','P005',2,10,5,3,2,'2017-11-24 18:07:08','2017-11-24 18:07:08'),(6,'Plan Sepultura','P006',2,12,8,3,2,'2017-12-12 15:57:58','2017-12-12 15:57:58'),(7,'Plan Crematorio 1','PC20183001',1,10,5,3,1,'2018-01-30 15:37:45','2018-01-30 15:52:01');
 /*!40000 ALTER TABLE `planes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -555,7 +589,7 @@ CREATE TABLE `roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -564,7 +598,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'Administrador'),(3,'Usuario'),(4,'Cliente');
+INSERT INTO `roles` VALUES (1,'Administrador'),(3,'Usuario'),(4,'Cliente'),(5,'Vendedor');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -584,8 +618,9 @@ CREATE TABLE `sedes` (
   `ubicacion` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `empresa_id` int(11) NOT NULL,
   `comuna_id` int(11) NOT NULL,
+  `vendedor_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -594,7 +629,7 @@ CREATE TABLE `sedes` (
 
 LOCK TABLES `sedes` WRITE;
 /*!40000 ALTER TABLE `sedes` DISABLE KEYS */;
-INSERT INTO `sedes` VALUES (1,'Principal','Agustinas','1291',NULL,'Centro',6,1),(2,'Agustinas','Agustinas','1292','','0',6,3),(4,'Alameda','Libertador Bernardo OHiggins','986','Centro',NULL,5,3),(5,'Huerfanos','Huerfanos','1290','Centro',NULL,8,6),(6,'Moneda','Moneda','676','Centro',NULL,0,6),(7,'Moneda','Moneda','698','Centro',NULL,10,6),(8,'Estacion Central','Meys','300',NULL,NULL,10,3),(10,'Providencia','Lyon','467',NULL,NULL,10,2),(11,'Prat','Prat','4980','La Arboleda',NULL,4,4),(12,'Rotherdam','Pasaje Rotherdam','900','Poblacion La Monjita',NULL,9,5);
+INSERT INTO `sedes` VALUES (1,'Principal','Agustinas','1291',NULL,'Centro',6,1,0),(2,'Agustinas','Agustinas','1292','','0',6,3,0),(4,'Alameda','Libertador Bernardo OHiggins','986','Centro',NULL,5,3,0),(5,'Huerfanos','Huerfanos','1290','Centro',NULL,8,6,0),(6,'Moneda','Moneda','676','Centro',NULL,0,6,0),(7,'Moneda','Moneda','698','Centro',NULL,10,6,0),(8,'Estacion Central','Meys','300',NULL,NULL,10,3,0),(10,'Providencia','Lyon','467',NULL,NULL,10,2,0),(11,'Prat','Prat','4980','La Arboleda',NULL,4,4,0),(12,'Rotherdam','Pasaje Rotherdam','900','Poblacion La Monjita',NULL,9,5,0),(13,'La Florida','Las Margaritas','1298','Villa Cementerios',NULL,10,4,3),(14,'La Paz','Avenida La Paz','1456',NULL,NULL,5,3,2);
 /*!40000 ALTER TABLE `sedes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -722,7 +757,7 @@ CREATE TABLE `telefonos` (
   `numero` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `sede_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -731,7 +766,7 @@ CREATE TABLE `telefonos` (
 
 LOCK TABLES `telefonos` WRITE;
 /*!40000 ALTER TABLE `telefonos` DISABLE KEYS */;
-INSERT INTO `telefonos` VALUES (4,'956872356',6),(8,'56227865475',3),(9,'988051289',2),(10,'789634560',4),(11,'245689034',5);
+INSERT INTO `telefonos` VALUES (4,'956872356',6),(8,'56227865475',3),(9,'988051289',2),(10,'789634560',4),(11,'245689034',5),(12,'973377107',13),(13,'224567890',14);
 /*!40000 ALTER TABLE `telefonos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -918,7 +953,7 @@ CREATE TABLE `traslados` (
   `plan_id` int(11) NOT NULL,
   `componente_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -927,7 +962,7 @@ CREATE TABLE `traslados` (
 
 LOCK TABLES `traslados` WRITE;
 /*!40000 ALTER TABLE `traslados` DISABLE KEYS */;
-INSERT INTO `traslados` VALUES (1,2,1,1,1,100,1,3);
+INSERT INTO `traslados` VALUES (1,2,1,1,1,100,1,3),(2,1,1,1,1,100,2,3);
 /*!40000 ALTER TABLE `traslados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -975,7 +1010,7 @@ CREATE TABLE `urnas` (
   `plan_id` int(11) NOT NULL,
   `componente_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -984,7 +1019,7 @@ CREATE TABLE `urnas` (
 
 LOCK TABLES `urnas` WRITE;
 /*!40000 ALTER TABLE `urnas` DISABLE KEYS */;
-INSERT INTO `urnas` VALUES (2,'Modelo AB','200 x 300 cm','Madera','enlacado','cafe',1,1);
+INSERT INTO `urnas` VALUES (2,'Modelo AB','200 x 300 cm','Madera','enlacado','cafe',1,1),(3,'Modelo Clasico','200x80x70','madera','Barniz','Rojizo',2,1);
 /*!40000 ALTER TABLE `urnas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1005,7 +1040,7 @@ CREATE TABLE `usuarios` (
   `updated` date DEFAULT NULL,
   `roles_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1014,7 +1049,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Segundo','Galdames','segundogaldames@gmail.com','ad4bb92f93e69b89cd82d4308c6026622a6be163','2017-04-18','2017-04-18',1),(2,'Jose','Perez C','jose@gmail.com','ad4bb92f93e69b89cd82d4308c6026622a6be163','2017-04-18','2017-11-27',3);
+INSERT INTO `usuarios` VALUES (1,'Segundo','Galdames','segundogaldames@gmail.com','ad4bb92f93e69b89cd82d4308c6026622a6be163','2017-04-18','2017-04-18',1),(2,'Jose','Perez C','jose@gmail.com','ad4bb92f93e69b89cd82d4308c6026622a6be163','2017-04-18','2018-01-30',5),(3,'Felipe','Galdames','felipeisau@gmail.com','ad4bb92f93e69b89cd82d4308c6026622a6be163','2018-01-30','2018-01-30',5),(4,'Pablo','Borquez','pabloborquezv@vtr.net','ad4bb92f93e69b89cd82d4308c6026622a6be163','2018-01-30','2018-01-30',1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1045,7 +1080,7 @@ CREATE TABLE `velatorios` (
   `plan_id` int(11) NOT NULL,
   `componente_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1054,7 +1089,7 @@ CREATE TABLE `velatorios` (
 
 LOCK TABLES `velatorios` WRITE;
 /*!40000 ALTER TABLE `velatorios` DISABLE KEYS */;
-INSERT INTO `velatorios` VALUES (3,'Inscripciones Registro Civil',2,1,2,4,4,2,0,0,3,2,0,0,100,1,2,2);
+INSERT INTO `velatorios` VALUES (3,'Inscripciones Registro Civil',2,1,2,4,4,2,0,0,3,2,0,0,100,1,2,2),(4,'Certificado de defunción',2,1,1,4,4,1,2,0,1,2,0,1,50,3,1,2);
 /*!40000 ALTER TABLE `velatorios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -1067,4 +1102,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-12 10:59:55
+-- Dump completed on 2018-02-02 18:15:45

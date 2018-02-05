@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URL', 'http://localhost:8080/qepd/');
+define('BASE_URL', 'https://qepd.herokuapp.com/');
 define('DEFAULT_CONTROLLER', 'index');
 define('DEFAULT_LAYOUT', 'default');
 
