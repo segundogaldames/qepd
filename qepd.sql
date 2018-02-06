@@ -436,7 +436,7 @@ CREATE TABLE `imagenes` (
   `componente_id` int(11) NOT NULL,
   `plan_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -445,7 +445,7 @@ CREATE TABLE `imagenes` (
 
 LOCK TABLES `imagenes` WRITE;
 /*!40000 ALTER TABLE `imagenes` DISABLE KEYS */;
-INSERT INTO `imagenes` VALUES (3,'Urna 2','upl_59b8015e6c67a.jpg',1,1),(4,'Cinerario Plan Cinerario 1','upl_5a70bc16ca12f.jpg',4,7),(5,'Anfora Plan Cinerario 1','upl_5a70bd5c882b1.png',5,7);
+INSERT INTO `imagenes` VALUES (3,'Urna 2','upl_59b8015e6c67a.jpg',1,1),(4,'Cinerario Plan Cinerario 1','upl_5a70bc16ca12f.jpg',4,7),(5,'Anfora Plan Cinerario 1','upl_5a70bd5c882b1.png',5,7),(6,'Urna 3','upl_5a78c622724d2.jpg',1,1);
 /*!40000 ALTER TABLE `imagenes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -541,7 +541,7 @@ CREATE TABLE `planes` (
   `dated` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -550,7 +550,7 @@ CREATE TABLE `planes` (
 
 LOCK TABLES `planes` WRITE;
 /*!40000 ALTER TABLE `planes` DISABLE KEYS */;
-INSERT INTO `planes` VALUES (1,'Plan estrellas','P0001',1,9,6,3,2,'2017-10-24 12:37:42','2017-11-16 15:20:55'),(2,'Plan  Superior','P0002',3,9,6,3,1,'2017-10-24 14:58:55','2017-10-24 15:37:40'),(3,'Plan de Sepulturas','P004',1,11,10,3,2,'2017-11-20 17:08:10','2017-11-20 17:08:10'),(4,'Plan Cinerario','P005',1,10,8,3,1,'2017-11-24 18:06:40','2018-01-30 16:41:56'),(5,'Plan Cinerario 2','P005',2,10,5,3,2,'2017-11-24 18:07:08','2017-11-24 18:07:08'),(6,'Plan Sepultura','P006',2,12,8,3,2,'2017-12-12 15:57:58','2017-12-12 15:57:58'),(7,'Plan Crematorio 1','PC20183001',1,10,5,3,1,'2018-01-30 15:37:45','2018-01-30 15:52:01');
+INSERT INTO `planes` VALUES (1,'Plan estrellas','P0001',1,9,6,3,2,'2017-10-24 12:37:42','2017-11-16 15:20:55'),(2,'Plan  Superior','P0002',3,9,6,3,1,'2017-10-24 14:58:55','2017-10-24 15:37:40'),(3,'Plan de Sepulturas','P004',1,11,10,3,2,'2017-11-20 17:08:10','2017-11-20 17:08:10'),(4,'Plan Cinerario','P005',1,10,8,3,1,'2017-11-24 18:06:40','2018-01-30 16:41:56'),(5,'Plan Cinerario 2','P005',2,10,5,3,2,'2017-11-24 18:07:08','2017-11-24 18:07:08'),(6,'Plan Sepultura','P006',2,12,8,3,2,'2017-12-12 15:57:58','2017-12-12 15:57:58'),(7,'Plan Crematorio 1','PC20183001',1,10,5,3,1,'2018-01-30 15:37:45','2018-01-30 15:52:01'),(8,'Crematorio Premium','CRE0101256',3,10,10,3,2,'2018-02-05 16:22:14','2018-02-05 16:22:14');
 /*!40000 ALTER TABLE `planes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -654,7 +654,7 @@ CREATE TABLE `sepultaciones` (
   `plan_id` int(11) NOT NULL,
   `componente_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -663,7 +663,7 @@ CREATE TABLE `sepultaciones` (
 
 LOCK TABLES `sepultaciones` WRITE;
 /*!40000 ALTER TABLE `sepultaciones` DISABLE KEYS */;
-INSERT INTO `sepultaciones` VALUES (2,1,1,2,1,50,2,1,0,'1',3,6);
+INSERT INTO `sepultaciones` VALUES (2,1,1,2,1,50,2,1,0,'1',3,6),(3,1,1,1,2,100,1,1,10,'2',3,6);
 /*!40000 ALTER TABLE `sepultaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1102,4 +1102,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-02 18:15:45
+-- Dump completed on 2018-02-06 10:00:30
