@@ -43,6 +43,7 @@
 
             {include file=$_contenido}
           </div>
+          {if Session::get('autenticado')}
       {include file="header.tpl"}
       {include file="about.tpl"}
       {include file="services.tpl"}
@@ -51,7 +52,7 @@
       {include file="call_to_action.tpl"}
       {include file="map.tpl"}
       {include file="footer.tpl"}
-
+        {/if}
 
 </div>
   </body>

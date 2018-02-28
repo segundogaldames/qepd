@@ -1,3 +1,4 @@
+{if Session::get('autenticado')}
 <nav class="navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -100,4 +101,4 @@
     <!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+{/if}

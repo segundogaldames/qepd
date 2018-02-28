@@ -11,6 +11,9 @@ class indexController extends Controller
 
 	public function index()
 	{
+		if (!Session::get('autenticado')) {
+			$this->redireccionar('usuarios/login');
+		}
 		
 		$this->_view->assign('titulo', 'Bienvenido Funerarias y Cementerios');
 		
