@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-10-03 16:29:59
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-19 17:39:57
          compiled from "/Applications/MAMP/htdocs/qepd/views/urnas/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1669881816594048466ad1f4-50934277%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8aac4c40509a58a6f69a45f06c738d7792db85f4' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/urnas/add.tpl',
-      1 => 1506023187,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -26,12 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_59404846b51714_45442241')) {function content_59404846b51714_45442241($_smarty_tpl) {?><div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<?php if ($_valid && !is_callable('content_59404846b51714_45442241')) {function content_59404846b51714_45442241($_smarty_tpl) {?><div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 urnas">Ver Urnas</a></p>
-	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-imagenes/add">Agregar imagen</a></p>
 </div>
 
 <div class="col-md-4">
@@ -84,6 +81,8 @@ $_smarty_tpl->tpl_vars['p']->_loop = true;
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Guardar" class="btn btn-success">
+			<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+urnas" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-06-13 14:38:04
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-19 17:39:46
          compiled from "/Applications/MAMP/htdocs/qepd/views/componentes/addComponentes.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:836710569594022fc9ee695-07425597%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '653959de8b71fefb7da6a580524f3856cff1fe3b' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/componentes/addComponentes.tpl',
-      1 => 1497375403,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_594022fcaf9fa8_31254310',
   'variables' => 
   array (
     '_layoutParams' => 0,
@@ -22,11 +24,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cs' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_594022fcaf9fa8_31254310',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_594022fcaf9fa8_31254310')) {function content_594022fcaf9fa8_31254310($_smarty_tpl) {?><div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<?php if ($_valid && !is_callable('content_594022fcaf9fa8_31254310')) {function content_594022fcaf9fa8_31254310($_smarty_tpl) {?><div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 planes">Ver Planes</a></p>
 </div>
@@ -39,7 +38,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['cs']->key => $_smarty_tpl->tpl_vars['
 $_smarty_tpl->tpl_vars['cs']->_loop = true;
 ?>
 		<p><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];
-echo $_smarty_tpl->tpl_vars['cs']->value['url'];?>
+echo $_smarty_tpl->tpl_vars['cs']->value['url_add'];?>
 ">Agregar <?php echo $_smarty_tpl->tpl_vars['cs']->value['nombre'];?>
 </a></p>
 		<?php } ?>
