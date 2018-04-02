@@ -7,7 +7,7 @@ class comunaModel extends Model
 	}
 
 	public function getComunas(){
-		$com = $this->_db->query("SELECT c.id, c.nombre as comuna, r.nombre as region FROM regiones as r INNER JOIN comunas as c ON c.region_id = r.id ORDER BY c.nombre");
+		$com = $this->_db->query("SELECT c.id, c.nombre as comuna, c.region_id, r.nombre as region FROM regiones as r INNER JOIN comunas as c ON c.region_id = r.id ORDER BY c.nombre");
 		return $com->fetchall();
 	}
 
@@ -32,7 +32,7 @@ class comunaModel extends Model
 	public function getComunasRegion($region){
 		$region = (int) $region;
 
-		$com = $this->_db->prepare("SELECT id, nombre FROM comunas WHERE region_id = ?");
+		$com = $this->_db->prepare("SELECT id, nombre FROM comunas WHERE region_id = ? ORDER BY nombre");
 		$com->bindParam(1, $region);
 		$com->execute();
 
@@ -52,6 +52,7 @@ class comunaModel extends Model
 	}
 
 	public function setComunas($nombre, $region){
+		#print_r($region);exit;
 		$com = $this->_db->prepare("INSERT INTO comunas VALUES(null, ?, ?)");
 		$com->bindParam(1, $nombre);
 		$com->bindParam(2, $region);

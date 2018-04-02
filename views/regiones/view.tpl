@@ -19,10 +19,14 @@
 		</ul>
 	{else}
 		<strong>No hay comunas asociadas</strong>
-		<p>
-			<a href="{$_layoutParams.root}comunas/add" class="btn btn-link">Agregar Comuna</a>
-		</p>
+		
 	{/if}
+	<p>
+		{if isset($paginacion)}{$paginacion}{/if}
+	</p>
+	<p>
+		<a href="{$_layoutParams.root}comunas/add/{$region.id}" class="btn btn-link">Agregar Comuna</a>
+	</p>
 </div>
 <div class="col-md-4">
 	

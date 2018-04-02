@@ -1,10 +1,15 @@
 <div class="col-md-2" style="padding-left: 20px">
 	<h4>Buscar en</h4>
 	<ul class="list-unstyled">
-		{if isset($comunas) && count($comunas)}
-			{foreach from=$comunas item=c}
-				<li class="enlace"><a href="{$_layoutParams.root}planes/planesComuna/{$c.id}">{$c.comuna}</a></li>
-			{/foreach}
+		{if isset($regiones) && count($regiones)}
+            <ul class="list-unstyled">
+    			{foreach from=$regiones item=r}
+                    <li>
+                        <a href="{$_layoutParams.root}comunas/comunasRegion/{$r.id}" class="btn btn-link">{$r.nombre}</a>
+                    </li>
+    				
+    			{/foreach}
+            </ul>
 		{/if}
 	</ul>
 </div>

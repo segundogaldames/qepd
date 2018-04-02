@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-17 18:39:46
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-30 20:22:37
          compiled from "/Applications/MAMP/htdocs/qepd/views/telefonos/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:15600912325908b18151cc95-96644703%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'af645d316b2df2995955a48d93ec6f05a6b7bd9f' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/telefonos/index.tpl',
-      1 => 1515970896,
+      1 => 1522452152,
       2 => 'file',
     ),
   ),
@@ -37,24 +37,29 @@ empresas">Empresas</a></p>
 <div class="col-md-10">
 	<h3>Lista de Teléfonos</h3>
 	<table class="table table-hover">
-		<th>
-			Número
-		</th>
-		<th>
-			Sede
-		</th>
-		<th>
-			Dirección
-		</th>
-		<th>
-			Comuna
-		</th>
-		<th>
-			Empresa
-		</th>
-		<th>
-			Acciones
-		</th>
+		<tr>
+			<th>
+				Empresa
+			</th>
+			<th>
+				Sede
+			</th>
+			<th>
+				Número
+			</th>
+			
+			<th>
+				Dirección
+			</th>
+			<th>
+				Comuna
+			</th>
+			
+			<th>
+				Acciones
+			</th>
+		</tr>
+		
 		
 			<?php if (isset($_smarty_tpl->tpl_vars['telefonos']->value)&&count($_smarty_tpl->tpl_vars['telefonos']->value)) {?>
 				<?php  $_smarty_tpl->tpl_vars['tel'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['tel']->_loop = false;
@@ -63,17 +68,17 @@ foreach ($_from as $_smarty_tpl->tpl_vars['tel']->key => $_smarty_tpl->tpl_vars[
 $_smarty_tpl->tpl_vars['tel']->_loop = true;
 ?>
 					<tr>
-						<td><?php echo $_smarty_tpl->tpl_vars['tel']->value['telefono'];?>
+						<td><?php echo $_smarty_tpl->tpl_vars['tel']->value['empresa'];?>
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['tel']->value['sede'];?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['tel']->value['telefono'];?>
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['tel']->value['calle'];?>
  <?php echo $_smarty_tpl->tpl_vars['tel']->value['numero'];?>
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['tel']->value['comuna'];?>
-</td>
-						<td><?php echo $_smarty_tpl->tpl_vars['tel']->value['empresa'];?>
-</td>
+</td>						
 						<td>
 							<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 telefonos/view/<?php echo $_smarty_tpl->tpl_vars['tel']->value['id'];?>

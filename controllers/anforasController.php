@@ -82,50 +82,6 @@ class anforasController extends Controller
 		$this->_view->renderizar('edit');
 	}
 
-	public function add(){
-		$this->verificarSession();
-
-		$this->_view->assign('titulo', 'Nueva Anfora');
-		$this->_view->assign('planes', $this->_plan->getPlanes());
-
-		if ($this->getInt('enviar') == 1) {
-			$this->_view->assign('datos', $_POST);
-
-			if (!$this->getSql('modelo')) {
-				$this->_view->assign('_error', 'Debe ingresar el modelo');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('plan')) {
-				$this->_view->assign('_error', 'Debe seleccionar el plan');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getSql('descripcion')) {
-				$this->_view->assign('_error', 'Debe describir el ánfora');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if ($this->_anfora->getAnforaPlan($this->getInt('plan'))) {
-				$this->_view->assign('_error', 'El plan ya tiene ánfora...');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			$this->_anfora->addAnfora(
-				$this->getAlphaNum('modelo'),
-				$this->getInt('plan'),
-				$this->getSql('descripcion')
-			);
-
-			$this->redireccionar('anforas');
-		}
-
-		$this->_view->renderizar('add');
-	}
 
 	public function addAnforaPlan($plan = null){
 		$this->verificarSession();

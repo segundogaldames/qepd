@@ -1,6 +1,4 @@
 <div class="col-md-2" style="padding-top: 20px">
-	<p class="enlace"><a href="{$_layoutParams.root}servicios/add">Agregar Servicio</a></p>
-	<hr>
 	<p class="enlace"><a href="{$_layoutParams.root}planes">Planes</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}tipoplanes">Tipo de Planes</a></p>
 </div>

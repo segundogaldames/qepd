@@ -9,6 +9,7 @@ class planesController extends Controller
 	private $_destinatario;
 	private $_comuna;
 	private $_componente;
+	private $_region;
 
 	public function __construct(){
 		parent::__construct();
@@ -19,6 +20,7 @@ class planesController extends Controller
 		$this->_destinatario = $this->loadModel('destinatario');
 		$this->_comuna = $this->loadModel('comuna');
 		$this->_componente = $this->loadModel('componente');
+		$this->_region = $this->loadModel('region');
 	}
 
 	public function index(){
@@ -29,10 +31,11 @@ class planesController extends Controller
 		$this->_view->renderizar('index');
 	}
 
-	public function planesServicios($id = null){
+	public function planesServicios($servicio = null){
 
 		$this->_view->assign('titulo', 'Ver Planes');
-		$this->_view->assign('planes', $this->_plan->getPlanesServicios($this->filtrarInt($id)));
+		$this->_view->assign('planes', $this->_plan->getPlanesServicios($this->filtrarInt($servicio)));
+		$this->_view->assign('regiones', $this->_region->getRegiones());
 		$this->_view->assign('comunas', $this->_comuna->getComunas());
 		$this->_view->renderizar('planesServicios');
 	}
@@ -40,7 +43,7 @@ class planesController extends Controller
 	public function planesComuna($id = null){
 		$this->_view->assign('titulo', 'Ver Planes');
 		$this->_view->assign('planes', $this->_plan->getPlanesComuna($this->filtrarInt($id)));
-		$this->_view->assign('comunas', $this->_comuna->getComunas());
+		$this->_view->assign('regiones', $this->_region->getRegiones());
 		$this->_view->renderizar('planesComuna');
 	}
 
@@ -183,7 +186,7 @@ class planesController extends Controller
 
 		$this->_view->assign('titulo', 'Editar Plan');
 		$this->_view->assign('tipoplanes', $this->_tipoPlan->getTipoPlanes());
-		$this->_view->assign('servicios', $this->_servicio->getServiciosTipoEmpresa());
+		$this->_view->assign('servicios', $this->_servicio->getServicios());
 		$this->_view->assign('empresas', $this->_empresa->getEmpresas());
 		$this->_view->assign('destinatarios', $this->_destinatario->getDestinatarios());
 		$this->_view->assign('dato', $this->_plan->getPlanesId($this->filtrarInt($id)));

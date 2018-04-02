@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-12-30 12:30:05
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-30 19:52:47
          compiled from "/Applications/MAMP/htdocs/qepd/views/layout/default/template.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:71243907058f51055da4f09-62225878%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dec84fa815c82b02bdb68b48ce6073922b57cd21' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/layout/default/template.tpl',
-      1 => 1514647736,
+      1 => 1522450211,
       2 => 'file',
     ),
   ),
@@ -69,7 +69,11 @@ additional-methods.js"><?php echo '</script'; ?>
  type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['ruta_js'];?>
 funciones.js"><?php echo '</script'; ?>
 >
-      
+      <?php echo '<script'; ?>
+ type="text/javascript">
+        
+      <?php echo '</script'; ?>
+>
       
       <?php if (isset($_smarty_tpl->tpl_vars['_layoutParams']->value['js'])&&count($_smarty_tpl->tpl_vars['_layoutParams']->value['js'])) {?>
         <?php  $_smarty_tpl->tpl_vars['js'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['js']->_loop = false;
@@ -106,5 +110,25 @@ $_smarty_tpl->tpl_vars['js']->_loop = true;
             <?php echo $_smarty_tpl->getSubTemplate ($_smarty_tpl->tpl_vars['_contenido']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
           </div>
+          <?php if (Session::get('autenticado')) {?>
+      <?php echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+      <?php echo $_smarty_tpl->getSubTemplate ("about.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+      <?php echo $_smarty_tpl->getSubTemplate ("services.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+      <?php echo $_smarty_tpl->getSubTemplate ("callout.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+      <?php echo $_smarty_tpl->getSubTemplate ("portfolio.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+      <?php echo $_smarty_tpl->getSubTemplate ("call_to_action.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+      <?php echo $_smarty_tpl->getSubTemplate ("map.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+      <?php echo $_smarty_tpl->getSubTemplate ("footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+        <?php }?>
+
+</div>
   </body>
 </html><?php }} ?>

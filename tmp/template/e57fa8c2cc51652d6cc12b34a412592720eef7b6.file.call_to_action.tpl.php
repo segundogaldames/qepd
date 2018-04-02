@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-12-30 12:30:05
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-30 19:53:23
          compiled from "/Applications/MAMP/htdocs/qepd/views/layout/default/call_to_action.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:39347141258f522a85a5865-51438452%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e57fa8c2cc51652d6cc12b34a412592720eef7b6' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/layout/default/call_to_action.tpl',
-      1 => 1514647736,
+      1 => 1522450211,
       2 => 'file',
     ),
   ),
@@ -25,7 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="col-lg-12 text-center">
                 <h3>Contáctanos</h3>
                 <button type="button" class="btn btn-lg btn-dark" data-toggle="modal" data-target="#myModal">Llamanos</button>
-                <a href="">Publica</a>
 
 			  <!-- Modal -->
 			  <div class="modal fade" id="myModal" role="dialog">

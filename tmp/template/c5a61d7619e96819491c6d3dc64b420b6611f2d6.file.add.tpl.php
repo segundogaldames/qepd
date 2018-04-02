@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-06-06 14:45:42
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-23 10:08:49
          compiled from "/Applications/MAMP/htdocs/qepd/views/planes/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14210303515925fbf9835673-39241297%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c5a61d7619e96819491c6d3dc64b420b6611f2d6' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/planes/add.tpl',
-      1 => 1496771139,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -20,20 +20,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     '_layoutParams' => 0,
-    'datos' => 0,
-    'tipoplanes' => 0,
-    'tp' => 0,
     'servicios' => 0,
     'serv' => 0,
     'empresas' => 0,
     'e' => 0,
+    'datos' => 0,
+    'tipoplanes' => 0,
+    'tp' => 0,
     'destinatarios' => 0,
     'dest' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5925fbf9ab3bf5_29916184')) {function content_5925fbf9ab3bf5_29916184($_smarty_tpl) {?><div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<?php if ($_valid && !is_callable('content_5925fbf9ab3bf5_29916184')) {function content_5925fbf9ab3bf5_29916184($_smarty_tpl) {?><div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 planes">Ver Planes</a></p>
 </div>
@@ -43,33 +42,6 @@ planes">Ver Planes</a></p>
 	<p class="text-success">Ingrese los datos en el formulario...</p>
 	<p class="text-danger">* Datos Obligatorios</p>
 	<form action="" method="post" name="form" id="form">
-		<div class="form-group">
-			<label for="nombre">Ingrese nombre:<span class="text-danger">*</span></label>
-			<input type="text" name="nombre" class="form-control" placeholder="Nombre del plan" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['datos']->value['nombre'])===null||$tmp==='' ? '' : $tmp);?>
-">
-		</div>
-		<div class="form-group">
-			<label for="codigo">Ingrese el código SKU:</label>
-			<input type="text" name="codigo" class="form-control" placeholder="Codigo del plan" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['datos']->value['codigo'])===null||$tmp==='' ? '' : $tmp);?>
-">
-		</div>
-		<div class="form-group">
-			<label for="tipo_plan">Seleccione el tipo de plan:<span class="text-danger">*</span></label></label>
-			<select name="tipo_plan" id="" class="form-control">
-				<option value="">Tipo Plan</option>
-				<?php if (isset($_smarty_tpl->tpl_vars['tipoplanes']->value)&&count($_smarty_tpl->tpl_vars['tipoplanes']->value)) {?>
-					<?php  $_smarty_tpl->tpl_vars['tp'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['tp']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['tipoplanes']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['tp']->key => $_smarty_tpl->tpl_vars['tp']->value) {
-$_smarty_tpl->tpl_vars['tp']->_loop = true;
-?>
-						<option value="<?php echo $_smarty_tpl->tpl_vars['tp']->value['id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['tp']->value['nombre'];?>
-</option>
-					<?php } ?>
-				<?php }?>
-			</select>
-		</div>
 		<div class="form-group">
 			<label for="servicio">Seleccione un servicio:<span class="text-danger">*</span></label></label>
 			<select name="servicio" id="" class="form-control">
@@ -105,6 +77,35 @@ $_smarty_tpl->tpl_vars['e']->_loop = true;
 			</select>
 		</div>
 		<div class="form-group">
+			<label for="nombre">Ingrese nombre:<span class="text-danger">*</span></label>
+			<input type="text" name="nombre" class="form-control" placeholder="Nombre del plan" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['datos']->value['nombre'])===null||$tmp==='' ? '' : $tmp);?>
+">
+		</div>
+		<div class="form-group">
+			<label for="codigo">Ingrese el código SKU:</label>
+			<input type="text" name="codigo" class="form-control" placeholder="Codigo del plan" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['datos']->value['codigo'])===null||$tmp==='' ? '' : $tmp);?>
+">
+		</div>
+		<div class="form-group">
+			<label for="tipo_plan">Seleccione el tipo de plan:<span class="text-danger">*</span></label></label>
+			<select name="tipo_plan" id="" class="form-control">
+				<option value="">Tipo Plan</option>
+				<?php if (isset($_smarty_tpl->tpl_vars['tipoplanes']->value)&&count($_smarty_tpl->tpl_vars['tipoplanes']->value)) {?>
+					<?php  $_smarty_tpl->tpl_vars['tp'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['tp']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['tipoplanes']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['tp']->key => $_smarty_tpl->tpl_vars['tp']->value) {
+$_smarty_tpl->tpl_vars['tp']->_loop = true;
+?>
+						<option value="<?php echo $_smarty_tpl->tpl_vars['tp']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['tp']->value['nombre'];?>
+</option>
+					<?php } ?>
+				<?php }?>
+			</select>
+		</div>
+		
+		
+		<div class="form-group">
 			<label for="destinatario">Seleccione un destinatario:</label>
 			<select name="destinatario" id="" class="form-control">
 				<option value="">Destinatarios</option>
@@ -124,6 +125,8 @@ $_smarty_tpl->tpl_vars['dest']->_loop = true;
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Registrar" class="btn btn-success">
+			<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+planes" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

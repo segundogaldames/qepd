@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.59, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.42, for osx10.6 (i386)
 --
 -- Host: localhost    Database: qepd
 -- ------------------------------------------------------
--- Server version	5.5.59-0ubuntu0.14.04.1
+-- Server version	5.5.42
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,9 +27,8 @@ CREATE TABLE `anforas` (
   `modelo` varchar(100) DEFAULT NULL,
   `plan_id` int(11) NOT NULL,
   `componente_id` int(11) NOT NULL,
-  `descripcion` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +37,7 @@ CREATE TABLE `anforas` (
 
 LOCK TABLES `anforas` WRITE;
 /*!40000 ALTER TABLE `anforas` DISABLE KEYS */;
-INSERT INTO `anforas` VALUES (2,'Modelo 1',4,5,''),(3,'Modelo 2',5,5,''),(4,'Modelo 1',7,5,'Nueva descripcion');
+INSERT INTO `anforas` VALUES (2,'Modelo 1',4,5),(3,'Modelo 2',5,5);
 /*!40000 ALTER TABLE `anforas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,7 +52,7 @@ CREATE TABLE `asuntos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +61,6 @@ CREATE TABLE `asuntos` (
 
 LOCK TABLES `asuntos` WRITE;
 /*!40000 ALTER TABLE `asuntos` DISABLE KEYS */;
-INSERT INTO `asuntos` VALUES (2,'Temas Generales'),(3,'Preguntas Frecuentes');
 /*!40000 ALTER TABLE `asuntos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +115,7 @@ CREATE TABLE `cinerarios` (
   `plan_id` int(11) NOT NULL,
   `componente_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +124,7 @@ CREATE TABLE `cinerarios` (
 
 LOCK TABLES `cinerarios` WRITE;
 /*!40000 ALTER TABLE `cinerarios` DISABLE KEYS */;
-INSERT INTO `cinerarios` VALUES (2,1,1,1,1,1,1,0,'1',1,1,5,4),(3,1,1,2,1,2,2,0,'1',1,1,7,4),(4,1,1,1,1,1,1,0,'2',1,2,4,4);
+INSERT INTO `cinerarios` VALUES (2,1,1,1,1,1,1,0,'1',1,1,5,4);
 /*!40000 ALTER TABLE `cinerarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -171,7 +169,7 @@ CREATE TABLE `comunas` (
   `nombre` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `region_id` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=344 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,7 +178,7 @@ CREATE TABLE `comunas` (
 
 LOCK TABLES `comunas` WRITE;
 /*!40000 ALTER TABLE `comunas` DISABLE KEYS */;
-INSERT INTO `comunas` VALUES (2,'Providencia','13'),(3,'Estación Central','13'),(4,'La Florida','13'),(5,'Peñalolén','13'),(6,'Santiago','13'),(7,'Puente Alto','13');
+INSERT INTO `comunas` VALUES (2,'Providencia','13'),(3,'Estación Central','13'),(4,'La Florida','13'),(5,'Peñalolén','13'),(6,'Santiago','13'),(7,'Puente Alto','13'),(8,'Iquique','1'),(9,'Alto Hospicio','1'),(10,'Pozo Almonte','1'),(11,'Camiña','1'),(12,'Colchane','1'),(13,'Huara','1'),(14,'Pica','1'),(15,'Antofagasta','2'),(16,'Mejillones','2'),(17,'Sierra Gorda','2'),(18,'Taltal','2'),(19,'Calama','2'),(20,'Ollagüe','2'),(21,'San Pedro de Atacama','2'),(22,'Tocopilla','2'),(23,'María Elena','2'),(24,'Copiapó','3'),(25,'Caldera','3'),(26,'Tierra Amarilla','3'),(27,'Chañaral','3'),(28,'Diego de Almagro','3'),(29,'Vallenar','3'),(30,'Alto del Carmen','3'),(31,'Freirina','3'),(32,'Huasco','3'),(33,'Coquimbo','4'),(34,'La Serena','4'),(35,'Andacollo','4'),(36,'La Higuera','4'),(37,'Paihuano','4'),(38,'Vicuña','4'),(39,'Illapel','4'),(40,'Canela','4'),(41,'Los Vilos','4'),(42,'Salamanca','4'),(43,'Ovalle','4'),(44,'Combarbalá','4'),(45,'Monte Patria','4'),(46,'Punitaqui','4'),(47,'Rio Hurtado','4'),(48,'Valparaíso','5'),(49,'Viña del Mar','5'),(50,'Casa Blanca','5'),(51,'Concón','5'),(52,'Juan Fernández','5'),(53,'Puchuncaví','5'),(54,'Quintero','5'),(55,'Isla de Pascua','5'),(56,'Los Andes','5'),(57,'Calle Larga','5'),(58,'Rinconada','5'),(59,'San Esteban','5'),(60,'La Ligua','5'),(61,'Cabildo','5'),(62,'Papudo','5'),(63,'Petorca','5'),(64,'Zapallar','5'),(65,'Quillota','5'),(66,'La Calera','5'),(67,'Hijuelas','5'),(68,'La Cruz','5'),(69,'Nogales','5'),(70,'San Antonio','5'),(71,'Algarrobo','5'),(72,'Cartagena','5'),(73,'El Quisco','5'),(74,'El Tabo','5'),(75,'Santo Domingo','5'),(76,'San Felipe','5'),(77,'Catemu','5'),(78,'Llaillay','5'),(79,'Panquehue','5'),(80,'Putaendo','5'),(81,'Santa María','5'),(82,'Quilpué','5'),(83,'Limache','5'),(84,'Villa Alemana','5'),(85,'Olmué','5'),(86,'Rancagua','6'),(87,'Codegua','6'),(88,'Coinco','6'),(89,'Coltauco','6'),(90,'Doñihue','6'),(91,'Graneros','6'),(92,'Las Cabras','6'),(93,'Machalí','6'),(94,'Malloa','6'),(95,'Mostazal','6'),(96,'Olivar','6'),(97,'Peumo','6'),(98,'Pichidegua','6'),(99,'Quinta de Tilcoco','6'),(100,'Rengo','6'),(101,'Requínoa','6'),(102,'San Vicente','6'),(103,'Pichilemu','6'),(104,'La Estrella','6'),(105,'Litueche','6'),(106,'Marchihue','6'),(107,'Navidad','6'),(108,'Paredones','6'),(109,'San Fernando','6'),(110,'Chépica','6'),(111,'Chimbarongo','6'),(112,'Lolol','6'),(113,'Nancagua','6'),(114,'Palmilla','6'),(115,'Peralillo','6'),(116,'Placilla','6'),(117,'Pumanque','6'),(118,'Santa Cruz','6'),(119,'Talca','7'),(120,'Constitución','7'),(121,'Curepto','7'),(122,'Empedrado','7'),(123,'Maule','7'),(124,'Pelarco','7'),(125,'Pencahue','7'),(126,'Río Claro','7'),(127,'San Clemente','7'),(128,'San Rafael','7'),(129,'Cauquenes','7'),(130,'Chanco','7'),(131,'Pelluhue','7'),(132,'Curicó','7'),(133,'Hualañé','7'),(134,'Licantén','7'),(135,'Molina','7'),(136,'Rauco','7'),(137,'Romeral','7'),(138,'Sagrada Familia','7'),(139,'Teno','7'),(140,'Vichuquén','7'),(141,'Linares','7'),(142,'Colbún','7'),(143,'Longaví','7'),(144,'Parral','7'),(145,'Retiro','7'),(146,'San Javier','7'),(147,'Villa Alegre','7'),(148,'Yerbas Buenas','7'),(149,'Concepción','8'),(150,'Coronel','8'),(151,'Chiguayante','8'),(152,'Florida','8'),(153,'Hualqui','8'),(154,'Lota','8'),(155,'Penco','8'),(156,'San Pedro de La Paz','8'),(157,'Santa Juana','8'),(158,'Talcahuano','8'),(159,'Tomé','8'),(160,'Hualpén','8'),(161,'Lebu','8'),(162,'Arauco','8'),(163,'Cañete','8'),(164,'Contulmo','8'),(165,'Curanilahue','8'),(166,'Los Álamos','8'),(167,'Tirúa','8'),(168,'Los Ángeles','8'),(169,'Antuco','8'),(170,'Cabrero','8'),(171,'Laja','8'),(172,'Mulchén','8'),(173,'Nacimiento','8'),(174,'Negrete','8'),(175,'Quilaco','8'),(176,'Quilleco','8'),(177,'San Rosendo','8'),(178,'Santa Bárbara','8'),(179,'Tucapel','8'),(180,'Yumbel','8'),(181,'Alto Biobío','8'),(182,'Chillán','16'),(183,'Bulnes','16'),(184,'Cobquecura','16'),(185,'Coelemu','16'),(186,'Coihueco','16'),(187,'Chillán Viejo','16'),(188,'El Carmen','16'),(189,'Ninhue','16'),(190,'Ñiquén','16'),(191,'Pemuco','16'),(192,'Pinto','16'),(193,'Portezuelo','16'),(194,'Quillón','16'),(195,'Quirihue','16'),(196,'Ránquil','16'),(197,'San Carlos','16'),(198,'San Fabián','16'),(199,'San Ignacio','16'),(200,'San Nicolás','16'),(201,'Treguaco','16'),(202,'Yungay','16'),(203,'Temuco','9'),(204,'Carahue','9'),(205,'Cunco','9'),(206,'Curarrehue','9'),(207,'Freire','9'),(208,'Galvarino','9'),(209,'Gorbea','9'),(210,'Lautaro','9'),(211,'Loncoche','9'),(212,'Melipeuco','9'),(213,'Nueva Imperial','9'),(214,'Padre Las Casas','9'),(215,'Perquenco','9'),(216,'Pitrufquén','9'),(217,'Pucón','9'),(218,'Saavedra','9'),(219,'Teodoro Schmidt','9'),(220,'Toltén','9'),(221,'Vilcún','9'),(222,'Villarrica','9'),(223,'Cholchol','9'),(224,'Angol','9'),(225,'Collipulli','9'),(226,'Curacautín','9'),(227,'Ercilla','9'),(228,'Lonquimay','9'),(229,'Los Sauces','9'),(230,'Lumaco','9'),(231,'Purén','9'),(232,'Renaico','9'),(233,'Traiguén','9'),(234,'Victoria','9'),(235,'Valdivia','14'),(236,'Corral','14'),(237,'Lanco','14'),(238,'Los Lagos','14'),(239,'Máfil','14'),(240,'Mariquina','14'),(241,'Paillaco','14'),(242,'Panguipulli','14'),(243,'La Unión','14'),(244,'Futrono','14'),(245,'Lago Ranco','14'),(246,'Río Bueno','14'),(247,'Puerto Montt','10'),(248,'Calbuco','10'),(249,'Cochamó','10'),(250,'Fresia','10'),(251,'Frutillar','10'),(252,'Los Muermos','10'),(253,'Llanquihue','10'),(254,'Maullín','10'),(255,'Puerto Varas','10'),(256,'Castro','10'),(257,'Ancud','10'),(258,'Chonchi','10'),(259,'Curaco de Vélez','10'),(260,'Dalcahue','10'),(261,'Puqueldón','10'),(262,'Queilén','10'),(263,'Quellón','10'),(264,'Quemchi','10'),(265,'Quinchao','10'),(266,'Osorno','10'),(267,'Puerto Octay','10'),(268,'Purranque','10'),(269,'Puyehue','10'),(270,'Río Negro','10'),(271,'San Juan de la Costa','10'),(272,'San Pablo','10'),(273,'Chaitén','10'),(274,'Futaleufú','10'),(275,'Hualaihué','10'),(276,'Palena','10'),(277,'Coyhaique','11'),(278,'Lago Verde','11'),(279,'Aysén','11'),(280,'Cisnes','11'),(281,'Guaitecas','11'),(282,'Cochrane','11'),(283,'Punta Arenas','12'),(284,'Laguna Blanca','12'),(285,'Río Verde','12'),(286,'San Gregorio','12'),(287,'Cabo de Hornos','12'),(288,'Antártica','12'),(289,'Porvenir','12'),(290,'Primavera','12'),(291,'Timaukel','12'),(292,'Natales','12'),(293,'Torres del Paine','12'),(294,'Cerrillos','13'),(295,'Cerro Navia','13'),(296,'Conchalí','13'),(297,'El Bosque','13'),(298,'Huechuraba','13'),(299,'Independencia','13'),(300,'La Cisterna','13'),(301,'La Granja','13'),(302,'La Pintana','13'),(303,'La Reina','13'),(304,'Las Condes','13'),(305,'Lo Barnechea','13'),(306,'Lo Espejo','13'),(307,'Lo Prado','13'),(308,'Macul','13'),(309,'Maipú','13'),(310,'Ñuñoa','13'),(311,'Pedro Aguirre Cerda','13'),(312,'Pudahuel','13'),(313,'Quilicura','13'),(314,'Quinta Normal','13'),(315,'Recoleta','13'),(316,'Renca','13'),(317,'San Joaquín','13'),(318,'San Miguel','13'),(319,'San Ramón','13'),(320,'Vitacura','13'),(321,'Pirque','13'),(322,'San José de Maipo','13'),(323,'Colina','13'),(324,'Lampa','13'),(325,'Til Til','13'),(326,'San Bernardo','13'),(327,'Buin','13'),(328,'Calera de Tango','13'),(329,'Paine','13'),(330,'Melipilla','13'),(331,'Alhué','13'),(332,'Curacaví','13'),(333,'María Pinto','13'),(334,'San Pedro','13'),(335,'Talagante','13'),(336,'El Monte','13'),(337,'Isla de Maipo','13'),(338,'Padre Hurtado','13'),(339,'Peñaflor','13'),(340,'Arica','15'),(341,'Camarones','15'),(342,'Putre','15'),(343,'General Lagos','15');
 /*!40000 ALTER TABLE `comunas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,7 +211,7 @@ CREATE TABLE `condiciones` (
 
 LOCK TABLES `condiciones` WRITE;
 /*!40000 ALTER TABLE `condiciones` DISABLE KEYS */;
-INSERT INTO `condiciones` VALUES (1,1,56500,'Contado',1,1,1,NULL,0,0,1),(2,2,98900,'3 Cheques',1,1,1,NULL,0,0,2),(3,7,890000,'Tres cheques',2,2,1,NULL,0,0,1);
+INSERT INTO `condiciones` VALUES (1,1,56500,'Contado',1,1,1,NULL,0,0,1),(2,2,98900,'3 Cheques',1,1,1,NULL,0,0,2),(3,5,65000,'contado',1,2,1,'Caja de Compensación Los Andes',0,10,1);
 /*!40000 ALTER TABLE `condiciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,32 +241,6 @@ LOCK TABLES `construcciones` WRITE;
 /*!40000 ALTER TABLE `construcciones` DISABLE KEYS */;
 INSERT INTO `construcciones` VALUES (2,1,2,1,1,2);
 /*!40000 ALTER TABLE `construcciones` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `contacto_clientes`
---
-
-DROP TABLE IF EXISTS `contacto_clientes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `contacto_clientes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `observaciones` text NOT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `contacto_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `contacto_clientes`
---
-
-LOCK TABLES `contacto_clientes` WRITE;
-/*!40000 ALTER TABLE `contacto_clientes` DISABLE KEYS */;
-INSERT INTO `contacto_clientes` VALUES (1,'El cliente indica que solo es una consulta','2018-01-31 16:24:04',1),(2,'Segundo contacto con este cliente','2018-01-31 16:48:02',1),(3,'Otro contacto','2018-01-31 16:49:23',1),(4,'Probemos de nuevo','2018-01-31 16:50:34',1),(5,'Ya me tiene chato','2018-01-31 16:51:00',1),(6,'Probando comunicacion con el cliente, ya que dice que no cacha pa que es este sistema','2018-01-31 16:53:30',1),(7,'Demosle','2018-01-31 17:01:08',1),(8,'Otta e','2018-01-31 17:02:11',1),(9,'A ver a ver','2018-01-31 17:04:32',1),(10,'El cliente señala que el plan que cotizo no tiene todas las prestaciones','2018-02-01 16:34:17',2);
-/*!40000 ALTER TABLE `contacto_clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -314,13 +286,8 @@ CREATE TABLE `contactos` (
   `asunto_id` int(11) NOT NULL,
   `mensaje` text NOT NULL,
   `created_at` datetime DEFAULT NULL,
-  `telefono` int(11) DEFAULT NULL,
-  `estado` int(11) NOT NULL,
-  `urgente` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `modified_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -329,7 +296,6 @@ CREATE TABLE `contactos` (
 
 LOCK TABLES `contactos` WRITE;
 /*!40000 ALTER TABLE `contactos` DISABLE KEYS */;
-INSERT INTO `contactos` VALUES (1,'rbustamante@hotmail.com',2,'Quiero saber pa que sirve esta huea','2018-01-30 17:12:23',988051289,1,1,'Raul Bustamante',NULL),(2,'jlopez@hotmail.com',3,'Ahora quiero que me digan que plan me conviene','2018-02-01 16:33:30',967865432,2,1,'Javier Lopez',NULL);
 /*!40000 ALTER TABLE `contactos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -436,7 +402,7 @@ CREATE TABLE `imagenes` (
   `componente_id` int(11) NOT NULL,
   `plan_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -445,7 +411,7 @@ CREATE TABLE `imagenes` (
 
 LOCK TABLES `imagenes` WRITE;
 /*!40000 ALTER TABLE `imagenes` DISABLE KEYS */;
-INSERT INTO `imagenes` VALUES (3,'Urna 2','upl_59b8015e6c67a.jpg',1,1),(4,'Cinerario Plan Cinerario 1','upl_5a70bc16ca12f.jpg',4,7),(5,'Anfora Plan Cinerario 1','upl_5a70bd5c882b1.png',5,7),(6,'Urna 3','upl_5a78c622724d2.jpg',1,1);
+INSERT INTO `imagenes` VALUES (3,'Urna 2','upl_59b8015e6c67a.jpg',1,1),(4,'Anfora Cinerario 2','upl_5a6202978cd3d.jpg',5,5),(5,'Cinerario 2','upl_5a620c467ad66.jpg',4,5);
 /*!40000 ALTER TABLE `imagenes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -541,7 +507,7 @@ CREATE TABLE `planes` (
   `dated` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -550,7 +516,7 @@ CREATE TABLE `planes` (
 
 LOCK TABLES `planes` WRITE;
 /*!40000 ALTER TABLE `planes` DISABLE KEYS */;
-INSERT INTO `planes` VALUES (1,'Plan estrellas','P0001',1,9,6,3,2,'2017-10-24 12:37:42','2017-11-16 15:20:55'),(2,'Plan  Superior','P0002',3,9,6,3,1,'2017-10-24 14:58:55','2017-10-24 15:37:40'),(3,'Plan de Sepulturas','P004',1,11,10,3,2,'2017-11-20 17:08:10','2017-11-20 17:08:10'),(4,'Plan Cinerario','P005',1,10,8,3,1,'2017-11-24 18:06:40','2018-01-30 16:41:56'),(5,'Plan Cinerario 2','P005',2,10,5,3,2,'2017-11-24 18:07:08','2017-11-24 18:07:08'),(6,'Plan Sepultura','P006',2,12,8,3,2,'2017-12-12 15:57:58','2017-12-12 15:57:58'),(7,'Plan Crematorio 1','PC20183001',1,10,5,3,1,'2018-01-30 15:37:45','2018-01-30 15:52:01'),(8,'Crematorio Premium','CRE0101256',3,10,10,3,2,'2018-02-05 16:22:14','2018-02-05 16:22:14');
+INSERT INTO `planes` VALUES (1,'Plan estrellas','P0001',1,9,6,3,1,'2017-10-24 12:37:42','2018-03-31 01:08:09'),(2,'Plan  Superior','P0002',3,9,6,3,1,'2017-10-24 14:58:55','2017-10-24 15:37:40'),(3,'Plan de Sepulturas','P004',1,11,10,3,1,'2017-11-20 17:08:10','2018-01-17 20:09:16'),(4,'Plan Cinerario','P005',1,10,8,3,2,'2017-11-24 18:06:40','2017-11-24 18:06:40'),(5,'Plan Cinerario 2','P005',2,10,5,3,1,'2017-11-24 18:07:08','2018-01-19 11:20:15'),(6,'Plan Sepultura','P006',2,12,8,3,2,'2017-12-12 15:57:58','2017-12-12 15:57:58');
 /*!40000 ALTER TABLE `planes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -618,9 +584,9 @@ CREATE TABLE `sedes` (
   `ubicacion` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `empresa_id` int(11) NOT NULL,
   `comuna_id` int(11) NOT NULL,
-  `vendedor_id` int(11) NOT NULL,
+  `vendedor_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -629,7 +595,7 @@ CREATE TABLE `sedes` (
 
 LOCK TABLES `sedes` WRITE;
 /*!40000 ALTER TABLE `sedes` DISABLE KEYS */;
-INSERT INTO `sedes` VALUES (1,'Principal','Agustinas','1291',NULL,'Centro',6,1,0),(2,'Agustinas','Agustinas','1292','','0',6,3,0),(4,'Alameda','Libertador Bernardo OHiggins','986','Centro',NULL,5,3,0),(5,'Huerfanos','Huerfanos','1290','Centro',NULL,8,6,0),(6,'Moneda','Moneda','676','Centro',NULL,0,6,0),(7,'Moneda','Moneda','698','Centro',NULL,10,6,0),(8,'Estacion Central','Meys','300',NULL,NULL,10,3,0),(10,'Providencia','Lyon','467',NULL,NULL,10,2,0),(11,'Prat','Prat','4980','La Arboleda',NULL,4,4,0),(12,'Rotherdam','Pasaje Rotherdam','900','Poblacion La Monjita',NULL,9,5,0),(13,'La Florida','Las Margaritas','1298','Villa Cementerios',NULL,10,4,3),(14,'La Paz','Avenida La Paz','1456',NULL,NULL,5,3,2);
+INSERT INTO `sedes` VALUES (1,'Principal','Agustinas','1291',NULL,'Centro',6,1,3),(2,'Agustinas','Agustinas','1292','','0',6,3,NULL),(4,'Alameda','Libertador Bernardo OHiggins','986','Centro',NULL,5,3,NULL),(5,'Huerfanos','Huerfanos','1290','Centro',NULL,8,6,NULL),(6,'Moneda','Moneda','676','Centro',NULL,0,6,NULL),(7,'Moneda','Moneda','698','Centro',NULL,10,6,NULL),(8,'Estacion Central','Meys','300',NULL,NULL,10,3,NULL),(10,'Providencia','Lyon','467',NULL,NULL,10,2,NULL),(11,'Prat','Prat','4980','La Arboleda',NULL,4,4,NULL),(12,'Rotherdam','Pasaje Rotherdam','900','Poblacion La Monjita',NULL,9,5,NULL),(13,'Nueva','Prat','32','Centro',NULL,6,3,3),(14,'Puente Alto','Los Aromos','34','Cementerios',NULL,10,7,3),(15,'Estacion Central','Las Camelias','456','Villa Diego Portales',NULL,5,3,3);
 /*!40000 ALTER TABLE `sedes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -654,7 +620,7 @@ CREATE TABLE `sepultaciones` (
   `plan_id` int(11) NOT NULL,
   `componente_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -663,7 +629,7 @@ CREATE TABLE `sepultaciones` (
 
 LOCK TABLES `sepultaciones` WRITE;
 /*!40000 ALTER TABLE `sepultaciones` DISABLE KEYS */;
-INSERT INTO `sepultaciones` VALUES (2,1,1,2,1,50,2,1,0,'1',3,6),(3,1,1,1,2,100,1,1,10,'2',3,6);
+INSERT INTO `sepultaciones` VALUES (2,1,1,2,1,50,2,1,0,'1',3,6);
 /*!40000 ALTER TABLE `sepultaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -757,7 +723,7 @@ CREATE TABLE `telefonos` (
   `numero` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `sede_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -766,7 +732,7 @@ CREATE TABLE `telefonos` (
 
 LOCK TABLES `telefonos` WRITE;
 /*!40000 ALTER TABLE `telefonos` DISABLE KEYS */;
-INSERT INTO `telefonos` VALUES (4,'956872356',6),(8,'56227865475',3),(9,'988051289',2),(10,'789634560',4),(11,'245689034',5),(12,'973377107',13),(13,'224567890',14);
+INSERT INTO `telefonos` VALUES (4,'956872356',6),(8,'56227865475',3),(9,'988051289',2),(10,'789634560',4),(11,'245689034',5),(12,'917733177',13),(13,'222981261',14),(14,'478568923',15),(15,'9666777888',14);
 /*!40000 ALTER TABLE `telefonos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -953,7 +919,7 @@ CREATE TABLE `traslados` (
   `plan_id` int(11) NOT NULL,
   `componente_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -962,7 +928,7 @@ CREATE TABLE `traslados` (
 
 LOCK TABLES `traslados` WRITE;
 /*!40000 ALTER TABLE `traslados` DISABLE KEYS */;
-INSERT INTO `traslados` VALUES (1,2,1,1,1,100,1,3),(2,1,1,1,1,100,2,3);
+INSERT INTO `traslados` VALUES (1,2,1,1,1,100,1,3);
 /*!40000 ALTER TABLE `traslados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1010,7 +976,7 @@ CREATE TABLE `urnas` (
   `plan_id` int(11) NOT NULL,
   `componente_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1019,7 +985,7 @@ CREATE TABLE `urnas` (
 
 LOCK TABLES `urnas` WRITE;
 /*!40000 ALTER TABLE `urnas` DISABLE KEYS */;
-INSERT INTO `urnas` VALUES (2,'Modelo AB','200 x 300 cm','Madera','enlacado','cafe',1,1),(3,'Modelo Clasico','200x80x70','madera','Barniz','Rojizo',2,1);
+INSERT INTO `urnas` VALUES (2,'Modelo AB','200 x 300 cm','Madera','enlacado','cafe',1,1);
 /*!40000 ALTER TABLE `urnas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1040,7 +1006,7 @@ CREATE TABLE `usuarios` (
   `updated` date DEFAULT NULL,
   `roles_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1049,7 +1015,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Segundo','Galdames','segundogaldames@gmail.com','ad4bb92f93e69b89cd82d4308c6026622a6be163','2017-04-18','2017-04-18',1),(2,'Jose','Perez C','jose@gmail.com','ad4bb92f93e69b89cd82d4308c6026622a6be163','2017-04-18','2018-01-30',5),(3,'Felipe','Galdames','felipeisau@gmail.com','ad4bb92f93e69b89cd82d4308c6026622a6be163','2018-01-30','2018-01-30',5),(4,'Pablo','Borquez','pabloborquezv@vtr.net','ad4bb92f93e69b89cd82d4308c6026622a6be163','2018-01-30','2018-01-30',1);
+INSERT INTO `usuarios` VALUES (1,'Segundo','Galdames','segundogaldames@gmail.com','ad4bb92f93e69b89cd82d4308c6026622a6be163','2017-04-18','2017-04-18',1),(2,'Jose','Perez C','jose@gmail.com','ad4bb92f93e69b89cd82d4308c6026622a6be163','2017-04-18','2017-11-27',3),(3,'Javier','Galdames','jgaldames@gmail.com','ad4bb92f93e69b89cd82d4308c6026622a6be163','2018-01-17','2018-01-17',5);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1080,7 +1046,7 @@ CREATE TABLE `velatorios` (
   `plan_id` int(11) NOT NULL,
   `componente_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1089,7 +1055,7 @@ CREATE TABLE `velatorios` (
 
 LOCK TABLES `velatorios` WRITE;
 /*!40000 ALTER TABLE `velatorios` DISABLE KEYS */;
-INSERT INTO `velatorios` VALUES (3,'Inscripciones Registro Civil',2,1,2,4,4,2,0,0,3,2,0,0,100,1,2,2),(4,'Certificado de defunción',2,1,1,4,4,1,2,0,1,2,0,1,50,3,1,2);
+INSERT INTO `velatorios` VALUES (3,'Inscripciones Registro Civil',2,1,2,4,4,2,0,0,3,2,0,0,100,1,2,2);
 /*!40000 ALTER TABLE `velatorios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -1102,4 +1068,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-06 10:00:30
+-- Dump completed on 2018-04-01 21:08:40

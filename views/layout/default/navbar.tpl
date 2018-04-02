@@ -51,7 +51,7 @@
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >
-                      <a href="{$_layoutParams.root}comunas">Comunas</a>
+                      <a href="{$_layoutParams.root}regiones">Regiones</a>
                     </li>
                     <li role="separator" class="divider"></li>
                     <li style="list-style:none;" >

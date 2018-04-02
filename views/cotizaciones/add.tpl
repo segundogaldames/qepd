@@ -9,7 +9,7 @@
 	<form action="" method="post" name="form" id="form">
 		<h4>Datos del Cliente</h4>
 		<div class="form-group">
-			<label for="opcion">Compra anticipada?:<span class="text-danger">*</span></label>
+			<label for="opcion">Compra inmediata?:<span class="text-danger">*</span></label>
 			<select name="opcion" class="form-control">
 				<option value="">Seleccione</option>
 				<option value="1">Si</option>
@@ -25,13 +25,14 @@
 			<input type="text" name="rut" value="{$datos.rut|default:""}" class="form-control" placeholder="Cédula de identidad completa">
 		</div>
 		<div class="form-group">
-			<label for="fono">Teléfono fijo (opcional):</label>
-			<input type="number" name="fono_fijo" value="{$datos.fono_fijo|default:""}" class="form-control" placeholder="9 digitos sin guiones">
-		</div>
-		<div class="form-group">
 			<label for="fono2">Teléfono móvil:<span class="text-danger">*</span></label>
 			<input type="number" name="fono_movil" value="{$datos.fono_movil|default:""}" class="form-control" placeholder="9 digitos sin guiones">
 		</div>
+		<div class="form-group">
+			<label for="fono">Teléfono fijo (opcional):</label>
+			<input type="number" name="fono_fijo" value="{$datos.fono_fijo|default:""}" class="form-control" placeholder="9 digitos sin guiones">
+		</div>
+		
 		<div class="form-group">
 			<label for="email">Email: <span class="text-danger">*</span></label>
 			<input type="email" name="email" value="{$datos.email|default:""}" class="form-control" placeholder="Correo electrónico">
@@ -54,7 +55,7 @@
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Cotizar" class="btn btn-success">
-			<a href="{$_layoutParams.root}planes/planesServicios">Volver</a>
+			<a href="{$_layoutParams.root}planes/planesServicios" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

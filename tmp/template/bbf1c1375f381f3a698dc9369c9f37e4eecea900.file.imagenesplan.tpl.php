@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-17 20:15:38
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-31 00:54:07
          compiled from "/Applications/MAMP/htdocs/qepd/views/imagenes/imagenesplan.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:185091384059d286b74720a7-17010095%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bbf1c1375f381f3a698dc9369c9f37e4eecea900' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/imagenes/imagenesplan.tpl',
-      1 => 1515970896,
+      1 => 1522468444,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'imagenes' => 0,
-    '_layoutParams' => 0,
     'img' => 0,
     'urna' => 0,
     'traslado' => 0,
@@ -29,6 +28,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'anfora' => 0,
     'sepultacion' => 0,
     'solucion' => 0,
+    '_layoutParams' => 0,
     'condiciones' => 0,
   ),
   'has_nocache_code' => false,
@@ -45,12 +45,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['img']->key => $_smarty_tpl->tpl_vars[
 $_smarty_tpl->tpl_vars['img']->_loop = true;
 ?>
 			<div class="col-md-12">
-				<div class="col-md-7">
-					<a href="#" ><img src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-public/img/componentes/<?php echo $_smarty_tpl->tpl_vars['img']->value['nombre'];?>
-" alt="" class="img-responsive"></a>
-					<p>&nbsp;</p>
-				</div>
+				
 				<div class="col-md-5">
 					<h3><?php echo $_smarty_tpl->tpl_vars['img']->value['componente'];?>
 </h3>
@@ -235,6 +230,11 @@ public/img/componentes/<?php echo $_smarty_tpl->tpl_vars['img']->value['nombre']
 								<td><?php echo $_smarty_tpl->tpl_vars['anfora']->value['modelo'];?>
 </td>
 							</tr>
+							<tr>
+								<th>Descripción:</th>
+								<td><?php echo $_smarty_tpl->tpl_vars['anfora']->value['descripcion'];?>
+</td>
+							</tr>
 						</table>
 					<!--Descripcion de sepultacion asociado a plan y componente-->
 					<?php } elseif ($_smarty_tpl->tpl_vars['img']->value['componente_id']==$_smarty_tpl->tpl_vars['sepultacion']->value['componente_id']) {?>
@@ -305,6 +305,12 @@ public/img/componentes/<?php echo $_smarty_tpl->tpl_vars['img']->value['nombre']
 						<strong>Descripción no disponible</strong>
 					<?php }?>
 				</div>
+				<div class="col-md-7">
+					<a href="#" ><img src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+public/img/componentes/<?php echo $_smarty_tpl->tpl_vars['img']->value['nombre'];?>
+" alt="" class="img-responsive"></a>
+					<p>&nbsp;</p>
+				</div>
 			</div>
 			
 				
@@ -364,25 +370,27 @@ echo $_smarty_tpl->tpl_vars['condiciones']->value['descuentonicho'];?>
 
 				</table>
 			<?php }?>
-			<br><br>
-			<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+			<p style="margin-bottom: 20px">
+				<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 cotizaciones/add/<?php echo $_smarty_tpl->tpl_vars['img']->value['plan_id'];?>
-" class="btn btn-primary">Cotizar</a>
-			<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+" class="btn btn-success">Cotizar</a>
+				<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 planes/planesServicios" class="btn btn-link">Volver</a>
+			</p>
+			
+
 		</div>
 		
 		<?php } else { ?>
 			<strong>No hay imágenes asociadas</strong>
 
 	<?php }?>
-
+	
 </div>
 
 <div class="col-md-2">
 	
 </div>	
-
 
 	
 	

@@ -6,10 +6,7 @@
 	{if isset($imagenes) && count($imagenes)}
 		{foreach from=$imagenes item=img}
 			<div class="col-md-12">
-				<div class="col-md-7">
-					<a href="#" ><img src="{$_layoutParams.root}public/img/componentes/{$img.nombre}" alt="" class="img-responsive"></a>
-					<p>&nbsp;</p>
-				</div>
+				
 				<div class="col-md-5">
 					<h3>{$img.componente}</h3>
 					<!--Descripcion de urna asociada a plan y componente-->
@@ -244,6 +241,10 @@
 						<strong>Descripción no disponible</strong>
 					{/if}
 				</div>
+				<div class="col-md-7">
+					<a href="#" ><img src="{$_layoutParams.root}public/img/componentes/{$img.nombre}" alt="" class="img-responsive"></a>
+					<p>&nbsp;</p>
+				</div>
 			</div>
 			
 				
@@ -296,9 +297,11 @@
 
 				</table>
 			{/if}
-			<br><br>
-			<a href="{$_layoutParams.root}cotizaciones/add/{$img.plan_id}" class="btn btn-success">Cotizar</a>
-			<a href="{$_layoutParams.root}planes/planesServicios" class="btn btn-link">Volver</a>
+			<p style="margin-bottom: 20px">
+				<a href="{$_layoutParams.root}cotizaciones/add/{$img.plan_id}" class="btn btn-success">Cotizar</a>
+				<a href="{$_layoutParams.root}planes/planesServicios" class="btn btn-link">Volver</a>
+			</p>
+			
 
 		</div>
 		

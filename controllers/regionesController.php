@@ -46,13 +46,23 @@ class regionesController extends Controller
 		$this->_view->renderizar('add');
 	}
 
-	public function view($id = null){
+	public function view($id = null, $pagina = false){
 		$this->verificarSession();
 		$this->verificarParams($id);
 
+		if (!$this->filtrarInt($pagina)) {
+			$pagina = false;
+		}else{
+			$pagina = $this->filtrarInt($pagina);
+		}
+
+		$this->getLibrary('paginador');
+		$paginador = new Paginador();
+
 		$this->_view->assign('titulo', 'Ver Región');
 		$this->_view->assign('region', $this->_region->getRegionId($this->filtrarInt($id)));
-		$this->_view->assign('comunas', $this->_comuna->getComunasRegion($this->filtrarInt($id)));
+		$this->_view->assign('comunas', $paginador->paginar($this->_comuna->getComunasRegion($this->filtrarInt($id)), $pagina));
+		$this->_view->assign('paginacion', $paginador->getView('prueba', 'regiones/view/' . $id));
 		$this->_view->renderizar('view');
 	}
 

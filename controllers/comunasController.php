@@ -11,16 +11,59 @@ class comunasController extends Controller
 		$this->_region = $this->loadModel('region');
 	}
 
-	public function index(){
+	public function index($pagina = false){
 		$this->verificarSession();
 
+		if (!$this->filtrarInt($pagina)) {
+			$pagina = false;
+		}else{
+			$pagina = $this->filtrarInt($pagina);
+		}
+
+		$this->getLibrary('paginador');
+		$paginador = new Paginador();
+
 		$this->_view->assign('titulo', 'App::Comunas');
-		$this->_view->assign('comunas', $this->_comuna->getComunas());
+		$this->_view->assign('comunas', $paginador->paginar($this->_comuna->getComunas(), $pagina));
+		$this->_view->assign('paginacion', $paginador->getView('prueba', 'comunas/index'));
 		$this->_view->renderizar('index');
 	}
 
-	public function add(){
+	public function comunasRegion($region = null, $pagina = false){
+		if (!$this->filtrarInt($region)) {
+			$this->redireccionar();
+		}
+
+		if (!$this->_region->getRegionId($this->filtrarInt($region))) {
+			$this->redireccionar();
+		}
+
+		if (!$this->filtrarInt($pagina)) {
+			$pagina = false;
+		}else{
+			$pagina = $this->filtrarInt($pagina);
+		}
+
+		$this->getLibrary('paginador');
+		$paginador = new Paginador();
+
+		$this->_view->assign('titulo', 'Comunas Region');
+		$this->_view->assign('regiones', $this->_region->getRegiones());
+		$this->_view->assign('comunas', $paginador->paginar($this->_comuna->getComunasRegion($this->filtrarInt($region)), $pagina));
+		$this->_view->assign('paginacion', $paginador->getView('prueba', 'comunas/comunasRegion/' . $region));
+		$this->_view->renderizar('comunasRegion');
+	}
+
+	public function add($region){
 		$this->verificarSession();
+
+		if (!$this->filtrarInt($region)) {
+			$this->redireccionar('regiones');
+		}
+
+		if (!$this->_region->getRegionId($this->filtrarInt($region))) {
+			$this->redireccionar('regiones');
+		}
 
 		$this->_view->assign('titulo', 'Nueva Comuna');
 		$this->_view->assign('regiones', $this->_region->getRegiones());
@@ -34,12 +77,6 @@ class comunasController extends Controller
 				exit;
 			}
 
-			if (!$this->getInt('region')) {
-				$this->_view->assign('_error', 'Debe seleccionar una región');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
 			if ($this->_comuna->getComunasNombre($this->getSql('nombre'))) {
 				$this->_view->assign('_error', 'Esta comuna ya ha sido ingresada');
 				$this->_view->renderizar('add');
@@ -48,7 +85,7 @@ class comunasController extends Controller
 
 			$this->_comuna->setComunas(
 				$this->getSql('nombre'),
-				$this->getInt('region')
+				$this->filtrarInt($region)
 				);
 
 			$this->redireccionar('comunas');
