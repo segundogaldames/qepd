@@ -19,78 +19,79 @@ class cinerariosController extends Controller
 		$this->_view->renderizar('index');
 	}
 
-	public function add(){
+	public function addCinerarioPlan($plan = null){
 		$this->verificarSession();
 
+		if (!$this->filtrarInt($plan)) {
+			$this->redireccionar('planes');
+		}
+
+		if (!$this->_plan->getPlanesId($this->filtrarInt($plan))) {
+			$this->redireccionar('planes');
+		}
+
 		$this->_view->assign('titulo', 'Agregar Cinerario');
-		$this->_view->assign('planes', $this->_plan->getPlanes());
 
 		if ($this->getInt('enviar') == 1) {
 			$this->_view->assign('datos',$_POST);
 
 			if (!$this->getInt('sala')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción para sala velatorio');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addCinerarioPlan');
 				exit;
 			}
 
 			if (!$this->getInt('capilla')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción para capilla ecuménica');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addCinerarioPlan');
 				exit;
 			}
 
 			if (!$this->getInt('podium')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción para podium');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addCinerarioPlan');
 				exit;
 			}
 
 			if (!$this->getInt('liturgia')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción para liturgia');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addCinerarioPlan');
 				exit;
 			}
 
 			if (!$this->getInt('amplificacion')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción para amplificacion');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addCinerarioPlan');
 				exit;
 			}
 
 			if (!$this->getInt('diacono')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción para diacono');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addCinerarioPlan');
 				exit;
 			}
 
 			if (!$this->getInt('cafeteria')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción para cafeteria');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addCinerarioPlan');
 				exit;
 			}
 
 			if (!$this->getInt('ceremonia')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción para ceremonia');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addCinerarioPlan');
 				exit;
 			}
 
 			if (!$this->getInt('anforaincl')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción para anforaincl');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addCinerarioPlan');
 				exit;
 			}
 
-			if (!$this->getInt('plan')) {
-				$this->_view->assign('_error', 'Debe seleccionar una opción para plan');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if ($this->_cinerario->getCinerarioPlan($this->getInt('plan'))) {
+			if ($this->_cinerario->getCinerarioPlan($this->filtrarInt($plan))) {
 				$this->_view->assign('_error', 'Este plan ya posee un cinerario. Intente con otro');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addCinerarioPlan');
 				exit;
 			}
 
@@ -105,13 +106,13 @@ class cinerariosController extends Controller
 				$this->getInt('cafeteria'), 
 				$this->getInt('ceremonia'), 
 				$this->getInt('anforaincl'), 
-				$this->getInt('plan')
+				$this->filtrarInt($plan)
 			);
 
-			$this->redireccionar('cinerarios');
+			$this->redireccionar('planes');
 		}
 
-		$this->_view->renderizar('add');
+		$this->_view->renderizar('addCinerarioPlan');
 	}
 
 	public function view($id = null){

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-07-27 13:12:43
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-30 20:33:37
          compiled from "/Applications/MAMP/htdocs/qepd/views/traslados/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:313918914597a10c5173812-17761122%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e1656ebb3254988b81bd31f0797eeac9765b1579' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/traslados/add.tpl',
-      1 => 1501171960,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -26,12 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_597a10c5671696_91398496')) {function content_597a10c5671696_91398496($_smarty_tpl) {?><div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<?php if ($_valid && !is_callable('content_597a10c5671696_91398496')) {function content_597a10c5671696_91398496($_smarty_tpl) {?><div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-planes">Ver Traslados</a></p>
-	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-imagenes/add">Agregar imagen</a></p>
+traslados">Ver Traslados</a></p>
 </div>
 
 <div class="col-md-4">
@@ -96,6 +93,8 @@ $_smarty_tpl->tpl_vars['p']->_loop = true;
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Guardar" class="btn btn-success">
+			<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+traslados" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

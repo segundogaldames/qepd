@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-08-14 16:34:42
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-30 20:52:30
          compiled from "/Applications/MAMP/htdocs/qepd/views/soluciones/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1901410283598b7ae54b2d27-40828269%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '943ff34342e5582bce2e3de613ca21edd7d7a884' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/soluciones/add.tpl',
-      1 => 1502739277,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -28,8 +28,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_598b7ae5587608_48514899')) {function content_598b7ae5587608_48514899($_smarty_tpl) {?><div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<?php if ($_valid && !is_callable('content_598b7ae5587608_48514899')) {function content_598b7ae5587608_48514899($_smarty_tpl) {?><div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 planes">Ver Soluciones</a></p>
 </div>
@@ -78,8 +77,8 @@ $_smarty_tpl->tpl_vars['ts']->_loop = true;
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="tipo_plan">Seleccione el plan:<span class="text-danger">*</span></label>
-			<select name="tipo_plan" id="" class="form-control">
+			<label for="plan">Seleccione el plan:<span class="text-danger">*</span></label>
+			<select name="plan" id="" class="form-control">
 				<option value="">Seleccione</option>
 				<?php if (isset($_smarty_tpl->tpl_vars['planes']->value)&&count($_smarty_tpl->tpl_vars['planes']->value)) {?>
 					<?php  $_smarty_tpl->tpl_vars['p'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['p']->_loop = false;
@@ -96,7 +95,9 @@ $_smarty_tpl->tpl_vars['p']->_loop = true;
 		</div>
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
-			<input type="submit" value="Registrar" class="btn btn-success">
+			<input type="submit" value="Guardar" class="btn btn-success">
+			<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+soluciones" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

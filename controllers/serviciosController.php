@@ -17,7 +17,7 @@ class serviciosController extends Controller
 		$this->verificarSession();
 
 		$this->_view->assign('titulo', 'Servicios');
-		$this->_view->assign('servicios', $this->_servicios->getServiciosTipoEmpresa());
+		$this->_view->assign('servicios', $this->_servicios->getServicios());
 		$this->_view->renderizar('index');
 	}
 

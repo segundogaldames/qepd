@@ -8,32 +8,35 @@
 {if isset($sedes) && count($sedes)}
 		<h3>Lista de Sedes</h3>
 		<table class="table table-hover">
-			<th>
-				Nombre
-			</th>
-			<th>
-				Empresa
-			</th>
-			<th>
-				Comuna
-			</th>
-			<th>
-				Acciones
-			</th>
-			
+			<tr>
+				<th>
+					Empresa
+				</th>
+				<th>
+					Nombre
+				</th>
 				
-					{foreach from=$sedes item=s}
-						<tr>
-							<td>{$s.sede}</td>
-							<td>{$s.empresa}</td>
-							<td>{$s.comuna}</td>
-							<td>
-								<a href="{$_layoutParams.root}sedes/view/{$s.id}">Ver</a>&nbsp;&nbsp;
-								<a href="{$_layoutParams.root}sedes/delete/{$s.id}" onclick="return eliminar('{$_layoutParams.root}sedes/delete/{$s.id}', '{$s.sede}')">Eliminar</a>
-							</td>
-						</tr>
+				<th>
+					Comuna
+				</th>
+				<th>
+					Acciones
+				</th>
+			</tr>			
+				
+				{foreach from=$sedes item=s}
+					<tr>
+						<td>{$s.empresa}</td>
+						<td>{$s.sede}</td>
+						
+						<td>{$s.comuna}</td>
+						<td>
+							<a href="{$_layoutParams.root}sedes/view/{$s.id}">Ver</a>&nbsp;&nbsp;
+							<a href="{$_layoutParams.root}sedes/delete/{$s.id}" onclick="return eliminar('{$_layoutParams.root}sedes/delete/{$s.id}', '{$s.sede}')">Eliminar</a>
+						</td>
+					</tr>
 
-					{/foreach}
+				{/foreach}
 				
 			
 		</table>

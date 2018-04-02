@@ -19,61 +19,60 @@ class sepultacionesController extends Controller
 		$this->_view->renderizar('index');
 	}
 
-	public function add(){
-		if (!Session::get('autenticado')) {
-			$this->redireccionar();
+	public function addSepultacionPlan($plan = null){
+		$this->verificarSession();
+
+		if (!$this->filtrarInt($plan)) {
+			$this->redireccionar('planes');
+		}
+
+		if (!$this->_plan->getPlanesId($this->filtrarInt($plan))) {
+			$this->redireccionar('planes');
 		}
 
 		$this->_view->assign('titulo', 'Nuevo Servicio de Sepultación');
-		$this->_view->assign('planes', $this->_plan->getPlanes());
 
 		if ($this->getInt('enviar') == 1) {
 			$this->_view->assign('datos', $_POST);
 
 			if (!$this->getInt('sala')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción en sala velatorio');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addSepultacionPlan');
 				exit;
 			}
 
 			if (!$this->getInt('capilla')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción en capilla ecuménica');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addSepultacionPlan');
 				exit;
 			}
 
 			if (!$this->getInt('liturgia')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción en liturgia');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addSepultacionPlan');
 				exit;
 			}
 
 			if (!$this->getInt('amplificacion')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción en amplificación');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addSepultacionPlan');
 				exit;
 			}
 			if (!$this->getInt('diacono')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción en diácono');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addSepultacionPlan');
 				exit;
 			}
 
 			if (!$this->getInt('cafeteria')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción en cafetería');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addSepultacionPlan');
 				exit;
 			}
 
-			if (!$this->getInt('plan')) {
-				$this->_view->assign('_error', 'Debe seleccionar un plan');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if ($this->_sepultacion->getSepultacionPlan($this->getInt('plan'))) {
+			if ($this->_sepultacion->getSepultacionPlan($this->filtrarInt($plan))) {
 				$this->_view->assign('_error', 'El plan seleccionado ya posee sepultación. Intente con otro.');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addSepultacionPlan');
 				exit;
 			}
 
@@ -87,12 +86,12 @@ class sepultacionesController extends Controller
 				$this->getInt('diacono'), 
 				$this->getInt('coro'), 
 				$this->getInt('cafeteria'), 
-				$this->getInt('plan')
+				$this->filtrarInt($plan)
 				);
 
-			$this->redireccionar('sepultaciones');
+			$this->redireccionar('planes');
 		}
-		$this->_view->renderizar('add');
+		$this->_view->renderizar('addSepultacionPlan');
 	}
 
 	public function view($id = null){

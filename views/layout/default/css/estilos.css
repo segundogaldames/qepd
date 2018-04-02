@@ -23,6 +23,12 @@ h4{font-family:Arial, Helvetica, sans-serif; color: #08088A;}
 .arriba:hover{
 	background-color: rgba(135, 135, 135, 0.50);
 }
+
+.volver{
+    display: block;
+    color: white important!
+}
+   
 .cotizar{
     color: #fff;
     text-decoration: none;

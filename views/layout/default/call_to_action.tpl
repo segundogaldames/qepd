@@ -4,7 +4,6 @@
             <div class="col-lg-12 text-center">
                 <h3>Contáctanos</h3>
                 <button type="button" class="btn btn-lg btn-dark" data-toggle="modal" data-target="#myModal">Llamanos</button>
-                <a href="">Publica</a>
 
 			  <!-- Modal -->
 			  <div class="modal fade" id="myModal" role="dialog">

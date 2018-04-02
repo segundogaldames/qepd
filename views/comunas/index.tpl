@@ -1,6 +1,5 @@
-<div style="padding-top: 50px"></div>
+<div style="padding-top: 20px"></div>
 <div class="col-md-2">
-	<p class="enlace"><a href="{$_layoutParams.root}comunas/add" class="btn btn-enlace">Agregar Comuna</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}regiones" class="btn btn-enlace">Regiones</a></p>
 </div>
 <div class="col-md-8">
@@ -20,7 +19,7 @@
 				{foreach from=$comunas item=c}
 					<tr>
 						<td>{$c.comuna}</td>
-						<td>{$c.region}</td>
+						<td><a href="{$_layoutParams.root}regiones/view/{$c.region_id}">{$c.region}</a></td>
 						<td>
 							<a href="{$_layoutParams.root}comunas/view/{$c.id}">Ver</a>&nbsp;&nbsp;
 							<a href="{$_layoutParams.root}comunas/delete/{$c.id}" onclick="return eliminar('{$_layoutParams.root}comunas/delete/{$c.id}','{$c.comuna}');">Eliminar</a>
@@ -31,6 +30,7 @@
 			{/if}
 		
 	</table>
+	{if isset($paginacion)}{$paginacion}{/if}
 </div>
 <div class="col-md-2">
 	

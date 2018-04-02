@@ -12,17 +12,6 @@
 			<input type="text" name="nombre" value="{$datos.nombre|default:""}" class="form-control" placeholder="Nombre de la comuna o ciudad">
 		</div>
 		<div class="form-group">
-			<label for="regiones">Seleccione una región:</label>
-			<select name="region" id="" class="form-control">
-				<option value="">Regiones</option>
-				{if isset($regiones) && count($regiones)}
-					{foreach from=$regiones item=r}
-						<option value="{$r.id}">{$r.nombre}</option>
-					{/foreach}
-				{/if}
-			</select>
-		</div>
-		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Registrar" class="btn btn-success">
 			<a href="{$_layoutParams.root}comunas" class="btn btn-link">Volver</a>

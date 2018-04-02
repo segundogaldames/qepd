@@ -1,5 +1,5 @@
 <div class="col-md-2" style="padding-top: 20px">
-	<p class="enlace"><a href="{$_layoutParams.root}velatorios/add">Agregar Velatorio</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}planes">Planes</a></p>
 </div>
 <div class="col-md-4">
 	
@@ -26,7 +26,7 @@
 	{/if}
 	<p>
 		<a href="{$_layoutParams.root}velatorios/edit/{$velatorio.id}">Editar</a>&nbsp;&nbsp;
-		<a href="{$_layoutParams.root}velatorios">Volver</a>
+		<a href="{$_layoutParams.root}planes">Volver</a>
 	</p>
 	<hr>
 </div>

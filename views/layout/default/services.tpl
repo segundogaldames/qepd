@@ -31,7 +31,7 @@
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-stack-1x text-primary">
                                 <a href="{$_layoutParams.root}planes/planesServicios/10">
-                                    <img src="{$_layoutParams.root}views/layout/default/img/vectores/crematorio.jpg">
+                                    <img src="{$_layoutParams.root}views/layout/default/img/vectores/anfora.png" width="140">
                                 </a>
                             </i>
                         </span>
@@ -80,6 +80,7 @@
                         </div>
                     </div>
                 </div>
+                <p><a href="{$_layoutParams.root}index" class="cotizar">Volver</a></p>
                 <!-- /.row (nested) -->
             </div>
             <!-- /.col-lg-10 -->

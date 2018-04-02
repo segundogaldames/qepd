@@ -23,6 +23,10 @@
 			</select>
 		</div>
 		<div class="form-group">
+			<label for="descripcion">Descripción:<span class="text-danger">*</span></label>
+			<textarea name="descripcion" class="form-control" rows="6" style="resize: none;">{$dato.descripcion|default:""}</textarea>
+		</div>
+		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Modificar" class="btn btn-success">
 			<a href="{$_layoutParams.root}anforas" class="btn btn-link">Volver</a>

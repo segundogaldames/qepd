@@ -1,6 +1,5 @@
 <div class="col-md-2" style="padding-top: 20px">
-	<p class="enlace"><a href="{$_layoutParams.root}velatorios/add">Agregar Velatorios</a></p>
-	<hr>
+	
 	<p class="enlace"><a href="{$_layoutParams.root}componentes">Componentes</a></p>
 	<p class="enlace"><a href="{$_layoutParams.root}planes">Planes</a></p>
 </div>

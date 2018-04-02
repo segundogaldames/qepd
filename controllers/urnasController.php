@@ -19,48 +19,55 @@ class urnasController extends Controller
 		$this->_view->renderizar('index');
 	}
 
-	public function add(){
+	public function addUrnaPlan($plan = null){
 		$this->verificarSession();
 
-		$this->_view->assign('titulo', 'Nueva Urna');
-		$this->_view->assign('planes', $this->_plan->getPlanes());
+		if (!$this->filtrarInt($plan)) {
+			$this->redireccionar('planes');
+		}
+
+		if (!$this->_plan->getPlanesId($this->filtrarInt($plan))) {
+			$this->redireccionar('planes');
+		}
+
+		$this->_view->assign('titulo', 'Nueva Urna al Plan');
 
 		if ($this->getInt('enviar') == 1) {
 			$this->_view->assign('datos', $_POST);
 
 			if (!$this->getSql('modelo')) {
 				$this->_view->assign('_error', 'Debe ingresar un modelo');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addUrnaPlan');
 				exit;
 			}
 
 			if (!$this->getSql('medidas')) {
 				$this->_view->assign('_error', 'Debe ingresar medidas de la urna');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addUrnaPlan');
 				exit;
 			}
 
 			if (!$this->getSql('material')) {
 				$this->_view->assign('_error', 'Debe ingresar materiales');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addUrnaPlan');
 				exit;
 			}
 
 			if (!$this->getSql('terminaciones')) {
 				$this->_view->assign('_error', 'Debe ingresar terminaciones');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addUrnaPlan');
 				exit;
 			}
 
 			if (!$this->getSql('color')) {
 				$this->_view->assign('_error', 'Debe ingresar colores');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addUrnaPlan');
 				exit;
 			}
 
-			if (!$this->getInt('plan')) {
-				$this->_view->assign('_error', 'Debe seleccionar un plan');
-				$this->_view->renderizar('add');
+			if ($this->_urna->getUrnaPlan($this->filtrarInt($plan))) {
+				$this->_view->assign('_error', 'Este plan ya tiene una urna asociada');
+				$this->_view->renderizar('addUrnaPlan');
 				exit;
 			}
 
@@ -70,13 +77,13 @@ class urnasController extends Controller
 				$this->getSql('material'), 
 				$this->getSql('terminaciones'), 
 				$this->getSql('color'), 
-				$this->getInt('plan')
+				$this->filtrarInt($plan)
 				);
 
-			$this->redireccionar('urnas');
+			$this->redireccionar('planes');
 		}
 
-		$this->_view->renderizar('add');
+		$this->_view->renderizar('addUrnaPlan');
 	}
 
 	public function view($id = null){

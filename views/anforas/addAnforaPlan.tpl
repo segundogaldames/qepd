@@ -1,5 +1,5 @@
 <div class="col-md-2" style="padding-top: 20px">
-	<p class="enlace"><a href="{$_layoutParams.root}planes">Ver Anforas</a></p>
+	<p class="enlace"><a href="{$_layoutParams.root}planes">Planes</a></p>
 </div>
 
 <div class="col-md-4">
@@ -12,20 +12,13 @@
 			<input type="text" name="modelo" class="form-control" value="{$datos.modelo|default:""}" placeholder="Modelo del ánfora">
 		</div>
 		<div class="form-group">
-			<label for="plan">Seleccione el plan:<span class="text-danger">*</span></label>
-			<select name="plan" id="" class="form-control">
-				<option value="">Seleccione</option>
-				{if isset($planes) && count($planes)}
-					{foreach from=$planes item=p}
-						<option value="{$p.id}">{$p.nombre}</option>
-					{/foreach}
-				{/if}
-			</select>
+			<label for="descripcion">Descripción:<span class="text-danger">*</span></label>
+			<textarea name="descripcion" class="form-control" rows="6" style="resize: none;">{$datos.descripcion|default:""}</textarea>
 		</div>
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Guardar" class="btn btn-success">
-			<a href="{$_layoutParams.root}anforas" class="btn btn-link">Volver</a>
+			<a href="{$_layoutParams.root}planes" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

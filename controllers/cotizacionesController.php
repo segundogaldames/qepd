@@ -74,20 +74,14 @@ class cotizacionesController extends Controller
 				exit;
 			}
 
-			if ($this->getInt('fono_fijo') && $this->getInt('fono_fijo') < 8) {
-				$this->_view->assign('_error', 'El número ingresado no es válido');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
-			if (!$this->getInt('fono_movil')) {
-				$this->_view->assign('_error', 'Debe ingresar su teléfono móvil');
-				$this->_view->renderizar('add');
-				exit;
-			}
-
 			if (strlen($this->getInt('fono_movil')) < 8) {
-				$this->_view->assign('_error', 'El número ingresado no es válido');
+				$this->_view->assign('_error', 'El número de teléfono movil ingresado no es válido');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
+			if ($this->getInt('fono_fijo') && $this->getInt('fono_fijo') < 8) {
+				$this->_view->assign('_error', 'El número de teléfono fijo ingresado no es válido');
 				$this->_view->renderizar('add');
 				exit;
 			}

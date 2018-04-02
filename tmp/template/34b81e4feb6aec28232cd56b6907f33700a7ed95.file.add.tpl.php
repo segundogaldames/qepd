@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-19 17:32:30
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-30 21:35:46
          compiled from "/Applications/MAMP/htdocs/qepd/views/cotizaciones/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:110254569759d3fc2ba0dd18-26532209%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '34b81e4feb6aec28232cd56b6907f33700a7ed95' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/cotizaciones/add.tpl',
-      1 => 1515970896,
+      1 => 1522456541,
       2 => 'file',
     ),
   ),
@@ -37,7 +37,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<form action="" method="post" name="form" id="form">
 		<h4>Datos del Cliente</h4>
 		<div class="form-group">
-			<label for="opcion">Compra anticipada?:<span class="text-danger">*</span></label>
+			<label for="opcion">Compra inmediata?:<span class="text-danger">*</span></label>
 			<select name="opcion" class="form-control">
 				<option value="">Seleccione</option>
 				<option value="1">Si</option>
@@ -55,15 +55,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 " class="form-control" placeholder="Cédula de identidad completa">
 		</div>
 		<div class="form-group">
-			<label for="fono">Teléfono fijo (opcional):</label>
-			<input type="number" name="fono_fijo" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['datos']->value['fono_fijo'])===null||$tmp==='' ? '' : $tmp);?>
-" class="form-control" placeholder="9 digitos sin guiones">
-		</div>
-		<div class="form-group">
 			<label for="fono2">Teléfono móvil:<span class="text-danger">*</span></label>
 			<input type="number" name="fono_movil" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['datos']->value['fono_movil'])===null||$tmp==='' ? '' : $tmp);?>
 " class="form-control" placeholder="9 digitos sin guiones">
 		</div>
+		<div class="form-group">
+			<label for="fono">Teléfono fijo (opcional):</label>
+			<input type="number" name="fono_fijo" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['datos']->value['fono_fijo'])===null||$tmp==='' ? '' : $tmp);?>
+" class="form-control" placeholder="9 digitos sin guiones">
+		</div>
+		
 		<div class="form-group">
 			<label for="email">Email: <span class="text-danger">*</span></label>
 			<input type="email" name="email" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['datos']->value['email'])===null||$tmp==='' ? '' : $tmp);?>
@@ -94,7 +95,7 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Cotizar" class="btn btn-success">
 			<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-planes/planesServicios">Volver</a>
+planes/planesServicios" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

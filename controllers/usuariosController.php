@@ -1,6 +1,6 @@
 <?php
 
-class usuarioController extends Controller
+class usuariosController extends Controller
 {
 	private $_usuarios;
 	private $_roles;
@@ -195,7 +195,7 @@ class usuarioController extends Controller
 				$this->getInt('role')
 			);
 
-			$this->redireccionar('usuario');
+			$this->redireccionar('usuarios');
 		}
 
 		$this->_view->renderizar('edit');
@@ -212,11 +212,11 @@ class usuarioController extends Controller
 
 	private function verificarParams($id){
 		if (!$this->filtrarInt($id)) {
-			$this->redireccionar('usuario');
+			$this->redireccionar('usuarios');
 		}
 
 		if (!$this->_usuarios->getUsuarioId($this->filtrarInt($id))) {
-			$this->redireccionar('usuario');
+			$this->redireccionar('usuarios');
 		}
 	}
 

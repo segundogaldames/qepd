@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <!-- /.row (nested) -->
-                <a href="#" class="btn btn-dark">Ver Más</a>
+                <a href="#" class="btn btn-dark">Ver Más</a><a href="#" class="btn btn-dark">Volver</a>
             </div>
             <!-- /.col-lg-10 -->
         </div>

@@ -88,7 +88,7 @@ class empresasController extends Controller
 
 			$this->redireccionar('empresas');
 		}
-		$this->_view->renderizar('addId');
+		$this->_view->renderizar('add');
 	}
 
 	public function edit($id = null){

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-17 17:11:47
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-30 19:53:23
          compiled from "/Applications/MAMP/htdocs/qepd/views/index/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:30131015958f51056166e14-87155497%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a00068302e149f2a251ff35a9566dc0e39aba297' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/index/index.tpl',
-      1 => 1515970896,
+      1 => 1522450211,
       2 => 'file',
     ),
   ),
@@ -19,24 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_58f510561c5a19_06078688',
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_58f510561c5a19_06078688')) {function content_58f510561c5a19_06078688($_smarty_tpl) {?><div class="row">
-	<?php echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
-	<?php echo $_smarty_tpl->getSubTemplate ("about.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
-	<?php echo $_smarty_tpl->getSubTemplate ("services.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
-	<?php echo $_smarty_tpl->getSubTemplate ("callout.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
-	<?php echo $_smarty_tpl->getSubTemplate ("portfolio.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
-	<?php echo $_smarty_tpl->getSubTemplate ("call_to_action.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
-	<?php echo $_smarty_tpl->getSubTemplate ("map.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
-	<?php echo $_smarty_tpl->getSubTemplate ("footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
-</div>
+<?php if ($_valid && !is_callable('content_58f510561c5a19_06078688')) {function content_58f510561c5a19_06078688($_smarty_tpl) {?>
 
 		
 		

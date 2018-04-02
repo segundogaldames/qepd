@@ -1,7 +1,8 @@
+
+$ cat .gitignore
 # archivos de configuracion
 application/Config.php
 
 # logs
 
 tmp/*
-application/*

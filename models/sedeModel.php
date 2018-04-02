@@ -42,7 +42,7 @@ class sedeModel extends Model
 
 		//print_r($id);exit;
 
-		$sede = $this->_db->query("SELECT s.id, s.nombre as sede, s.calle, s.numero, s.sector, s.ubicacion, e.nombre as empresa, c.nombre as comuna, vendedor_id, u.nombre as nom_usuario, u.apellido, u.email FROM empresas as e INNER JOIN sedes as s ON s.empresa_id = e.id INNER JOIN comunas as c ON s.comuna_id = c.id INNER JOIN usuarios as u ON s.vendedor_id = u.id WHERE s.empresa_id = $id");
+		$sede = $this->_db->query("SELECT s.id, s.nombre as sede, s.calle, s.numero, s.sector, s.ubicacion, e.nombre as empresa, c.nombre as comuna, s.vendedor_id, u.nombre as nom_usuario, u.apellido, u.email FROM empresas as e INNER JOIN sedes as s ON s.empresa_id = e.id INNER JOIN comunas as c ON s.comuna_id = c.id INNER JOIN usuarios as u ON s.vendedor_id = u.id WHERE s.empresa_id = $id");
 		return $sede->fetchall();
 	}
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-17 20:07:18
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-30 20:27:54
          compiled from "/Applications/MAMP/htdocs/qepd/views/planes/view.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1080748349592dc28d9d0c77-76103350%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '96200b5af9341e05ff0455c6baa793eb280c105b' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/planes/view.tpl',
-      1 => 1514647736,
+      1 => 1522450211,
       2 => 'file',
     ),
   ),
@@ -65,6 +65,7 @@ componentes/verComponentes/<?php echo $_smarty_tpl->tpl_vars['plan']->value['ser
 ">Componentes Asociados</a></p>
 	<p><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 componentes/addComponentes/<?php echo $_smarty_tpl->tpl_vars['plan']->value['servicio_id'];?>
+/<?php echo $_smarty_tpl->tpl_vars['plan']->value['id'];?>
 ">Agregar Componentes</a></p>
 	<p><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 condiciones/add/<?php echo $_smarty_tpl->tpl_vars['plan']->value['id'];?>

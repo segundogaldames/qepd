@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-17 20:15:06
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-30 22:14:01
          compiled from "/Applications/MAMP/htdocs/qepd/views/planes/planesServicios.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:38855602059ad7579732a90-67635706%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '134adce3b4933fc940218762faa55564ce8c7993' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/planes/planesServicios.tpl',
-      1 => 1515970896,
+      1 => 1522458807,
       2 => 'file',
     ),
   ),
@@ -19,9 +19,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_59ad757978a100_95697657',
   'variables' => 
   array (
-    'comunas' => 0,
+    'regiones' => 0,
     '_layoutParams' => 0,
-    'c' => 0,
+    'r' => 0,
     'planes' => 0,
     'p' => 0,
   ),
@@ -29,24 +29,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_59ad757978a100_95697657')) {function content_59ad757978a100_95697657($_smarty_tpl) {?><div class="col-md-2" style="padding-left: 20px">
 	<h4>Buscar en</h4>
-	<?php if (isset($_smarty_tpl->tpl_vars['comunas']->value)&&count($_smarty_tpl->tpl_vars['comunas']->value)) {?>
-		<?php  $_smarty_tpl->tpl_vars['c'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['c']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['comunas']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['c']->key => $_smarty_tpl->tpl_vars['c']->value) {
-$_smarty_tpl->tpl_vars['c']->_loop = true;
+	<?php if (isset($_smarty_tpl->tpl_vars['regiones']->value)&&count($_smarty_tpl->tpl_vars['regiones']->value)) {?>
+        <ul class="list-unstyled">
+    		<?php  $_smarty_tpl->tpl_vars['r'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['r']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['regiones']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['r']->key => $_smarty_tpl->tpl_vars['r']->value) {
+$_smarty_tpl->tpl_vars['r']->_loop = true;
 ?>
-			<p class="enlace">
-				<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-planes/planesComuna/<?php echo $_smarty_tpl->tpl_vars['c']->value['id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['c']->value['comuna'];?>
+                <li>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+comunas/comunasRegion/<?php echo $_smarty_tpl->tpl_vars['r']->value['id'];?>
+" class="btn btn-link"><?php echo $_smarty_tpl->tpl_vars['r']->value['nombre'];?>
 </a>
-			</p>
-		<?php } ?>
+                </li>
+    		<?php } ?>
+        </ul>
 		<?php }?>
 </div>
 <div class="col-md-10">
-	<h3>Ver Planes</h3>
+	
 	<?php if (isset($_smarty_tpl->tpl_vars['planes']->value)&&count($_smarty_tpl->tpl_vars['planes']->value)) {?>
+    <h3>Ver Planes</h3>
 	<table class="table table-hover">
 		<th>
 			Precio
@@ -101,6 +104,7 @@ imagenes/imagenesplan/<?php echo $_smarty_tpl->tpl_vars['p']->value['id'];?>
 		
 	</table>
 	<?php } else { ?>
+        <p class="alert alert-info">No hay planes asociados para este servicio</p>
 		
                     <div class="col-md-3">
                         <div class="service-item">

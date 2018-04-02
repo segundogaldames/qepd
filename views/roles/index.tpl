@@ -1,4 +1,6 @@
-<div class="col-md-2"></div>
+<div class="col-md-2" style="padding-top: 20px">
+	<p class="enlace"><a href="{$_layoutParams.root}usuarios">Usuarios</a></p>
+</div>
 <div class="col-md-4">
 	<h3>Lista de Roles</h3>
 	<table class="table table-hover">

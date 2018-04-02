@@ -92,7 +92,7 @@ class componentesController extends Controller
 		$this->verificarParams($id);
 
 		$this->_view->assign('titulo', 'Editar Componente');
-		$this->_view->assign('servicios', $this->_servicio->getServiciosTipoEmpresa());
+		$this->_view->assign('servicios', $this->_servicio->getServicios());
 		$this->_view->assign('dato', $this->_componente->getComponenteId($this->filtrarInt($id)));
 
 		if ($this->getInt('enviar') == 1) {
@@ -149,7 +149,7 @@ class componentesController extends Controller
 		$this->_view->renderizar('edit');
 	}
 
-	public function addComponentes($id = null){
+	public function addComponentes($id = null, $plan){
 		if (!Session::get('autenticado')) {
 			$this->redireccionar();
 		}
@@ -164,8 +164,9 @@ class componentesController extends Controller
 
 		$this->_view->assign('titulo', 'Componentes Por Servicios');
 		$this->_view->assign('componentesServicios', $this->_componente->getComponentesServicios($this->filtrarInt($id)));
+		$this->_view->assign('plan', $this->filtrarInt($plan));
 
-		$this->_view->renderizar(addComponentes);
+		$this->_view->renderizar('addComponentes');
 	}
 
 	public function verComponentes($id = null, $plan = null){

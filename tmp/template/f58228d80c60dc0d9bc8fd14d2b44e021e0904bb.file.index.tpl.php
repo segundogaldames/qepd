@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-01-17 17:56:46
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-30 20:17:44
          compiled from "/Applications/MAMP/htdocs/qepd/views/sedes/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:144993676559037002c6f651-82149601%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f58228d80c60dc0d9bc8fd14d2b44e021e0904bb' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/sedes/index.tpl',
-      1 => 1515970896,
+      1 => 1522451860,
       2 => 'file',
     ),
   ),
@@ -38,46 +38,49 @@ empresas">Empresas</a></p>
 <?php if (isset($_smarty_tpl->tpl_vars['sedes']->value)&&count($_smarty_tpl->tpl_vars['sedes']->value)) {?>
 		<h3>Lista de Sedes</h3>
 		<table class="table table-hover">
-			<th>
-				Nombre
-			</th>
-			<th>
-				Empresa
-			</th>
-			<th>
-				Comuna
-			</th>
-			<th>
-				Acciones
-			</th>
-			
+			<tr>
+				<th>
+					Empresa
+				</th>
+				<th>
+					Nombre
+				</th>
 				
-					<?php  $_smarty_tpl->tpl_vars['s'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['s']->_loop = false;
+				<th>
+					Comuna
+				</th>
+				<th>
+					Acciones
+				</th>
+			</tr>			
+				
+				<?php  $_smarty_tpl->tpl_vars['s'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['s']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['sedes']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['s']->key => $_smarty_tpl->tpl_vars['s']->value) {
 $_smarty_tpl->tpl_vars['s']->_loop = true;
 ?>
-						<tr>
-							<td><?php echo $_smarty_tpl->tpl_vars['s']->value['sede'];?>
+					<tr>
+						<td><?php echo $_smarty_tpl->tpl_vars['s']->value['empresa'];?>
 </td>
-							<td><?php echo $_smarty_tpl->tpl_vars['s']->value['empresa'];?>
+						<td><?php echo $_smarty_tpl->tpl_vars['s']->value['sede'];?>
 </td>
-							<td><?php echo $_smarty_tpl->tpl_vars['s']->value['comuna'];?>
+						
+						<td><?php echo $_smarty_tpl->tpl_vars['s']->value['comuna'];?>
 </td>
-							<td>
-								<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+						<td>
+							<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 sedes/view/<?php echo $_smarty_tpl->tpl_vars['s']->value['id'];?>
 ">Ver</a>&nbsp;&nbsp;
-								<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+							<a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 sedes/delete/<?php echo $_smarty_tpl->tpl_vars['s']->value['id'];?>
 " onclick="return eliminar('<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 sedes/delete/<?php echo $_smarty_tpl->tpl_vars['s']->value['id'];?>
 ', '<?php echo $_smarty_tpl->tpl_vars['s']->value['sede'];?>
 ')">Eliminar</a>
-							</td>
-						</tr>
+						</td>
+					</tr>
 
-					<?php } ?>
+				<?php } ?>
 				
 			
 		</table>

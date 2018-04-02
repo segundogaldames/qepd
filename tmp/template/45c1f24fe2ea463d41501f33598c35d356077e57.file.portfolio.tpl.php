@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-12-30 12:30:05
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-30 19:53:23
          compiled from "/Applications/MAMP/htdocs/qepd/views/layout/default/portfolio.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:173079011458f522a83c1b70-64672147%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '45c1f24fe2ea463d41501f33598c35d356077e57' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/layout/default/portfolio.tpl',
-      1 => 1514647736,
+      1 => 1522450211,
       2 => 'file',
     ),
   ),
@@ -66,7 +66,7 @@ stylish_portfolio/portfolio-4.jpg" alt="" class="img-portfolio img-responsive">
                     </div>
                 </div>
                 <!-- /.row (nested) -->
-                <a href="#" class="btn btn-dark">Ver Más</a>
+                <a href="#" class="btn btn-dark">Ver Más</a><a href="#" class="btn btn-dark">Volver</a>
             </div>
             <!-- /.col-lg-10 -->
         </div>

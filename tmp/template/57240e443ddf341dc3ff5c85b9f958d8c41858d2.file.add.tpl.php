@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-05-03 16:54:44
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-30 21:14:52
          compiled from "/Applications/MAMP/htdocs/qepd/views/servicios/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:953559902590a35844b6be4-55619485%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '57240e443ddf341dc3ff5c85b9f958d8c41858d2' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/servicios/add.tpl',
-      1 => 1493841119,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_590a35846c50d0_35673898',
   'variables' => 
   array (
     '_layoutParams' => 0,
@@ -23,11 +25,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     't' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_590a35846c50d0_35673898',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_590a35846c50d0_35673898')) {function content_590a35846c50d0_35673898($_smarty_tpl) {?><div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<?php if ($_valid && !is_callable('content_590a35846c50d0_35673898')) {function content_590a35846c50d0_35673898($_smarty_tpl) {?><div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 servicios">Ver Servicios</a></p>
 </div>

@@ -85,20 +85,9 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="plan">Seleccione el plan:<span class="text-danger">*</span></label>
-			<select name="plan" id="" class="form-control">
-				<option value="">Seleccione</option>
-				{if isset($planes) && count($planes)}
-					{foreach from=$planes item=p}
-						<option value="{$p.id}">{$p.nombre}</option>
-					{/foreach}
-				{/if}
-			</select>
-		</div>
-		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Guardar" class="btn btn-success">
-			<a href="{$_layoutParams.root}cinerarios" class="btn btn-link">Volver</a>
+			<a href="{$_layoutParams.root}planes" class="btn btn-link">Volver</a>
 		</div>
 	</form>
 </div>

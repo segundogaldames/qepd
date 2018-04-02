@@ -8,6 +8,7 @@
 		<p><img src="{$_layoutParams.root}public/img/componentes/thumb/thumb_{$cinerario.imagen}" alt="Imagen cinerario"></p>
 		<p style="font-size: 18px"><strong>Modelo:</strong> {$anfora.modelo}</p>
 		<p style="font-size: 18px"><strong>Plan:</strong> {$anfora.plan}</p>
+		<p style="font-size: 18px"><strong>Descripción:</strong> {$anfora.descripcion}</p>
 	{/if}
 	<p>
 		<a href="{$_layoutParams.root}anforas/edit/{$anfora.id}">Editar</a>&nbsp;&nbsp;

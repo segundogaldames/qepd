@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-05-02 13:06:55
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-03-30 20:18:24
          compiled from "/Applications/MAMP/htdocs/qepd/views/telefonos/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5929651725908a2d4dad0a5-66021575%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e33a6b77e90be6f0ea07f45bed0a74ec74eb8451' => 
     array (
       0 => '/Applications/MAMP/htdocs/qepd/views/telefonos/add.tpl',
-      1 => 1493741136,
+      1 => 1514647736,
       2 => 'file',
     ),
   ),
@@ -26,8 +26,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5908a2d500bf74_33325290')) {function content_5908a2d500bf74_33325290($_smarty_tpl) {?><div style="padding-top: 50px"></div>
-<div class="col-md-2">
+<?php if ($_valid && !is_callable('content_5908a2d500bf74_33325290')) {function content_5908a2d500bf74_33325290($_smarty_tpl) {?><div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 telefonos">Ver Teléfonos</a></p>
 </div>

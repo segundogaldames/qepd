@@ -44,17 +44,6 @@
 			<input type="number" name="pasajeros" class="form-control" placeholder="Número de pasajeros" value="{$datos.pasajeros|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="plan">Seleccione el plan:<span class="text-danger">*</span></label>
-			<select name="plan" id="" class="form-control">
-				<option value="">Seleccione</option>
-				{if isset($planes) && count($planes)}
-					{foreach from=$planes item=p}
-						<option value="{$p.id}">{$p.nombre}</option>
-					{/foreach}
-				{/if}
-			</select>
-		</div>
-		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Guardar" class="btn btn-success">
 			<a href="{$_layoutParams.root}traslados" class="btn btn-link">Volver</a>

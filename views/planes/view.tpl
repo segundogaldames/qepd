@@ -22,7 +22,7 @@
 	</p>
 	<hr>
 	<p><a href="{$_layoutParams.root}componentes/verComponentes/{$plan.servicio_id}/{$plan.id}">Componentes Asociados</a></p>
-	<p><a href="{$_layoutParams.root}componentes/addComponentes/{$plan.servicio_id}">Agregar Componentes</a></p>
+	<p><a href="{$_layoutParams.root}componentes/addComponentes/{$plan.servicio_id}/{$plan.id}">Agregar Componentes</a></p>
 	<p><a href="{$_layoutParams.root}condiciones/add/{$plan.id}">Agregar Condiciones</a></p>
 </div>
 <div class="col-md-4">

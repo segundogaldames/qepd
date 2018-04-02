@@ -63,10 +63,17 @@ class anforasController extends Controller
 				exit;
 			}
 
+			if (!$this->getSql('descripcion')) {
+				$this->_view->assign('_error', 'Debe describir el ánfora');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
 			$this->_anfora->editAnfora(
 				$this->filtrarInt($id),
 				$this->getAlphaNum('modelo'),
-				$this->getInt('plan')
+				$this->getInt('plan'),
+				$this->getSql('descripcion')
 			);
 
 			$this->redireccionar('anforas');
@@ -75,42 +82,51 @@ class anforasController extends Controller
 		$this->_view->renderizar('edit');
 	}
 
-	public function add(){
+
+	public function addAnforaPlan($plan = null){
 		$this->verificarSession();
 
+		if (!$this->filtrarInt($plan)) {
+			$this->redireccionar('planes');
+		}
+
+		if (!$this->_plan->getPlanesId($plan)) {
+			$this->redireccionar('planes');
+		}
+
 		$this->_view->assign('titulo', 'Nueva Anfora');
-		$this->_view->assign('planes', $this->_plan->getPlanes());
 
 		if ($this->getInt('enviar') == 1) {
 			$this->_view->assign('datos', $_POST);
 
 			if (!$this->getSql('modelo')) {
 				$this->_view->assign('_error', 'Debe ingresar el modelo');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addAnforaPlan');
 				exit;
 			}
 
-			if (!$this->getInt('plan')) {
-				$this->_view->assign('_error', 'Debe seleccionar el plan');
-				$this->_view->renderizar('add');
+			if (!$this->getSql('descripcion')) {
+				$this->_view->assign('_error', 'Debe describir el ánfora');
+				$this->_view->renderizar('addAnforaPlan');
 				exit;
 			}
 
-			if ($this->_anfora->getAnforaPlan($this->getInt('plan'))) {
+			if ($this->_anfora->getAnforaPlan($this->filtrarInt($plan))) {
 				$this->_view->assign('_error', 'El plan ya tiene ánfora...');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('addAnforaPlan');
 				exit;
 			}
 
 			$this->_anfora->addAnfora(
 				$this->getAlphaNum('modelo'),
-				$this->getInt('plan')
+				$this->filtrarInt($plan),
+				$this->getSql('descripcion')
 			);
 
-			$this->redireccionar('anforas');
+			$this->redireccionar('planes');
 		}
 
-		$this->_view->renderizar('add');
+		$this->_view->renderizar('addAnforaPlan');
 	}
 
 	public function delete($id = null){

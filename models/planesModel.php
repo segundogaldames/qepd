@@ -7,7 +7,7 @@ class planesModel extends Model
 	}
 
 	public function getPlanes(){
-		$plan = $this->_db->query("SELECT p.id, p.nombre, p.codigo, p.dated, p.updated, tp.nombre as tipo_plan, s.nombre as servicio, e.nombre as empresa FROM tipo_planes as tp 
+		$plan = $this->_db->query("SELECT p.id, p.nombre, p.codigo, p.dated, p.updated, p.status_id, tp.nombre as tipo_plan, s.nombre as servicio, e.nombre as empresa FROM tipo_planes as tp 
 			INNER JOIN planes as p ON p.tipo_plan_id = tp.id 
 			INNER JOIN servicios as s ON s.id = p.servicio_id 
 			INNER JOIN empresas as e ON e.id = p.empresa_id");
@@ -76,7 +76,7 @@ class planesModel extends Model
 	public function getPlanesComuna($comuna){
 		$comuna = (int) $comuna;
 
-		$plan = $this->_db->prepare("SELECT p.id, p.nombre, tp.nombre as tipo_plan, s.nombre as servicio, e.nombre as empresa, d.nombre as destinatario, c.precio as precio, com.nombre as comuna FROM tipo_planes as tp 
+		$plan = $this->_db->prepare("SELECT distinct p.id, p.nombre, tp.nombre as tipo_plan, s.nombre as servicio, e.nombre as empresa, d.nombre as destinatario, c.precio as precio, com.nombre as comuna FROM tipo_planes as tp 
 			INNER JOIN planes as p ON p.tipo_plan_id = tp.id 
 			INNER JOIN servicios as s ON s.id = p.servicio_id 
 			INNER JOIN empresas as e ON e.id = p.empresa_id 
@@ -84,7 +84,7 @@ class planesModel extends Model
 			INNER JOIN condiciones as c ON c.plan_id = p.id
 			INNER JOIN sedes as sed ON sed.empresa_id = p.empresa_id
 			INNER JOIN comunas as com ON sed.comuna_id = com.id
-			WHERE com.id = ? ORDER BY c.precio ASC ");
+			WHERE com.id = ? and p.status_id = 1 ORDER BY c.precio ASC ");
 		$plan->bindParam(1, $comuna);
 		$plan->execute();
 
