@@ -14,6 +14,7 @@
 		<p><strong>Descuento Columbario:</strong> {$condicion.descuentocol}%</p>
 		<p><strong>Descuento Nicho:</strong> {$condicion.descuentonicho}%</p>
 		<p><strong>Pensiones:</strong> {if $condicion.pensiones==1}Si{else}No{/if}</p>
+		<p><strong>Cobertura Regional:</strong> {if $condicion.cob_regional==1}Si{else}No{/if}</p>
 	{/if}
 	<p>
 		<a href="{$_layoutParams.root}condiciones/edit/{$condicion.id}" class="btn btn-link">Editar</a>

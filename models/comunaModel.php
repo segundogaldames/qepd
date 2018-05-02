@@ -39,6 +39,13 @@ class comunaModel extends Model
 		return $com->fetchall();
 	}
 
+	#muestra comuna que tienen planes activos
+	public function getComunasPlanes(){
+		$com = $this->_db->query("SELECT distinct com.id, com.nombre as comuna FROM planes p INNER JOIN empresas e ON p.empresa_id = e.id INNER JOIN sedes s ON s.empresa_id = e.id INNER JOIN comunas com ON s.comuna_id = com.id WHERE p.status_id = 1 ORDER BY comuna");
+
+		return $com->fetchall();
+	}
+
 	public function editComuna($id, $nombre, $region){
 		//print_r($region);exit;
 		$id = (int) $id;

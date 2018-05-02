@@ -61,6 +61,14 @@
 			</select>
 		</div>
 		<div class="form-group">
+			<label for="cobertura">Cobertura Regional?:<span class="text-danger">*</span></label>
+			<select name="cobertura" id="" class="form-control">
+				<option value="">Seleccione</option>
+				<option value="1">Si</option>
+				<option value="2">No</option>
+			</select>
+		</div>
+		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Registrar" class="btn btn-success">
 		</div>

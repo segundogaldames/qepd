@@ -81,6 +81,12 @@ class condicionesController extends Controller
 				exit;
 			}
 
+			if (!$this->getInt('cobertura')) {
+				$this->_view->assign('_error', 'Seleccione si hay cobertura regional');
+				$this->_view->renderizar('add');
+				exit;
+			}
+
 			if ($this->_condicion->getCondicionesPlan($this->filtrarInt($plan))) {
 				$this->_view->assign('_error', 'El plan ya tiene condiciones... Debe seleccionar otra opción');
 				$this->_view->renderizar('add');

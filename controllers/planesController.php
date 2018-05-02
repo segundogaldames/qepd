@@ -35,8 +35,8 @@ class planesController extends Controller
 
 		$this->_view->assign('titulo', 'Ver Planes');
 		$this->_view->assign('planes', $this->_plan->getPlanesServicios($this->filtrarInt($servicio)));
-		$this->_view->assign('regiones', $this->_region->getRegiones());
-		$this->_view->assign('comunas', $this->_comuna->getComunas());
+		$this->_view->assign('regiones', $this->_region->getRegionesPlanes());
+		$this->_view->assign('comunas', $this->_comuna->getComunasPlanes());
 		$this->_view->renderizar('planesServicios');
 	}
 
@@ -44,7 +44,18 @@ class planesController extends Controller
 		$this->_view->assign('titulo', 'Ver Planes');
 		$this->_view->assign('planes', $this->_plan->getPlanesComuna($this->filtrarInt($id)));
 		$this->_view->assign('regiones', $this->_region->getRegiones());
+		$this->_view->assign('comunas', $this->_comuna->getComunasPlanes());
 		$this->_view->renderizar('planesComuna');
+	}
+
+	public function planesRegion($region = null){
+		$this->verificarRegion($region);
+
+		$this->_view->assign('titulo', 'Ver Planes');
+		$this->_view->assign('planes', $this->_plan->getPlanesRegion($this->filtrarInt($region)));
+		$this->_view->assign('regiones', $this->_region->getRegionesPlanes());
+		$this->_view->assign('comunas', $this->_comuna->getComunasPlanes());
+		$this->_view->renderizar('planesRegion');
 	}
 
 	public function add(){
@@ -269,12 +280,23 @@ class planesController extends Controller
 		$this->redireccionar('planes');
 	}
 
+	#################################################################################################
 	private function verificarParams($id){
 		if (!$this->filtrarInt($id)) {
 			$this->redireccionar('planes');
 		}
 
 		if (!$this->_plan->getPlanesId($this->filtrarInt($id))) {
+			$this->redireccionar('planes');
+		}
+	}
+
+	private function verificarRegion($region){
+		if (!$this->filtrarInt($region)) {
+			$this->redireccionar('planes');
+		}
+
+		if (!$this->_region->getRegionId($this->filtrarInt($region))) {
 			$this->redireccionar('planes');
 		}
 	}

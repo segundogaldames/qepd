@@ -52,7 +52,7 @@ class imagenesController extends Controller
 			$this->redireccionar('planes');
 		}
 
-
+		$this->_view->assign('plan', $this->_plan->getPlanesId($this->filtrarInt($id)));
 		$this->_view->assign('titulo', 'Consulta Planes');
 		$this->_view->assign('imagenes', $this->_imagen->getImagenesPlan($this->filtrarInt($id)));
 		$this->_view->assign('condiciones', $this->_condicion->getCondicionesPlan($this->filtrarInt($id)));

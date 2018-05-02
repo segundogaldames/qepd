@@ -1,14 +1,44 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#show").click(function(){
+            $("#regiones").show();
+            $("#comunas").hide();
+        });
+        $("#comuna").click(function(){
+            $("#regiones").hide();
+            $("#comunas").show();
+        });
+    })
+</script>
+
 <div class="col-md-2" style="padding-left: 20px">
 	<h4>Buscar en</h4>
-	{if isset($regiones) && count($regiones)}
-        <ul class="list-unstyled">
-    		{foreach from=$regiones item=r}
-                <li>
-                    <a href="{$_layoutParams.root}comunas/comunasRegion/{$r.id}" class="btn btn-link">{$r.nombre}</a>
-                </li>
-    		{/foreach}
-        </ul>
-		{/if}
+    <ul class="list-unstyled">
+        <li><a href="#" id="show" class="btn btn-link">Regiones</a>
+            {if isset($regiones) && count($regiones)}
+                <ul class="list-unstyled" id="regiones" style="display: none; margin-left: 15px">
+                    {foreach from=$regiones item=r}
+                        <li>
+                            <a href="{$_layoutParams.root}planes/planesRegion/{$r.id}" class="btn btn-link">{$r.region}</a>
+                        </li>
+                    {/foreach}
+                </ul>
+            {/if}
+        </li>
+        <li>
+            <a href="#" id="comuna" class="btn btn-link">Comunas</a>
+            {if isset($comunas) && count($comunas)}
+                <ul class="list-unstyled" id="comunas" style="display: none; margin-left: 15px">
+                    {foreach from=$comunas item=c}
+                        <li>
+                            <a href="{$_layoutParams.root}planes/planesComuna/{$c.id}" class="btn btn-link">{$c.comuna}</a>
+                        </li>
+                    {/foreach}
+                </ul>
+            {/if}
+        </li>
+    </ul>
+    
 </div>
 <div class="col-md-10">
 	

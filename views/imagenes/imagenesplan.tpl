@@ -3,6 +3,39 @@
 </div>
 <div class="col-md-8">
 	<h3>Planes Consulta</h3>
+	<div class="col-md-6">
+		<table class="table table-hover">
+			<tr>
+				<th>Nombre</th>
+				<td>: {ucwords($plan.nombre)}</td>
+			</tr>
+			<tr>
+				<th>Empresa</th>
+				<td>: {ucwords($plan.empresa)}</td>
+			</tr>
+			<tr>
+				<th>Código (SKU)</th>
+				<td>: {$plan.codigo}</td>
+			</tr>
+			<tr>
+				<th>Tipo Plan</th>
+				<td>: {ucwords($plan.tipo_plan)}</td>
+			</tr>
+			<tr>
+				<th>Destinatario</th>
+				<td>: {ucwords($plan.destinatario)}</td>
+			</tr>
+			<tr>
+				<th>Comuna</th>
+				<td>: {ucwords($plan.comuna)}</td>
+			</tr>
+			<tr>
+				<th>Cobertura Regional</th>
+				<td>: {if $plan.cob_regional==1}Si{else}No{/if}</td>
+			</tr>
+		</table>
+	</div>
+	
 	{if isset($imagenes) && count($imagenes)}
 		{foreach from=$imagenes item=img}
 			<div class="col-md-12">
@@ -291,15 +324,15 @@
 						<td>: {if $condiciones.pensiones == 1}Si {else} No{/if}</td>
 					</tr>
 					<tr>
-						<td></td>
-						<td></td>
+						<th>Cobertura Regional</th>
+						<td>: {if $condiciones.cob_regional == 1}Si {else} No{/if}</td>
 					</tr>
 
 				</table>
 			{/if}
 			<p style="margin-bottom: 20px">
 				<a href="{$_layoutParams.root}cotizaciones/add/{$img.plan_id}" class="btn btn-success">Cotizar</a>
-				<a href="{$_layoutParams.root}planes/planesServicios" class="btn btn-link">Volver</a>
+				<a href="{$_layoutParams.root}planes/planesServicios" class="btn btn-link" onclick="history.go(-1); return false;">Volver</a>
 			</p>
 			
 

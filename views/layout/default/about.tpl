@@ -9,16 +9,13 @@
                 <div class="col-md-8">
                 	<h3>Quiénes Somos</h3>
                 	<p class="text-justify" style="font-size: 18px">
-                		Cementerios y Funerarias es un sitio web destinado a ayudarle  y orientarle en esos difíciles momentos de la pérdida de un ser querido. Para que usted pueda elegir el mejor plan; funerario, de cremación o de sepultación, de manera rápida, eficiente y transparente.	
+                		Somos el primer sitio funerario, con la misión de asesorarle y orientarle en esos difíciles momentos de la pérdida de un ser querido, en donde se requiere que se tomen rápidamente las mejores decisiones  de elección de planes: funerarios, de cremación o de sepultación.	
                 	</p>
                 	<p class="text-justify" style="font-size: 18px">
-                		Nuestra misión es presentarle  una gran variedad de  planes y alternativas disponibles, para que usted elija la mejor opción, de acuerdo a sus requerimientos: de precio, calidad, localidad, condiciones de venta, financiamiento, etc.
+                		Usted podrá cotizar on-line para conocer el detalle de los planes y de las empresas certificadas que ofrecen los servicios, de manera rápida y transparente.
                 	</p>
                 	<p class="text-justify" style="font-size: 18px">
-                		Le damos la facilidad de cotizar on-line las diferentes alternativas del mercado, con el fin de conocer el detalle de los planes y de las empresas certificadas que ofrecen esos servicios, procurando dar la mayor información disponible, para que en esos momentos emocionalmente complejos  que requieren de una rápida solución a esa necesidad inmediata, se tome la mejor decisión.
-                	</p>
-                	<p class="text-justify" style="font-size: 18px">
-                		También, nos enfocamos a orientar a aquellas personas que requieren anticipadamente contratar estos servicios, optando por una solución planificada, con el fin de utilizarlos cuando sea necesario.
+                		También, orientamos a aquellas personas que requieran anticipadamente contratar estos servicios, para utilizarlos cuando sea necesario.
                 	</p>
                 </div>
                 <hr>

@@ -55,7 +55,7 @@
 		<div class="form-group">
 			<input type="hidden" name="enviar" value="1">
 			<input type="submit" value="Cotizar" class="btn btn-success">
-			<a href="{$_layoutParams.root}planes/planesServicios" class="btn btn-link">Volver</a>
+			<a href="{$_layoutParams.root}planes/planesServicios" class="btn btn-link" onclick="history.go(-1); return false;">Volver</a>
 		</div>
 	</form>
 </div>
