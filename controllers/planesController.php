@@ -43,7 +43,7 @@ class planesController extends Controller
 	public function planesComuna($id = null){
 		$this->_view->assign('titulo', 'Ver Planes');
 		$this->_view->assign('planes', $this->_plan->getPlanesComuna($this->filtrarInt($id)));
-		$this->_view->assign('regiones', $this->_region->getRegiones());
+		$this->_view->assign('regiones', $this->_region->getRegionesPlanes());
 		$this->_view->assign('comunas', $this->_comuna->getComunasPlanes());
 		$this->_view->renderizar('planesComuna');
 	}
