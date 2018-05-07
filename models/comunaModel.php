@@ -39,6 +39,14 @@ class comunaModel extends Model
 		return $com->fetchall();
 	}
 
+	#muestra comunas por region con ajax
+	public function getComunasRegionAjax($region){
+		$com = $this->_db->query("SELECT id, nombre FROM comunas WHERE region_id = {$region} ORDER BY nombre");
+		$com->setFetchMode(PDO::FETCH_ASSOC);
+
+		return $com->fetchall();
+	}
+
 	#muestra comuna que tienen planes activos
 	public function getComunasPlanes(){
 		$com = $this->_db->query("SELECT distinct com.id, com.nombre as comuna FROM planes p INNER JOIN empresas e ON p.empresa_id = e.id INNER JOIN sedes s ON s.empresa_id = e.id INNER JOIN comunas com ON s.comuna_id = com.id WHERE p.status_id = 1 ORDER BY comuna");

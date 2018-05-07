@@ -49,7 +49,7 @@ class sedeModel extends Model
 	public function getSedeId($id){
 		$id = (int) $id;
 		//print_r($id);exit;
-		$sede = $this->_db->prepare("SELECT s.id, s.nombre as sede, s.calle, s.numero, s.sector, s.ubicacion, e.nombre as empresa, c.nombre as comuna, s.vendedor_id, u.nombre as nom_usuario, u.apellido, u.email FROM empresas as e INNER JOIN sedes as s ON s.empresa_id = e.id INNER JOIN comunas as c ON s.comuna_id = c.id INNER JOIN usuarios as u ON s.vendedor_id = u.id WHERE s.id = ?");
+		$sede = $this->_db->prepare("SELECT s.id, s.nombre as sede, s.calle, s.numero, s.sector, s.ubicacion, s.empresa_id, s.comuna_id, e.nombre as empresa, c.nombre as comuna, s.vendedor_id, u.nombre as nom_usuario, u.apellido, u.email FROM empresas as e INNER JOIN sedes as s ON s.empresa_id = e.id INNER JOIN comunas as c ON s.comuna_id = c.id INNER JOIN usuarios as u ON s.vendedor_id = u.id WHERE s.id = ?");
 		$sede->bindParam(1, $id);
 		$sede->execute();
 

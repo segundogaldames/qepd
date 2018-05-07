@@ -41,7 +41,21 @@
 			<div class="col-md-12">
 				
 				<div class="col-md-5">
-					<h3>{$img.componente}</h3>
+					{if $img.componente=='Urnas'}
+						<h3>Urna</h3>
+					{elseif $img.componente=='Velatorios'}
+						<h3>Velatorio</h3>
+					{elseif $img.componente=='Traslados'}
+						<h3>Traslado</h3>
+					{else if $img.componente=='Cinerarios'}
+						<h3>Cinerario</h3>
+					{elseif $img.componente=='Anforas'}
+						<h3>Anfora</h3>
+					{elseif $img.componente=='Sepultaciones'}
+						<h3>Sepultación</h3>
+					{elseif $img.componente=='Soluciones'}
+						<h3>Solución</h3>
+					{/if}
 					<!--Descripcion de urna asociada a plan y componente-->
 					{if $img.componente_id == $urna.componente_id}
 						<table class="table table-hover">

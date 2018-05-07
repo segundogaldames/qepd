@@ -1,3 +1,13 @@
+<script type="text/javascript">
+	function mostrar(id){
+		if (id == 1) {
+			$("#num_acomp").show();
+		}else{
+			$("#num_acomp").hide();
+		}
+	}
+</script>
+
 <div class="col-md-2">
 	
 </div>
@@ -33,13 +43,13 @@
 		</div>
 		<div class="form-group">
 			<label for="acompanamiento">Vehículo de acompañamiento:<span class="text-danger">*</span></label>
-			<select name="acompanamiento" id="" class="form-control">
+			<select name="acompanamiento" id="" class="form-control" onchange="mostrar(this.value)">
 				<option value="{$dato.acompanamiento}">{if $dato.acompanamiento==1}Si{else}No{/if}</option>
 				<option value="1">Si</option>
 				<option value="2">No</option>
 			</select>
 		</div>
-		<div class="form-group">
+		<div class="form-group" id="num_acomp" style="display: none;">
 			<label for="pasajeros">Nº de Pasajeros:</label>
 			<input type="number" name="pasajeros" class="form-control" placeholder="Número de pasajeros" value="{$dato.pasajeros|default:""}">
 		</div>

@@ -10,7 +10,7 @@ class planesModel extends Model
 		$plan = $this->_db->query("SELECT p.id, p.nombre, p.codigo, p.dated, p.updated, p.status_id, tp.nombre as tipo_plan, s.nombre as servicio, e.nombre as empresa FROM tipo_planes as tp 
 			INNER JOIN planes as p ON p.tipo_plan_id = tp.id 
 			INNER JOIN servicios as s ON s.id = p.servicio_id 
-			INNER JOIN empresas as e ON e.id = p.empresa_id");
+			INNER JOIN empresas as e ON e.id = p.empresa_id ORDER BY empresa");
 		return $plan->fetchall();
 	}
 

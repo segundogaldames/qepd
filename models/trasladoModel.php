@@ -22,6 +22,7 @@ class trasladoModel extends Model
 	}
 
 	public function getTrasladoPlan($plan){
+		#print_r($plan);exit;
 		$plan = (int) $plan;
 
 		$tras = $this->_db->prepare("SELECT t.id, t.instalacion, t.funeral, t.conflores, t.acompanamiento, t.pasajeros, t.plan_id, t.componente_id, p.nombre as plan FROM traslados as t INNER JOIN planes as p ON t.plan_id = p.id WHERE t.plan_id = ?");

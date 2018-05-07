@@ -1,3 +1,13 @@
+<script type="text/javascript">
+	function mostrar(id){
+		if (id == 1) {
+			$("#num_acomp").show();
+		}else{
+			$("#num_acomp").hide();
+		}
+	}
+</script>
+
 <div class="col-md-2" style="padding-top: 20px">
 	<p class="enlace"><a href="{$_layoutParams.root}traslados">Ver Traslados</a></p>
 </div>
@@ -33,14 +43,14 @@
 		</div>
 		<div class="form-group">
 			<label for="acompanamiento">Vehiculo de acompañamiento:<span class="text-danger">*</span></label>
-			<select name="acompanamiento" id="" class="form-control">
+			<select name="acompanamiento" id="" class="form-control" onchange="mostrar(this.value)">
 				<option value="">Seleccione</option>
 				<option value="1">Si</option>
 				<option value="2">No</option>
 			</select>
 		</div>
-		<div class="form-group">
-			<label for="pasajeros">Nº de Pasajeros:</label>
+		<div class="form-group" id="num_acomp" style="display: none;">
+			<label for="pasajeros">Nº de Pasajeros:<span class="text-danger">*</span></label>
 			<input type="number" name="pasajeros" class="form-control" placeholder="Número de pasajeros" value="{$datos.pasajeros|default:""}">
 		</div>
 		<div class="form-group">

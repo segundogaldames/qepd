@@ -36,27 +36,27 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="cirios">Nº de Cirios:</label></label>
+			<label for="cirios">Nº de Cirios:</label>
 			<input type="number" name="cirios" class="form-control" placeholder="Número de cirios" value="{$dato.cirios|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="portacirios">Nº de Portacirios:</label></label>
+			<label for="portacirios">Nº de Portacirios:</label>
 			<input type="number" name="portacirios" class="form-control" placeholder="Número de portacirios" value="{$dato.portacirios|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="cruces">Nº de Cruces:</label></label>
+			<label for="cruces">Nº de Cruces:</label>
 			<input type="number" name="cruces" class="form-control" placeholder="Número de cruces" value="{$dato.cruces|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="canastos">Nº de Flores en canasto:</label></label>
+			<label for="canastos">Nº de Flores en canasto:</label>
 			<input type="number" name="canastos" class="form-control" placeholder="Número de flores en canasto" value="{$dato.florescanastos|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="cubreurna">Nº de Flores cubreurna:</label></label>
+			<label for="cubreurna">Nº de Flores cubreurna:</label>
 			<input type="number" name="cubreurna" class="form-control" placeholder="Número de flores cubreurna" value="{$dato.florescubreurnas|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="condolencias">Nº de Libros de condolencias:</label></label>
+			<label for="condolencias">Nº de Libros de condolencias:</label>
 			<input type="number" name="condolencias" class="form-control" placeholder="Número de libros de condolencias" value="{$dato.condolencias|default:""}">
 		</div>
 		<div class="form-group">
@@ -68,15 +68,15 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="coro">Coro:</label></label>
+			<label for="coro">Coro:</label>
 			<input type="number" name="coro" class="form-control" placeholder="Número de integrantes" value="{$dato.coro|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="aviso">Nº de Avisos de prensa:</label></label>
+			<label for="aviso">Nº de Avisos de prensa:</label>
 			<input type="number" name="avisos" class="form-control" placeholder="Número de avisos" value="{$dato.avisosprensa|default:""}">
 		</div>
 		<div class="form-group">
-			<label for="tarjeta">Nº de Tarjetas de agradecimiento:</label></label>
+			<label for="tarjeta">Nº de Tarjetas de agradecimiento:</label>
 			<input type="number" name="tarjeta" class="form-control" placeholder="Número de tarjetas" value="{$dato.tarjetas|default:""}">
 		</div>
 		<div class="form-group">

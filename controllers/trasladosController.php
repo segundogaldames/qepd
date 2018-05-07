@@ -20,6 +20,7 @@ class trasladosController extends Controller
 	}
 
 	public function addTrasladoPlan($plan = null){
+		#print_r($plan);exit;
 		if (!Session::get('autenticado')) {
 			$this->redireccionar();
 		}
@@ -61,13 +62,15 @@ class trasladosController extends Controller
 				exit;
 			}
 
-			if (!$this->getInt('pasajeros')) {
-				$this->_view->assign('_error', 'Debe ingresar el número de pasajeros');
-				$this->_view->renderizar('addTrasladoPlan');
-				exit;
-			}
+			if ($this->getInt('acompanamiento') == 1) {
+				if (!$this->getInt('pasajeros')) {
+					$this->_view->assign('_error', 'Debe ingresar el número de pasajeros');
+					$this->_view->renderizar('addTrasladoPlan');
+					exit;
+				}
+			}			
 
-			if ($this->_traslado->getTrasladoPlan($this->getInt('plan'))) {
+			if ($this->_traslado->getTrasladoPlan($this->filtrarInt($plan))) {
 				$this->_view->assign('_error', 'Este plan ya contiene una opción de traslado. Por favor escoja otro plan');
 				$this->_view->renderizar('addTrasladoPlan');
 				exit;
@@ -119,37 +122,41 @@ class trasladosController extends Controller
 		if ($this->getInt('enviar') == 1) {
 			if (!$this->getInt('instalacion')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción en carroza de instalación');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('edit');
 				exit;
 			}
 
 			if (!$this->getInt('funeral')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción en carroza de funeral');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('edit');
 				exit;
 			}
 
 			if (!$this->getInt('conflores')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción en carroza con flores');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('edit');
 				exit;
 			}
 
 			if (!$this->getInt('acompanamiento')) {
 				$this->_view->assign('_error', 'Debe seleccionar una opción en vehiculo de acompañamiento');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('edit');
 				exit;
 			}
 
-			if (!$this->getInt('pasajeros')) {
-				$this->_view->assign('_error', 'Debe ingresar el número de pasajeros');
-				$this->_view->renderizar('add');
-				exit;
+			if ($this->getInt('acompanamiento') == 1) {
+				if (!$this->getInt('pasajeros')) {
+					$this->_view->assign('_error', 'Debe ingresar el número de pasajeros');
+					$this->_view->renderizar('edit');
+					exit;
+				}
+
 			}
 
+			
 			if (!$this->getInt('plan')) {
 				$this->_view->assign('_error', 'Debe seleccionar el plan');
-				$this->_view->renderizar('add');
+				$this->_view->renderizar('edit');
 				exit;
 			}
 
