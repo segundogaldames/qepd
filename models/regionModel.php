@@ -27,7 +27,7 @@ class regionModel extends Model
 
 	#muestra regiones que tienen planes
 	public function getRegionesPlanes(){
-		$reg = $this->_db->query("SELECT distinct r.id, r.nombre as region FROM planes p INNER JOIN empresas e ON p.empresa_id = e.id INNER JOIN sedes s ON s.empresa_id = e.id INNER JOIN comunas c ON s.comuna_id = c.id INNER JOIN regiones r ON c.region_id = r.id WHERE p.status_id = 2 ORDER by region");
+		$reg = $this->_db->query("SELECT distinct r.id, r.nombre as region FROM planes p INNER JOIN empresas e ON p.empresa_id = e.id INNER JOIN sedes s ON s.empresa_id = e.id INNER JOIN comunas c ON s.comuna_id = c.id INNER JOIN regiones r ON c.region_id = r.id WHERE p.status_id = 1 ORDER by region");
 
 		return $reg->fetchall();
 	}
