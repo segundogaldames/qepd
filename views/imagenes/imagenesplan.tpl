@@ -156,7 +156,7 @@
 								<td>{$velatorio.coro}</td>
 							</tr>
 							<tr>
-								<th>>N° de Avisos de prensa:</th>
+								<th>N° de Avisos de prensa:</th>
 								<td>{$velatorio.avisosprensa}</td>
 							</tr>
 							<tr>

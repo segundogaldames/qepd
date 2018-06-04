@@ -22,9 +22,9 @@ class planesModel extends Model
 			INNER JOIN servicios as s ON s.id = p.servicio_id 
 			INNER JOIN empresas as e ON e.id = p.empresa_id 
 			INNER JOIN destinatarios as d ON d.id = p.destinatario_id
-			INNER JOIN sedes sed ON sed.empresa_id = e.id
-			INNER JOIN comunas com ON sed.comuna_id = com.id
-			INNER JOIN condiciones cond ON cond.plan_id = p.id
+			LEFT JOIN sedes sed ON sed.empresa_id = e.id
+			LEFT JOIN comunas com ON sed.comuna_id = com.id
+			LEFT JOIN condiciones cond ON cond.plan_id = p.id
 			WHERE p.id = ?");
 
 		$plan->bindParam(1, $id);

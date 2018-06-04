@@ -287,6 +287,7 @@ class planesController extends Controller
 		}
 
 		if (!$this->_plan->getPlanesId($this->filtrarInt($id))) {
+			#print_r($id);exit;
 			$this->redireccionar('planes');
 		}
 	}
